@@ -119,7 +119,7 @@ int  main(int argc, char** argv)
 
 	printf("Threads killed = %d\n", myPipe->killPipe());
 
-	sleep(60);
+//	sleep(60);
 
 
 	return 0;	
