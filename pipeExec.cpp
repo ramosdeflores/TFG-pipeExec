@@ -209,28 +209,3 @@ void pipeExec::switchFunc(PipeBase *funcIn, PipeBase *funcOut, int position) {}
 
 // Collapse a function with multiple instances
 void pipeExec::collapseFunc(PipeBase *funcToCollapse) {}
-
-
-// A switchFunction(funcIn, funcOut) will allow for the dynamic modification of the pipe.
-// Can created by
-// 	1) searching for funcOut (i.e. pointer) in the execList
-// 	2) stoping the thread
-// 	3) changing the entry in execList
-// 	4) launching the thread
-// the cirtical issue is to make sure no data is being proccessed by the thread, that will be controlled by the
-// execElement method. A semaphore will have to be added to determine when is the correct moment for the swith
-// to be made
-
-/* Delete			 
-// Push the buffers down the pipe
-if ( ! localArgs->isTail )
-while ( true ) {
-localArgs->mgrIn->waitForFull();
-localArgs->mgrOut->putFullBuffer(localArgs->mgrIn->getFullBuffer());
-}
-else
-while ( true ) {
-localArgs->mgrIn->waitForFull();
-localArgs->mgrOut->putFreeBuffer(localArgs->mgrIn->getFullBuffer());
-}
-*/
