@@ -1,17 +1,17 @@
 class keyData {
 
-	void setKeyData(string key, void* data) { keyData_.key = key; keyData_.data = data; }
-	void* getData(return keyData_.data; }
-	void getKey(return keyData_.key; }
-	bool compKey(string key) { if ( keyData_.key == key ) return true; else return false: }
+	   void setKeyData(string key, void* data) { keyData_.key = key; keyData_.data = data; }
+	   void* getData() {return keyData_.data; }
+	   void getKey() {return keyData_.key; }
+	   bool compKey(string key) { if ( keyData_.key == key ) return true; else return false: }
 
-	private:
+	   private:
 
-	struct {
-		string key;
-		void *data;
-	} keyData_;
-}
+	   struct {
+			 string key;
+			 void *data;
+	   } keyData_;
+};
 
 class dataObj {
 
@@ -22,8 +22,8 @@ class dataObj {
 	   void *getData() {  return data_; }
 
 	   void setExtKeyData(string key, void *data) { keyData newData; newData.setKeyData(key, data); extraData_.push_back(newData); }
-	   void setExtData(((void*)data) { setExtKeyData("_###_DEFAULT_KEY_###_", data); }
-	   void *getExData((unsigned int index = 0) { if ( index < extraData.size() )  return extraData_.at(index)->data; else return NULL; }
+	   void setExtData((void*)data) { setExtKeyData("_###_DEFAULT_KEY_###_", data); }
+	   void *getExData(unsigned int index = 0) { if ( index < extraData.size() )  return extraData_.at(index)->data; else return NULL; }
 	   void *findData(string key) { for (int i = 0; i < extraData_.size() ) if ( extraData_.at(i)->compKey(key) ) return extraData_.at(i)->data; return NULL; }
 	   void deleteData(unsigned index = 0) { if ( index == -1 ) extraData_.clear(); else if ( index < extraData_.size() ) extraData.erase(index); else throw; }
 	   void deleteKeyData(string key) { for (int i = 0; i < extraData_.size() ) if ( extraData_.at(i)->compKey(key) ) deleteData(i); }
