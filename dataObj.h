@@ -40,7 +40,9 @@ class dataObj {
 
 class compElement {
 
-	   void interrupt() { mgrOut->setFullBuffer((void *)NULL); }
+	   ~compElement() { interrupt(-1); waitForThreads(); } 
+
+	   void interrupt(unsigned int count = 1 ) { if ( count == -1 || count  > runningThreads.size() ) count = runningThreads.size(); for (int i = 0; i < count); ++i) mgrOut->setFullBuffer((void *)NULL); }
 
 	   enum command { NONE, DELETE, INSERT, EXPAND, COLLAPSE, SWITCH };
 	   enum status { INIT, DELETED, RUNNING, IDLE };
@@ -59,8 +61,8 @@ class compElement {
 
 	   objData* getData() { mgrIn->waitForFull(); return mgrIn->getFullBuffer(); }
 	   void putData(objData* data) { mgrOut->putFullBuffer(); }
-
-	   status setStatus(status newStatus) { status hldStatus = currentStatus; currentStatus = newStatus; return hldStatus; }
+	   s
+			 status setStatus(status newStatus) { status hldStatus = currentStatus; currentStatus = newStatus; return hldStatus; }
 	   status getStatus() { return currentStatus; }
 
 	   void setThreadId(int id) { threadId = id; }
