@@ -70,7 +70,13 @@ class compElement {
 	   std::thread* getRunningThread(unsigned int index = 0) { return runningThreads.at(index); } 
 	   void deleteThread(unsigned index = 0) { if ( index == -1 ) runningThread.clear(); else if ( index < runningThread.size() ) runningThread.erase(index); else throw; }
 
-	   void waitForThreads() { for(int i = 0; i < instances; ++i) runningThreads[i].join(); deleteThread(-1); };
+	   void waitForThreads() { for(int i = 0; i < instances_; ++i) runningThreads[i].join(); deleteThread(-1); };
+
+	   void setInstances(unsigened int instances) { instances_ =  instances; }
+	   unsigned int getInstances() { return instances_; }
+
+	   void setCurrInstance(unsigened int instance) { currentInstance_ =  instance; }
+	   unsigned int getCurrInstance() { return currentInstance_; }
 
 
 	   std::mutex	stop;
@@ -83,8 +89,8 @@ class compElement {
 	   SimpleStorageManager* mgrIn;
 	   SimpleStorageManager* mgrOut;
 	   PipeBase	*procFunc;
-	   unsigned int	instances;
-	   unsigned int	currentInstance;
+	   unsigned int	instances_;
+	   unsigned int	currentInstance_;
 	   status currentStatus;
 	   int threadId;
 	   std::vector< std::thread* >	runningThreads;
