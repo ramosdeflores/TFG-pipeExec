@@ -78,6 +78,10 @@ int  main(int argc, char** argv)
 			// Wait for a free buffer
 			head->waitForFree();
 
+
+			if (i == 10 )
+				myPipe->deleteFunction(&subOne);
+
 			// Get the buffer
 			data = (int*)head->getFreeBuffer();
 			if (data == NULL ) {
@@ -93,7 +97,7 @@ int  main(int argc, char** argv)
 
 	myPipe->deleteFunction(&subOne);
 
-     cout << "------------------------------- subOne removed -----------------------" << endl;
+	cout << "------------------------------- subOne removed -----------------------" << endl;
 
 	for (int a = 0; a < 1; ++a)
 		for (int i = 0; i < 20; ++i)
@@ -119,7 +123,7 @@ int  main(int argc, char** argv)
 
 	printf("Threads killed = %d\n", myPipe->killPipe());
 
-//	sleep(60);
+	//	sleep(60);
 
 
 	return 0;	
