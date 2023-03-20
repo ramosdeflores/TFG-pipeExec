@@ -11,14 +11,16 @@ SimpleMemoryManager::SimpleMemoryManager(const size_t size, unsigned int poolSiz
 
 	for ( index = 0; index < pool_size; ++index) {
 		fullQueue[index] = NULL;
-		// If size is 0 then the freeQueue will loaded by the calling program.
-		// If the buffers should be preserved after the object is deleted, then
-		// theh queues should be refilled with NULLs.
+		// If size is 0 then the freeQueue be populated with NULLs and
+		// will be the responsibility of the calling program to populate the queue
+		// with storage.
 		if ( size == 0 )
 			freeQueue[index] = NULL;
 		else {
+			// If size is non 0 then "pool_size" buffers of size "size" will be allocated 
 			if ((freeQueue[index] = (void *)malloc(size)) == NULL) {
 				std::cout << "SimpleMemoryManager::SimpleMemoryManager() - ERROR allocating memory" << std::endl;
+				// If allocation fails then free any previously allocated buffers
 				for ( err_index = 0; err_index < index; ++err_index)
 					free(freeQueue[index]);
 				pool_size = -1;
