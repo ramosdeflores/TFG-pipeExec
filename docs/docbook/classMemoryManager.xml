@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classMemoryManager" xml:lang="en-US">
+<title>MemoryManager Class Reference</title>
+<indexterm><primary>MemoryManager</primary></indexterm>
+<para>
+
+<para>A memory manager that provides an interface for managing a fixed-size queue of pointers to memory buffers. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;memory_manager.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90f">MemoryManagerError</link> { <link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90faff4878f6fb7b896cbdcdb21555942594">kBadSizing</link>
+, <link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87">kNullPtr</link>
+ }</para>
+
+<para>Enumerated type for possible errors in <link linkend="_classMemoryManager">MemoryManager</link> class. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classMemoryManager_1a9a5be3d88f69391224b9b0d885f04b88">MemoryManager</link> (int, bool=false)</para>
+
+<para>Constructor for <link linkend="_classMemoryManager">MemoryManager</link> class. </para>
+</listitem>
+            <listitem><para><link linkend="_classMemoryManager_1ad4570910ccfc14b2da679bee58ee8f48">~MemoryManager</link> ()</para>
+
+<para>Destructor for <link linkend="_classMemoryManager">MemoryManager</link>. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_classMemoryManager_1af63faf51f2b29c67fea41e0baa32af83">PushIntoIn</link> (void *)</para>
+
+<para>Pushes a memory buffer into the input queue. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_classMemoryManager_1a8ee578854fc579a88c34c4ff42adbc2b">PushIntoOut</link> (void *)</para>
+
+<para>Pushes a memory buffer into the output queue. </para>
+</listitem>
+            <listitem><para>void * <link linkend="_classMemoryManager_1a2baf1cd49e91c7618cd6c08151491094">PopFromIn</link> ()</para>
+
+<para>Pops a memory buffer from the input queue. </para>
+</listitem>
+            <listitem><para>void * <link linkend="_classMemoryManager_1ac9e6791f9bbfafa933686968eb91968a">PopFromOut</link> ()</para>
+
+<para>Pops a memory buffer from the output queue. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classMemoryManager_1a09b86c875efaba6b2ee477e94a4a1585">LoadMemoryManager</link> (void *)</para>
+
+<para>Loads a memory buffer into the queues. </para>
+</listitem>
+            <listitem><para>int <link linkend="_classMemoryManager_1a7cd42925fb0fb466d7877596e9ffd3f9">in_queue_count</link> ()</para>
+
+<para>Returns the number of memory buffers in the input queue. </para>
+</listitem>
+            <listitem><para>int <link linkend="_classMemoryManager_1a3e6e571df8c411240e22334dcf45cee5">out_queue_count</link> ()</para>
+
+<para>Returns the number of memory buffers in the output queue. </para>
+</listitem>
+            <listitem><para>int <link linkend="_classMemoryManager_1ad8de64268e28fdcfbcf6a9c49c819810">max_size</link> ()</para>
+
+<para>Returns the maximum size of the memory buffer queues. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1ae12d45dd15b3756a0685c4fc15c24bc1"/>void <emphasis role="strong">wait_finish</emphasis> ()</para>
+
+<para>Tries to get the ownership of the cpu resources to do any action. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>A memory manager that provides an interface for managing a fixed-size queue of pointers to memory buffers. </para>
+
+
+
+<para>This class provides functionality to push and pop memory buffers in and out of the queue, as well as a debug flag to print the status of the <link linkend="_classMemoryManager">MemoryManager</link>. It also implements semaphores to ensure synchronization between the producer and consumer threads. </para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90f"/><section>
+    <title>MemoryManagerError</title>
+<indexterm><primary>MemoryManagerError</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>MemoryManagerError</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90f">MemoryManager::MemoryManagerError</link></computeroutput></para><para>
+
+<para>Enumerated type for possible errors in <link linkend="_classMemoryManager">MemoryManager</link> class. </para>
+</para>
+
+<para>This enumerated type defines the possible errors that can occur in the <link linkend="_classMemoryManager">MemoryManager</link> class. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>kBadSizing</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>kBadSizing</secondary></indexterm>
+<anchor xml:id="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90faff4878f6fb7b896cbdcdb21555942594"/>kBadSizing</entry><entry>
+<para>Requested size of the memory manager is less than 1. </para>
+</entry></row><row><entry><indexterm><primary>kNullPtr</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>kNullPtr</secondary></indexterm>
+<anchor xml:id="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87"/>kNullPtr</entry><entry>
+<para>Requested item in PopFromIn or PopFromOut is null. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classMemoryManager_1a9a5be3d88f69391224b9b0d885f04b88"/><section>
+    <title>MemoryManager()</title>
+<indexterm><primary>MemoryManager</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>MemoryManager</secondary></indexterm>
+<para><computeroutput>MemoryManager::MemoryManager (int mx_size, bool debug = <computeroutput>false</computeroutput>
+)</computeroutput></para><para>
+
+<para>Constructor for <link linkend="_classMemoryManager">MemoryManager</link> class. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mx_size</entry><entry>
+<para>The maximum number of memory buffers the queue can hold </para>
+</entry>
+                            </row>
+                            <row>
+<entry>debug</entry><entry>
+<para>The flag for the debug information </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry><link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90faff4878f6fb7b896cbdcdb21555942594">MemoryManagerError::kBadSizing</link></entry><entry>
+<para>If the maximum size is less than 1 </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classMemoryManager_1ad4570910ccfc14b2da679bee58ee8f48"/><section>
+    <title>~MemoryManager()</title>
+<indexterm><primary>~MemoryManager</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>~MemoryManager</secondary></indexterm>
+<para><computeroutput>MemoryManager::~MemoryManager ( )</computeroutput></para><para>
+
+<para>Destructor for <link linkend="_classMemoryManager">MemoryManager</link>. </para>
+</para>
+
+<para>Frees the buffers inside both queues and then frees the queues </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classMemoryManager_1a7cd42925fb0fb466d7877596e9ffd3f9"/><section>
+    <title>in_queue_count()</title>
+<indexterm><primary>in_queue_count</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>in_queue_count</secondary></indexterm>
+<para><computeroutput>int MemoryManager::in_queue_count ( )</computeroutput></para><para>
+
+<para>Returns the number of memory buffers in the input queue. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Number of memory buffers in the input queue. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classMemoryManager_1a09b86c875efaba6b2ee477e94a4a1585"/><section>
+    <title>LoadMemoryManager()</title>
+<indexterm><primary>LoadMemoryManager</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>LoadMemoryManager</secondary></indexterm>
+<para><computeroutput>void MemoryManager::LoadMemoryManager (void * data)</computeroutput></para><para>
+
+<para>Loads a memory buffer into the queues. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>Pointer to the memory buffer. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classMemoryManager_1ad8de64268e28fdcfbcf6a9c49c819810"/><section>
+    <title>max_size()</title>
+<indexterm><primary>max_size</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>max_size</secondary></indexterm>
+<para><computeroutput>int MemoryManager::max_size ( )</computeroutput></para><para>
+
+<para>Returns the maximum size of the memory buffer queues. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Maximum size of the memory buffer queues. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classMemoryManager_1a3e6e571df8c411240e22334dcf45cee5"/><section>
+    <title>out_queue_count()</title>
+<indexterm><primary>out_queue_count</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>out_queue_count</secondary></indexterm>
+<para><computeroutput>int MemoryManager::out_queue_count ( )</computeroutput></para><para>
+
+<para>Returns the number of memory buffers in the output queue. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Number of memory buffers in the output queue. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classMemoryManager_1a2baf1cd49e91c7618cd6c08151491094"/><section>
+    <title>PopFromIn()</title>
+<indexterm><primary>PopFromIn</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>PopFromIn</secondary></indexterm>
+<para><computeroutput>void * MemoryManager::PopFromIn ( )</computeroutput></para><para>
+
+<para>Pops a memory buffer from the input queue. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Throws</entry><entry>
+<para><link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87">MemoryManagerError::kNullPtr</link> If the content to return is null (it can&apos;t be processed)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Pointer to the memory buffer. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classMemoryManager_1ac9e6791f9bbfafa933686968eb91968a"/><section>
+    <title>PopFromOut()</title>
+<indexterm><primary>PopFromOut</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>PopFromOut</secondary></indexterm>
+<para><computeroutput>void * MemoryManager::PopFromOut ( )</computeroutput></para><para>
+
+<para>Pops a memory buffer from the output queue. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry><link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87">MemoryManagerError::kNullPtr</link></entry><entry>
+<para>If the content to return is null (it can&apos;t be processed)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Pointer to the memory buffer. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classMemoryManager_1af63faf51f2b29c67fea41e0baa32af83"/><section>
+    <title>PushIntoIn()</title>
+<indexterm><primary>PushIntoIn</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>PushIntoIn</secondary></indexterm>
+<para><computeroutput>bool MemoryManager::PushIntoIn (void * data)</computeroutput></para><para>
+
+<para>Pushes a memory buffer into the input queue. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>Pointer to the memory buffer.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>True if the input queue is not full, false otherwise. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classMemoryManager_1a8ee578854fc579a88c34c4ff42adbc2b"/><section>
+    <title>PushIntoOut()</title>
+<indexterm><primary>PushIntoOut</primary><secondary>MemoryManager</secondary></indexterm>
+<indexterm><primary>MemoryManager</primary><secondary>PushIntoOut</secondary></indexterm>
+<para><computeroutput>bool MemoryManager::PushIntoOut (void * data)</computeroutput></para><para>
+
+<para>Pushes a memory buffer into the output queue. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>Pointer to the memory buffer.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>True if the output queue is not full, false otherwise. </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/<link linkend="_memory__manager_8h">memory_manager.h</link>include/definitions/<link linkend="_memory__manager_8cc">memory_manager.cc</link></section>
+</section>

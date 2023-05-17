@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classNumberPrinter" xml:lang="en-US">
+<title>NumberPrinter Class Reference</title>
+<indexterm><primary>NumberPrinter</primary></indexterm>
+<para>
+
+<para>This class outputs the number inside the data to the standard output. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;number_printer.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for NumberPrinter:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classNumberPrinter.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classNumberPrinter_1a6174ed03fa8b2dcb3dd820a185797aa3">Start</link> ()</para>
+
+<para>Starts the number printer. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classNumberPrinter_1a6b0ac3410217e95f42795f46fa188940">Run</link> (void *)</para>
+
+<para>Prints the number contained in a given pointer. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classNumberPrinter_1a6bf350b0e8249196a4cbe79c1ce1b640">Delete</link> ()</para>
+
+<para>Does nothing. </para>
+</listitem>
+            <listitem><para><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classNumberPrinter_1a690a4e8a208592c9eb6a5d7041fbb632">Clone</link> ()</para>
+
+<para>Creates a new instance of the number printer. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">Start</link> ()=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">Clone</link> ()=0</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>This class outputs the number inside the data to the standard output. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classNumberPrinter_1a690a4e8a208592c9eb6a5d7041fbb632"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>NumberPrinter</secondary></indexterm>
+<indexterm><primary>NumberPrinter</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * NumberPrinter::Clone ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Creates a new instance of the number printer. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A pointer to a new <link linkend="_classNumberPrinter">NumberPrinter</link> object. </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classNumberPrinter_1a6bf350b0e8249196a4cbe79c1ce1b640"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>NumberPrinter</secondary></indexterm>
+<indexterm><primary>NumberPrinter</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>void NumberPrinter::Delete ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Does nothing. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classNumberPrinter_1a6b0ac3410217e95f42795f46fa188940"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>NumberPrinter</secondary></indexterm>
+<indexterm><primary>NumberPrinter</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>void NumberPrinter::Run (void * data)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Prints the number contained in a given pointer. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>A void pointer to the data to print. The pointer has to be a <link linkend="_classData">Data</link> object pointer. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classNumberPrinter_1a6174ed03fa8b2dcb3dd820a185797aa3"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>NumberPrinter</secondary></indexterm>
+<indexterm><primary>NumberPrinter</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>void NumberPrinter::Start ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Starts the number printer. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">ProcessingUnitInterface</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/pu/number_printer.hinclude/definitions/pu/number_printer.cc</section>
+</section>

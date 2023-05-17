@@ -1,0 +1,105 @@
+\hypertarget{classProcessingUnitInterface}{}\doxysection{Processing\+Unit\+Interface Class Reference}
+\label{classProcessingUnitInterface}\index{ProcessingUnitInterface@{ProcessingUnitInterface}}
+
+
+This class is the parent class of all the processing units we will create.  
+
+
+
+
+{\ttfamily \#include $<$processing\+\_\+unit\+\_\+interface.\+h$>$}
+
+Inheritance diagram for Processing\+Unit\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.454545cm]{classProcessingUnitInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}{Start}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to allocate memory for the variables that need it and initialize some of them. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}} (void $\ast$data)=0
+\begin{DoxyCompactList}\small\item\em Use this function to process the data. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Delete}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to free all the memory allocated in the Start method. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ \mbox{\hyperlink{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}{Clone}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns new pointer to a processing unit class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is the parent class of all the processing units we will create. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}\label{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}} 
+\index{ProcessingUnitInterface@{ProcessingUnitInterface}!Clone@{Clone}}
+\index{Clone@{Clone}!ProcessingUnitInterface@{ProcessingUnitInterface}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ Processing\+Unit\+Interface\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns new pointer to a processing unit class. 
+
+Use \{return new \mbox{[}class-\/name\mbox{]}\} \begin{DoxyReturn}{Returns}
+Pointer to the new derived class 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classNumberPrinter_a690a4e8a208592c9eb6a5d7041fbb632}{Number\+Printer}}, \mbox{\hyperlink{classAdder_a9aa43eacf687ef86a330492e74ece7d5}{Adder}}, \mbox{\hyperlink{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd}{Edge\+Detector}}, \mbox{\hyperlink{classImgOutputer_a4be473f8ce9f904b9661a05b9ece7787}{Img\+Outputer}}, and \mbox{\hyperlink{classImgTruncator_ac35002ce30d28375e43c6acda0577c52}{Img\+Truncator}}.
+
+\mbox{\Hypertarget{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}\label{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}} 
+\index{ProcessingUnitInterface@{ProcessingUnitInterface}!Delete@{Delete}}
+\index{Delete@{Delete}!ProcessingUnitInterface@{ProcessingUnitInterface}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily virtual void Processing\+Unit\+Interface\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Use this function to free all the memory allocated in the Start method. 
+
+
+
+Implemented in \mbox{\hyperlink{classNumberPrinter_a6bf350b0e8249196a4cbe79c1ce1b640}{Number\+Printer}}, \mbox{\hyperlink{classAdder_a39ee5be690869d52dc2dfe412b7747c7}{Adder}}, \mbox{\hyperlink{classEdgeDetector_a2ef8d6908a6930e1e26a1554a258b105}{Edge\+Detector}}, \mbox{\hyperlink{classImgOutputer_aabef2302a1c24b28334fa86d1313c592}{Img\+Outputer}}, and \mbox{\hyperlink{classImgTruncator_ad113d2d4d7b22f39550df32b70f38bfb}{Img\+Truncator}}.
+
+\mbox{\Hypertarget{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}\label{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}} 
+\index{ProcessingUnitInterface@{ProcessingUnitInterface}!Run@{Run}}
+\index{Run@{Run}!ProcessingUnitInterface@{ProcessingUnitInterface}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily virtual void Processing\+Unit\+Interface\+::\+Run (\begin{DoxyParamCaption}\item[{void $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Use this function to process the data. 
+
+It\textquotesingle{}s recommended to recast the void$\ast$ into a Data$\ast$ to use all its methods. (ONLY IF THE DATA IS A DATA$\ast$ ALLOCATION)
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to manipulate \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classNumberPrinter_a6b0ac3410217e95f42795f46fa188940}{Number\+Printer}}, \mbox{\hyperlink{classAdder_a19888264e8dcaded1580d10c2cf5dfb0}{Adder}}, \mbox{\hyperlink{classEdgeDetector_a4b4cdcb26d58152eff812ea837fedb2b}{Edge\+Detector}}, \mbox{\hyperlink{classImgOutputer_af790ac0aaa8fd825e22593c625607866}{Img\+Outputer}}, and \mbox{\hyperlink{classImgTruncator_a98fc21ac2ac2bbecba7529b1296d80a1}{Img\+Truncator}}.
+
+\mbox{\Hypertarget{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}\label{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}} 
+\index{ProcessingUnitInterface@{ProcessingUnitInterface}!Start@{Start}}
+\index{Start@{Start}!ProcessingUnitInterface@{ProcessingUnitInterface}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily virtual void Processing\+Unit\+Interface\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Use this function to allocate memory for the variables that need it and initialize some of them. 
+
+
+
+Implemented in \mbox{\hyperlink{classNumberPrinter_a6174ed03fa8b2dcb3dd820a185797aa3}{Number\+Printer}}, \mbox{\hyperlink{classAdder_aa4f60d7c236f57f9250cdb42883cfcdf}{Adder}}, \mbox{\hyperlink{classEdgeDetector_a3964e535b4428f0cb722fef96c57038d}{Edge\+Detector}}, \mbox{\hyperlink{classImgOutputer_a3158c708cc4aa9b5d7e00cf79e0008b2}{Img\+Outputer}}, and \mbox{\hyperlink{classImgTruncator_a92ca1e86351903aec9a3613223d0773f}{Img\+Truncator}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/\mbox{\hyperlink{processing__unit__interface_8h}{processing\+\_\+unit\+\_\+interface.\+h}}\end{DoxyCompactItemize}

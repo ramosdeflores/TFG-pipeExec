@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_semaphore_8cc" xml:lang="en-US">
+<title>include/definitions/semaphore.cc File Reference</title>
+<indexterm><primary>include/definitions/semaphore.cc</primary></indexterm>
+<para>
+
+<para>This file contains the definition of the <link linkend="_classSemaphore">Semaphore</link> class, which provides a synchronization mechanism for concurrent access to a shared resource. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;../headers/semaphore.h&quot;<?linebreak?></programlisting><section>
+<title>Detailed Description</title>
+
+<para>This file contains the definition of the <link linkend="_classSemaphore">Semaphore</link> class, which provides a synchronization mechanism for concurrent access to a shared resource. </para>
+</section>
+</section>

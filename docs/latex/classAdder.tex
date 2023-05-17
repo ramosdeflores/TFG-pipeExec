@@ -1,0 +1,117 @@
+\hypertarget{classAdder}{}\doxysection{Adder Class Reference}
+\label{classAdder}\index{Adder@{Adder}}
+
+
+This class represents an adder, it gets a number and adds 1 to it.  
+
+
+
+
+{\ttfamily \#include $<$adder.\+h$>$}
+
+Inheritance diagram for Adder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAdder}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAdder_a760ce3809c856a4b63b83230763099f9}\label{classAdder_a760ce3809c856a4b63b83230763099f9}} 
+{\bfseries Adder} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classAdder}{Adder}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAdder_aa4fbce747dc4e5ff653c3837fcc6a789}\label{classAdder_aa4fbce747dc4e5ff653c3837fcc6a789}} 
+{\bfseries $\sim$\+Adder} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the \mbox{\hyperlink{classAdder}{Adder}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAdder_a19888264e8dcaded1580d10c2cf5dfb0}{Run}} (void $\ast$) override
+\begin{DoxyCompactList}\small\item\em Adds 1 to the pointer in the data pointer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAdder_aa4f60d7c236f57f9250cdb42883cfcdf}{Start}} () override
+\begin{DoxyCompactList}\small\item\em Doesn\textquotesingle{}t allocate nothing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAdder_a39ee5be690869d52dc2dfe412b7747c7}{Delete}} () override
+\begin{DoxyCompactList}\small\item\em Doesn\textquotesingle{}t delete nothing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ \mbox{\hyperlink{classAdder_a9aa43eacf687ef86a330492e74ece7d5}{Clone}} () override
+\begin{DoxyCompactList}\small\item\em Returns a new pointer to another instance of \mbox{\hyperlink{classAdder}{Adder}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}{Start}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to allocate memory for the variables that need it and initialize some of them. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}} (void $\ast$data)=0
+\begin{DoxyCompactList}\small\item\em Use this function to process the data. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Delete}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to free all the memory allocated in the Start method. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ \mbox{\hyperlink{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}{Clone}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns new pointer to a processing unit class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents an adder, it gets a number and adds 1 to it. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAdder_a9aa43eacf687ef86a330492e74ece7d5}\label{classAdder_a9aa43eacf687ef86a330492e74ece7d5}} 
+\index{Adder@{Adder}!Clone@{Clone}}
+\index{Clone@{Clone}!Adder@{Adder}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ Adder\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns a new pointer to another instance of \mbox{\hyperlink{classAdder}{Adder}}. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}{Processing\+Unit\+Interface}}.
+
+\mbox{\Hypertarget{classAdder_a39ee5be690869d52dc2dfe412b7747c7}\label{classAdder_a39ee5be690869d52dc2dfe412b7747c7}} 
+\index{Adder@{Adder}!Delete@{Delete}}
+\index{Delete@{Delete}!Adder@{Adder}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void Adder\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Doesn\textquotesingle{}t delete nothing. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Processing\+Unit\+Interface}}.
+
+\mbox{\Hypertarget{classAdder_a19888264e8dcaded1580d10c2cf5dfb0}\label{classAdder_a19888264e8dcaded1580d10c2cf5dfb0}} 
+\index{Adder@{Adder}!Run@{Run}}
+\index{Run@{Run}!Adder@{Adder}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Adder\+::\+Run (\begin{DoxyParamCaption}\item[{void $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds 1 to the pointer in the data pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The pointer to the data to manipulate \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Processing\+Unit\+Interface}}.
+
+\mbox{\Hypertarget{classAdder_aa4f60d7c236f57f9250cdb42883cfcdf}\label{classAdder_aa4f60d7c236f57f9250cdb42883cfcdf}} 
+\index{Adder@{Adder}!Start@{Start}}
+\index{Start@{Start}!Adder@{Adder}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Adder\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Doesn\textquotesingle{}t allocate nothing. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}{Processing\+Unit\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/pu/\mbox{\hyperlink{adder_8h}{adder.\+h}}\item 
+include/definitions/pu/adder.\+cc\end{DoxyCompactItemize}

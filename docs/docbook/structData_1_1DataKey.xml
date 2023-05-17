@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structData_1_1DataKey" xml:lang="en-US">
+<title>Data::DataKey Struct Reference</title>
+<indexterm><primary>Data::DataKey</primary></indexterm>
+<para>
+
+<para>This structure works like a std::pair but its member names are meaningful and are used to store data paired to a particular key. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;data.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structData_1_1DataKey_1abd4711cc51b5fd206937cd9d08eb6cbe"/>std::string <emphasis role="strong">key</emphasis></para>
+
+<para>The key used to find the data associated. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_structData_1_1DataKey_1ae2e54eec0f18ef1a9b7f8fa1dbfde8b8"/>void * <emphasis role="strong">data</emphasis></para>
+
+<para>The extra data stored. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This structure works like a std::pair but its member names are meaningful and are used to store data paired to a particular key. </para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/headers/<link linkend="_data_8h">data.h</link></section>
+</section>

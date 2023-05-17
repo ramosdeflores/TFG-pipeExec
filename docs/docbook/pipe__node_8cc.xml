@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_pipe__node_8cc" xml:lang="en-US">
+<title>include/definitions/pipe_node.cc File Reference</title>
+<indexterm><primary>include/definitions/pipe_node.cc</primary></indexterm>
+<para>
+
+<para>Definition of the <link linkend="_classPipeNode">PipeNode</link> class methods. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;../headers/pipe_node.h&quot;<?linebreak?>#include &lt;cstdio&gt;<?linebreak?></programlisting><section>
+<title>Detailed Description</title>
+
+<para>Definition of the <link linkend="_classPipeNode">PipeNode</link> class methods. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Lucas Hernández Abreu Contact: <link xlink:href="mailto:lucas.hernandez.09@ull.edu.es">lucas.hernandez.09@ull.edu.es</link> </para>
+</formalpara>
+</para>
+</section>
+</section>

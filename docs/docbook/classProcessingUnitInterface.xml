@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classProcessingUnitInterface" xml:lang="en-US">
+<title>ProcessingUnitInterface Class Reference</title>
+<indexterm><primary>ProcessingUnitInterface</primary></indexterm>
+<para>
+
+<para>This class is the parent class of all the processing units we will create. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;processing_unit_interface.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for ProcessingUnitInterface:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classProcessingUnitInterface.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">Start</link> ()=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">Clone</link> ()=0</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This class is the parent class of all the processing units we will create. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>ProcessingUnitInterface</secondary></indexterm>
+<indexterm><primary>ProcessingUnitInterface</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * ProcessingUnitInterface::Clone ( )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</para>
+
+<para>Use {return new [class-name]} <formalpara><title>Returns</title>
+
+<para>Pointer to the new derived class </para>
+</formalpara>
+</para>
+<para>
+Implemented in <link linkend="_classNumberPrinter_1a690a4e8a208592c9eb6a5d7041fbb632">NumberPrinter</link>, <link linkend="_classAdder_1a9aa43eacf687ef86a330492e74ece7d5">Adder</link>, <link linkend="_classEdgeDetector_1a7d60da211152e60b001f96ef1d753bdd">EdgeDetector</link>, <link linkend="_classImgOutputer_1a4be473f8ce9f904b9661a05b9ece7787">ImgOutputer</link>, and <link linkend="_classImgTruncator_1ac35002ce30d28375e43c6acda0577c52">ImgTruncator</link>.</para>
+</section>
+<anchor xml:id="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>ProcessingUnitInterface</secondary></indexterm>
+<indexterm><primary>ProcessingUnitInterface</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>virtual void ProcessingUnitInterface::Delete ( )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</para>
+<para>
+Implemented in <link linkend="_classNumberPrinter_1a6bf350b0e8249196a4cbe79c1ce1b640">NumberPrinter</link>, <link linkend="_classAdder_1a39ee5be690869d52dc2dfe412b7747c7">Adder</link>, <link linkend="_classEdgeDetector_1a2ef8d6908a6930e1e26a1554a258b105">EdgeDetector</link>, <link linkend="_classImgOutputer_1aabef2302a1c24b28334fa86d1313c592">ImgOutputer</link>, and <link linkend="_classImgTruncator_1ad113d2d4d7b22f39550df32b70f38bfb">ImgTruncator</link>.</para>
+</section>
+<anchor xml:id="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>ProcessingUnitInterface</secondary></indexterm>
+<indexterm><primary>ProcessingUnitInterface</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>virtual void ProcessingUnitInterface::Run (void * data)<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>Use this function to process the data. </para>
+</para>
+
+<para>It&apos;s recommended to recast the void* into a Data* to use all its methods. (ONLY IF THE DATA IS A DATA* ALLOCATION)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>The data to manipulate </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implemented in <link linkend="_classNumberPrinter_1a6b0ac3410217e95f42795f46fa188940">NumberPrinter</link>, <link linkend="_classAdder_1a19888264e8dcaded1580d10c2cf5dfb0">Adder</link>, <link linkend="_classEdgeDetector_1a4b4cdcb26d58152eff812ea837fedb2b">EdgeDetector</link>, <link linkend="_classImgOutputer_1af790ac0aaa8fd825e22593c625607866">ImgOutputer</link>, and <link linkend="_classImgTruncator_1a98fc21ac2ac2bbecba7529b1296d80a1">ImgTruncator</link>.</para>
+</section>
+<anchor xml:id="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>ProcessingUnitInterface</secondary></indexterm>
+<indexterm><primary>ProcessingUnitInterface</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>virtual void ProcessingUnitInterface::Start ( )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</para>
+<para>
+Implemented in <link linkend="_classNumberPrinter_1a6174ed03fa8b2dcb3dd820a185797aa3">NumberPrinter</link>, <link linkend="_classAdder_1aa4f60d7c236f57f9250cdb42883cfcdf">Adder</link>, <link linkend="_classEdgeDetector_1a3964e535b4428f0cb722fef96c57038d">EdgeDetector</link>, <link linkend="_classImgOutputer_1a3158c708cc4aa9b5d7e00cf79e0008b2">ImgOutputer</link>, and <link linkend="_classImgTruncator_1a92ca1e86351903aec9a3613223d0773f">ImgTruncator</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+include/headers/<link linkend="_processing__unit__interface_8h">processing_unit_interface.h</link></section>
+</section>

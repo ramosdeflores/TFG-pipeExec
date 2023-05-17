@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_pipeline_8h" xml:lang="en-US">
+<title>include/headers/pipeline.h File Reference</title>
+<indexterm><primary>include/headers/pipeline.h</primary></indexterm>
+<para>
+
+<para>Declaration of the <link linkend="_classPipeline">Pipeline</link> class methods. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;pipe_node.h&quot;<?linebreak?>#include &quot;processing_unit_interface.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classPipeline">Pipeline</link></para>
+
+<para>Class representing the pipeline for the processing of any type of data. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Declaration of the <link linkend="_classPipeline">Pipeline</link> class methods. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Lucas Hernández Abreu Contact: <link xlink:href="mailto:lucas.hernandez.09@ull.edu.es">lucas.hernandez.09@ull.edu.es</link> </para>
+</formalpara>
+</para>
+</section>
+</section>

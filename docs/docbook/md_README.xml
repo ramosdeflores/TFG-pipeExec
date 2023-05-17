@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_README" xml:lang="en-US">
+<section xml:id="_md_README_1autotoc_md7">
+<title>AUTHOR</title>
+
+<para><emphasis role="bold">Name:</emphasis> Lucas Hernández Abreu</para>
+
+<para><emphasis role="bold">email:</emphasis> <link xlink:href="mailto:lucas.hernandez.09@ull.edu.es">lucas.hernandez.09@ull.edu.es</link></para>
+</section>
+<section xml:id="_md_README_1autotoc_md8">
+<title>LICENSE</title>
+
+<para>LUCID (Unified Computing Image and Data-Processing) is a program to process any type of data concurrently. Copyright (C) 2023 Lucas Hernández Abreu</para>
+
+<para>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</para>
+
+<para>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</para>
+
+<para>You should have received a copy of the GNU General Public License along with this program. If not, see <link xlink:href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</link>.</para>
+
+<para>Author: Lucas Hernández Abreu</para>
+
+<para>Contact: <link xlink:href="mailto:lucas.hernandez.09@ull.edu.es">lucas.hernandez.09@ull.edu.es</link></para>
+</section>
+<section xml:id="_md_README_1autotoc_md9">
+<title>INTRODUCTION</title>
+
+<para>LUCID (Unified Computing Image and Data-Processing) is a framework for processing data concurrently via the development of processing units. Each processing unit can have multiple instances that will run in parallel.</para>
+
+<para>The following diagram illustrates its work:</para>
+
+<para><literallayout><computeroutput>graph&#32;LR;
+
+subgraph&#32;Pipeline&#32;scope
+&#32;&#32;&#32;&#32;PU1((PU1))&#32;-.-&gt;&#32;PU2((PU2))&#32;-.-&gt;&#32;PU3((PU3))&#32;&#32;
+end;
+
+subgraph&#32;Main&#32;thread&#32;scope
+&#32;&#32;&#32;&#32;MMM[MemoryManager]&#32;--&gt;|throught&#32;in_queue|&#32;main
+&#32;&#32;&#32;&#32;MMM&#32;--&gt;&#32;PU1
+
+&#32;&#32;&#32;&#32;main--&gt;|throught&#32;out_queue|&#32;MMM
+&#32;&#32;&#32;&#32;PU3&#32;-.-&gt;|Pushes&#32;into&#32;in_queue|&#32;MMM
+end;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_README_1autotoc_md10">
+<title>Usage</title>
+
+<para>First of all, we need some dependencies for LUCID to work:</para>
+
+<para><literallayout><computeroutput>Make
+Cmake
+gtest
+</computeroutput></literallayout> Then you can clone this repository and</para>
+
+<para>Once you have cloned this repository you have to make sure there is a <computeroutput>build</computeroutput> directory in it.</para>
+
+<para>If there is no <computeroutput>build</computeroutput> directory execute the following command in the same level as the <computeroutput>src</computeroutput> directory:</para>
+
+<para><literallayout><computeroutput>mkdir&#32;build
+</computeroutput></literallayout></para>
+
+<para>Now to build the program go into the build directory with <computeroutput>cd build</computeroutput> and execute the following command:</para>
+
+<para><literallayout><computeroutput>cmake&#32;..
+</computeroutput></literallayout></para>
+
+<para>After you have built it you can find the executable at the <computeroutput>bin</computeroutput> directory.</para>
+
+<para>Now run the executable in one of this three modes:</para>
+
+<para><literallayout><computeroutput>#&#32;Executes&#32;LUCID&#32;normally
+lucid&#32;
+
+#&#32;Executes&#32;LUCID&#32;with&#32;all&#32;the&#32;debug&#32;information
+#&#32;-d&#32;and&#32;--debug&#32;also&#32;work&#32;
+lucid&#32;debug&#32;
+
+#&#32;Executes&#32;LUCID&#32;pushing&#32;the&#32;debug&#32;flag&#32;only&#32;into&#32;the&#32;processing&#32;units
+#&#32;--pd&#32;and&#32;--pu-debug&#32;also&#32;work
+lucid&#32;pudebug
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_README_1autotoc_md11">
+<title>Configuration</title>
+
+<para>For this framework you can add any number of processing units, make sure your units implementation look like this:</para>
+
+<para><literallayout><computeroutput>&#32;{c++}
+
+#include&#32;&quot;processing_unit_interface.h&quot;
+class&#32;NewUnit&#32;:&#32;public&#32;ProcessingUnitInterface&#32;{
+&#32;&#32;&#32;&#32;NewUnit();
+&#32;&#32;&#32;&#32;~NewUnit();
+
+&#32;&#32;&#32;&#32;//&#32;This&#32;function&#32;will&#32;always&#32;run:&#32;use&#32;it&#32;to&#32;instanciate&#32;unit&#32;variables.
+&#32;&#32;&#32;&#32;void&#32;Start()&#32;override;&#32;
+
+&#32;&#32;&#32;&#32;//&#32;This&#32;function&#32;will&#32;always&#32;run:&#32;use&#32;it&#32;to&#32;get&#32;the&#32;data&#32;from&#32;the&#32;pipe&#32;and
+&#32;&#32;&#32;&#32;//&#32;proccess&#32;it
+&#32;&#32;&#32;&#32;bool&#32;Run(void*)&#32;override;&#32;
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;//&#32;This&#32;method&#32;is&#32;a&#32;placeholder&#32;for&#32;possible&#32;deletion&#32;in&#32;the&#32;unit
+&#32;&#32;&#32;&#32;void&#32;Delete()&#32;override;
+
+&#32;&#32;&#32;&#32;//&#32;Make&#32;sure&#32;to&#32;return&#32;a&#32;pointer&#32;to&#32;your&#32;new&#32;processing&#32;unit
+&#32;&#32;&#32;&#32;ProcessingUnitInterface*&#32;Clone()&#32;override;
+};
+</computeroutput></literallayout></para>
+
+<para>You have examples into the <computeroutput>include/headers/pu/</computeroutput> and <computeroutput>include/definitions/pu/</computeroutput> directories.</para>
+
+<para>For the program to work use the following list of steps in the main file:</para>
+
+<para><orderedlist>
+<listitem>
+<para>Instantiate the processing units to use.</para>
+</listitem><listitem>
+<para>Create a new <link linkend="_classMemoryManager">MemoryManager</link> object</para>
+</listitem><listitem>
+<para>Use the <computeroutput>LoadMemoryManager(void*)</computeroutput> function to allocate the size for all the cells in the memory manager.</para>
+</listitem><listitem>
+<para>Create a pointer to a <computeroutput><link linkend="_classPipeline">Pipeline</link></computeroutput> and instantiate it with the first processing unit you want to use.</para>
+</listitem><listitem>
+<para>Add all the processing units you want to use for your process.</para>
+</listitem><listitem>
+<para>Run the pipe.</para>
+</listitem><listitem>
+<para>Iterate throught the data in the <link linkend="_classMemoryManager">MemoryManager</link> object: poping from In and pushing into out to start the process.</para>
+</listitem><listitem>
+<para>Wait for the pipe to finish with the <computeroutput>WaitFinish()</computeroutput> function. </para>
+</listitem></orderedlist>
+</para>
+</section>
+</section>

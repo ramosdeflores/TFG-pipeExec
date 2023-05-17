@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_classAdder">Adder</link>
+<para>This class represents an adder, it gets a number and adds 1 to it </para>
+<link linkend="_classData">Data</link>
+<para>A <link linkend="_classData">Data</link> class that provides access to various forms of manipulation and allocation for the processing units </para>
+<link linkend="_structData_1_1DataKey">Data::DataKey</link>
+<para>This structure works like a std::pair but its member names are meaningful and are used to store data paired to a particular key </para>
+<link linkend="_classEdgeDetector">EdgeDetector</link>
+<para>This processing unit detects the borders inside the img and sends them as a new image through the pipe </para>
+<link linkend="_classImgOutputer">ImgOutputer</link>
+<para>This class represents an <link linkend="_classImgOutputer">ImgOutputer</link>, it gets an img matrix with unsigned char values and sends it to the IO for creating two .ppm files </para>
+<link linkend="_classImgTruncator">ImgTruncator</link>
+<para>This processing unit gets an array of heights and sets all values as multiples of 100 </para>
+<link linkend="_classMemoryManager">MemoryManager</link>
+<para>A memory manager that provides an interface for managing a fixed-size queue of pointers to memory buffers </para>
+<link linkend="_classNumberPrinter">NumberPrinter</link>
+<para>This class outputs the number inside the data to the standard output </para>
+<link linkend="_classPipeline">Pipeline</link>
+<para>Class representing the pipeline for the processing of any type of data </para>
+<link linkend="_classPipeNode">PipeNode</link>
+<para>Class representing a single node in a processing pipeline </para>
+<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>
+<para>This class is the parent class of all the processing units we will create </para>
+<link linkend="_classSemaphore">Semaphore</link>
+<para>A class that implements a semaphore </para>
+</section>

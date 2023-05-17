@@ -1,0 +1,124 @@
+\hypertarget{classImgTruncator}{}\doxysection{Img\+Truncator Class Reference}
+\label{classImgTruncator}\index{ImgTruncator@{ImgTruncator}}
+
+
+This processing unit gets an array of heights and sets all values as multiples of 100.  
+
+
+
+
+{\ttfamily \#include $<$img\+\_\+truncator.\+h$>$}
+
+Inheritance diagram for Img\+Truncator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classImgTruncator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classImgTruncator_a1fd08e5b24979a3df46b912945dc5677}\label{classImgTruncator_a1fd08e5b24979a3df46b912945dc5677}} 
+{\bfseries Img\+Truncator} ()
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classImgTruncator_a3201d554291ec6c9f8ff49c9d7950c0d}\label{classImgTruncator_a3201d554291ec6c9f8ff49c9d7950c0d}} 
+{\bfseries $\sim$\+Img\+Truncator} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImgTruncator_a92ca1e86351903aec9a3613223d0773f}{Start}} () override
+\begin{DoxyCompactList}\small\item\em Function used for allocation, but allocation is not needed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImgTruncator_a98fc21ac2ac2bbecba7529b1296d80a1}{Run}} (void $\ast$) override
+\begin{DoxyCompactList}\small\item\em The method that modified the data inside the pointer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImgTruncator_ad113d2d4d7b22f39550df32b70f38bfb}{Delete}} () override
+\begin{DoxyCompactList}\small\item\em Needed if allocation happened. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ \mbox{\hyperlink{classImgTruncator_ac35002ce30d28375e43c6acda0577c52}{Clone}} () override
+\begin{DoxyCompactList}\small\item\em Creates a clone of itself. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}{Start}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to allocate memory for the variables that need it and initialize some of them. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}} (void $\ast$data)=0
+\begin{DoxyCompactList}\small\item\em Use this function to process the data. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Delete}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to free all the memory allocated in the Start method. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ \mbox{\hyperlink{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}{Clone}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns new pointer to a processing unit class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This processing unit gets an array of heights and sets all values as multiples of 100. 
+
+The class needs a width Data\+Key pair inside the \mbox{\hyperlink{classData}{Data}} object and a height Data\+Key for it to know the dimensions of the image. It also divides all the numbers by 100 and multiplies them by the same number so the output is normalized to multiples of 100. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classImgTruncator_ac35002ce30d28375e43c6acda0577c52}\label{classImgTruncator_ac35002ce30d28375e43c6acda0577c52}} 
+\index{ImgTruncator@{ImgTruncator}!Clone@{Clone}}
+\index{Clone@{Clone}!ImgTruncator@{ImgTruncator}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ Img\+Truncator\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a clone of itself. 
+
+\begin{DoxyReturn}{Returns}
+a pointer to a new \mbox{\hyperlink{classImgTruncator}{Img\+Truncator}} object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}{Processing\+Unit\+Interface}}.
+
+\mbox{\Hypertarget{classImgTruncator_ad113d2d4d7b22f39550df32b70f38bfb}\label{classImgTruncator_ad113d2d4d7b22f39550df32b70f38bfb}} 
+\index{ImgTruncator@{ImgTruncator}!Delete@{Delete}}
+\index{Delete@{Delete}!ImgTruncator@{ImgTruncator}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void Img\+Truncator\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Needed if allocation happened. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Processing\+Unit\+Interface}}.
+
+\mbox{\Hypertarget{classImgTruncator_a98fc21ac2ac2bbecba7529b1296d80a1}\label{classImgTruncator_a98fc21ac2ac2bbecba7529b1296d80a1}} 
+\index{ImgTruncator@{ImgTruncator}!Run@{Run}}
+\index{Run@{Run}!ImgTruncator@{ImgTruncator}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Img\+Truncator\+::\+Run (\begin{DoxyParamCaption}\item[{void $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+The method that modified the data inside the pointer. 
+
+Gets the width and height of the map with the \mbox{\hyperlink{classData}{Data}} methods. Sets all the values of the matrix as multiples of 100
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The pointer to the data to be truncated \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Processing\+Unit\+Interface}}.
+
+\mbox{\Hypertarget{classImgTruncator_a92ca1e86351903aec9a3613223d0773f}\label{classImgTruncator_a92ca1e86351903aec9a3613223d0773f}} 
+\index{ImgTruncator@{ImgTruncator}!Start@{Start}}
+\index{Start@{Start}!ImgTruncator@{ImgTruncator}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Img\+Truncator\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function used for allocation, but allocation is not needed. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}{Processing\+Unit\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/pu/\mbox{\hyperlink{img__truncator_8h}{img\+\_\+truncator.\+h}}\item 
+include/definitions/pu/\mbox{\hyperlink{img__truncator_8cc}{img\+\_\+truncator.\+cc}}\end{DoxyCompactItemize}

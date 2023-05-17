@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classPipeline" xml:lang="en-US">
+<title>Pipeline Class Reference</title>
+<indexterm><primary>Pipeline</primary></indexterm>
+<para>
+
+<para>Class representing the pipeline for the processing of any type of data. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;pipeline.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classPipeline_1ac74080d6fe35e2b6f31ca51ac5509bfd">Pipeline</link> (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> *, <link linkend="_classMemoryManager">MemoryManager</link> *, int, bool debug=false)</para>
+
+<para>Constructor for the <link linkend="_classPipeline">Pipeline</link> class. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeline_1a527044d53a20f851d0579fbf313a2dec"/><emphasis role="strong">~Pipeline</emphasis> ()</para>
+
+<para>Default destructor for the pipeline. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classPipeline_1ab7308ae28e2ea4aa32da6811df29f152">AddProcessingUnit</link> (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> *, int)</para>
+
+<para>Adds a processing unit to the execution list. </para>
+</listitem>
+            <listitem><para>int <link linkend="_classPipeline_1aaa720ffefb8eb2bc61bd8336a7fee8ce">RunPipe</link> ()</para>
+
+<para>Sets the pipeline to run. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeline_1a134c0e23c0260a6dc74bb936f39ecda9"/>void <emphasis role="strong">WaitFinish</emphasis> ()</para>
+
+<para>Waits until all the threads have finished putting its data inside the (main)&apos;s in_queue <link linkend="_classMemoryManager">MemoryManager</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class representing the pipeline for the processing of any type of data. </para>
+
+
+
+<para>This class masks the processing of the data allowing the (main) thread to only see one queue of data while inside the <link linkend="_classPipeline">Pipeline</link> there are multiple queues and threads consuming the data and processing it concurrently to speed up the proccess. </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classPipeline_1ac74080d6fe35e2b6f31ca51ac5509bfd"/><section>
+    <title>Pipeline()</title>
+<indexterm><primary>Pipeline</primary><secondary>Pipeline</secondary></indexterm>
+<indexterm><primary>Pipeline</primary><secondary>Pipeline</secondary></indexterm>
+<para><computeroutput>Pipeline::Pipeline (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * first_function, <link linkend="_classMemoryManager">MemoryManager</link> * data_in, int threads_per_node_, bool debug = <computeroutput>false</computeroutput>
+)</computeroutput></para><para>
+
+<para>Constructor for the <link linkend="_classPipeline">Pipeline</link> class. </para>
+</para>
+
+<para>Sets the first Node: assigns the processing unit to the one specified as &quot;first_function&quot; then gets the <link linkend="_classMemoryManager">MemoryManager</link> from the (main) thread and puts it as input and output of the Node. Sets the Node as the last node to know that the data has to be pushed into the IN queue for the circular processing to be working. </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classPipeline_1ab7308ae28e2ea4aa32da6811df29f152"/><section>
+    <title>AddProcessingUnit()</title>
+<indexterm><primary>AddProcessingUnit</primary><secondary>Pipeline</secondary></indexterm>
+<indexterm><primary>Pipeline</primary><secondary>AddProcessingUnit</secondary></indexterm>
+<para><computeroutput>void Pipeline::AddProcessingUnit (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * processing_unit, int instances)</computeroutput></para><para>
+
+<para>Adds a processing unit to the execution list. </para>
+</para>
+
+<para>Adds a processing unit to the execution list. Creates a new Memory Manager in the previous node for it to function as an output of the previous and an input for the new one. Sets the previous node flag of last_node to false and gets the new node to be the tail. Then connects the output of the last node to the input of the first node to complete the circular processing queue.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>processing_unit</entry><entry>
+<para>A pointer to an object of <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>instances</entry><entry>
+<para>The number of threads that have to be instanced to run this node. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classPipeline_1aaa720ffefb8eb2bc61bd8336a7fee8ce"/><section>
+    <title>RunPipe()</title>
+<indexterm><primary>RunPipe</primary><secondary>Pipeline</secondary></indexterm>
+<indexterm><primary>Pipeline</primary><secondary>RunPipe</secondary></indexterm>
+<para><computeroutput>int Pipeline::RunPipe ( )</computeroutput></para><para>
+
+<para>Sets the pipeline to run. </para>
+</para>
+
+<para>For each node inside the execution list it creates &quot;n&quot; instances of threads per node and executes all of them.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The number of nodes executed </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/<link linkend="_pipeline_8h">pipeline.h</link>include/definitions/pipeline.cc</section>
+</section>

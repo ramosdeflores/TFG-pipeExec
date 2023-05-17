@@ -1,0 +1,111 @@
+\label{index_md_DOXYGEN}%
+\Hypertarget{index_md_DOXYGEN}%
+\hypertarget{index_autotoc_md1}{}\doxysection{AUTHOR}\label{index_autotoc_md1}
+{\bfseries{Name\+:}} Lucas Hernández Abreu
+
+{\bfseries{email\+:}} \href{mailto:lucas.hernandez.09@ull.edu.es}{\texttt{ lucas.\+hernandez.\+09@ull.\+edu.\+es}}\hypertarget{index_autotoc_md2}{}\doxysection{LICENSE}\label{index_autotoc_md2}
+LUCID (Unified Computing Image and Data-\/\+Processing) is a program to process any type of data concurrently. Copyright (C) 2023 Lucas Hernández Abreu
+
+This program is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}.
+
+Author\+: Lucas Hernández Abreu
+
+Contact\+: \href{mailto:lucas.hernandez.09@ull.edu.es}{\texttt{ lucas.\+hernandez.\+09@ull.\+edu.\+es}}\hypertarget{index_autotoc_md3}{}\doxysection{INTRODUCTION}\label{index_autotoc_md3}
+LUCID (Unified Computing Image and Data-\/\+Processing) is a framework for processing data concurrently via the development of processing units. Each processing unit can have multiple instances that will run in parallel.\hypertarget{index_autotoc_md4}{}\doxysection{Usage}\label{index_autotoc_md4}
+First of all, we need some dependencies for LUCID to work\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Make}
+\DoxyCodeLine{Cmake}
+\DoxyCodeLine{gtest}
+
+\end{DoxyCode}
+ Then you can clone this repository and
+
+Once you have cloned this repository you have to make sure there is a {\ttfamily build} directory in it.
+
+If there is no {\ttfamily build} directory execute the following command in the same level as the {\ttfamily src} directory\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build}
+
+\end{DoxyCode}
+
+
+Now to build the program go into the build directory with {\ttfamily cd build} and execute the following command\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ ..}
+
+\end{DoxyCode}
+
+
+After you have built it you can find the executable at the {\ttfamily bin} directory.
+
+Now run the executable in one of this three modes\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Executes\ LUCID\ normally}
+\DoxyCodeLine{lucid\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Executes\ LUCID\ with\ all\ the\ debug\ information}
+\DoxyCodeLine{\#\ -\/d\ and\ -\/-\/debug\ also\ work\ }
+\DoxyCodeLine{lucid\ debug\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Executes\ LUCID\ pushing\ the\ debug\ flag\ only\ into\ the\ processing\ units}
+\DoxyCodeLine{\#\ -\/-\/pd\ and\ -\/-\/pu-\/debug\ also\ work}
+\DoxyCodeLine{lucid\ pudebug}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md5}{}\doxysection{Configuration}\label{index_autotoc_md5}
+For this framework you can add any number of processing units, make sure your units implementation look like this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{c++\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#include\ "{}processing\_unit\_interface.h"{}}
+\DoxyCodeLine{class\ NewUnit\ :\ public\ ProcessingUnitInterface\ \{}
+\DoxyCodeLine{\ \ \ \ NewUnit();}
+\DoxyCodeLine{\ \ \ \ \string~NewUnit();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ This\ function\ will\ always\ run:\ use\ it\ to\ instanciate\ unit\ variables.}
+\DoxyCodeLine{\ \ \ \ void\ Start()\ override;\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ This\ function\ will\ always\ run:\ use\ it\ to\ get\ the\ data\ from\ the\ pipe\ and}
+\DoxyCodeLine{\ \ \ \ //\ proccess\ it}
+\DoxyCodeLine{\ \ \ \ bool\ Run(void*)\ override;\ }
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ //\ This\ method\ is\ a\ placeholder\ for\ possible\ deletion\ in\ the\ unit}
+\DoxyCodeLine{\ \ \ \ void\ Delete()\ override;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ //\ Make\ sure\ to\ return\ a\ pointer\ to\ your\ new\ processing\ unit}
+\DoxyCodeLine{\ \ \ \ ProcessingUnitInterface*\ Clone()\ override;}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+You have examples into the {\ttfamily include/headers/pu/} and {\ttfamily include/definitions/pu/} directories.
+
+For the program to work use the following list of steps in the main file\+:
+
+
+\begin{DoxyEnumerate}
+\item Instantiate the processing units to use.
+\item Create a new \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} object
+\item Use the {\ttfamily Load\+Memory\+Manager(void$\ast$)} function to allocate the size for all the cells in the memory manager.
+\item Create a pointer to a {\ttfamily \mbox{\hyperlink{classPipeline}{Pipeline}}} and instantiate it with the first processing unit you want to use.
+\item Add all the processing units you want to use for your process.
+\item Run the pipe.
+\item Iterate throught the data in the \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} object\+: poping from In and pushing into out to start the process.
+\item Wait for the pipe to finish with the {\ttfamily Wait\+Finish()} function. 
+\end{DoxyEnumerate}

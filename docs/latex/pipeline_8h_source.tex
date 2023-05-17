@@ -1,0 +1,60 @@
+\hypertarget{pipeline_8h_source}{}\doxysection{pipeline.\+h}
+\label{pipeline_8h_source}\index{include/headers/pipeline.h@{include/headers/pipeline.h}}
+\mbox{\hyperlink{pipeline_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ LUCID\ (Unified\ Computing\ Image\ and\ Data-\/Processing)\ is\ a\ program\ to\ process}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ any\ type\ of\ data\ concurrently.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2023\ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ This\ program\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Author:\ \ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Contact:\ lucas.hernandez.09@ull.edu.es}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ \_PIPELINE\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ \_PIPELINE\_H}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{pipe__node_8h}{pipe\_node.h}}"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{processing__unit__interface_8h}{processing\_unit\_interface.h}}"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPipeline}{Pipeline}}\ \{}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ Constructor\ for\ the\ Pipeline\ class}}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classPipeline}{Pipeline}}(\mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *,\ \mbox{\hyperlink{classMemoryManager}{MemoryManager}}\ *,\ \textcolor{keywordtype}{int},}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ debug\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Destructor\ of\ the\ Pipeline}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classPipeline_a527044d53a20f851d0579fbf313a2dec}{\string~Pipeline}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Adds\ a\ new\ processing\ unit\ to\ the\ Pipeline}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeline_ab7308ae28e2ea4aa32da6811df29f152}{AddProcessingUnit}}(\mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Runs\ the\ pipe\ making\ all\ the\ threads\ wait\ for\ an\ input}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classPipeline_aaa720ffefb8eb2bc61bd8336a7fee8ce}{RunPipe}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Waits\ until\ all\ the\ threads\ finished\ processing}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeline_a134c0e23c0260a6dc74bb936f39ecda9}{WaitFinish}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00066\ \ \ \ \ std::vector<PipeNode\ *>\ execution\_list\_;\ }
+\DoxyCodeLine{00068\ \ \ \ \ std::mutex\ execution\_mtx\_;\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ node\_number\_;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ debug\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

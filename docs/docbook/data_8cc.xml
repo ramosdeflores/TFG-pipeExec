@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_data_8cc" xml:lang="en-US">
+<title>include/definitions/data.cc File Reference</title>
+<indexterm><primary>include/definitions/data.cc</primary></indexterm>
+<para>
+
+<para>The header file for the <link linkend="_classData">Data</link> class. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;../headers/data.h&quot;<?linebreak?></programlisting><section>
+<title>Detailed Description</title>
+
+<para>The header file for the <link linkend="_classData">Data</link> class. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Lucas Hernández Abreu Contact: <link xlink:href="mailto:lucas.hernandez.09@ull.edu.es">lucas.hernandez.09@ull.edu.es</link> </para>
+</formalpara>
+</para>
+</section>
+</section>

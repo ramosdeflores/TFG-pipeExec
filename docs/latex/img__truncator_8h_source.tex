@@ -1,0 +1,49 @@
+\hypertarget{img__truncator_8h_source}{}\doxysection{img\+\_\+truncator.\+h}
+\label{img__truncator_8h_source}\index{include/headers/pu/img\_truncator.h@{include/headers/pu/img\_truncator.h}}
+\mbox{\hyperlink{img__truncator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ LUCID\ (Unified\ Computing\ Image\ and\ Data-\/Processing)\ is\ a\ program\ to\ process}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ any\ type\ of\ data\ concurrently.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2023\ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ This\ program\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Author:\ \ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Contact:\ lucas.hernandez.09@ull.edu.es}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}../processing\_unit\_interface.h"{}}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classImgTruncator}{ImgTruncator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ \{}
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ ImgTruncator\ constructor}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classImgTruncator_a1fd08e5b24979a3df46b912945dc5677}{ImgTruncator}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ ImgTruncator\ destructor}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classImgTruncator_a3201d554291ec6c9f8ff49c9d7950c0d}{\string~ImgTruncator}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Doesn't\ realize\ anything}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImgTruncator_a92ca1e86351903aec9a3613223d0773f}{Start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Modified\ the\ data}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImgTruncator_a98fc21ac2ac2bbecba7529b1296d80a1}{Run}}(\textcolor{keywordtype}{void}\ *)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Deletes\ the\ extra\ allocated\ memory}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImgTruncator_ad113d2d4d7b22f39550df32b70f38bfb}{Delete}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Creates\ a\ clone\ of\ itself}}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *\mbox{\hyperlink{classImgTruncator_ac35002ce30d28375e43c6acda0577c52}{Clone}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00061\ \};}
+
+\end{DoxyCode}

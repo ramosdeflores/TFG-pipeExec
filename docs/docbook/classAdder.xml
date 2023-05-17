@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classAdder" xml:lang="en-US">
+<title>Adder Class Reference</title>
+<indexterm><primary>Adder</primary></indexterm>
+<para>
+
+<para>This class represents an adder, it gets a number and adds 1 to it. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;adder.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Adder:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classAdder.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classAdder_1a760ce3809c856a4b63b83230763099f9"/><emphasis role="strong">Adder</emphasis> ()</para>
+
+<para>Default constructor for <link linkend="_classAdder">Adder</link>. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classAdder_1aa4fbce747dc4e5ff653c3837fcc6a789"/><emphasis role="strong">~Adder</emphasis> ()</para>
+
+<para>Destructor of the <link linkend="_classAdder">Adder</link> class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classAdder_1a19888264e8dcaded1580d10c2cf5dfb0">Run</link> (void *) override</para>
+
+<para>Adds 1 to the pointer in the data pointer. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classAdder_1aa4f60d7c236f57f9250cdb42883cfcdf">Start</link> () override</para>
+
+<para>Doesn&apos;t allocate nothing. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classAdder_1a39ee5be690869d52dc2dfe412b7747c7">Delete</link> () override</para>
+
+<para>Doesn&apos;t delete nothing. </para>
+</listitem>
+            <listitem><para><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classAdder_1a9aa43eacf687ef86a330492e74ece7d5">Clone</link> () override</para>
+
+<para>Returns a new pointer to another instance of <link linkend="_classAdder">Adder</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">Start</link> ()=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">Clone</link> ()=0</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>This class represents an adder, it gets a number and adds 1 to it. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classAdder_1a9aa43eacf687ef86a330492e74ece7d5"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>Adder</secondary></indexterm>
+<indexterm><primary>Adder</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * Adder::Clone ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Returns a new pointer to another instance of <link linkend="_classAdder">Adder</link>. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classAdder_1a39ee5be690869d52dc2dfe412b7747c7"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>Adder</secondary></indexterm>
+<indexterm><primary>Adder</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>void Adder::Delete ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Doesn&apos;t delete nothing. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classAdder_1a19888264e8dcaded1580d10c2cf5dfb0"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>Adder</secondary></indexterm>
+<indexterm><primary>Adder</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>void Adder::Run (void * data)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Adds 1 to the pointer in the data pointer. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>The pointer to the data to manipulate </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classAdder_1aa4f60d7c236f57f9250cdb42883cfcdf"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>Adder</secondary></indexterm>
+<indexterm><primary>Adder</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>void Adder::Start ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Doesn&apos;t allocate nothing. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">ProcessingUnitInterface</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/pu/<link linkend="_adder_8h">adder.h</link>include/definitions/pu/adder.cc</section>
+</section>

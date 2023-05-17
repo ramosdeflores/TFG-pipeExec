@@ -1,0 +1,101 @@
+\hypertarget{pipe__node_8h_source}{}\doxysection{pipe\+\_\+node.\+h}
+\label{pipe__node_8h_source}\index{include/headers/pipe\_node.h@{include/headers/pipe\_node.h}}
+\mbox{\hyperlink{pipe__node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ LUCID\ (Unified\ Computing\ Image\ and\ Data-\/Processing)\ is\ a\ program\ to\ process}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ any\ type\ of\ data\ concurrently.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2023\ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ This\ program\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Author:\ \ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Contact:\ lucas.hernandez.09@ull.edu.es}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ \_PIPE\_NODE\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ \_PIPE\_NODE\_H}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{processing__unit__interface_8h}{processing\_unit\_interface.h}}"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPipeNode}{PipeNode}}\ \{}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Default\ constructor\ for\ PipeNode}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classPipeNode_ad24c37eb9243c1dbb0bca25a4e8cf699}{PipeNode}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ Destructor\ for\ PipeNode}}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classPipeNode_aa845c038a5a0cec0d7a76bdbdaae382a}{\string~PipeNode}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ This\ method\ signals\ the\ end\ of\ the\ node's\ work,\ and\ ensures\ that\ all}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ threads\ have\ finished\ execution\ before\ returning.}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeNode_aee893efff96790208b8ca4469e21f26d}{EndNodeWork}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Gets\ the\ input\ memory\ manager\ of\ the\ current\ node}}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classMemoryManager}{MemoryManager}}\ *\mbox{\hyperlink{classPipeNode_a5d4eee423eaefa255532aac5d68aacbc}{in\_data\_queue}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Gets\ the\ output\ memory\ manager\ of\ the\ current\ node}}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classMemoryManager}{MemoryManager}}\ *\mbox{\hyperlink{classPipeNode_ad06aef994e3f4a41cde68a29cad0e5c0}{out\_data\_queue}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ @brief\ Gets\ whether\ the\ current\ node\ is\ the\ last\ node\ in\ the\ pipeline}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classPipeNode_a703936474508a2dcc03643b8cbb9e35d}{last\_node}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Gets\ the\ processing\ unit\ of\ the\ current\ node}}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *\mbox{\hyperlink{classPipeNode_aae68211b26349c699135f30fb76540ab}{processing\_unit}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ Gets\ the\ number\ of\ instances\ of\ the\ current\ node}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classPipeNode_aa99e2f1c40b8ed2f01da35044b5779c7}{number\_of\_instances}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Gets\ the\ ID\ of\ the\ current\ node}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classPipeNode_a3a2f162f338c771444e6f0de92ab057f}{node\_id}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ Gets\ a\ vector\ of\ running\ threads\ for\ the\ current\ node}}
+\DoxyCodeLine{00077\ \ \ \ \ std::vector<std::thread\ *>\ \&\mbox{\hyperlink{classPipeNode_a37b0c6cca6f94cf29ba03b136a308f46}{running\_threads}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ Sets\ the\ input\ memory\ manager\ of\ the\ current\ node}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeNode_a5d4eee423eaefa255532aac5d68aacbc}{in\_data\_queue}}(\mbox{\hyperlink{classMemoryManager}{MemoryManager}}\ *);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Sets\ the\ output\ memory\ manager\ of\ the\ current\ node}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeNode_ad06aef994e3f4a41cde68a29cad0e5c0}{out\_data\_queue}}(\mbox{\hyperlink{classMemoryManager}{MemoryManager}}\ *);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Sets\ the\ boolean\ indicating\ if\ the\ node\ is\ the\ last\ in\ the}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ pipeline}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeNode_a703936474508a2dcc03643b8cbb9e35d}{last\_node}}(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ Sets\ the\ processing\ unit\ of\ the\ node}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeNode_aae68211b26349c699135f30fb76540ab}{processing\_unit}}(\mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ Sets\ the\ number\ of\ instances\ of\ the\ current\ node}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeNode_aa99e2f1c40b8ed2f01da35044b5779c7}{number\_of\_instances}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ Sets\ the\ ID\ of\ the\ current\ node}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeNode_a3a2f162f338c771444e6f0de92ab057f}{node\_id}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ Pushes\ the\ thread\ to\ the\ list\ of\ running\ threads}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPipeNode_a82034beec3b84609dee6c4b2c37fdd53}{PushThread}}(std::thread\ *);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ node\_id\_;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{int}\ number\_of\_instances\_;\ }
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{classMemoryManager}{MemoryManager}}\ *in\_data\_queue\_;\ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{classMemoryManager}{MemoryManager}}\ *out\_data\_queue\_;\ }
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ *processing\_unit\_;\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{bool}\ last\_node\_;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ std::vector<std::thread\ *>}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ running\_threads\_;\ }
+\DoxyCodeLine{00111\ \};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

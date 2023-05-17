@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classSemaphore" xml:lang="en-US">
+<title>Semaphore Class Reference</title>
+<indexterm><primary>Semaphore</primary></indexterm>
+<para>
+
+<para>A class that implements a semaphore. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;semaphore.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159">LUCIDSemaphoreType</link> { <link linkend="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762">kNone</link>
+, <link linkend="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159ae8ba5e3963447989950fc80893396936">kIn</link>
+, <link linkend="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159a08bbc9b01a0b03bddc8e884c8d2c63df">kOut</link>
+ }</para>
+
+<para>Enumerated type for possible semaphore types. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classSemaphore_1aa7c94f226150ae26d4a6e09bf351257e">Semaphore</link> (int=0, <link linkend="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159">LUCIDSemaphoreType</link>=<link linkend="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762">LUCIDSemaphoreType::kNone</link>, bool=false)</para>
+
+<para>Constructs a new <link linkend="_classSemaphore">Semaphore</link> object. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classSemaphore_1a633658a6fde276bffc912028725c6ade"/><emphasis role="strong">~Semaphore</emphasis> ()</para>
+
+<para>Destroys the <link linkend="_classSemaphore">Semaphore</link> object. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classSemaphore_1a72aabebf026e3a8b1f3e4d0fa8ee1eda">Wait</link> ()</para>
+
+<para>Waits for the semaphore. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classSemaphore_1a86f92f738b4486439b296d8e235895f2">Signal</link> ()</para>
+
+<para>Signals the semaphore. </para>
+</listitem>
+            <listitem><para>int <link linkend="_classSemaphore_1a3bbd0cd1b7c27fd8fad66ac6108e37fe">count</link> ()</para>
+
+<para>Returns the current count of the semaphore. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>A class that implements a semaphore. </para>
+
+
+
+<para>This class implements a semaphore, which is a synchronization mechanism used to protect shared resources or to synchronize threads. It provides two basic operations, Wait and Signal. </para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159"/><section>
+    <title>LUCIDSemaphoreType</title>
+<indexterm><primary>LUCIDSemaphoreType</primary><secondary>Semaphore</secondary></indexterm>
+<indexterm><primary>Semaphore</primary><secondary>LUCIDSemaphoreType</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159">Semaphore::LUCIDSemaphoreType</link></computeroutput></para><para>
+
+<para>Enumerated type for possible semaphore types. </para>
+</para>
+
+<para>There are three types of <link linkend="_classSemaphore">Semaphore</link>:<itemizedlist>
+<listitem>
+<para>kNone (No type)</para>
+</listitem><listitem>
+<para>kIn (IN queue <link linkend="_classSemaphore">Semaphore</link>)</para>
+</listitem><listitem>
+<para>kOut (OUT queue <link linkend="_classSemaphore">Semaphore</link>) </para>
+</listitem></itemizedlist>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>kNone</primary><secondary>Semaphore</secondary></indexterm>
+<indexterm><primary>Semaphore</primary><secondary>kNone</secondary></indexterm>
+<anchor xml:id="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762"/>kNone</entry><entry>
+<para>Standard semaphore type if not assigned. </para>
+</entry></row><row><entry><indexterm><primary>kIn</primary><secondary>Semaphore</secondary></indexterm>
+<indexterm><primary>Semaphore</primary><secondary>kIn</secondary></indexterm>
+<anchor xml:id="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159ae8ba5e3963447989950fc80893396936"/>kIn</entry><entry>
+<para><link linkend="_classSemaphore">Semaphore</link> for the IN queue inside the <link linkend="_classMemoryManager">MemoryManager</link>. </para>
+</entry></row><row><entry><indexterm><primary>kOut</primary><secondary>Semaphore</secondary></indexterm>
+<indexterm><primary>Semaphore</primary><secondary>kOut</secondary></indexterm>
+<anchor xml:id="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159a08bbc9b01a0b03bddc8e884c8d2c63df"/>kOut</entry><entry>
+<para><link linkend="_classSemaphore">Semaphore</link> for the OUT queue inside the <link linkend="_classMemoryManager">MemoryManager</link>. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classSemaphore_1aa7c94f226150ae26d4a6e09bf351257e"/><section>
+    <title>Semaphore()</title>
+<indexterm><primary>Semaphore</primary><secondary>Semaphore</secondary></indexterm>
+<indexterm><primary>Semaphore</primary><secondary>Semaphore</secondary></indexterm>
+<para><computeroutput>Semaphore::Semaphore (int count = <computeroutput>0</computeroutput>
+, <link linkend="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159">LUCIDSemaphoreType</link> type = <computeroutput><link linkend="_classSemaphore_1a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762">LUCIDSemaphoreType::kNone</link></computeroutput>
+, bool debug = <computeroutput>false</computeroutput>
+)</computeroutput></para><para>
+
+<para>Constructs a new <link linkend="_classSemaphore">Semaphore</link> object. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>count</entry><entry>
+<para>The initial count of the semaphore </para>
+</entry>
+                            </row>
+                            <row>
+<entry>type</entry><entry>
+<para>The type of semaphore we&apos;re using (in/out/none) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>debug</entry><entry>
+<para>The flag for debug information </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classSemaphore_1a3bbd0cd1b7c27fd8fad66ac6108e37fe"/><section>
+    <title>count()</title>
+<indexterm><primary>count</primary><secondary>Semaphore</secondary></indexterm>
+<indexterm><primary>Semaphore</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>int Semaphore::count ( )</computeroutput></para><para>
+
+<para>Returns the current count of the semaphore. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>int The current count of the semaphore </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classSemaphore_1a86f92f738b4486439b296d8e235895f2"/><section>
+    <title>Signal()</title>
+<indexterm><primary>Signal</primary><secondary>Semaphore</secondary></indexterm>
+<indexterm><primary>Semaphore</primary><secondary>Signal</secondary></indexterm>
+<para><computeroutput>void Semaphore::Signal ( )</computeroutput></para><para>
+
+<para>Signals the semaphore. </para>
+</para>
+
+<para>This function increments the semaphore count and wakes up one waiting thread, if there is any. </para>
+</section>
+<anchor xml:id="_classSemaphore_1a72aabebf026e3a8b1f3e4d0fa8ee1eda"/><section>
+    <title>Wait()</title>
+<indexterm><primary>Wait</primary><secondary>Semaphore</secondary></indexterm>
+<indexterm><primary>Semaphore</primary><secondary>Wait</secondary></indexterm>
+<para><computeroutput>void Semaphore::Wait ( )</computeroutput></para><para>
+
+<para>Waits for the semaphore. </para>
+</para>
+
+<para>This function blocks the calling thread until the semaphore count is greater than or equal to zero. </para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/<link linkend="_semaphore_8h">semaphore.h</link>include/definitions/<link linkend="_semaphore_8cc">semaphore.cc</link></section>
+</section>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_img__truncator_8h_source" xml:lang="en-US">
+<title>img_truncator.h</title>
+<indexterm><primary>include/headers/pu/img_truncator.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
+2 <emphasis role="comment">&#32;*&#32;LUCID&#32;(Unified&#32;Computing&#32;Image&#32;and&#32;Data-Processing)&#32;is&#32;a&#32;program&#32;to&#32;process</emphasis>
+3 <emphasis role="comment">&#32;*&#32;any&#32;type&#32;of&#32;data&#32;concurrently.</emphasis>
+4 <emphasis role="comment">&#32;*&#32;Copyright&#32;(C)&#32;2023&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
+5 <emphasis role="comment">&#32;*</emphasis>
+6 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;free&#32;software:&#32;you&#32;can&#32;redistribute&#32;it&#32;and/or&#32;modify</emphasis>
+7 <emphasis role="comment">&#32;*&#32;it&#32;under&#32;the&#32;terms&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;as&#32;published&#32;by</emphasis>
+8 <emphasis role="comment">&#32;*&#32;the&#32;Free&#32;Software&#32;Foundation,&#32;either&#32;version&#32;3&#32;of&#32;the&#32;License,&#32;or</emphasis>
+9 <emphasis role="comment">&#32;*&#32;(at&#32;your&#32;option)&#32;any&#32;later&#32;version.</emphasis>
+10 <emphasis role="comment">&#32;*</emphasis>
+11 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;distributed&#32;in&#32;the&#32;hope&#32;that&#32;it&#32;will&#32;be&#32;useful,</emphasis>
+12 <emphasis role="comment">&#32;*&#32;but&#32;WITHOUT&#32;ANY&#32;WARRANTY;&#32;without&#32;even&#32;the&#32;implied&#32;warranty&#32;of</emphasis>
+13 <emphasis role="comment">&#32;*&#32;MERCHANTABILITY&#32;or&#32;FITNESS&#32;FOR&#32;A&#32;PARTICULAR&#32;PURPOSE.&#32;&#32;See&#32;the</emphasis>
+14 <emphasis role="comment">&#32;*&#32;GNU&#32;General&#32;Public&#32;License&#32;for&#32;more&#32;details.</emphasis>
+15 <emphasis role="comment">&#32;*</emphasis>
+16 <emphasis role="comment">&#32;*&#32;You&#32;should&#32;have&#32;received&#32;a&#32;copy&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License</emphasis>
+17 <emphasis role="comment">&#32;*&#32;along&#32;with&#32;this&#32;program.&#32;&#32;If&#32;not,&#32;see&#32;&lt;https://www.gnu.org/licenses/&gt;.</emphasis>
+18 <emphasis role="comment">&#32;*</emphasis>
+19 <emphasis role="comment">&#32;*&#32;Author:&#32;&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
+20 <emphasis role="comment">&#32;*&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
+21 <emphasis role="comment">&#32;*/</emphasis>
+29 <emphasis role="preprocessor">#include&#32;&quot;../processing_unit_interface.h&quot;</emphasis>
+30 
+42 <emphasis role="keyword">class&#32;</emphasis><link linkend="_classImgTruncator">ImgTruncator</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;{
+43 &#32;&#32;<emphasis role="keyword">public</emphasis>:
+44 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;ImgTruncator&#32;constructor</emphasis>
+45 &#32;&#32;&#32;&#32;<link linkend="_classImgTruncator_1a1fd08e5b24979a3df46b912945dc5677">ImgTruncator</link>();
+46 
+47 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;ImgTruncator&#32;destructor</emphasis>
+48 &#32;&#32;&#32;&#32;<link linkend="_classImgTruncator_1a3201d554291ec6c9f8ff49c9d7950c0d">~ImgTruncator</link>();
+49 
+50 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Doesn&apos;t&#32;realize&#32;anything</emphasis>
+51 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classImgTruncator_1a92ca1e86351903aec9a3613223d0773f">Start</link>()&#32;<emphasis role="keyword">override</emphasis>;
+52 
+53 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Modified&#32;the&#32;data</emphasis>
+54 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classImgTruncator_1a98fc21ac2ac2bbecba7529b1296d80a1">Run</link>(<emphasis role="keywordtype">void</emphasis>&#32;*)&#32;<emphasis role="keyword">override</emphasis>;
+55 
+56 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Deletes&#32;the&#32;extra&#32;allocated&#32;memory</emphasis>
+57 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classImgTruncator_1ad113d2d4d7b22f39550df32b70f38bfb">Delete</link>()&#32;<emphasis role="keyword">override</emphasis>;
+58 
+59 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Creates&#32;a&#32;clone&#32;of&#32;itself</emphasis>
+60 &#32;&#32;&#32;&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*<link linkend="_classImgTruncator_1ac35002ce30d28375e43c6acda0577c52">Clone</link>()&#32;<emphasis role="keyword">override</emphasis>;
+61 };
+</programlisting></section>

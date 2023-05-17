@@ -1,0 +1,175 @@
+\hypertarget{classEdgeDetector}{}\doxysection{Edge\+Detector Class Reference}
+\label{classEdgeDetector}\index{EdgeDetector@{EdgeDetector}}
+
+
+This processing unit detects the borders inside the img and sends them as a new image through the pipe.  
+
+
+
+
+{\ttfamily \#include $<$edge\+\_\+detector.\+h$>$}
+
+Inheritance diagram for Edge\+Detector\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEdgeDetector}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEdgeDetector_a648088ce3e3f307c1fdbe9b917fe3ee6}\label{classEdgeDetector_a648088ce3e3f307c1fdbe9b917fe3ee6}} 
+{\bfseries Edge\+Detector} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classEdgeDetector}{Edge\+Detector}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEdgeDetector_a84d1668be5dd4052278a2cf86802746e}\label{classEdgeDetector_a84d1668be5dd4052278a2cf86802746e}} 
+{\bfseries $\sim$\+Edge\+Detector} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the \mbox{\hyperlink{classEdgeDetector}{Edge\+Detector}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEdgeDetector_a3964e535b4428f0cb722fef96c57038d}{Start}} () override
+\begin{DoxyCompactList}\small\item\em This method allocates memory for the sobel filter and assigns the values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEdgeDetector_a4b4cdcb26d58152eff812ea837fedb2b}{Run}} (void $\ast$) override
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classData}{Data}} and applies the needed methods to detect borders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEdgeDetector_a2ef8d6908a6930e1e26a1554a258b105}{Delete}} () override
+\begin{DoxyCompactList}\small\item\em Frees the memory of the sobel filters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ \mbox{\hyperlink{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd}{Clone}} () override
+\begin{DoxyCompactList}\small\item\em Clones the processing unit. \end{DoxyCompactList}\item 
+int $\ast$$\ast$ \mbox{\hyperlink{classEdgeDetector_a7837d8669034b8bf5b575a6d8b68a779}{Convolution}} (int $\ast$$\ast$, int $\ast$$\ast$, int, int)
+\begin{DoxyCompactList}\small\item\em Applies the convolution of the specified kernel to the image taking into consideration its width and height. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEdgeDetector_a9be148339689de7543a5e873a0bd4440}{Magnitude}} (pixel\+\_\+value $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int, int, int)
+\begin{DoxyCompactList}\small\item\em Calculates the magnitude between the kernels and puts the data inside the result param in pixel\+\_\+value(s) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}{Start}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to allocate memory for the variables that need it and initialize some of them. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}} (void $\ast$data)=0
+\begin{DoxyCompactList}\small\item\em Use this function to process the data. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Delete}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to free all the memory allocated in the Start method. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ \mbox{\hyperlink{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}{Clone}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns new pointer to a processing unit class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This processing unit detects the borders inside the img and sends them as a new image through the pipe. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd}\label{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd}} 
+\index{EdgeDetector@{EdgeDetector}!Clone@{Clone}}
+\index{Clone@{Clone}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ Edge\+Detector\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Clones the processing unit. 
+
+\begin{DoxyReturn}{Returns}
+A new pointer to the \mbox{\hyperlink{classEdgeDetector}{Edge\+Detector}} class clone 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}{Processing\+Unit\+Interface}}.
+
+\mbox{\Hypertarget{classEdgeDetector_a7837d8669034b8bf5b575a6d8b68a779}\label{classEdgeDetector_a7837d8669034b8bf5b575a6d8b68a779}} 
+\index{EdgeDetector@{EdgeDetector}!Convolution@{Convolution}}
+\index{Convolution@{Convolution}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Convolution()}{Convolution()}}
+{\footnotesize\ttfamily int $\ast$$\ast$ Edge\+Detector\+::\+Convolution (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{kernel,  }\item[{int $\ast$$\ast$}]{img,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Applies the convolution of the specified kernel to the image taking into consideration its width and height. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kernel} & A pointer to the matrix with the kernel values (it has to be 3x3) \\
+\hline
+{\em img} & A pointer to the matrix with the values of the img \\
+\hline
+{\em width} & The width of the image \\
+\hline
+{\em height} & The height of the image\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the convolution between the kernel and the img 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEdgeDetector_a2ef8d6908a6930e1e26a1554a258b105}\label{classEdgeDetector_a2ef8d6908a6930e1e26a1554a258b105}} 
+\index{EdgeDetector@{EdgeDetector}!Delete@{Delete}}
+\index{Delete@{Delete}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void Edge\+Detector\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Frees the memory of the sobel filters. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Processing\+Unit\+Interface}}.
+
+\mbox{\Hypertarget{classEdgeDetector_a9be148339689de7543a5e873a0bd4440}\label{classEdgeDetector_a9be148339689de7543a5e873a0bd4440}} 
+\index{EdgeDetector@{EdgeDetector}!Magnitude@{Magnitude}}
+\index{Magnitude@{Magnitude}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Magnitude()}{Magnitude()}}
+{\footnotesize\ttfamily void Edge\+Detector\+::\+Magnitude (\begin{DoxyParamCaption}\item[{pixel\+\_\+value $\ast$$\ast$}]{result,  }\item[{int $\ast$$\ast$}]{gx,  }\item[{int $\ast$$\ast$}]{gy,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{max\+\_\+rand }\end{DoxyParamCaption})}
+
+
+
+Calculates the magnitude between the kernels and puts the data inside the result param in pixel\+\_\+value(s) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The pointer to the matrix where we\textquotesingle{}ll write \\
+\hline
+{\em gx} & The result of the convolution by x \\
+\hline
+{\em gy} & The result of the convolution by y \\
+\hline
+{\em width} & The width of the final img \\
+\hline
+{\em height} & The height of the final img \\
+\hline
+{\em max\+\_\+rand} & The number that we used in the mod operator to limit the rand() result \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEdgeDetector_a4b4cdcb26d58152eff812ea837fedb2b}\label{classEdgeDetector_a4b4cdcb26d58152eff812ea837fedb2b}} 
+\index{EdgeDetector@{EdgeDetector}!Run@{Run}}
+\index{Run@{Run}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Edge\+Detector\+::\+Run (\begin{DoxyParamCaption}\item[{void $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the \mbox{\hyperlink{classData}{Data}} and applies the needed methods to detect borders. 
+
+Extracts all the information from the \mbox{\hyperlink{classData}{Data}} object. Once done with it, applies a convolution in X and Y to the image. Then calculates the Magnitude of the results and pushes it to the Extra\+Data inside the data pointer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data extracted from the in\+\_\+queue \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Processing\+Unit\+Interface}}.
+
+\mbox{\Hypertarget{classEdgeDetector_a3964e535b4428f0cb722fef96c57038d}\label{classEdgeDetector_a3964e535b4428f0cb722fef96c57038d}} 
+\index{EdgeDetector@{EdgeDetector}!Start@{Start}}
+\index{Start@{Start}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Edge\+Detector\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This method allocates memory for the sobel filter and assigns the values. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}{Processing\+Unit\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/pu/\mbox{\hyperlink{edge__detector_8h}{edge\+\_\+detector.\+h}}\item 
+include/definitions/pu/\mbox{\hyperlink{edge__detector_8cc}{edge\+\_\+detector.\+cc}}\end{DoxyCompactItemize}
