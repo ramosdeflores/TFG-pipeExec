@@ -1,4 +1,4 @@
-![LUCID](./img_readme/Logo.svg)
+![LUCID](./img_readme/Logo.png)
 
 # (Unified Computer Image and Data-Processing)
 
