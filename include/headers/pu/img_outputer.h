@@ -21,7 +21,7 @@
  */
 
 /**
- * @file ImgOutputer.h
+ * @file img_outputer.h
  *
  * @brief The header file for the ImgOutputer processing unit.
  *

@@ -24,8 +24,8 @@
 #include "../include/headers/pu/edge_detector.h"
 #include "../include/headers/pu/img_outputer.h"
 #include "../include/headers/pu/img_truncator.h"
+#include "../include/headers/pu/indexer.h"
 #include "../include/headers/pu/number_printer.h"
-
 /**
  * @brief Helper showed when used the --help flag or had a bad argument input
  */
@@ -78,6 +78,7 @@ protected_main(int argc, char **argv) {
     ImgTruncator img_data_discrimination;
     EdgeDetector edge_detection;
     ImgOutputer img_output;
+    Indexer indexer;
 
     MemoryManager *data_in = new MemoryManager(number_of_images, debug_flag);
     for (int it = 0; it < number_of_images; ++it) {
@@ -111,8 +112,8 @@ protected_main(int argc, char **argv) {
         data_in->LoadMemoryManager(some_data);
     }
 
-    Pipeline *pipe = new Pipeline(&img_data_discrimination, data_in,
-                                  number_of_threads, debug_flag);
+    Pipeline *pipe = new Pipeline(&indexer, data_in, 1, debug_flag);
+    pipe->AddProcessingUnit(&img_data_discrimination, number_of_threads);
     pipe->AddProcessingUnit(&edge_detection, number_of_threads);
     pipe->AddProcessingUnit(&img_output, number_of_threads);
     pipe->RunPipe();

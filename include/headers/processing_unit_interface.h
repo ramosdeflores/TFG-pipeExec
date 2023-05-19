@@ -64,10 +64,11 @@ class ProcessingUnitInterface {
 
     /**
      * @brief Returns new pointer to a processing unit class. Use {return new
-     * [class-name]}
-     * @return Pointer to the new derived class
+     * [class-name]} || Use nullptr to disallow clonning
+     * @return Pointer to the new derived class || nullptr to disallow
+     * cloning
      */
-    virtual ProcessingUnitInterface *Clone() = 0;
+    virtual ProcessingUnitInterface *Clone() { return nullptr; };
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "../headers/pipeline.h"
+#include <cstdio>
 #include <string>
 
 //                              |  ...  |
@@ -101,6 +102,13 @@ RunNode(PipeNode *node, int id, std::mutex &mtx, bool debug = false) {
         processing_unit = node->processing_unit();
         if (id != 0) {
             processing_unit = node->processing_unit()->Clone();
+        }
+        if (processing_unit == nullptr) {
+            fprintf(stderr,
+                    "%s(NODE %d)(THREAD %d):%s Cannot clone the processing "
+                    "unit: GOING TO SET AS THE DEFAULT GIVEN BY THE NODE\n",
+                    LUCID_RED, node->node_id(), id, LUCID_NORMAL);
+            processing_unit = node->processing_unit();
         }
         mtx.unlock();
         processing_unit->Start();

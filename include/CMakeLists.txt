@@ -10,6 +10,7 @@ add_library(include SHARED
     headers/pu/img_truncator.h
     headers/pu/edge_detector.h
     headers/pu/img_outputer.h
+    headers/pu/indexer.h
     definitions/semaphore.cc
     definitions/memory_manager.cc
     definitions/data.cc
@@ -20,6 +21,7 @@ add_library(include SHARED
     definitions/pu/img_truncator.cc
     definitions/pu/edge_detector.cc
     definitions/pu/img_outputer.cc
+    definitions/pu/indexer.cc
     )
 
 target_include_directories(include PUBLIC 
