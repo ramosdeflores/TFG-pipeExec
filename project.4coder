@@ -1,0 +1,71 @@
+version(1);
+
+project_name = "LUCID";
+
+patterns =
+{
+    "*.h",
+    "*.cc",
+    "*.sh",
+    "*.4coder",
+};
+
+blacklist_patterns =
+{
+    ".*",
+};
+
+load_paths =
+{
+    {
+        { 
+            {"./src", .recursive = true, .relative = true},
+            {"./include", .recursive = true, .relative = true},
+            {"./input_images", .recursive = true, .relative = true},
+            {"./tests", .recursive = true, .relative = true},
+            {"./project.4coder", .recursive = false, .relative = true}
+        },
+        .os = "linux"
+    },
+};
+
+command_list =
+{
+    {
+        .name = "build",
+        .out = "*compilation*",
+        .footer_panel = true,
+        .save_dirty_files = true,
+        .cursor_at_end = false,
+        .cmd =
+        {
+            { "cd build && make", .os = "linux" },
+        },
+    },
+    
+    {
+        .name = "run",
+        .out = "*running*",
+        .footer_panel = true,
+        .save_dirty_files = true,
+        .cursor_at_end = false,
+        .cmd =
+        {
+            { "./bin/lucid", .os = "linux" },
+        },
+    },
+    
+    {
+        .name = "clean",
+        .out = "*cleanning*",
+        .footer_panel = true,
+        .save_dirty_files = true,
+        .cursor_at_end = false,
+        .cmd =
+        {
+            { "cd build && make clean", .os = "linux" },
+        },
+    },
+    
+};
+

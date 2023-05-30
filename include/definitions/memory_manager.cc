@@ -44,20 +44,20 @@
  * @throw MemoryManagerError::kBadSizing If the maximum size is less than 1
  */
 MemoryManager::MemoryManager(int mx_size, bool debug)
-    : max_size_(mx_size), debug_(debug) {
+: max_size_(mx_size), debug_(debug) {
     if (mx_size < 1) {
         throw MemoryManagerError::kBadSizing;
         return;
     }
     in_queue_ = (void **)malloc(max_size_ * sizeof(void *));
     out_queue_ = (void **)malloc(max_size_ * sizeof(void *));
-
+    
     for (int it = 0; it < max_size_; ++it) {
         in_queue_[it] = nullptr;
     }
     rear_in_iterator_ = -1;
     rear_out_iterator_ = -1;
-
+    
     front_in_iterator_ = 0;
     front_out_iterator_ = 0;
     in_semaphore_ =
@@ -91,23 +91,23 @@ MemoryManager::~MemoryManager() {
 bool
 MemoryManager::PushIntoIn(void *data) {
     push_in_mtx_.lock();
-
+    
     if (debug_) {
         printf("    %s(MemoryManager)%s Pushing into IN queue\n", LUCID_YELLOW,
                LUCID_NORMAL);
     }
-
+    
     rear_in_iterator_ += 1;
     in_queue_[rear_in_iterator_] = data;
-
+    
     if (rear_in_iterator_ == max_size_ - 1) {
         rear_in_iterator_ = -1;
     }
-
+    
     in_queue_count_ += 1;
     push_in_mtx_.unlock();
     in_semaphore_->Signal();
-
+    
     return !(in_queue_count_ == max_size_);
 }
 
@@ -127,14 +127,14 @@ MemoryManager::PushIntoOut(void *data) {
     }
     rear_out_iterator_ += 1;
     out_queue_[rear_out_iterator_] = data;
-
+    
     if (rear_out_iterator_ == max_size_ - 1) {
         rear_out_iterator_ = -1;
     }
     out_queue_count_ += 1;
     push_out_mtx_.unlock();
     out_semaphore_->Signal();
-
+    
     return !(out_queue_count_ == max_size_);
 }
 
@@ -150,26 +150,26 @@ void *
 MemoryManager::PopFromIn() {
     pop_in_mtx_.lock();
     in_semaphore_->Wait();
-
+    
     void *memory_buffer = nullptr;
-
+    
     if (debug_) {
         printf("    %s(MemoryManager)%s Popping from IN Queue\n", LUCID_YELLOW,
                LUCID_NORMAL);
     }
-
+    
     in_queue_count_ -= 1;
     memory_buffer = in_queue_[front_in_iterator_];
     in_queue_[front_in_iterator_] = nullptr;
-
+    
     front_in_iterator_ = (front_in_iterator_ + 1) % max_size_;
     pop_in_mtx_.unlock();
-
+    
     if (memory_buffer == nullptr) {
         throw MemoryManagerError::kNullPtr;
         return nullptr;
     }
-
+    
     return memory_buffer;
 }
 
@@ -185,21 +185,25 @@ void *
 MemoryManager::PopFromOut() {
     pop_out_mtx_.lock();
     out_semaphore_->Wait();
-
+    
     void *memory_buffer = nullptr;
-
+    
     if (debug_) {
         printf("    %s(MemoryManager)%s Popping from OUT Queue\n", LUCID_YELLOW,
                LUCID_NORMAL);
     }
-
+    
     out_queue_count_ -= 1;
     memory_buffer = out_queue_[front_out_iterator_];
     out_queue_[front_out_iterator_] = nullptr;
-
+    
     front_out_iterator_ = (front_out_iterator_ + 1) % max_size_;
     pop_out_mtx_.unlock();
-
+    
+    if (memory_buffer == nullptr) {
+        throw MemoryManagerError::kNullPtr;
+        return nullptr;
+    }
     return memory_buffer;
 }
 

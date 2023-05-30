@@ -7,9 +7,9 @@ if (POLICY CMP0135)
     set(CMAKE_POLICY_DEFAULT_CMP0135 NEW)
 endif()
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 
 
 include(FetchContent)
@@ -25,7 +25,7 @@ add_subdirectory(include)
 
 add_executable(lucid src/main.cc)
 
-target_link_libraries(lucid include)
+target_link_libraries(lucid libraries)
 
 
 # TESTING
@@ -39,7 +39,7 @@ add_executable(all_tests
 
 target_link_libraries(all_tests
     GTest::gtest_main
-    include)
+    libraries)
 
 include(GoogleTest)
 gtest_discover_tests(all_tests)

@@ -20,39 +20,35 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 
-#ifndef _LIBRARIES_H
-#define _LIBRARIES_H
 
-#define LUCID_NORMAL "\x1B[0m"
-#define LUCID_RED "\x1B[31m"
-#define LUCID_GREEN "\x1B[32m"
-#define LUCID_YELLOW "\x1B[33m"
-#define LUCID_BLUE "\x1B[34m"
-#define LUCID_MAGENTA "\x1B[35m"
-#define LUCID_CYAN "\x1B[36m"
-#define LUCID_WHITE "\x1B[37m"
-
-#include <atomic>
-#include <chrono>
-#include <condition_variable>
-#include <cstdint>
-#include <cstdlib>
-#include <fstream>
-#include <iostream>
-#include <malloc.h>
-#include <math.h>
-#include <mutex>
-#include <string>
-#include <thread>
-#include <vector>
-
-// Value of colors in a PGM/PBM img
-typedef unsigned int pixel_value;
-
-typedef int8_t i8;
-typedef int16_t i16;
-typedef int32_t i32;
-typedef int64_t i64;
+/**
+ * @file simple_indexer.h
+ *
+ * @brief The header file for the SimpleIndexer processing unit.
+ *
+ * @author Lucas Hernández Abreu
+ * Contact: lucas.hernandez.09@ull.edu.es
+ */
 
 
-#endif
+#ifndef SIMPLE_INDEXER_H
+#define SIMPLE_INDEXER_H
+
+#include "../processing_unit_interface.h"
+
+class SimpleIndexer : public ProcessingUnitInterface {
+    public:
+    SimpleIndexer();
+    ~SimpleIndexer();
+    
+    void Start() override;
+    void Run(void *) override;
+    void Delete() override;
+    ProcessingUnitInterface *Clone() override;
+    
+    private:
+    i32 counter_;
+};
+
+
+#endif //SIMPLE_INDEXER_H

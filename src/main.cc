@@ -26,6 +26,7 @@
 #include "../include/headers/pu/img_truncator.h"
 #include "../include/headers/pu/indexer.h"
 #include "../include/headers/pu/number_printer.h"
+
 /**
  * @brief Helper showed when used the --help flag or had a bad argument input
  */
@@ -36,50 +37,31 @@ Help() {
         "\tCopyright (C) 2023  Lucas Hernández Abreu\n"
         "\tThis program comes with ABSOLUTELY NO WARRANTY\n"
         "\nExecute inside bin with:\n"
-        "    ./lucid <arg>\n"
+        "    ./lucid run <arg>\n"
         "Valid args:\n"
         "\tDebug -> [debug]|[-d]|[--debug]: Shows the debug "
         "information:\n"
         "\t    (operations in MemoryManager, semaphore statuses...)\n"
+        "\tDebug Processing Units -> [pudebug][--pd][--pu-debug]: shows the "
+        "debug for the processing units\n"
+        "\t    (operations inside the processing units)\n"
         "\tHelp -> [help]|[-h]|[--help]: Shows this message\n";
     return usage_str;
 }
 
-int
-protected_main(int argc, char **argv) {
-    std::string arguments = "";
-    bool debug_flag = false;
-    bool pu_debug_flag = false;
-    if (argc > 1) {
-        arguments = std::string(argv[1]);
-        if (arguments == "debug" || arguments == "-d" ||
-            arguments == "--debug") {
-            debug_flag = true;
-            pu_debug_flag = true;
-        } else if (arguments == "pudebug" || arguments == "-pd" ||
-                   arguments == "--pu-debug" || arguments == "--pd") {
-            pu_debug_flag = true;
-        } else if (arguments == "help" || arguments == "-h" ||
-                   arguments == "--help") {
-            printf("%s", Help().c_str());
-            return 0;
-        } else {
-            printf("%s", Help().c_str());
-            return 0;
-        }
-    }
 
+int RunMain(bool debug_flag, bool pu_debug_flag) {
     int height = 512;
     int width = 512;
     int max_num = 0;
     int number_of_images = 1;
     int number_of_threads = 12;
-
+    
     ImgTruncator img_data_discrimination;
     EdgeDetector edge_detection;
     ImgOutputer img_output;
     Indexer indexer;
-
+    
     MemoryManager *data_in = new MemoryManager(number_of_images, debug_flag);
     for (int it = 0; it < number_of_images; ++it) {
         std::ifstream file("../../input_images/heightmap" + std::to_string(it) +
@@ -89,35 +71,34 @@ protected_main(int argc, char **argv) {
         while (getline(file, mat_input, ',')) {
             input_img_values.emplace_back(std::stoi(mat_input));
         }
-
+        
         int **img = (int **)malloc(height * sizeof(int *));
         for (int i = 0; i < height; ++i) {
             img[i] = (int *)malloc(width * sizeof(int));
         }
-
+        
         for (int h_it = 0; h_it < height; h_it++) {
             for (int w_it = 0; w_it < width; ++w_it) {
                 int value = input_img_values[w_it + (h_it * width)];
                 img[h_it][w_it] = value;
             }
         }
-
+        
         Data *some_data = new Data(img);
         some_data->PushExtraData(new Data::DataKey{"width", new int(height)});
         some_data->PushExtraData(new Data::DataKey{"height", new int(width)});
         some_data->PushExtraData(new Data::DataKey({"debug", &pu_debug_flag}));
         some_data->PushExtraData(new Data::DataKey{"id", new int(it)});
         some_data->PushExtraData(
-            new Data::DataKey{"max_rand", new int(max_num)});
+                                 new Data::DataKey{"max_rand", new int(max_num)});
         data_in->LoadMemoryManager(some_data);
     }
-
+    
     Pipeline *pipe = new Pipeline(&indexer, data_in, 1, debug_flag);
     pipe->AddProcessingUnit(&img_data_discrimination, number_of_threads);
     pipe->AddProcessingUnit(&edge_detection, number_of_threads);
     pipe->AddProcessingUnit(&img_output, number_of_threads);
     pipe->RunPipe();
-
     auto t1 = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < number_of_images; ++i) {
         if (debug_flag) {
@@ -131,18 +112,54 @@ protected_main(int argc, char **argv) {
     }
     pipe->WaitFinish();
     auto t2 = std::chrono::high_resolution_clock::now();
-
+    
     printf("Time Elapsed running the pipe: %f",
            std::chrono::duration<double>(t2 - t1).count());
-
     return 0;
+    
+}
+
+int
+protected_main(int argc, char **argv) {
+    
+    std::string arguments = "";
+    std::string arguments2 = "";
+    bool debug_flag = false;
+    bool pu_debug_flag = false;
+    if (argc != 1) {
+        arguments = std::string(argv[1]);
+        if (argc > 2) {
+            arguments2 = argv[2];
+            if(arguments == "run" &&
+               (arguments2 == "debug" ||
+                arguments2 == "-d" ||
+                arguments2 == "--debug")) {
+                debug_flag = true;
+                pu_debug_flag = true;
+            } else if (arguments == "run" &&
+                       (arguments2 == "pudebug" ||
+                        arguments2 == "-pd" ||
+                        arguments2 == "--pu-debug" ||
+                        arguments2 == "--pd")) {
+                pu_debug_flag = true;
+            }
+        } else {
+            printf("%s", Help().c_str());
+            return 0;
+        }
+    } else {
+        printf("%s", Help().c_str());
+        return 0;
+    }
+    return RunMain(debug_flag, pu_debug_flag);
+    
 }
 
 int
 main(int argc, char **argv) {
     try {
         protected_main(argc, argv);
-
+        
     } catch (MemoryManager::MemoryManagerError e) {
         switch (e) {
             case MemoryManager::MemoryManagerError::kBadSizing: {
@@ -161,4 +178,7 @@ main(int argc, char **argv) {
     }
 }
 
+
+
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */
+

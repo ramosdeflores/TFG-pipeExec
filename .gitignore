@@ -1,5 +1,7 @@
 #Build
 build/*
+lib/*
+bin/*
 # Prerequisites
 *.d
 

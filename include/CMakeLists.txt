@@ -1,4 +1,4 @@
-add_library(include SHARED
+add_library(libraries SHARED
     headers/semaphore.h
     headers/memory_manager.h
     headers/data.h
@@ -11,6 +11,7 @@ add_library(include SHARED
     headers/pu/edge_detector.h
     headers/pu/img_outputer.h
     headers/pu/indexer.h
+	headers/pu/simple_indexer.h
     definitions/semaphore.cc
     definitions/memory_manager.cc
     definitions/data.cc
@@ -22,8 +23,9 @@ add_library(include SHARED
     definitions/pu/edge_detector.cc
     definitions/pu/img_outputer.cc
     definitions/pu/indexer.cc
+	definitions/pu/simple_indexer.cc
     )
 
-target_include_directories(include PUBLIC 
+target_include_directories(libraries PUBLIC 
     ${CMAKE_CURRENT_LIST_DIR}/headers
     ${CMAKE_CURRENT_LIST_DIR}/definitions)
