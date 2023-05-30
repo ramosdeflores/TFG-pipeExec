@@ -29,8 +29,8 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 
-#ifndef _ADDER_H
-#define _ADDER_H
+#ifndef ADDER_H
+#define ADDER_H
 
 #include "../processing_unit_interface.h"
 
@@ -40,22 +40,22 @@
  * @brief This class represents an adder, it gets a number and adds 1 to it
  */
 class Adder : public ProcessingUnitInterface {
-  public:
+    public:
     // Default constructor
     Adder();
-
+    
     // Destructor
     ~Adder();
-
+    
     // Adds one to the integer pointer by the data pointer
     void Run(void *) override;
-
+    
     // Doesn't allocate nothing
     void Start() override;
-
+    
     // Doesn't Doesn't delete nothing
     void Delete() override;
-
+    
     // Returns a clone of Adder
     ProcessingUnitInterface *Clone() override;
 };

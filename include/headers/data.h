@@ -29,8 +29,8 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 
-#ifndef _DATA_H
-#define _DATA_H
+#ifndef DATA_H
+#define DATA_H
 
 #include "memory_manager.h"
 
@@ -45,7 +45,7 @@
  * creation of the class.
  */
 class Data {
-  public:
+    public:
     /**
      * @brief This structure works like a std::pair but its member names are
      * meaningful and are used to store data paired to a particular key.
@@ -54,23 +54,23 @@ class Data {
         std::string key; /**< The key used to find the data associated */
         void *data;      /**< The extra data stored*/
     };
-
+    
     // The data constructor
     Data(void *, bool = false);
-
+    
     // The data destructor
     ~Data();
-
+    
     // Pushes the struct {key, data} to the extra data allocator
     void PushExtraData(DataKey *);
-
+    
     // Gets the pointer to the extra data so you can manipulate it
     void *GetExtraData(std::string);
-
+    
     // Gets the initial data stored in the class
     void *data();
-
-  private:
+    
+    private:
     void *data_;
     unsigned int index_;
     std::vector<DataKey *> extra_data_;

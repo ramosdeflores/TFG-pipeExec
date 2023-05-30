@@ -28,8 +28,8 @@
  * @author Lucas Hernández Abreu
  * Contact: lucas.hernandez.09@ull.edu.es
  */
-#ifndef _PIPELINE_H
-#define _PIPELINE_H
+#ifndef PIPELINE_H
+#define PIPELINE_H
 
 #include "pipe_node.h"
 #include "processing_unit_interface.h"
@@ -45,24 +45,24 @@
  * up the proccess.
  */
 class Pipeline {
-  public:
+    public:
     // Constructor for the Pipeline class
     Pipeline(ProcessingUnitInterface *, MemoryManager *, int,
              bool debug = false);
-
+    
     // Destructor of the Pipeline
     ~Pipeline();
-
+    
     // Adds a new processing unit to the Pipeline
     void AddProcessingUnit(ProcessingUnitInterface *, int);
-
+    
     // Runs the pipe making all the threads wait for an input
     int RunPipe();
-
+    
     // Waits until all the threads finished processing
     void WaitFinish();
-
-  private:
+    
+    private:
     std::vector<PipeNode *> execution_list_; /**< The list of nodes that need to
                                                 be executed in order */
     std::mutex execution_mtx_; /**< The mutex to safely run the nodes */

@@ -30,8 +30,8 @@
  * @author Lucas Hernández Abreu
  * Contact: lucas.hernandez.09@ull.edu.es
  */
-#ifndef _SEMAPHORE_H
-#define _SEMAPHORE_H
+#ifndef SEMAPHORE_H
+#define SEMAPHORE_H
 
 #include "libraries.h"
 
@@ -44,8 +44,8 @@
  * operations, Wait and Signal.
  */
 class Semaphore {
-
-  public:
+    
+    public:
     /**
      * @enum LUCIDSemaphoreType
      * @brief Enumerated type for possible semaphore types
@@ -60,26 +60,26 @@ class Semaphore {
         kIn,   /**< Semaphore for the IN queue inside the MemoryManager */
         kOut,  /**< Semaphore for the OUT queue inside the MemoryManager */
     };
-
+    
     // Constructs a new Semaphore object
     Semaphore(int = 0, LUCIDSemaphoreType = LUCIDSemaphoreType::kNone,
               bool = false);
-
+    
     // Destroys the Semaphore object
     ~Semaphore();
-
+    
     // This function blocks the calling thread until the semaphore count is
     // greater than zero.
     void Wait();
-
+    
     // This function increments the semaphore count and wakes up one waiting
     // thread, if there is any.
     void Signal();
-
+    
     // Returns the current count of the semaphore
     int count();
-
-  private:
+    
+    private:
     std::atomic<int> count_;     /**< The count of the semaphore */
     std::mutex mtx_;             /**< The mutex used to protect the semaphore */
     std::condition_variable cv_; /**< The condition variable used for waiting */

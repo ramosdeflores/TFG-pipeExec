@@ -29,8 +29,8 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 
-#ifndef _NUMBERPRINTER_H
-#define _NUMBERPRINTER_H
+#ifndef NUMBERPRINTER_H
+#define NUMBERPRINTER_H
 
 #include "../processing_unit_interface.h"
 
@@ -40,16 +40,16 @@
  * @brief This class outputs the number inside the data to the standard output
  */
 class NumberPrinter : public ProcessingUnitInterface {
-  public:
+    public:
     // Doesn't allocate anything
     void Start();
-
+    
     // Prints the number to the standard output
     void Run(void *);
-
+    
     // Doesn't deallocate anything
     void Delete();
-
+    
     // Returns a pointer to a clone of NumberPrinter
     ProcessingUnitInterface *Clone();
 };

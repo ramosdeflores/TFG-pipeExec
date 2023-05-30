@@ -29,8 +29,8 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 
-#ifndef _PROCESSING_UNIT_INTERFACE_H
-#define _PROCESSING_UNIT_INTERFACE_H
+#ifndef PROCESSING_UNIT_INTERFACE_H
+#define PROCESSING_UNIT_INTERFACE_H
 
 #include "data.h"
 /**
@@ -40,13 +40,13 @@
  * create
  */
 class ProcessingUnitInterface {
-  public:
+    public:
     /**
      * @brief Use this function to allocate memory for the variables that need
      * it and initialize some of them
      */
     virtual void Start() = 0;
-
+    
     /**
      * @brief Use this function to process the data. It's recommended to recast
      * the void* into a Data* to use all its methods. (ONLY IF THE DATA IS A
@@ -55,13 +55,13 @@ class ProcessingUnitInterface {
      * @param data The data to manipulate
      */
     virtual void Run(void *data) = 0;
-
+    
     /**
      * @brief Use this function to free all the memory allocated in the Start
      * method
      */
     virtual void Delete() = 0;
-
+    
     /**
      * @brief Returns new pointer to a processing unit class. Use {return new
      * [class-name]} || Use nullptr to disallow clonning

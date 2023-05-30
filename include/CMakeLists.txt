@@ -12,6 +12,7 @@ add_library(libraries SHARED
     headers/pu/img_outputer.h
     headers/pu/indexer.h
 	headers/pu/simple_indexer.h
+    headers/pu/sleeper.h
     definitions/semaphore.cc
     definitions/memory_manager.cc
     definitions/data.cc
@@ -24,6 +25,7 @@ add_library(libraries SHARED
     definitions/pu/img_outputer.cc
     definitions/pu/indexer.cc
 	definitions/pu/simple_indexer.cc
+    definitions/pu/sleeper.cc
     )
 
 target_include_directories(libraries PUBLIC 

@@ -20,8 +20,8 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 
-#ifndef _LIBRARIES_H
-#define _LIBRARIES_H
+#ifndef LIBRARIES_H
+#define LIBRARIES_H
 
 #define LUCID_NORMAL "\x1B[0m"
 #define LUCID_RED "\x1B[31m"
@@ -53,6 +53,5 @@ typedef int8_t i8;
 typedef int16_t i16;
 typedef int32_t i32;
 typedef int64_t i64;
-
 
 #endif

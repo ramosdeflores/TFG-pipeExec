@@ -30,8 +30,8 @@
 
 #include "../processing_unit_interface.h"
 
-#ifndef _INDEXER_H
-#define _INDEXER_H
+#ifndef INDEXER_H
+#define INDEXER_H
 
 /**
  * @class Indexer
@@ -40,23 +40,23 @@
  * CLONE IT
  */
 class Indexer : public ProcessingUnitInterface {
-  public:
+    public:
     Indexer();
     ~Indexer();
-
+    
     void Start() override;
     void Run(void *) override;
     void Delete() override;
     ProcessingUnitInterface *Clone() override;
-
-  private:
+    
+    private:
     struct TableIndexer {
         int64_t id;
         int64_t count;
     };
-
+    
     TableIndexer *FindTableEntry(int);
-
+    
     TableIndexer *lookup_table_;
     int32_t table_size_;
 };

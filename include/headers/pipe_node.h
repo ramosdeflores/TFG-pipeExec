@@ -28,8 +28,8 @@
  * @author Lucas Hernández Abreu
  * Contact: lucas.hernandez.09@ull.edu.es
  */
-#ifndef _PIPE_NODE_H
-#define _PIPE_NODE_H
+#ifndef PIPE_NODE_H
+#define PIPE_NODE_H
 
 #include "processing_unit_interface.h"
 
@@ -44,61 +44,61 @@
  * previous and next nodes. Each node is executed in its own thread.
  */
 class PipeNode {
-  public:
+    public:
     // Default constructor for PipeNode
     PipeNode();
-
+    
     // Destructor for PipeNode
     ~PipeNode();
-
+    
     // This method signals the end of the node's work, and ensures that all
     // threads have finished execution before returning.
     void EndNodeWork();
-
+    
     // Gets the input memory manager of the current node
     MemoryManager *in_data_queue();
-
+    
     // Gets the output memory manager of the current node
     MemoryManager *out_data_queue();
-
+    
     // @brief Gets whether the current node is the last node in the pipeline
     bool last_node();
-
+    
     // Gets the processing unit of the current node
     ProcessingUnitInterface *processing_unit();
-
+    
     // Gets the number of instances of the current node
     int number_of_instances();
-
+    
     // Gets the ID of the current node
     int node_id();
-
+    
     // Gets a vector of running threads for the current node
     std::vector<std::thread *> &running_threads();
-
+    
     // Sets the input memory manager of the current node
     void in_data_queue(MemoryManager *);
-
+    
     // Sets the output memory manager of the current node
     void out_data_queue(MemoryManager *);
-
+    
     // Sets the boolean indicating if the node is the last in the
     // pipeline
     void last_node(bool);
-
+    
     // Sets the processing unit of the node
     void processing_unit(ProcessingUnitInterface *);
-
+    
     // Sets the number of instances of the current node
     void number_of_instances(int);
-
+    
     // Sets the ID of the current node
     void node_id(int);
-
+    
     // Pushes the thread to the list of running threads
     void PushThread(std::thread *);
-
-  private:
+    
+    private:
     int node_id_;             /**< Id of the node */
     int number_of_instances_; /**< Number of instances of the processing unit */
     MemoryManager *in_data_queue_;  /**< Pointer to the input data queue */

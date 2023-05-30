@@ -28,6 +28,9 @@
  */
 #include "../processing_unit_interface.h"
 
+#ifndef IMG_TRUNCATOR_H
+#define IMG_TRUNCATOR_H
+
 /**
  * @class ImgTruncator
  *
@@ -40,22 +43,24 @@
  * is normalized to multiples of 100.
  */
 class ImgTruncator : public ProcessingUnitInterface {
-  public:
+    public:
     // ImgTruncator constructor
     ImgTruncator();
-
+    
     // ImgTruncator destructor
     ~ImgTruncator();
-
+    
     // Doesn't realize anything
     void Start() override;
-
+    
     // Modified the data
     void Run(void *) override;
-
+    
     // Deletes the extra allocated memory
     void Delete() override;
-
+    
     // Creates a clone of itself
     ProcessingUnitInterface *Clone() override;
 };
+
+#endif

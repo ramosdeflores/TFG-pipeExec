@@ -23,7 +23,7 @@ load_paths =
             {"./include", .recursive = true, .relative = true},
             {"./input_images", .recursive = true, .relative = true},
             {"./tests", .recursive = true, .relative = true},
-            {"./project.4coder", .recursive = false, .relative = true}
+            {".", .recursive = false, .relative = true}
         },
         .os = "linux"
     },
@@ -51,7 +51,7 @@ command_list =
         .cursor_at_end = false,
         .cmd =
         {
-            { "./bin/lucid", .os = "linux" },
+            { "cd bin && ./lucid run", .os = "linux" },
         },
     },
     
