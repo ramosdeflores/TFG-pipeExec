@@ -21,32 +21,33 @@
 
 #include "processing_units.h"
 
-int SleeperMain(bool debug_flag, bool pu_debug_flag) {
-    Sleeper sleeper_unit;
-    MemoryManager *data_in = new MemoryManager(3, debug_flag);
-    for (int i = 0; i < 3; i += 1){
-        int* holder = (int*)malloc(sizeof(int));
-        data_in->LoadMemoryManager(holder);
+int
+SleeperMain(bool debug_flag, bool pu_debug_flag) {
+  Sleeper sleeper_unit;
+  MemoryManager *data_in = new MemoryManager(3, debug_flag);
+  for (int i = 0; i < 3; i += 1) {
+    int *holder = (int *)malloc(sizeof(int));
+    data_in->LoadMemoryManager(holder);
+  }
+
+  Pipeline *pipe = new Pipeline(&sleeper_unit, data_in, 3, debug_flag);
+  pipe->RunPipe();
+
+  auto t1 = std::chrono::high_resolution_clock::now();
+  for (int i = 0; i < 3; ++i) {
+    if (debug_flag) {
+      printf("%s(main) Popping from IN %s\n", LUCID_CYAN, LUCID_NORMAL);
     }
-    
-    Pipeline* pipe = new Pipeline(&sleeper_unit, data_in, 3, debug_flag);
-    pipe->RunPipe();
-    
-    auto t1 = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < 3; ++i) {
-        if (debug_flag) {
-            printf("%s(main) Popping from IN %s\n", LUCID_CYAN, LUCID_NORMAL);
-        }
-        int *data_handler = (int *)data_in->PopFromIn();
-        if (debug_flag) {
-            printf("%s(main) Pushing into OUT %s\n", LUCID_CYAN, LUCID_NORMAL);
-        }
-        data_in->PushIntoOut(data_handler);
+    int *data_handler = (int *)data_in->PopFromIn();
+    if (debug_flag) {
+      printf("%s(main) Pushing into OUT %s\n", LUCID_CYAN, LUCID_NORMAL);
     }
-    pipe->WaitFinish();
-    auto t2 = std::chrono::high_resolution_clock::now();
-    
-    printf("Time Elapsed running the pipe: %fs\n",
-           std::chrono::duration<double>(t2 - t1).count());
-    return 0;
+    data_in->PushIntoOut(data_handler);
+  }
+  pipe->WaitFinish();
+  auto t2 = std::chrono::high_resolution_clock::now();
+
+  printf("Time Elapsed running the pipe: %fs\n",
+         std::chrono::duration<double>(t2 - t1).count());
+  return 0;
 }

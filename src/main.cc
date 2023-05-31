@@ -20,14 +20,14 @@
  */
 
 #include "processing_units.h"
-#include "sleeper_main.cc"
 #include "simple_edge_detection_main.cc"
+#include "sleeper_main.cc"
+#include "double_pipe_main.cc"
 
-//FORWARD DECLARATIONS
+// FORWARD DECLARATIONS
 std::string Help();
 int RunMain();
 int protected_main();
-
 
 /**
  * @brief Helper showed when used the --help flag or had a bad argument input
@@ -65,9 +65,8 @@ protected_main(int argc, char **argv) {
         arguments = std::string(argv[1]);
         if (argc > 2) {
             arguments2 = argv[2];
-            if (arguments == "run" &&
-                (arguments2 == "debug" || arguments2 == "-d" ||
-                 arguments2 == "--debug")) {
+            if (arguments == "run" && (arguments2 == "debug" || arguments2 == "-d" ||
+                                       arguments2 == "--debug")) {
                 debug_flag = true;
                 pu_debug_flag = true;
             } else if (arguments == "run" &&
@@ -85,7 +84,7 @@ protected_main(int argc, char **argv) {
     }
     
     // Put here the function we're going to use
-    return SimpleEdgeDetection(debug_flag, pu_debug_flag);
+    return DoublePipeMain(debug_flag, pu_debug_flag);
 }
 
 int
@@ -96,14 +95,12 @@ main(int argc, char **argv) {
     } catch (MemoryManager::MemoryManagerError e) {
         switch (e) {
             case MemoryManager::MemoryManagerError::kBadSizing: {
-                fprintf(stderr,
-                        "%s(MemoryManager) Bad size for buffer queues%s\n",
+                fprintf(stderr, "%s(MemoryManager) Bad size for buffer queues%s\n",
                         LUCID_RED, LUCID_NORMAL);
                 return 1;
             }
             case MemoryManager::MemoryManagerError::kNullPtr: {
-                fprintf(stderr,
-                        "%s(MemoryManager) Tried to return a null pointer\n%s",
+                fprintf(stderr, "%s(MemoryManager) Tried to return a null pointer\n%s",
                         LUCID_RED, LUCID_NORMAL);
                 return 1;
             }

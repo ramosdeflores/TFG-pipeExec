@@ -12,6 +12,6 @@
 #include "../include/headers/pu/indexer.h"
 #include "../include/headers/pu/number_printer.h"
 #include "../include/headers/pu/sleeper.h"
-
+#include "../include/headers/pu/double_pipe.h"
 
 #endif //PROCESSING_UNITS_H

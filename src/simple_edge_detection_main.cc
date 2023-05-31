@@ -1,6 +1,7 @@
 #include "processing_units.h"
 
-int SimpleEdgeDetection(bool debug_flag, bool pu_debug_flag) {
+int
+SimpleEdgeDetectionMain(bool debug_flag, bool pu_debug_flag) {
     int height = 512;
     int width = 512;
     int max_num = 0;
@@ -39,8 +40,7 @@ int SimpleEdgeDetection(bool debug_flag, bool pu_debug_flag) {
         some_data->PushExtraData(new Data::DataKey{"height", new int(width)});
         some_data->PushExtraData(new Data::DataKey({"debug", &pu_debug_flag}));
         some_data->PushExtraData(new Data::DataKey{"id", new int(it)});
-        some_data->PushExtraData(
-                                 new Data::DataKey{"max_rand", new int(max_num)});
+        some_data->PushExtraData(new Data::DataKey{"max_rand", new int(max_num)});
         data_in->LoadMemoryManager(some_data);
     }
     
