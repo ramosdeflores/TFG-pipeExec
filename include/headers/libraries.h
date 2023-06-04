@@ -44,6 +44,7 @@
 #include <mutex>
 #include <string>
 #include <thread>
+#include <tiff.h>
 #include <vector>
 
 // Value of colors in a PGM/PBM img
