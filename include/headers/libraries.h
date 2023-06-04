@@ -32,6 +32,10 @@
 #define LUCID_CYAN "\x1B[36m"
 #define LUCID_WHITE "\x1B[37m"
 
+#include "tiff.h"
+#include "tiffconf.h"
+#include "tiffio.h"
+#include "tiffvers.h"
 #include <atomic>
 #include <chrono>
 #include <condition_variable>
@@ -44,9 +48,7 @@
 #include <mutex>
 #include <string>
 #include <thread>
-#include <tiff.h>
 #include <vector>
-
 // Value of colors in a PGM/PBM img
 typedef unsigned int pixel_value;
 
@@ -54,5 +56,12 @@ typedef int8_t i8;
 typedef int16_t i16;
 typedef int32_t i32;
 typedef int64_t i64;
+
+
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+typedef uint64_t u64;
+
 
 #endif

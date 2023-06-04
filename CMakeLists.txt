@@ -26,6 +26,8 @@ add_subdirectory(include)
 add_executable(lucid src/main.cc)
 
 target_link_libraries(lucid libraries)
+include_directories(usr/include)
+target_link_libraries(lucid tiff)
 
 
 # TESTING
