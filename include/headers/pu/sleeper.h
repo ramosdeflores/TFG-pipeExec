@@ -7,15 +7,16 @@
 #include "../../headers/processing_unit_interface.h"
 
 class Sleeper : public ProcessingUnitInterface {
-public:
+  public:
   Sleeper();
   ~Sleeper();
-  void Start();
+  void Start(void* = nullptr);
   void Run(void *);
   void Delete();
   ProcessingUnitInterface *Clone();
-
-private:
+  
+  private:
+  u32 seconds_to_sleep;
 };
 
 #endif // SLEEPER_H

@@ -41,38 +41,38 @@
  * as a new image through the pipe
  */
 class EdgeDetector : public ProcessingUnitInterface {
-    public:
-    // Default constructor of the class
-    EdgeDetector();
-    
-    // Destructor of the class
-    ~EdgeDetector();
-    
-    // Method to allocate the sobel filter
-    void Start() override;
-    
-    // Method to pass the filters and process the img
-    void Run(void *) override;
-    
-    // Method to liberate the memory allocated
-    void Delete() override;
-    
-    // Method to clone the class
-    ProcessingUnitInterface *Clone() override;
-    
-    // Method to convolute via a kernel and an img
-    int **Convolution(int **, int **, int, int);
-    
-    // Method to calculate the magnitude of the processed img
-    void Magnitude(pixel_value **, int **, int **, int, int, int);
-    
-    private:
-    pixel_value IntToPixel(int);
-    int Bound(int);
-    int Hypotenuse(int, int);
-    int **sobelx_;
-    int **sobely_;
-    bool debug_;
+  public:
+  // Default constructor of the class
+  EdgeDetector();
+  
+  // Destructor of the class
+  ~EdgeDetector();
+  
+  // Method to allocate the sobel filter
+  void Start(void* = nullptr) override;
+  
+  // Method to pass the filters and process the img
+  void Run(void *) override;
+  
+  // Method to liberate the memory allocated
+  void Delete() override;
+  
+  // Method to clone the class
+  ProcessingUnitInterface *Clone() override;
+  
+  // Method to convolute via a kernel and an img
+  int **Convolution(int **, int **, int, int);
+  
+  // Method to calculate the magnitude of the processed img
+  void Magnitude(pixel_value **, int **, int **, int, int, int);
+  
+  private:
+  pixel_value IntToPixel(int);
+  int Bound(int);
+  int Hypotenuse(int, int);
+  int **sobelx_;
+  int **sobely_;
+  bool debug_;
 };
 
 #endif

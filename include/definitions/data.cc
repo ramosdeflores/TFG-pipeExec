@@ -57,7 +57,7 @@ Data::~Data() {}
  */
 void
 Data::PushExtraData(DataKey *extra_data) {
-    extra_data_.push_back(extra_data);
+  extra_data_.push_back(extra_data);
 }
 
 /**
@@ -70,14 +70,14 @@ Data::PushExtraData(DataKey *extra_data) {
  */
 void *
 Data::GetExtraData(std::string key) {
-    int size = extra_data_.size();
-    for (int it = 0; it < size; ++it) {
-        if (extra_data_[it]->key == key) {
-            return extra_data_[it]->data;
-        }
+  int size = extra_data_.size();
+  for (int it = 0; it < size; ++it) {
+    if (extra_data_[it]->key == key) {
+      return extra_data_[it]->data;
     }
-    // No data found with that key
-    return nullptr;
+  }
+  // No data found with that key
+  return nullptr;
 }
 
 /**
@@ -86,5 +86,7 @@ Data::GetExtraData(std::string key) {
  */
 void *
 Data::data() {
-    return data_;
+  return data_;
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

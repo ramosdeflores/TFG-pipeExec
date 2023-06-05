@@ -15,15 +15,15 @@ Adder::~Adder() {}
  */
 void
 Adder::Run(void *data) {
-    Data *handler = (Data *)data;
-    *((int *)handler->data()) += 1;
+  Data *handler = (Data *)data;
+  *((int *)handler->data()) += 1;
 }
 
 /**
  * @brief Doesn't allocate nothing
  */
 void
-Adder::Start() {}
+Adder::Start(void* pre_process_args) {}
 
 /**
  * @brief Doesn't delete nothing
@@ -36,5 +36,7 @@ Adder::Delete() {}
  */
 ProcessingUnitInterface *
 Adder::Clone() {
-    return new Adder();
+  return new Adder();
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

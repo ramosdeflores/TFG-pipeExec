@@ -131,3 +131,5 @@ IslandsMain(bool debug_flag, bool pu_debug_flag) {
   printf("\n%s\n", unidadMedida.c_str());
   return 0;
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

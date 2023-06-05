@@ -44,9 +44,9 @@ Indexer::~Indexer() {}
  * @desc This function initializes the Indexer unit
  */
 void
-Indexer::Start() {
-    table_size_ = 0;
-    lookup_table_ = (TableIndexer *)malloc(sizeof(TableIndexer));
+Indexer::Start(void* pre_process_args) {
+  table_size_ = 0;
+  lookup_table_ = (TableIndexer *)malloc(sizeof(TableIndexer));
 }
 
 /**
@@ -56,32 +56,32 @@ Indexer::Start() {
  */
 void
 Indexer::Run(void *data) {
-    Data *handler = (Data *)data;
-    int32_t *id = (int32_t *)handler->GetExtraData("id");
-    if (id == nullptr) {
-        fprintf(stderr, "%s(Indexer)%s The Data has no identificator",
-                LUCID_BLUE, LUCID_NORMAL);
-        return;
-    }
-    TableIndexer *index = FindTableEntry(*id);
-    if (index) {
-        // The data is already beign indexed
-        index->count++;
-    } else {
-        // The data is not indexed
-        // Allocates the memory for the new block
-        index = (TableIndexer *)malloc(sizeof(TableIndexer));
-        // Reallocates the array
-        lookup_table_ = (TableIndexer *)realloc(lookup_table_, table_size_ + 1);
-        // Assigns the new data to the index
-        index->id = *id;
-        index->count = 0;
-        // Sets the index in the last position of the array
-        lookup_table_[table_size_] = *index;
-        // Adds one to the array size
-        table_size_++;
-    }
-    handler->PushExtraData(new Data::DataKey{"index", new int(index->count)});
+  Data *handler = (Data *)data;
+  int32_t *id = (int32_t *)handler->GetExtraData("id");
+  if (id == nullptr) {
+    fprintf(stderr, "%s(Indexer)%s The Data has no identificator",
+            LUCID_BLUE, LUCID_NORMAL);
+    return;
+  }
+  TableIndexer *index = FindTableEntry(*id);
+  if (index) {
+    // The data is already beign indexed
+    index->count++;
+  } else {
+    // The data is not indexed
+    // Allocates the memory for the new block
+    index = (TableIndexer *)malloc(sizeof(TableIndexer));
+    // Reallocates the array
+    lookup_table_ = (TableIndexer *)realloc(lookup_table_, table_size_ + 1);
+    // Assigns the new data to the index
+    index->id = *id;
+    index->count = 0;
+    // Sets the index in the last position of the array
+    lookup_table_[table_size_] = *index;
+    // Adds one to the array size
+    table_size_++;
+  }
+  handler->PushExtraData(new Data::DataKey{"index", new int(index->count)});
 }
 
 /**
@@ -89,7 +89,7 @@ Indexer::Run(void *data) {
  */
 void
 Indexer::Delete() {
-    free(lookup_table_);
+  free(lookup_table_);
 }
 
 /**
@@ -98,15 +98,17 @@ Indexer::Delete() {
  */
 ProcessingUnitInterface *
 Indexer::Clone() {
-    return nullptr;
+  return nullptr;
 }
 
 Indexer::TableIndexer *
 Indexer::FindTableEntry(int id) {
-    for (int32_t it = 0; it < table_size_; ++it) {
-        if (lookup_table_[it].id == id) {
-            return &lookup_table_[it];
-        }
+  for (int32_t it = 0; it < table_size_; ++it) {
+    if (lookup_table_[it].id == id) {
+      return &lookup_table_[it];
     }
-    return nullptr;
+  }
+  return nullptr;
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

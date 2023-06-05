@@ -45,7 +45,7 @@ ImgOutputer::~ImgOutputer() {}
  * @brief Doesn't allocate anything
  */
 void
-ImgOutputer::Start() {}
+ImgOutputer::Start(void* pre_process_args) {}
 
 /**
  * @brief Gets the image and creates two .ppm files: origina.ppm and output.ppm.
@@ -54,44 +54,44 @@ ImgOutputer::Start() {}
  */
 void
 ImgOutputer::Run(void *data) {
-    Data *handler = (Data *)data;
-    int width = *(int *)handler->GetExtraData("width");
-    int height = *(int *)handler->GetExtraData("height");
-    int max_rand = *(int *)handler->GetExtraData("max_rand");
-    int **img = (int **)handler->data();
-    int id = *(int *)handler->GetExtraData("id");
-    bool debug = *(bool *)handler->GetExtraData("debug");
-    pixel_value **to_pgm =
-        (pixel_value **)handler->GetExtraData("processed" + std::to_string(id));
-    int **truncated = (int **)handler->GetExtraData("truncated");
-
-    std::ofstream out_truncated("truncated" + std::to_string(id) + ".pgm",
-                                std::ios::binary | std::ios::out |
-                                    std::ios::trunc);
-    std::ofstream out_proc("output" + std::to_string(id) + ".pbm",
-                           std::ios::binary | std::ios::out | std::ios::trunc);
-    std::ofstream out_orig("original" + std::to_string(id) + ".pgm",
-                           std::ios::binary | std::ios::out | std::ios::trunc);
-    out_proc << "P3\n" << width << " " << height << "\n255\n";
-    out_orig << "P2\n" << width << " " << height << "\n255\n";
-    out_truncated << "P2\n" << width << " " << height << "\n255\n";
-    for (int i = 0; i < height; ++i) {
-        for (int j = 0; j < width; ++j) {
-            pixel_value to_pgm_v = to_pgm[i][j];
-
-            pixel_value out_orig_v = IntToPixel((img[i][j] * 255) / max_rand);
-            pixel_value out_truncated_v =
-                IntToPixel(truncated[i][j] * 255 / max_rand);
-            if (to_pgm_v != 0) {
-                out_proc << 0 << " " << (255 - out_orig_v) << " " << 0 << " ";
-            } else {
-                out_proc << out_orig_v << " " << out_orig_v << " " << out_orig_v
-                         << " ";
-            }
-            out_truncated << out_truncated_v << " ";
-            out_orig << out_orig_v << " ";
-        }
+  Data *handler = (Data *)data;
+  int width = *(int *)handler->GetExtraData("width");
+  int height = *(int *)handler->GetExtraData("height");
+  int max_rand = *(int *)handler->GetExtraData("max_rand");
+  int **img = (int **)handler->data();
+  int id = *(int *)handler->GetExtraData("id");
+  bool debug = *(bool *)handler->GetExtraData("debug");
+  pixel_value **to_pgm =
+  (pixel_value **)handler->GetExtraData("processed" + std::to_string(id));
+  int **truncated = (int **)handler->GetExtraData("truncated");
+  
+  std::ofstream out_truncated("truncated" + std::to_string(id) + ".pgm",
+                              std::ios::binary | std::ios::out |
+                              std::ios::trunc);
+  std::ofstream out_proc("output" + std::to_string(id) + ".pbm",
+                         std::ios::binary | std::ios::out | std::ios::trunc);
+  std::ofstream out_orig("original" + std::to_string(id) + ".pgm",
+                         std::ios::binary | std::ios::out | std::ios::trunc);
+  out_proc << "P3\n" << width << " " << height << "\n255\n";
+  out_orig << "P2\n" << width << " " << height << "\n255\n";
+  out_truncated << "P2\n" << width << " " << height << "\n255\n";
+  for (int i = 0; i < height; ++i) {
+    for (int j = 0; j < width; ++j) {
+      pixel_value to_pgm_v = to_pgm[i][j];
+      
+      pixel_value out_orig_v = IntToPixel((img[i][j] * 255) / max_rand);
+      pixel_value out_truncated_v =
+        IntToPixel(truncated[i][j] * 255 / max_rand);
+      if (to_pgm_v != 0) {
+        out_proc << 0 << " " << (255 - out_orig_v) << " " << 0 << " ";
+      } else {
+        out_proc << out_orig_v << " " << out_orig_v << " " << out_orig_v
+          << " ";
+      }
+      out_truncated << out_truncated_v << " ";
+      out_orig << out_orig_v << " ";
     }
+  }
 }
 
 /**
@@ -107,7 +107,7 @@ ImgOutputer::Delete() {}
  */
 ProcessingUnitInterface *
 ImgOutputer::Clone() {
-    return new ImgOutputer;
+  return new ImgOutputer;
 }
 
 /**
@@ -119,11 +119,15 @@ ImgOutputer::Clone() {
  */
 pixel_value
 ImgOutputer::IntToPixel(int i_val) {
-    if (i_val < 0) {
-        return 0;
-    } else if (i_val > 255) {
-        return 255;
-    } else {
-        return i_val & 255;
-    }
+  if (i_val < 0) {
+    return 0;
+  } else if (i_val > 255) {
+    return 255;
+  } else {
+    return i_val & 255;
+  }
 }
+
+
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

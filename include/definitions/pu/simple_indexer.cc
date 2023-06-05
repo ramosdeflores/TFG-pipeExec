@@ -44,8 +44,8 @@ SimpleIndexer::~SimpleIndexer() {}
 /**
 * @brief Sets the internal counter to 0 
 */
-void SimpleIndexer::Start() {
-    counter_ = 0;
+void SimpleIndexer::Start(void* pre_process_args) {
+  counter_ = 0;
 }
 
 /**
@@ -53,10 +53,10 @@ void SimpleIndexer::Start() {
 * @param data The data to be manipulated
 */
 void SimpleIndexer::Run(void* data) {
-    Data* handler = (Data*)data;
-    
-    handler->PushExtraData(new Data::DataKey({"part_index", new int(counter_)}));
-    counter_++;
+  Data* handler = (Data*)data;
+  
+  handler->PushExtraData(new Data::DataKey({"part_index", new int(counter_)}));
+  counter_++;
 }
 
 /**
@@ -69,5 +69,7 @@ void SimpleIndexer::Delete() {}
 * @return The new instance of the class
 */
 ProcessingUnitInterface* SimpleIndexer::Clone() {
-    return new SimpleIndexer;
+  return new SimpleIndexer;
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

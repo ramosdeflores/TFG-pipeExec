@@ -41,7 +41,7 @@ ImgTruncator::~ImgTruncator() {}
  * @brief Function used for allocation, but allocation is not needed
  */
 void
-ImgTruncator::Start() {}
+ImgTruncator::Start(void* pre_process_args) {}
 
 /**
  * @brief The method that modified the data inside the pointer
@@ -52,28 +52,28 @@ ImgTruncator::Start() {}
  */
 void
 ImgTruncator::Run(void *data) {
-    Data *handler = (Data *)data;
-    int **img = (int **)(handler->data());
-    int width = *(int *)handler->GetExtraData("width");
-    int height = *(int *)handler->GetExtraData("height");
-    int *max_value = (int *)handler->GetExtraData("max_rand");
-
-    int **result = (int **)malloc(height * sizeof(int *));
-    for (int it = 0; it < height; ++it) {
-        result[it] = (int *)malloc(width * sizeof(int));
+  Data *handler = (Data *)data;
+  int **img = (int **)(handler->data());
+  int width = *(int *)handler->GetExtraData("width");
+  int height = *(int *)handler->GetExtraData("height");
+  int *max_value = (int *)handler->GetExtraData("max_rand");
+  
+  int **result = (int **)malloc(height * sizeof(int *));
+  for (int it = 0; it < height; ++it) {
+    result[it] = (int *)malloc(width * sizeof(int));
+  }
+  
+  for (int y_it = 0; y_it < height; ++y_it) {
+    for (int x_it = 0; x_it < width; ++x_it) {
+      int value = (int)(img[y_it][x_it] / 3000) * 3000;
+      if (value > *max_value) {
+        *max_value = value;
+      }
+      result[y_it][x_it] = value;
     }
-
-    for (int y_it = 0; y_it < height; ++y_it) {
-        for (int x_it = 0; x_it < width; ++x_it) {
-            int value = (int)(img[y_it][x_it] / 3000) * 3000;
-            if (value > *max_value) {
-                *max_value = value;
-            }
-            result[y_it][x_it] = value;
-        }
-    }
-
-    handler->PushExtraData(new Data::DataKey{"truncated", result});
+  }
+  
+  handler->PushExtraData(new Data::DataKey{"truncated", result});
 }
 
 /**
@@ -89,5 +89,7 @@ ImgTruncator::Delete() {}
  */
 ProcessingUnitInterface *
 ImgTruncator::Clone() {
-    return new ImgTruncator;
+  return new ImgTruncator;
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

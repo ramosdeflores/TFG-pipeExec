@@ -14,18 +14,18 @@
  * @param debug The flag for debug information
  */
 Semaphore::Semaphore(int count, LUCIDSemaphoreType type, bool debug)
-    : count_(count), debug_(debug) {
-    switch (type) {
-        case LUCIDSemaphoreType::kNone:
-            type_ = "None";
-            break;
-        case LUCIDSemaphoreType::kIn:
-            type_ = "In";
-            break;
-        case LUCIDSemaphoreType::kOut:
-            type_ = "Out";
-            break;
-    }
+: count_(count), debug_(debug) {
+  switch (type) {
+    case LUCIDSemaphoreType::kNone:
+    type_ = "None";
+    break;
+    case LUCIDSemaphoreType::kIn:
+    type_ = "In";
+    break;
+    case LUCIDSemaphoreType::kOut:
+    type_ = "Out";
+    break;
+  }
 }
 
 /**
@@ -41,20 +41,20 @@ Semaphore::~Semaphore() {}
  */
 void
 Semaphore::Wait() {
-    std::unique_lock<std::mutex> lock(mtx_);
-
-    cv_.wait(lock, [this] {
-        bool result = count_ > 0;
-        if (debug_) {
-            printf("        %s(SEMAPHORE %s)%s %s, count: %d\n", LUCID_MAGENTA,
-                   type_.c_str(), LUCID_NORMAL,
-                   result ? "\x1B[32mPASSED\x1B[0m"
-                          : "\033[0;31mBLOCKED\033[0m",
-                   count_.load() - 1);
-        }
-        return result;
-    });
-    count_--;
+  std::unique_lock<std::mutex> lock(mtx_);
+  
+  cv_.wait(lock, [this] {
+             bool result = count_ > 0;
+             if (debug_) {
+               printf("        %s(SEMAPHORE %s)%s %s, count: %d\n", LUCID_MAGENTA,
+                      type_.c_str(), LUCID_NORMAL,
+                      result ? "\x1B[32mPASSED\x1B[0m"
+                      : "\033[0;31mBLOCKED\033[0m",
+                      count_.load() - 1);
+             }
+             return result;
+           });
+  count_--;
 }
 
 /**
@@ -65,13 +65,13 @@ Semaphore::Wait() {
  */
 void
 Semaphore::Signal() {
-    std::unique_lock<std::mutex> lock(mtx_);
-    count_++;
-    if (debug_) {
-        printf("        %s(SEMAPHORE %s)%s SIGNAL%s count: %d\n", LUCID_MAGENTA,
-               type_.c_str(), LUCID_WHITE, LUCID_NORMAL, count_.load());
-    }
-    cv_.notify_one();
+  std::unique_lock<std::mutex> lock(mtx_);
+  count_++;
+  if (debug_) {
+    printf("        %s(SEMAPHORE %s)%s SIGNAL%s count: %d\n", LUCID_MAGENTA,
+           type_.c_str(), LUCID_WHITE, LUCID_NORMAL, count_.load());
+  }
+  cv_.notify_one();
 }
 
 /**
@@ -81,5 +81,7 @@ Semaphore::Signal() {
  */
 int
 Semaphore::count() {
-    return count_.load();
+  return count_.load();
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

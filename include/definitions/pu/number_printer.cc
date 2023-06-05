@@ -33,11 +33,13 @@
 #include <cstdio>
 #include <string>
 
+
+
 /**
  * @brief Starts the number printer.
  */
 void
-NumberPrinter::Start() {}
+NumberPrinter::Start(void* pre_process_args) {}
 
 /**
  * @brief Prints the number contained in a given pointer.
@@ -47,8 +49,8 @@ NumberPrinter::Start() {}
  */
 void
 NumberPrinter::Run(void *data) {
-    Data *conv_data = (Data *)data;
-    printf("Data contained: %d\n", *((int *)conv_data->data()));
+  Data *conv_data = (Data *)data;
+  printf("Data contained: %d\n", *((int *)conv_data->data()));
 }
 
 /**
@@ -64,5 +66,7 @@ NumberPrinter::Delete() {}
  */
 ProcessingUnitInterface *
 NumberPrinter::Clone() {
-    return new NumberPrinter;
+  return new NumberPrinter;
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

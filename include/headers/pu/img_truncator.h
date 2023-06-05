@@ -43,24 +43,24 @@
  * is normalized to multiples of 100.
  */
 class ImgTruncator : public ProcessingUnitInterface {
-    public:
-    // ImgTruncator constructor
-    ImgTruncator();
-    
-    // ImgTruncator destructor
-    ~ImgTruncator();
-    
-    // Doesn't realize anything
-    void Start() override;
-    
-    // Modified the data
-    void Run(void *) override;
-    
-    // Deletes the extra allocated memory
-    void Delete() override;
-    
-    // Creates a clone of itself
-    ProcessingUnitInterface *Clone() override;
+  public:
+  // ImgTruncator constructor
+  ImgTruncator();
+  
+  // ImgTruncator destructor
+  ~ImgTruncator();
+  
+  // Doesn't realize anything
+  void Start(void* = nullptr) override;
+  
+  // Modified the data
+  void Run(void *) override;
+  
+  // Deletes the extra allocated memory
+  void Delete() override;
+  
+  // Creates a clone of itself
+  ProcessingUnitInterface *Clone() override;
 };
 
 #endif

@@ -4,17 +4,21 @@ Sleeper::Sleeper() {}
 Sleeper::~Sleeper() {}
 
 void
-Sleeper::Start() {}
+Sleeper::Start(void* pre_process_args) {
+  seconds_to_sleep = 0;
+}
 
 void
 Sleeper::Run(void *) {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+  std::this_thread::sleep_for(std::chrono::seconds(seconds_to_sleep));
 }
 
 ProcessingUnitInterface *
 Sleeper::Clone() {
-    return new Sleeper;
+  return new Sleeper;
 }
 
 void
 Sleeper::Delete() {}
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

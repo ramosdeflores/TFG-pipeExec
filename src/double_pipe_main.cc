@@ -30,7 +30,7 @@ DoublePipeMain(bool debug_flag, bool pu_debug_flag) {
   }
   Pipeline *pipe = new Pipeline(&double_pipe, data_in, 1, debug_flag);
   pipe->RunPipe();
-
+  
   auto t1 = std::chrono::high_resolution_clock::now();
   for (int i = 0; i < 5; ++i) {
     if (debug_flag) {
@@ -44,8 +44,10 @@ DoublePipeMain(bool debug_flag, bool pu_debug_flag) {
   }
   pipe->WaitFinish();
   auto t2 = std::chrono::high_resolution_clock::now();
-
+  
   printf("Time Elapsed running the pipe: %fs\n",
          std::chrono::duration<double>(t2 - t1).count());
   return 0;
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

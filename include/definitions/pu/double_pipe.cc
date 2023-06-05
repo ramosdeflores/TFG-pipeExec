@@ -40,9 +40,9 @@ DoublePipe::~DoublePipe(){}
 * 
 */
 void
-DoublePipe::Start() {
-    // TODO(lucashdez): Instantiate pipeline
-    // NOTE(lucashdez): Probably create a null processing unit
+DoublePipe::Start(void* pre_process_args) {
+  // TODO(lucashdez): Instantiate pipeline
+  // NOTE(lucashdez): Probably create a null processing unit
 }
 
 /**
@@ -51,8 +51,8 @@ DoublePipe::Start() {
 */
 void
 DoublePipe::Run(void* data) {
-    // TODO(lucashdez): Insert the processing units and run the pipe with the data
-    
+  // TODO(lucashdez): Insert the processing units and run the pipe with the data
+  
 }
 
 /**
@@ -61,7 +61,7 @@ DoublePipe::Run(void* data) {
 */
 void
 DoublePipe::Delete() {
-    
+  
 }
 
 /**
@@ -69,5 +69,7 @@ DoublePipe::Delete() {
 * 
 */
 ProcessingUnitInterface* DoublePipe::Clone() {
-    return new DoublePipe;
+  return new DoublePipe;
 }
+
+/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

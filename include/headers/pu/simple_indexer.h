@@ -37,17 +37,17 @@
 #include "../processing_unit_interface.h"
 
 class SimpleIndexer : public ProcessingUnitInterface {
-    public:
-    SimpleIndexer();
-    ~SimpleIndexer();
-    
-    void Start() override;
-    void Run(void *) override;
-    void Delete() override;
-    ProcessingUnitInterface *Clone() override;
-    
-    private:
-    i32 counter_;
+  public:
+  SimpleIndexer();
+  ~SimpleIndexer();
+  
+  void Start(void* = nullptr) override;
+  void Run(void *) override;
+  void Delete() override;
+  ProcessingUnitInterface *Clone() override;
+  
+  private:
+  i32 counter_;
 };
 
 

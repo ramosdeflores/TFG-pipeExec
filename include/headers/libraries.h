@@ -36,6 +36,7 @@
 #include "tiffconf.h"
 #include "tiffio.h"
 #include "tiffvers.h"
+#include <stdarg.h>
 #include <atomic>
 #include <chrono>
 #include <condition_variable>
@@ -63,5 +64,5 @@ typedef uint16_t u16;
 typedef uint32_t u32;
 typedef uint64_t u64;
 
-
+typedef va_list argument_list;
 #endif

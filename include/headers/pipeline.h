@@ -45,29 +45,29 @@
  * up the proccess.
  */
 class Pipeline {
-    public:
-    // Constructor for the Pipeline class
-    Pipeline(ProcessingUnitInterface *, MemoryManager *, int,
-             bool debug = false);
-    
-    // Destructor of the Pipeline
-    ~Pipeline();
-    
-    // Adds a new processing unit to the Pipeline
-    void AddProcessingUnit(ProcessingUnitInterface *, int);
-    
-    // Runs the pipe making all the threads wait for an input
-    int RunPipe();
-    
-    // Waits until all the threads finished processing
-    void WaitFinish();
-    
-    private:
-    std::vector<PipeNode *> execution_list_; /**< The list of nodes that need to
-                                                be executed in order */
-    std::mutex execution_mtx_; /**< The mutex to safely run the nodes */
-    int node_number_;          /**< The number of nodes that are active */
-    bool debug_;               /**< The flag to show debug information */
+  public:
+  // Constructor for the Pipeline class
+  Pipeline(ProcessingUnitInterface *, MemoryManager *, int,
+           bool debug = false);
+  
+  // Destructor of the Pipeline
+  ~Pipeline();
+  
+  // Adds a new processing unit to the Pipeline
+  void AddProcessingUnit(ProcessingUnitInterface *, int, ...);
+  
+  // Runs the pipe making all the threads wait for an input
+  int RunPipe();
+  
+  // Waits until all the threads finished processing
+  void WaitFinish();
+  
+  private:
+  std::vector<PipeNode *> execution_list_; /**< The list of nodes that need to
+                                              be executed in order */
+  std::mutex execution_mtx_; /**< The mutex to safely run the nodes */
+  int node_number_;          /**< The number of nodes that are active */
+  bool debug_;               /**< The flag to show debug information */
 };
 
 #endif

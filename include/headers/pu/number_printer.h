@@ -40,18 +40,18 @@
  * @brief This class outputs the number inside the data to the standard output
  */
 class NumberPrinter : public ProcessingUnitInterface {
-    public:
-    // Doesn't allocate anything
-    void Start();
-    
-    // Prints the number to the standard output
-    void Run(void *);
-    
-    // Doesn't deallocate anything
-    void Delete();
-    
-    // Returns a pointer to a clone of NumberPrinter
-    ProcessingUnitInterface *Clone();
+  public:
+  // Doesn't allocate anything
+  void Start(void* = nullptr);
+  
+  // Prints the number to the standard output
+  void Run(void *);
+  
+  // Doesn't deallocate anything
+  void Delete();
+  
+  // Returns a pointer to a clone of NumberPrinter
+  ProcessingUnitInterface *Clone();
 };
 
 #endif
