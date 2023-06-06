@@ -31,6 +31,7 @@ SleeperMain(bool debug_flag, bool pu_debug_flag) {
   }
   
   Pipeline *pipe = new Pipeline(&sleeper_unit, data_in, 3, debug_flag);
+  pipe->AddProcessingUnit(&sleeper_unit, 2, 999);
   pipe->RunPipe();
   
   auto t1 = std::chrono::high_resolution_clock::now();

@@ -62,6 +62,24 @@ Pipeline::~Pipeline() {}
 void
 Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
                             int instances, ...) {
+  
+  // NOTE(lucashdez): VARIADIC, utilizar una variable nº argumentos en ProcessingUnitInterface
+  /*
+    { 
+      va_list variadic_args;
+      va_start(variadic_args, instances);
+      printf("The number: %d, The next thing:\n", va_arg(variadic_args, int));
+      void* n_value = va_arg(variadic_args, void*);
+      if (n_value == nullptr) {
+        printf("ISNULL\n");
+      } else {
+        printf("IsNOTNULL: %p\n", n_value);
+      }
+      va_end(variadic_args);
+    }
+  */
+  
+  
   PipeNode *new_node = new PipeNode;
   int prev_idx = node_number_ - 1;
   

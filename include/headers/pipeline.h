@@ -63,6 +63,7 @@ class Pipeline {
   void WaitFinish();
   
   private:
+  // TODO(lucashdez): INTERNALADDPROCESSINGUNIT Sets a nullptr in the end of the call 
   std::vector<PipeNode *> execution_list_; /**< The list of nodes that need to
                                               be executed in order */
   std::mutex execution_mtx_; /**< The mutex to safely run the nodes */
