@@ -21,4 +21,9 @@ Sleeper::Clone() {
 void
 Sleeper::Delete() {}
 
+int
+Sleeper::start_arguments() {
+  return 1;
+}
+
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

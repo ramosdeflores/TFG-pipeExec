@@ -63,6 +63,11 @@ class ProcessingUnitInterface {
   virtual void Delete() = 0;
   
   /**
+* @brief Returns the number of arguments that the start function will receive or 0.
+*/
+  virtual int start_arguments() { return 0; };
+  
+  /**
    * @brief Returns new pointer to a processing unit class. Use {return new
    * [class-name]} || Use nullptr to disallow clonning
    * @return Pointer to the new derived class || nullptr to disallow

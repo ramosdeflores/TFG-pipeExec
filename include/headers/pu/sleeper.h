@@ -13,6 +13,7 @@ class Sleeper : public ProcessingUnitInterface {
   void Start(void* = nullptr);
   void Run(void *);
   void Delete();
+  int start_arguments();
   ProcessingUnitInterface *Clone();
   
   private:

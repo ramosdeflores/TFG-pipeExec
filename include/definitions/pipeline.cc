@@ -64,25 +64,32 @@ Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
                             int instances, ...) {
   
   // NOTE(lucashdez): VARIADIC, utilizar una variable nº argumentos en ProcessingUnitInterface
+  
+  int arg_counter = processing_unit->start_arguments();
+  printf("ArgCounter: %d\n", arg_counter);
+  
+  if (arg_counter == 0) {
+    
+  }
   /*
-    { 
-      va_list variadic_args;
-      va_start(variadic_args, instances);
-      printf("The number: %d, The next thing:\n", va_arg(variadic_args, int));
-      void* n_value = va_arg(variadic_args, void*);
-      if (n_value == nullptr) {
-        printf("ISNULL\n");
-      } else {
-        printf("IsNOTNULL: %p\n", n_value);
-      }
-      va_end(variadic_args);
+  { 
+    va_list variadic_args;
+    va_start(variadic_args, instances);
+    printf("The number: %d, The next thing:\n", va_arg(variadic_args, int));
+    void* n_value = va_arg(variadic_args, void*);
+    if (n_value == nullptr) {
+      printf("ISNULL\n");
+    } else {
+      printf("IsNOTNULL: %p\n", n_value);
     }
-  */
+    va_end(variadic_args);
+  }
+*/
+  
   
   
   PipeNode *new_node = new PipeNode;
   int prev_idx = node_number_ - 1;
-  
   execution_list_[prev_idx]->last_node(false);
   execution_list_[prev_idx]->out_data_queue(new MemoryManager(
                                                               execution_list_[0]->in_data_queue()->max_size(), debug_));
