@@ -58,33 +58,24 @@ Pipeline::~Pipeline() {}
  * @param processing_unit A pointer to an object of ProcessingUnitInterface
  * @param instances The number of threads that have to be instanced to run this
  * node.
+ * @param fmg A pointer to the format string of the next arguments
  */
 void
 Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
-                            int instances, ...) {
+                            int instances,const char* fmt = nullptr,  ...) {
   
-  // NOTE(lucashdez): VARIADIC, utilizar una variable nº argumentos en ProcessingUnitInterface
-  
-  int arg_counter = processing_unit->start_arguments();
+  int arg_counter = count_string_chars(fmt);
   printf("ArgCounter: %d\n", arg_counter);
-  
-  if (arg_counter == 0) {
-    
-  }
-  /*
-  { 
+   // TODO Complete this MAN PLS 
+  if (arg_counter != 0) {
     va_list variadic_args;
-    va_start(variadic_args, instances);
-    printf("The number: %d, The next thing:\n", va_arg(variadic_args, int));
-    void* n_value = va_arg(variadic_args, void*);
-    if (n_value == nullptr) {
-      printf("ISNULL\n");
-    } else {
-      printf("IsNOTNULL: %p\n", n_value);
+    va_start(variadic_args, fmt);
+    for(int i = 0 ; i < arg_counter; ++i) {
+      void* next_arg = va_arg(variadic_args, void*);
+      printf("%p", (int*)next_arg);
     }
     va_end(variadic_args);
   }
-*/
   
   
   
@@ -100,7 +91,6 @@ Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
   new_node->last_node(true);
   new_node->processing_unit(processing_unit);
   new_node->number_of_instances(instances);
-  argument_list extra_args;
   execution_list_.push_back(new_node);
   node_number_ += 1;
 }
@@ -200,6 +190,17 @@ Pipeline::WaitFinish() {
          execution_list_[0]->in_data_queue()->max_size()) {
     execution_list_[0]->in_data_queue()->wait_finish();
   };
+}
+
+/**
+ * @brief A private function that couns the chars into const char*
+ */
+int Pipeline::count_string_chars(const char* str) {
+  int counter = 0;
+  while (str[counter] != '\0') {
+    counter += 1;
+  }
+  return counter;
 }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

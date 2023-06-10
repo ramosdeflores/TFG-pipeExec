@@ -34,6 +34,9 @@
 #include "pipe_node.h"
 #include "processing_unit_interface.h"
 
+// TODO Create a table that describes the types of data inside the 
+// AddProcessingUnit function
+
 /**
  * @class Pipeline
  * @brief Class representing the pipeline for the processing of any type of
@@ -54,7 +57,7 @@ class Pipeline {
   ~Pipeline();
   
   // Adds a new processing unit to the Pipeline
-  void AddProcessingUnit(ProcessingUnitInterface *, int, ...);
+  void AddProcessingUnit(ProcessingUnitInterface *, int, const char*, ...);
   
   // Runs the pipe making all the threads wait for an input
   int RunPipe();
@@ -63,9 +66,9 @@ class Pipeline {
   void WaitFinish();
   
   private:
-  // TODO(lucashdez): INTERNALADDPROCESSINGUNIT Sets a nullptr in the end of the call 
   std::vector<PipeNode *> execution_list_; /**< The list of nodes that need to
                                               be executed in order */
+  int count_string_chars(const char*);
   std::mutex execution_mtx_; /**< The mutex to safely run the nodes */
   int node_number_;          /**< The number of nodes that are active */
   bool debug_;               /**< The flag to show debug information */

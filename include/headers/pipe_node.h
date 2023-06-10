@@ -75,6 +75,9 @@ class PipeNode {
   
   // Gets a vector of running threads for the current node
   std::vector<std::thread *> &running_threads();
+
+  // Gets the pointer to the extra_args
+  void* extra_args();
   
   // Sets the input memory manager of the current node
   void in_data_queue(MemoryManager *);
@@ -97,7 +100,9 @@ class PipeNode {
   
   // Pushes the thread to the list of running threads
   void PushThread(std::thread *);
-  
+
+  // Sets the extra_args 
+  void extra_args(void*);
   
   private:
   int node_id_;             /**< Id of the node */
@@ -109,7 +114,7 @@ class PipeNode {
   bool last_node_;       /**< True if it's the last node */
   std::vector<std::thread *>
     running_threads_; /**< The list with the running threads */
-  argument_list extra_args; /**< The arguments for the start method */
+  void* extra_args_;
 };
 
 #endif

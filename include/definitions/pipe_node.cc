@@ -109,6 +109,16 @@ PipeNode::running_threads() {
 }
 
 /**
+ * @brief Get the array of extra args
+ *
+ * @return A pointer to the array of extra args
+ */
+void*
+PipeNode::extra_args(){
+  return extra_args_;
+}
+
+/**
  * @brief Sets the input memory manager of the current node
  *
  * @param in_data_queue A pointer to the input memory manager of the current
@@ -181,6 +191,17 @@ PipeNode::node_id(int new_id) {
 void
 PipeNode::PushThread(std::thread *thread) {
   running_threads_.push_back(thread);
+}
+
+
+/**
+ * @brief Sets the extra args for the current node
+ *
+ * @param args The pointer to the array of args
+ */
+void
+PipeNode::extra_args(void* args) {
+  extra_args_ = args;
 }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */
