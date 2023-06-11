@@ -24,10 +24,10 @@
  */
 Pipeline::Pipeline(ProcessingUnitInterface *first_function,
                    MemoryManager *data_in, int threads_per_node_, bool debug)
-: debug_(debug) {
+    : debug_(debug) {
   node_number_ = 0;
   PipeNode *first_node;
-  
+
   // first_node = (PipeNode *)malloc(sizeof(PipeNode));
   first_node = new PipeNode;
   first_node->node_id(node_number_);
@@ -36,7 +36,7 @@ Pipeline::Pipeline(ProcessingUnitInterface *first_function,
   first_node->in_data_queue(data_in);
   first_node->processing_unit(first_function);
   first_node->number_of_instances(threads_per_node_);
-  
+
   execution_list_.push_back(first_node);
   node_number_ += 1;
 }
@@ -62,29 +62,65 @@ Pipeline::~Pipeline() {}
  */
 void
 Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
-                            int instances,const char* fmt = nullptr,  ...) {
-  
-  int arg_counter = count_string_chars(fmt);
-  printf("ArgCounter: %d\n", arg_counter);
-   // TODO Complete this MAN PLS 
-  if (arg_counter != 0) {
+                            int instances, const char *fmt, ...) {
+
+  PipeNode *new_node = new PipeNode;
+
+  // Variadic function handling
+  if (fmt != nullptr) {
+    int n_args = count_arguments(fmt);
+    void **push_arguments = (void **)malloc(n_args * sizeof(void *));
+    printf("ArgCounter: %d\n", n_args);
     va_list variadic_args;
     va_start(variadic_args, fmt);
-    for(int i = 0 ; i < arg_counter; ++i) {
-      void* next_arg = va_arg(variadic_args, void*);
-      printf("%p", (int*)next_arg);
+    for (int i = 0; i < n_args; ++i) {
+      ArgumentType arg = extract_arg(fmt, i);
+      switch (arg) {
+        case kInt: {
+          i64 argument = va_arg(variadic_args, i64);
+          push_arguments[i] = &argument;
+          printf("Original = %p\n", push_arguments);
+        } break;
+
+        case kUnsigned: {
+          u64 argument = va_arg(variadic_args, u64);
+          push_arguments[i] = &argument;
+        } break;
+
+        case kFloat: {
+          double argument = va_arg(variadic_args, double);
+          push_arguments[i] = &argument;
+        } break;
+
+        case kExponential: {
+          double argument = va_arg(variadic_args, double);
+          push_arguments[i] = &argument;
+        } break;
+
+        case kString: {
+          char *argument = va_arg(variadic_args, char *);
+          push_arguments[i] = &argument;
+        } break;
+
+        case kChar: {
+          char argument = va_arg(variadic_args, char);
+          push_arguments[i] = &argument;
+        } break;
+
+        default: {
+          throw PipelineError::kBadArgumentType;
+        } break;
+      }
     }
     va_end(variadic_args);
+    new_node->extra_args(push_arguments);
   }
-  
-  
-  
-  PipeNode *new_node = new PipeNode;
+
   int prev_idx = node_number_ - 1;
   execution_list_[prev_idx]->last_node(false);
   execution_list_[prev_idx]->out_data_queue(new MemoryManager(
-                                                              execution_list_[0]->in_data_queue()->max_size(), debug_));
-  
+      execution_list_[0]->in_data_queue()->max_size(), debug_));
+
   new_node->out_data_queue(execution_list_[0]->in_data_queue());
   new_node->in_data_queue(execution_list_[prev_idx]->out_data_queue());
   new_node->node_id(node_number_);
@@ -126,18 +162,18 @@ RunNode(PipeNode *node, int id, std::mutex &mtx, bool debug = false) {
       processing_unit = node->processing_unit();
     }
     mtx.unlock();
-    processing_unit->Start();
+    processing_unit->Start(node->extra_args());
     do {
       if (debug) {
-        printf("%s(NODE %d)(THREAD %d):%s Popping from IN->OUT\n",
-               LUCID_CYAN, node->node_id(), id, LUCID_NORMAL);
+        printf("%s(NODE %d)(THREAD %d):%s Popping from IN->OUT\n", LUCID_CYAN,
+               node->node_id(), id, LUCID_NORMAL);
       }
       data = node->in_data_queue()->PopFromOut();
       processing_unit->Run(data);
       if (node->last_node()) {
         if (debug) {
-          printf("%s(NODE %d)(THREAD %d):%s Pushing into OUT->IN\n",
-                 LUCID_CYAN, node->node_id(), id, LUCID_NORMAL);
+          printf("%s(NODE %d)(THREAD %d):%s Pushing into OUT->IN\n", LUCID_CYAN,
+                 node->node_id(), id, LUCID_NORMAL);
         }
         node->out_data_queue()->PushIntoIn(data);
       } else {
@@ -163,15 +199,14 @@ RunNode(PipeNode *node, int id, std::mutex &mtx, bool debug = false) {
 int
 Pipeline::RunPipe() {
   int nodes_executed = 0;
-  
   for (int it = 0; it < node_number_; ++it) {
     int number_of_subthreads = execution_list_[it]->number_of_instances();
     for (int thread_it = 0; thread_it < number_of_subthreads; ++thread_it) {
       try {
         execution_mtx_.lock();
         execution_list_[it]->PushThread(
-                                        new std::thread(RunNode, execution_list_[it], thread_it,
-                                                        std::ref(execution_mtx_), debug_));
+            new std::thread(RunNode, execution_list_[it], thread_it,
+                            std::ref(execution_mtx_), debug_));
       } catch (...) {
       }
     }
@@ -195,12 +230,50 @@ Pipeline::WaitFinish() {
 /**
  * @brief A private function that couns the chars into const char*
  */
-int Pipeline::count_string_chars(const char* str) {
+int
+Pipeline::count_arguments(const char *str) {
   int counter = 0;
   while (str[counter] != '\0') {
     counter += 1;
   }
   return counter;
+}
+
+/**
+ * @brief This method extracts each argument for it to be compared to a series
+ * of specified formats to allow the extraction of the arguments of the
+ * AddProcessingUnit variadic function
+ *
+ * @param fmt The C string containing the format
+ * @param arg_pos The position of the argument in the C string: (0,1,2...);
+ */
+Pipeline::ArgumentType
+Pipeline::extract_arg(const char *fmt, u64 arg_pos) {
+  ArgumentType result;
+  char c = fmt[arg_pos];
+  switch (c) {
+    case 'd':
+      result = ArgumentType::kInt;
+      break;
+    case 'u':
+      result = ArgumentType::kUnsigned;
+      break;
+    case 'f':
+      result = ArgumentType::kFloat;
+      break;
+    case 'e':
+      result = ArgumentType::kExponential;
+      break;
+    case 's':
+      result = ArgumentType::kString;
+      break;
+    case 'c':
+      result = ArgumentType::kChar;
+      break;
+    default:
+      throw PipelineError::kBadArgumentFormat;
+  }
+  return result;
 }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

@@ -20,10 +20,10 @@
  */
 
 #include "double_pipe_main.cc"
+#include "islands_main.cc"
 #include "processing_units.h"
 #include "simple_edge_detection_main.cc"
 #include "sleeper_main.cc"
-#include "islands_main.cc"
 
 // FORWARD DECLARATIONS
 std::string Help();
@@ -36,19 +36,19 @@ int protected_main();
 std::string
 Help() {
   std::string usage_str =
-    "\tLUCID (Unified Computing Image and Data-Processing)\n"
-    "\tCopyright (C) 2023  Lucas Hernández Abreu\n"
-    "\tThis program comes with ABSOLUTELY NO WARRANTY\n"
-    "\nExecute inside bin with:\n"
-    "    ./lucid run <arg>\n"
-    "Valid args:\n"
-    "\tDebug -> [debug]|[-d]|[--debug]: Shows the debug "
-    "information:\n"
-    "\t    (operations in MemoryManager, semaphore statuses...)\n"
-    "\tDebug Processing Units -> [pudebug][--pd][--pu-debug]: shows the "
-    "debug for the processing units\n"
-    "\t    (operations inside the processing units)\n"
-    "\tHelp -> [help]|[-h]|[--help]: Shows this message\n";
+      "\tLUCID (Unified Computing Image and Data-Processing)\n"
+      "\tCopyright (C) 2023  Lucas Hernández Abreu\n"
+      "\tThis program comes with ABSOLUTELY NO WARRANTY\n"
+      "\nExecute inside bin with:\n"
+      "    ./lucid run <arg>\n"
+      "Valid args:\n"
+      "\tDebug -> [debug]|[-d]|[--debug]: Shows the debug "
+      "information:\n"
+      "\t    (operations in MemoryManager, semaphore statuses...)\n"
+      "\tDebug Processing Units -> [pudebug][--pd][--pu-debug]: shows the "
+      "debug for the processing units\n"
+      "\t    (operations inside the processing units)\n"
+      "\tHelp -> [help]|[-h]|[--help]: Shows this message\n";
   return usage_str;
 }
 
@@ -83,7 +83,7 @@ protected_main(int argc, char **argv) {
     printf("%s", Help().c_str());
     return 0;
   }
-  
+
   // Put here the function we're going to use
   return SleeperMain(debug_flag, pu_debug_flag);
 }
@@ -92,7 +92,6 @@ int
 main(int argc, char **argv) {
   try {
     protected_main(argc, argv);
-    
   } catch (MemoryManager::MemoryManagerError e) {
     switch (e) {
       case MemoryManager::MemoryManagerError::kBadSizing: {

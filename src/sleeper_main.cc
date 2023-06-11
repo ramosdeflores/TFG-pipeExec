@@ -29,11 +29,11 @@ SleeperMain(bool debug_flag, bool pu_debug_flag) {
     int *holder = (int *)malloc(sizeof(int));
     data_in->LoadMemoryManager(holder);
   }
-  
+
   Pipeline *pipe = new Pipeline(&sleeper_unit, data_in, 3, debug_flag);
-  pipe->AddProcessingUnit(&sleeper_unit, 2);
+  pipe->AddProcessingUnit(&sleeper_unit, 2, "d", 1);
   pipe->RunPipe();
-  
+
   auto t1 = std::chrono::high_resolution_clock::now();
   for (int i = 0; i < 3; ++i) {
     if (debug_flag) {
@@ -47,7 +47,7 @@ SleeperMain(bool debug_flag, bool pu_debug_flag) {
   }
   pipe->WaitFinish();
   auto t2 = std::chrono::high_resolution_clock::now();
-  
+
   printf("Time Elapsed running the pipe: %fs\n",
          std::chrono::duration<double>(t2 - t1).count());
   return 0;

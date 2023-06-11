@@ -2,7 +2,6 @@
  * LUCID (Unified Computing Image and Data-Processing) is a program to process
  * any type of data concurrently.
  * Copyright (C) 2023 Lucas Hernández Abreu
- *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -36,7 +35,6 @@
 #include "tiffconf.h"
 #include "tiffio.h"
 #include "tiffvers.h"
-#include <stdarg.h>
 #include <atomic>
 #include <chrono>
 #include <condition_variable>
@@ -47,6 +45,8 @@
 #include <malloc.h>
 #include <math.h>
 #include <mutex>
+#include <stdarg.h>
+#include <string.h>
 #include <string>
 #include <thread>
 #include <vector>
@@ -57,7 +57,6 @@ typedef int8_t i8;
 typedef int16_t i16;
 typedef int32_t i32;
 typedef int64_t i64;
-
 
 typedef uint8_t u8;
 typedef uint16_t u16;

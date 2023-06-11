@@ -34,7 +34,7 @@
 #include "pipe_node.h"
 #include "processing_unit_interface.h"
 
-// TODO Create a table that describes the types of data inside the 
+// TODO Create a table that describes the types of data inside the
 // AddProcessingUnit function
 
 /**
@@ -48,27 +48,47 @@
  * up the proccess.
  */
 class Pipeline {
-  public:
+public:
+  enum PipelineError {
+    kBadArgumentFormat,
+    kBadArgumentType,
+  };
+
   // Constructor for the Pipeline class
-  Pipeline(ProcessingUnitInterface *, MemoryManager *, int,
-           bool debug = false);
-  
+  Pipeline(ProcessingUnitInterface *, MemoryManager *, int, bool debug = false);
+
   // Destructor of the Pipeline
   ~Pipeline();
-  
+
   // Adds a new processing unit to the Pipeline
-  void AddProcessingUnit(ProcessingUnitInterface *, int, const char*, ...);
-  
+  void AddProcessingUnit(ProcessingUnitInterface *, int, const char * = nullptr,
+                         ...);
+
   // Runs the pipe making all the threads wait for an input
   int RunPipe();
-  
+
   // Waits until all the threads finished processing
   void WaitFinish();
-  
-  private:
+
+private:
+  struct ArgumentStr {
+    char arg[3];
+    u64 size;
+  };
+  enum ArgumentType {
+    kInt,         /**< Type is d */
+    kUnsigned,    /**< Type is u */
+    kFloat,       /**< Type is f */
+    kExponential, /**< Type is e */
+    kString,      /**< Type is s */
+    kChar         /**< Type is c */
+  };
   std::vector<PipeNode *> execution_list_; /**< The list of nodes that need to
-                                              be executed in order */
-  int count_string_chars(const char*);
+                                             be executed in order */
+  int count_arguments(const char *); /**< Returns the number of arguments */
+
+  ArgumentType extract_arg(const char *, u64);
+
   std::mutex execution_mtx_; /**< The mutex to safely run the nodes */
   int node_number_;          /**< The number of nodes that are active */
   bool debug_;               /**< The flag to show debug information */

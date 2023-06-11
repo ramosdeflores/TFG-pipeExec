@@ -4,8 +4,12 @@ Sleeper::Sleeper() {}
 Sleeper::~Sleeper() {}
 
 void
-Sleeper::Start(void* pre_process_args) {
+Sleeper::Start(void *pre_process_args) {
   seconds_to_sleep = 0;
+  if (pre_process_args != nullptr) {
+    void **args = (void **)pre_process_args;
+    printf("Next = %p\n", args);
+  }
 }
 
 void
