@@ -44,7 +44,7 @@ EdgeDetector::~EdgeDetector() {}
  * values.
  */
 void
-EdgeDetector::Start(void* pre_process_args) {
+EdgeDetector::Start(void** pre_process_args) {
   sobelx_ = (int **)malloc(3 * sizeof(int *));
   sobely_ = (int **)malloc(3 * sizeof(int *));
   for (int it = 0; it < 3; ++it) {

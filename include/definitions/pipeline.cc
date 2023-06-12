@@ -70,7 +70,6 @@ Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
   if (fmt != nullptr) {
     int n_args = count_arguments(fmt);
     void **push_arguments = (void **)malloc(n_args * sizeof(void *));
-    printf("ArgCounter: %d\n", n_args);
     va_list variadic_args;
     va_start(variadic_args, fmt);
     for (int i = 0; i < n_args; ++i) {
@@ -78,33 +77,32 @@ Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
       switch (arg) {
         case kInt: {
           i64 argument = va_arg(variadic_args, i64);
-          push_arguments[i] = &argument;
-          printf("Original = %p\n", push_arguments);
+          push_arguments[i] = new i64(argument);
         } break;
 
         case kUnsigned: {
           u64 argument = va_arg(variadic_args, u64);
-          push_arguments[i] = &argument;
+          push_arguments[i] = new u64(argument);
         } break;
 
         case kFloat: {
           double argument = va_arg(variadic_args, double);
-          push_arguments[i] = &argument;
+          push_arguments[i] = new double(argument);
         } break;
 
         case kExponential: {
           double argument = va_arg(variadic_args, double);
-          push_arguments[i] = &argument;
+          push_arguments[i] = new double(argument);
         } break;
 
         case kString: {
           char *argument = va_arg(variadic_args, char *);
-          push_arguments[i] = &argument;
+          push_arguments[i] = new char*(argument);
         } break;
 
         case kChar: {
           char argument = va_arg(variadic_args, char);
-          push_arguments[i] = &argument;
+          push_arguments[i] = new char(argument);
         } break;
 
         default: {

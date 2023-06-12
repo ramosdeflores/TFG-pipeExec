@@ -23,7 +23,7 @@ Adder::Run(void *data) {
  * @brief Doesn't allocate nothing
  */
 void
-Adder::Start(void* pre_process_args) {}
+Adder::Start(void** pre_process_args) {}
 
 /**
  * @brief Doesn't delete nothing

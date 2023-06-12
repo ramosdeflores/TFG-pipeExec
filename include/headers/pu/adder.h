@@ -51,7 +51,7 @@ class Adder : public ProcessingUnitInterface {
   void Run(void *) override;
   
   // Doesn't allocate nothing
-  void Start(void* = nullptr) override;
+  void Start(void** = nullptr) override;
   
   // Doesn't Doesn't delete nothing
   void Delete() override;

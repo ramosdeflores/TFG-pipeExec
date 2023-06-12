@@ -51,7 +51,7 @@ class ImgTruncator : public ProcessingUnitInterface {
   ~ImgTruncator();
   
   // Doesn't realize anything
-  void Start(void* = nullptr) override;
+  void Start(void** = nullptr) override;
   
   // Modified the data
   void Run(void *) override;

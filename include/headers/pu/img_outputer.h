@@ -49,7 +49,7 @@ class ImgOutputer : public ProcessingUnitInterface {
   ~ImgOutputer();
   
   // Doesn't need to allocate nothing
-  void Start(void* pre_process_args) override;
+  void Start(void** pre_process_args) override;
   
   // Gets the img and prints it into 2 files.
   void Run(void *) override;

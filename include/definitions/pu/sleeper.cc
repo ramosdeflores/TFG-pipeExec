@@ -4,17 +4,16 @@ Sleeper::Sleeper() {}
 Sleeper::~Sleeper() {}
 
 void
-Sleeper::Start(void *pre_process_args) {
-  seconds_to_sleep = 0;
+Sleeper::Start(void** pre_process_args) {
+seconds_to_sleep_= 0;
   if (pre_process_args != nullptr) {
-    void **args = (void **)pre_process_args;
-    printf("Next = %p\n", args);
+    seconds_to_sleep_ = *(int*)pre_process_args[0];
   }
 }
 
 void
 Sleeper::Run(void *) {
-  std::this_thread::sleep_for(std::chrono::seconds(seconds_to_sleep));
+  std::this_thread::sleep_for(std::chrono::seconds(seconds_to_sleep_));
 }
 
 ProcessingUnitInterface *

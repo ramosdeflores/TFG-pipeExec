@@ -44,7 +44,7 @@ SimpleIndexer::~SimpleIndexer() {}
 /**
 * @brief Sets the internal counter to 0 
 */
-void SimpleIndexer::Start(void* pre_process_args) {
+void SimpleIndexer::Start(void** pre_process_args) {
   counter_ = 0;
 }
 

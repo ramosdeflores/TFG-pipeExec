@@ -40,7 +40,7 @@ DoublePipe::~DoublePipe(){}
 * 
 */
 void
-DoublePipe::Start(void* pre_process_args) {
+DoublePipe::Start(void** pre_process_args) {
   // TODO(lucashdez): Instantiate pipeline
   // NOTE(lucashdez): Probably create a null processing unit
 }

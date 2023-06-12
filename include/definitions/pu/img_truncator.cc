@@ -41,7 +41,7 @@ ImgTruncator::~ImgTruncator() {}
  * @brief Function used for allocation, but allocation is not needed
  */
 void
-ImgTruncator::Start(void* pre_process_args) {}
+ImgTruncator::Start(void** pre_process_args) {}
 
 /**
  * @brief The method that modified the data inside the pointer

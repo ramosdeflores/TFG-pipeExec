@@ -113,7 +113,7 @@ PipeNode::running_threads() {
  *
  * @return A pointer to the array of extra args
  */
-void *
+void **
 PipeNode::extra_args() {
   return extra_args_;
 }
@@ -199,7 +199,7 @@ PipeNode::PushThread(std::thread *thread) {
  * @param args The pointer to the array of args
  */
 void
-PipeNode::extra_args(void *args) {
+PipeNode::extra_args(void **args) {
   extra_args_ = args;
 }
 

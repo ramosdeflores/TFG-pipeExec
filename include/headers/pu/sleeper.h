@@ -10,14 +10,14 @@ class Sleeper : public ProcessingUnitInterface {
   public:
   Sleeper();
   ~Sleeper();
-  void Start(void* = nullptr);
+  void Start(void** = nullptr);
   void Run(void *);
   void Delete();
   int start_arguments();
   ProcessingUnitInterface *Clone();
   
   private:
-  u32 seconds_to_sleep;
+  u32 seconds_to_sleep_;
 };
 
 #endif // SLEEPER_H

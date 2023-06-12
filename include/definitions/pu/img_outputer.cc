@@ -45,7 +45,7 @@ ImgOutputer::~ImgOutputer() {}
  * @brief Doesn't allocate anything
  */
 void
-ImgOutputer::Start(void* pre_process_args) {}
+ImgOutputer::Start(void** pre_process_args) {}
 
 /**
  * @brief Gets the image and creates two .ppm files: origina.ppm and output.ppm.

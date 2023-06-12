@@ -49,7 +49,7 @@ class EdgeDetector : public ProcessingUnitInterface {
   ~EdgeDetector();
   
   // Method to allocate the sobel filter
-  void Start(void* = nullptr) override;
+  void Start(void** = nullptr) override;
   
   // Method to pass the filters and process the img
   void Run(void *) override;

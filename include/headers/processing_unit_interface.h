@@ -45,7 +45,7 @@ class ProcessingUnitInterface {
    * @brief Use this function to allocate memory for the variables that need
    * it and initialize some of them
    */
-  virtual void Start(void* = nullptr) = 0;
+  virtual void Start(void** = nullptr) = 0;
   
   /**
    * @brief Use this function to process the data. It's recommended to recast
