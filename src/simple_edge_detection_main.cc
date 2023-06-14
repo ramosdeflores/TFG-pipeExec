@@ -1,7 +1,7 @@
 #include "processing_units.h"
 
 int
-SimpleEdgeDetectionMain(bool debug_flag, bool pu_debug_flag) {
+SimpleEdgeDetectionMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   int height = 512;
   int width = 512;
   int max_num = 0;
@@ -38,7 +38,7 @@ SimpleEdgeDetectionMain(bool debug_flag, bool pu_debug_flag) {
     Data *some_data = new Data(img);
     some_data->PushExtraData(new Data::DataKey{"width", new int(height)});
     some_data->PushExtraData(new Data::DataKey{"height", new int(width)});
-    some_data->PushExtraData(new Data::DataKey({"debug", &pu_debug_flag}));
+    some_data->PushExtraData(new Data::DataKey{"debug", &pu_debug_flag});
     some_data->PushExtraData(new Data::DataKey{"id", new int(it)});
     some_data->PushExtraData(new Data::DataKey{"max_rand", new int(max_num)});
     data_in->LoadMemoryManager(some_data);

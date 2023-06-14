@@ -72,7 +72,7 @@ extraerAlturasDesdeTIFF(const char *archivoTIFF) {
 }
 
 int
-IslandsMain(bool debug_flag, bool pu_debug_flag) {
+IslandsMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   
   TIFF *tif = TIFFOpen("../input_images/ElHierro.tiff", "r");
   u64 width;

@@ -62,6 +62,7 @@ protected_main(int argc, char **argv) {
   std::string arguments2 = "";
   bool debug_flag = false;
   bool pu_debug_flag = false;
+  bool profiling_flag = false;
   if (argc != 1) {
     arguments = std::string(argv[1]);
     if (argc > 2) {
@@ -74,6 +75,10 @@ protected_main(int argc, char **argv) {
                  (arguments2 == "pudebug" || arguments2 == "-pd" ||
                   arguments2 == "--pu-debug" || arguments2 == "--pd")) {
         pu_debug_flag = true;
+      } else if (arguments == "run" &&
+                 (arguments2 == "profiling" || arguments2 == "-pr" ||
+                  arguments2 == "--profiling" || arguments2 == "--pr")) {
+        profiling_flag = true;
       }
     } else if (arguments != "run") {
       printf("%s", Help().c_str());
@@ -85,7 +90,7 @@ protected_main(int argc, char **argv) {
   }
 
   // Put here the function we're going to use
-  return SleeperMain(debug_flag, pu_debug_flag);
+  return SleeperMain(debug_flag, pu_debug_flag, profiling_flag);
 }
 
 int

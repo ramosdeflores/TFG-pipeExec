@@ -21,7 +21,7 @@
 #include "processing_units.h"
 
 int
-DoublePipeMain(bool debug_flag, bool pu_debug_flag) {
+DoublePipeMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   DoublePipe double_pipe;
   MemoryManager *data_in = new MemoryManager(5, debug_flag);
   for (size_t it = 0; it < 5; ++it) {
