@@ -14,6 +14,7 @@ add_library(libraries SHARED
 	headers/pu/simple_indexer.h
     headers/pu/sleeper.h
     headers/pu/double_pipe.h
+    headers/pu/null_unit.h
     definitions/semaphore.cc
     definitions/memory_manager.cc
     definitions/data.cc
@@ -28,6 +29,7 @@ add_library(libraries SHARED
 	definitions/pu/simple_indexer.cc
     definitions/pu/sleeper.cc
     definitions/pu/double_pipe.cc
+    definitions/pu/null_unit.cc
     )
 
 target_include_directories(libraries PUBLIC 

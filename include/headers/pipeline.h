@@ -34,9 +34,6 @@
 #include "pipe_node.h"
 #include "processing_unit_interface.h"
 
-// TODO Create a table that describes the types of data inside the
-// AddProcessingUnit function
-
 /**
  * @class Pipeline
  * @brief Class representing the pipeline for the processing of any type of

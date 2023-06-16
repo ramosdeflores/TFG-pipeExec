@@ -23,16 +23,19 @@
 int
 DoublePipeMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   DoublePipe double_pipe;
+  NumberPrinter printer;
   MemoryManager *data_in = new MemoryManager(5, debug_flag);
   for (size_t it = 0; it < 5; ++it) {
-    int *holder = new int(0);
+    Data *holder = new Data(new int(0));
     data_in->LoadMemoryManager(holder);
   }
-  Pipeline *pipe = new Pipeline(&double_pipe, data_in, 1, debug_flag);
+  Pipeline *pipe = new Pipeline(&printer, data_in, 1, debug_flag);
+  pipe->AddProcessingUnit(&double_pipe, 1);
+  pipe->AddProcessingUnit(&printer, 1);
   pipe->RunPipe();
 
   auto t1 = std::chrono::high_resolution_clock::now();
-  for (int i = 0; i < 5; ++i) {
+  for (int i = 0; i < 10; ++i) {
     if (debug_flag) {
       printf("%s(main) Popping from IN %s\n", LUCID_CYAN, LUCID_NORMAL);
     }

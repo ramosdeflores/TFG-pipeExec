@@ -29,7 +29,13 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 // TODO(lucashdez): COMMENT THIS FILE DOUBLEPIPE.CC
+
+#ifndef DOUBLEPIPE_H
+#define DOUBLEPIPE_H
+
 #include "../../headers/pu/double_pipe.h"
+#include "../../../src/processing_units.h"
+
 
 DoublePipe::DoublePipe(){}
 DoublePipe::~DoublePipe(){}
@@ -37,7 +43,6 @@ DoublePipe::~DoublePipe(){}
 /**
 * @brief This method instantiates the pipeline and the MemoryManager
 * for the pipeline
-* 
 */
 void
 DoublePipe::Start(void** pre_process_args) {
@@ -52,7 +57,16 @@ DoublePipe::Start(void** pre_process_args) {
 void
 DoublePipe::Run(void* data) {
   // TODO(lucashdez): Insert the processing units and run the pipe with the data
+  MemoryManager* data_in = new MemoryManager(1, false);
+  data_in->LoadMemoryManager(data);
+
+  Pipeline* pipe = new Pipeline(new Adder(), data_in, 5, false);
+  pipe->RunPipe();
+  void* inside_data = data_in->PopFromIn();
+  data_in->PushIntoOut(inside_data);
   
+  pipe->WaitFinish();
+
 }
 
 /**
@@ -71,5 +85,7 @@ DoublePipe::Delete() {
 ProcessingUnitInterface* DoublePipe::Clone() {
   return new DoublePipe;
 }
+
+#endif
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

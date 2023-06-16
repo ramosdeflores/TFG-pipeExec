@@ -90,7 +90,7 @@ protected_main(int argc, char **argv) {
   }
 
   // Put here the function we're going to use
-  return SleeperMain(debug_flag, pu_debug_flag, profiling_flag);
+  return DoublePipeMain(debug_flag, pu_debug_flag, profiling_flag);
 }
 
 int
