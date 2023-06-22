@@ -32,9 +32,9 @@
 #define LUCID_WHITE "\x1B[37m"
 
 #include "tiff.h"
-#include "tiffconf.h"
 #include "tiffio.h"
 #include "tiffvers.h"
+#include <algorithm>
 #include <atomic>
 #include <chrono>
 #include <condition_variable>
@@ -46,7 +46,6 @@
 #include <math.h>
 #include <mutex>
 #include <stdarg.h>
-#include <string.h>
 #include <string>
 #include <thread>
 #include <vector>
@@ -62,5 +61,18 @@ typedef uint8_t u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
 typedef uint64_t u64;
+
+/**
+ * @desc This function returns the current cycles that has passed since the 
+ * last CPU reset.
+ *
+ * @return The current cycles that has passed since the last CPU reset
+ */
+inline u64 rdtsc() {
+    u64 hi, lo;
+    __asm__ __volatile__("rdtsc" : "=a" (lo), "=d"(hi));
+    return (u64)hi << 32 | lo;
+}
+
 
 #endif

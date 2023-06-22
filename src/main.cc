@@ -58,8 +58,8 @@ Help() {
  */
 int
 protected_main(int argc, char **argv) {
-  std::string arguments = "";
-  std::string arguments2 = "";
+  std::string arguments;
+  std::string arguments2;
   bool debug_flag = false;
   bool pu_debug_flag = false;
   bool profiling_flag = false;

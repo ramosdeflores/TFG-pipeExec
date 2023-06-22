@@ -19,6 +19,7 @@
  */
 
 #include "processing_units.h"
+#include <ctime>
 
 int
 DoublePipeMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
@@ -29,12 +30,13 @@ DoublePipeMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
     Data *holder = new Data(new int(0));
     data_in->LoadMemoryManager(holder);
   }
-  Pipeline *pipe = new Pipeline(&printer, data_in, 1, debug_flag);
+  Pipeline *pipe = new Pipeline(&printer, data_in, 1, debug_flag, profiling);
   pipe->AddProcessingUnit(&double_pipe, 1);
   pipe->AddProcessingUnit(&printer, 1);
   pipe->RunPipe();
 
-  auto t1 = std::chrono::high_resolution_clock::now();
+  u64 t1 = rdtsc();
+  u64 t1c = clock();
   for (int i = 0; i < 10; ++i) {
     if (debug_flag) {
       printf("%s(main) Popping from IN %s\n", LUCID_CYAN, LUCID_NORMAL);
@@ -46,10 +48,11 @@ DoublePipeMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
     data_in->PushIntoOut(data_handler);
   }
   pipe->WaitFinish();
-  auto t2 = std::chrono::high_resolution_clock::now();
-
-  printf("Time Elapsed running the pipe: %fs\n",
-         std::chrono::duration<double>(t2 - t1).count());
+  u64 t2 = rdtsc();
+  auto t2c = clock();
+  printf("Time Elapsed running the pipe RDTSC: %fms\n" 
+      "Time Elapsed running the pipe CLOCK: %fms\n",
+         ((double)CLOCKS_PER_SEC/(t2-t1)), (double)(t2c-t1c)/CLOCKS_PER_SEC);
   return 0;
 }
 

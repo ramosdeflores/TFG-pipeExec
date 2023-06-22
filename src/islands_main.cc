@@ -18,7 +18,6 @@
  * Author:  Lucas Hernández Abreu
  * Contact: lucas.hernandez.09@ull.edu.es
  */
-#include <tiff.h>
 #define PRINT(format, ...) printf(format)
 #define MAT_AT(mat, row, col) mat[i][j]
 #define NEWLINE printf('\n');
@@ -85,7 +84,7 @@ IslandsMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   TIFFGetField(tif, TIFFTAG_TILEWIDTH, &tile_width);
   TIFFGetField(tif, TIFFTAG_TILELENGTH, &tile_height);
   TIFFGetField(tif, TIFFTAG_RESOLUTIONUNIT, &unit);
-  printf("%d", unit);
+  printf("%lu", unit);
   
   u64 *buffer = (u64 *)_TIFFmalloc(tile_width * tile_height * sizeof(u64));
   float **matrix = new float *[height];

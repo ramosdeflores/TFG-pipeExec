@@ -23,7 +23,7 @@
  *
  */
 Pipeline::Pipeline(ProcessingUnitInterface *first_function,
-                   MemoryManager *data_in, int threads_per_node_, bool debug)
+                   MemoryManager *data_in, int threads_per_node_, bool debug, bool profiling)
     : debug_(debug) {
   node_number_ = 0;
   PipeNode *first_node;
@@ -144,7 +144,13 @@ Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
  *
  */
 void
-RunNode(PipeNode *node, int id, std::mutex &mtx, bool debug = false) {
+RunNode(PipeNode *node, 
+    int id, 
+    std::mutex &mtx, 
+    std::vector<Pipeline::Profiling> &profiling_information, 
+    bool debug = false, 
+    bool profiling = false
+) {
   try {
     void *data;
     ProcessingUnitInterface *processing_unit;
@@ -160,14 +166,39 @@ RunNode(PipeNode *node, int id, std::mutex &mtx, bool debug = false) {
       processing_unit = node->processing_unit();
     }
     mtx.unlock();
+
+    // Starts the data at the processing unit, the user must be aware of the arg types
     processing_unit->Start(node->extra_args());
+
     do {
       if (debug) {
         printf("%s(NODE %d)(THREAD %d):%s Popping from IN->OUT\n", LUCID_CYAN,
                node->node_id(), id, LUCID_NORMAL);
       }
       data = node->in_data_queue()->PopFromOut();
+
+      Pipeline::Profiling profile_info;
+      // Tiempos
+      long inittime;
+      u64 initcycles;
+      if (profiling) {
+        profile_info = {
+          .node_id = node->node_id(),
+          .thread_id = id,
+        };
+        inittime = clock();
+        initcycles = rdtsc();
+      }
+      // Runs the processing_unit
       processing_unit->Run(data);
+
+      if(profiling) {
+        profile_info.time = (double)(clock() - inittime) / CLOCKS_PER_SEC;
+        profile_info.cycles = rdtsc() - initcycles;
+        profiling_information.push_back(profile_info);
+      }
+
+
       if (node->last_node()) {
         if (debug) {
           printf("%s(NODE %d)(THREAD %d):%s Pushing into OUT->IN\n", LUCID_CYAN,
@@ -204,7 +235,7 @@ Pipeline::RunPipe() {
         execution_mtx_.lock();
         execution_list_[it]->PushThread(
             new std::thread(RunNode, execution_list_[it], thread_it,
-                            std::ref(execution_mtx_), debug_));
+                            std::ref(execution_mtx_), std::ref(profiling_list_), debug_, profiling_));
       } catch (...) {
       }
     }
@@ -272,6 +303,17 @@ Pipeline::extract_arg(const char *fmt, u64 arg_pos) {
       throw PipelineError::kBadArgumentFormat;
   }
   return result;
+}
+
+void
+Pipeline::Profile() {
+      std::sort(profiling_list_.begin(), profiling_list_.end(), [](const Pipeline::Profiling &a, const Pipeline::Profiling &b) {
+          return a.node_id <= b.node_id && a.thread_id <= b.thread_id;
+      });
+
+      for(Profiling profile: profiling_list_) {
+        printf("%sNODE %d\t THREAD %d\n Time running: %f\n Cycles since init of running: %lu",LUCID_GREEN, profile.node_id, profile.thread_id, profile.time, profile.cycles);
+      }
 }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

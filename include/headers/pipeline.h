@@ -51,8 +51,19 @@ public:
     kBadArgumentType,
   };
 
+  /**
+   * @brief This struct holds the information needed for the profiling of the processing unit
+   * @desc This struct holds all the information that the pipe will print when the print_profile method function is called
+   */
+  struct Profiling {
+      i32 node_id;   /**< The id of the node to profile */
+      i32 thread_id; /**< The id of the thread that executed the processing unit*/
+      u64 cycles;    /**< The number of cycles spent in the run method */
+      double time;   /**< The time elapsed between the start and the end of the run method */
+  };
+
   // Constructor for the Pipeline class
-  Pipeline(ProcessingUnitInterface *, MemoryManager *, int, bool debug = false);
+  Pipeline(ProcessingUnitInterface *, MemoryManager *, int, bool = false, bool = false);
 
   // Destructor of the Pipeline
   ~Pipeline();
@@ -67,11 +78,14 @@ public:
   // Waits until all the threads finished processing
   void WaitFinish();
 
+  void Profile();
+
 private:
-  struct ArgumentStr {
-    char arg[3];
-    u64 size;
-  };
+
+  /**
+   * @brief The types of the internal arguments
+   * @desc The types of the internal arguments in the variadic function
+   */
   enum ArgumentType {
     kInt,         /**< Type is d */
     kUnsigned,    /**< Type is u */
@@ -80,15 +94,18 @@ private:
     kString,      /**< Type is s */
     kChar         /**< Type is c */
   };
+
   std::vector<PipeNode *> execution_list_; /**< The list of nodes that need to
                                              be executed in order */
   int count_arguments(const char *); /**< Returns the number of arguments */
 
-  ArgumentType extract_arg(const char *, u64);
+  ArgumentType extract_arg(const char *, u64); /**< Extracts the argument type */
 
   std::mutex execution_mtx_; /**< The mutex to safely run the nodes */
   int node_number_;          /**< The number of nodes that are active */
   bool debug_;               /**< The flag to show debug information */
+  bool profiling_;           /**< The flag to show profiling information */   
+  std::vector<Profiling> profiling_list_; /**< The list of profiling information */
 };
 
 #endif
