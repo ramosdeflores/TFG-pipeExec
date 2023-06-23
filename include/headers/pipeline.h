@@ -57,11 +57,14 @@ public:
    */
   struct Profiling {
       i32 node_id;   /**< The id of the node to profile */
-      i32 thread_id; /**< The id of the thread that executed the processing unit*/
-      u64 cycles;    /**< The number of cycles spent in the run method */
-      double time;   /**< The time elapsed between the start and the end of the run method */
+      i32 thread_id; /**< The id of the thread that executed the processing unit */
+      u64 cycles_start; /**< The timestamp from the tsc in the CPU at the 
+                          start of the RunNode function */
+      u64 cycles_end;   /**< The timestamp from the tsc in the CPU at the end 
+                          of the RunNode function */
+      i64 time_start;   /**< The clock time at the start of the RunNode function */
+      i64 time_end;     /**< The clock time at the end of the RunNode function */
   };
-
   // Constructor for the Pipeline class
   Pipeline(ProcessingUnitInterface *, MemoryManager *, int, bool = false, bool = false);
 
@@ -102,6 +105,7 @@ private:
   ArgumentType extract_arg(const char *, u64); /**< Extracts the argument type */
 
   std::mutex execution_mtx_; /**< The mutex to safely run the nodes */
+  std::mutex profiling_mutex_; /**< The mutex to safely recollect times */
   int node_number_;          /**< The number of nodes that are active */
   bool debug_;               /**< The flag to show debug information */
   bool profiling_;           /**< The flag to show profiling information */   

@@ -30,8 +30,8 @@ DoublePipeMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
     Data *holder = new Data(new int(0));
     data_in->LoadMemoryManager(holder);
   }
-  Pipeline *pipe = new Pipeline(&printer, data_in, 1, debug_flag, profiling);
-  pipe->AddProcessingUnit(&double_pipe, 1);
+  Pipeline *pipe = new Pipeline(&printer, data_in, 2, debug_flag, true);
+  pipe->AddProcessingUnit(&double_pipe, 3);
   pipe->AddProcessingUnit(&printer, 1);
   pipe->RunPipe();
 
@@ -48,11 +48,8 @@ DoublePipeMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
     data_in->PushIntoOut(data_handler);
   }
   pipe->WaitFinish();
-  u64 t2 = rdtsc();
-  auto t2c = clock();
-  printf("Time Elapsed running the pipe RDTSC: %fms\n" 
-      "Time Elapsed running the pipe CLOCK: %fms\n",
-         ((double)CLOCKS_PER_SEC/(t2-t1)), (double)(t2c-t1c)/CLOCKS_PER_SEC);
+
+  pipe->Profile();
   return 0;
 }
 
