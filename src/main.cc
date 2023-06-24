@@ -1,3 +1,4 @@
+
 /*
  * LUCID (Unified Computing Image and Data-Processing) is a program to process
  * any type of data concurrently. Copyright (C) 2023 Lucas Hernández Abreu
@@ -33,6 +34,7 @@ int protected_main();
 /**
  * @brief Helper showed when used the --help flag or had a bad argument input
  */
+
 std::string
 Help() {
   std::string usage_str =
@@ -52,6 +54,8 @@ Help() {
   return usage_str;
 }
 
+static bool profiling_flag;
+
 /**
  * @brief This function execs the main and permits the throwing of exceptions so
  * the main function can catch them
@@ -62,7 +66,7 @@ protected_main(int argc, char **argv) {
   std::string arguments2;
   bool debug_flag = false;
   bool pu_debug_flag = false;
-  bool profiling_flag = false;
+  profiling_flag = false;
   if (argc != 1) {
     arguments = std::string(argv[1]);
     if (argc > 2) {
@@ -88,15 +92,20 @@ protected_main(int argc, char **argv) {
     printf("%s", Help().c_str());
     return 0;
   }
-
-  // Put here the function we're going to use
-  return DoublePipeMain(debug_flag, pu_debug_flag, profiling_flag);
+  return SimpleEdgeDetectionMain(debug_flag, pu_debug_flag, profiling_flag);
 }
 
 int
 main(int argc, char **argv) {
   try {
+    TIME_POINT t1 = STOPWATCH_NOW;
     protected_main(argc, argv);
+    TIME_POINT t2 = STOPWATCH_NOW;
+
+    if (profiling_flag) {
+      printf("TIME SPENT RUNNING THE MAIN FUNCTION: %ldms\n",
+             TIME_IN_MS(t1, t2));
+    }
   } catch (MemoryManager::MemoryManagerError e) {
     switch (e) {
       case MemoryManager::MemoryManagerError::kBadSizing: {

@@ -1,13 +1,22 @@
 #include "../../headers/pu/sleeper.h"
 
+// TODO: The comment
+
+/**
+ * @brief Default constructor: does nothing
+ */
 Sleeper::Sleeper() {}
+
+/**
+ *
+ */
 Sleeper::~Sleeper() {}
 
 void
-Sleeper::Start(void** pre_process_args) {
-seconds_to_sleep_= 0;
+Sleeper::Start(void **pre_process_args) {
+  seconds_to_sleep_ = 0;
   if (pre_process_args != nullptr) {
-    seconds_to_sleep_ = *(int*)pre_process_args[0];
+    seconds_to_sleep_ = *(int *)pre_process_args[0];
   }
 }
 
@@ -23,10 +32,5 @@ Sleeper::Clone() {
 
 void
 Sleeper::Delete() {}
-
-int
-Sleeper::start_arguments() {
-  return 1;
-}
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

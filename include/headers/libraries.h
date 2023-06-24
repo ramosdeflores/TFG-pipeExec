@@ -62,17 +62,22 @@ typedef uint16_t u16;
 typedef uint32_t u32;
 typedef uint64_t u64;
 
+#define TIME_POINT std::chrono::system_clock::time_point
+#define STOPWATCH_NOW std::chrono::high_resolution_clock::now()
+#define TIME_IN_MS(t1, t2)                                                     \
+  std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count()
+
 /**
- * @desc This function returns the current cycles that has passed since the 
+ * @desc This function returns the current cycles that has passed since the
  * last CPU reset.
  *
  * @return The current cycles that has passed since the last CPU reset
  */
-inline u64 rdtsc() {
-    u64 hi, lo;
-    __asm__ __volatile__("rdtsc" : "=a" (lo), "=d"(hi));
-    return (u64)hi << 32 | lo;
+inline u64
+rdtsc() {
+  u64 hi, lo;
+  __asm__ __volatile__("rdtsc" : "=a"(lo), "=d"(hi));
+  return (u64)hi << 32 | lo;
 }
-
 
 #endif

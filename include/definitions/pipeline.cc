@@ -23,7 +23,8 @@
  *
  */
 Pipeline::Pipeline(ProcessingUnitInterface *first_function,
-                   MemoryManager *data_in, int threads_per_node_, bool debug, bool profiling)
+                   MemoryManager *data_in, int threads_per_node_, bool debug,
+                   bool profiling)
     : debug_(debug), profiling_(profiling) {
   node_number_ = 0;
   PipeNode *first_node;
@@ -97,7 +98,7 @@ Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
 
         case kString: {
           char *argument = va_arg(variadic_args, char *);
-          push_arguments[i] = new char*(argument);
+          push_arguments[i] = new char *(argument);
         } break;
 
         case kChar: {
@@ -144,14 +145,9 @@ Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
  *
  */
 void
-RunNode(PipeNode *node, 
-    int id, 
-    std::mutex &mtx, 
-    std::mutex &prof,
-    std::vector<Pipeline::Profiling> &profiling_information, 
-    bool debug = false, 
-    bool profiling = false
-) {
+RunNode(PipeNode *node, int id, std::mutex &mtx, std::mutex &prof,
+        std::vector<Pipeline::Profiling> &profiling_information,
+        bool debug = false, bool profiling = false) {
   try {
     void *data;
     ProcessingUnitInterface *processing_unit;
@@ -166,32 +162,26 @@ RunNode(PipeNode *node,
               LUCID_RED, node->node_id(), id, LUCID_NORMAL);
       processing_unit = node->processing_unit();
     }
-    
-    if (profiling) {
-      profiling_information.push_back({
-          .node_id = node->node_id(),
-          .thread_id = id,
-          .cycles_start = rdtsc(),
-          .cycles_end = 0,
-          .time_start = clock(),
-          .time_end = 0
-          });
-    }
 
     mtx.unlock();
 
-    // Starts the data at the processing unit, the user must be aware of the arg types
+    // TIMESTAMP
+    if (profiling) {
+      prof.lock();
+      profiling_information.push_back({.node_id = node->node_id(),
+                                       .thread_id = id,
+                                       .cycles_start = rdtsc(),
+                                       .cycles_end = 0,
+                                       .time_start = STOPWATCH_NOW,
+                                       .time_end = STOPWATCH_NOW,
+                                       .sys_time_start = clock(),
+                                       .sys_time_end = 0});
+
+      prof.unlock();
+    }
+
+    // Starts the data at the processing unit, the user must be aware of the arg
     processing_unit->Start(node->extra_args());
-      Pipeline::Profiling profile_info;
-      profile_info.node_id = node->node_id();
-      profile_info.thread_id = id;
-      // Tiempos
-      long inittime;
-      u64 initcycles;
-      if (profiling) {
-        inittime = clock();
-        initcycles = rdtsc();
-      }
 
     do {
       if (debug) {
@@ -216,24 +206,24 @@ RunNode(PipeNode *node,
         }
         node->out_data_queue()->PushIntoOut(data);
       }
+      if (profiling) {
+        prof.lock();
+        u64 idx = 0;
+        for (u64 i = 0; i < profiling_information.size(); ++i) {
+          if (profiling_information[i].node_id == node->node_id() &&
+              profiling_information[i].thread_id == id) {
+            profiling_information[i].cycles_end = rdtsc();
+            profiling_information[i].time_end = STOPWATCH_NOW;
+            profiling_information[i].sys_time_end = clock();
+          }
+        }
+        prof.unlock();
+      }
     } while (true);
 
     // ############################## PROFILING
-    if (true) {
-      prof.lock();
-      u64 idx = 0;
-      for(u64 i = 0; i < profiling_information.size(); ++i) {
-        printf("%lu\n", i);
-        if(profiling_information[i].node_id == node->node_id() 
-            && profiling_information[i].thread_id == id) {
-          printf("AAA");
-          profiling_information[i].cycles_end = rdtsc();
-          profiling_information[i].time_end = clock();
-        }
-      }
-      prof.unlock();
-    }
-    //#########################################
+
+    // #########################################
 
     processing_unit->Delete();
   } catch (...) {
@@ -255,15 +245,10 @@ Pipeline::RunPipe() {
     for (int thread_it = 0; thread_it < number_of_subthreads; ++thread_it) {
       try {
         execution_mtx_.lock();
-        execution_list_[it]->PushThread(
-            new std::thread(RunNode, 
-              execution_list_[it], 
-              thread_it,
-              std::ref(execution_mtx_), 
-              std::ref(profiling_mutex_),
-              std::ref(profiling_list_), 
-              debug_, 
-              profiling_));
+        execution_list_[it]->PushThread(new std::thread(
+            RunNode, execution_list_[it], thread_it, std::ref(execution_mtx_),
+            std::ref(profiling_mutex_), std::ref(profiling_list_), debug_,
+            profiling_));
       } catch (...) {
       }
     }
@@ -335,24 +320,21 @@ Pipeline::extract_arg(const char *fmt, u64 arg_pos) {
 
 void
 Pipeline::Profile() {
-      std::sort(profiling_list_.begin(), 
-          profiling_list_.end(), 
-          [](const Pipeline::Profiling &a, const Pipeline::Profiling &b) {
-          return a.node_id <= b.node_id && a.thread_id <= b.thread_id;
-      });
+  std::sort(profiling_list_.begin(), profiling_list_.end(),
+            [](const Pipeline::Profiling &a, const Pipeline::Profiling &b) {
+              return a.node_id <= b.node_id && a.thread_id <= b.thread_id;
+            });
 
-      for(Profiling profile: profiling_list_) {
-        printf("%sNODE %d\t THREAD %d%s\n Time running: %fms\n Cycles since init" 
-            "of running: %lu\n",
-            LUCID_GREEN, 
-            profile.node_id, 
-            profile.thread_id, 
-            LUCID_NORMAL,
-            ((double)(profile.time_end - profile.time_start) / CLOCKS_PER_SEC)
-            * 1000, 
-            profile.cycles_end - profile.cycles_start
-        );
-      }
+  for (Profiling profile : profiling_list_) {
+    printf("%sNODE %d\t THREAD %d%s\n    Time running: %ldms\n    Cycles since "
+           "init of run: %lu\n    System time: % fms\n ",
+           LUCID_GREEN, profile.node_id, profile.thread_id, LUCID_NORMAL,
+           TIME_IN_MS(profile.time_start, profile.time_end),
+           profile.cycles_end - profile.cycles_start,
+           ((double)(profile.sys_time_end - profile.sys_time_start) /
+            CLOCKS_PER_SEC) *
+               1000);
+  }
 }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

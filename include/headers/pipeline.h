@@ -31,6 +31,7 @@
 #ifndef PIPELINE_H
 #define PIPELINE_H
 
+#include "libraries.h"
 #include "pipe_node.h"
 #include "processing_unit_interface.h"
 
@@ -52,21 +53,30 @@ public:
   };
 
   /**
-   * @brief This struct holds the information needed for the profiling of the processing unit
-   * @desc This struct holds all the information that the pipe will print when the print_profile method function is called
+   * @brief This struct holds the information needed for the profiling of the
+   * processing unit
+   * @desc This struct holds all the information that the pipe will print when
+   * the print_profile method function is called
    */
   struct Profiling {
-      i32 node_id;   /**< The id of the node to profile */
-      i32 thread_id; /**< The id of the thread that executed the processing unit */
-      u64 cycles_start; /**< The timestamp from the tsc in the CPU at the 
-                          start of the RunNode function */
-      u64 cycles_end;   /**< The timestamp from the tsc in the CPU at the end 
-                          of the RunNode function */
-      i64 time_start;   /**< The clock time at the start of the RunNode function */
-      i64 time_end;     /**< The clock time at the end of the RunNode function */
+    i32 node_id;   /**< The id of the node to profile */
+    i32 thread_id; /**< The id of the thread that executed the processing unit
+                    */
+    u64 cycles_start; /**< The timestamp from the tsc in the CPU at the
+                        start of the RunNode function */
+    u64 cycles_end;   /**< The timestamp from the tsc in the CPU at the end
+                        of the RunNode function */
+    TIME_POINT
+    time_start; /**< The clock time at the start of the RunNode function */
+    TIME_POINT
+    time_end; /**< The clock time at the end of the RunNode function */
+    i64 sys_time_start; /**< The system time at the start of the RunNode
+                          function */
+    i64 sys_time_end; /**< The system time at the end of the RunNode function */
   };
   // Constructor for the Pipeline class
-  Pipeline(ProcessingUnitInterface *, MemoryManager *, int, bool = false, bool = false);
+  Pipeline(ProcessingUnitInterface *, MemoryManager *, int, bool = false,
+           bool = false);
 
   // Destructor of the Pipeline
   ~Pipeline();
@@ -84,7 +94,6 @@ public:
   void Profile();
 
 private:
-
   /**
    * @brief The types of the internal arguments
    * @desc The types of the internal arguments in the variadic function
@@ -102,14 +111,16 @@ private:
                                              be executed in order */
   int count_arguments(const char *); /**< Returns the number of arguments */
 
-  ArgumentType extract_arg(const char *, u64); /**< Extracts the argument type */
+  ArgumentType extract_arg(const char *,
+                           u64); /**< Extracts the argument type */
 
-  std::mutex execution_mtx_; /**< The mutex to safely run the nodes */
+  std::mutex execution_mtx_;   /**< The mutex to safely run the nodes */
   std::mutex profiling_mutex_; /**< The mutex to safely recollect times */
-  int node_number_;          /**< The number of nodes that are active */
-  bool debug_;               /**< The flag to show debug information */
-  bool profiling_;           /**< The flag to show profiling information */   
-  std::vector<Profiling> profiling_list_; /**< The list of profiling information */
+  int node_number_;            /**< The number of nodes that are active */
+  bool debug_;                 /**< The flag to show debug information */
+  bool profiling_;             /**< The flag to show profiling information */
+  std::vector<Profiling>
+      profiling_list_; /**< The list of profiling information */
 };
 
 #endif

@@ -24,21 +24,21 @@
 int
 SleeperMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   Sleeper sleeper_unit;
+  NullUnit void_unit;
   MemoryManager *data_in = new MemoryManager(3, debug_flag);
   for (int i = 0; i < 3; i += 1) {
-    
+
     Data *holder = new Data(new int(i));
     holder->PushExtraData(new Data::DataKey{"profiling", &profiling});
     data_in->LoadMemoryManager(holder);
   }
 
-  Pipeline *pipe = new Pipeline(&sleeper_unit, data_in, 3, debug_flag);
-  pipe->AddProcessingUnit(&sleeper_unit, 1, "f", 0.5);
+  Pipeline *pipe = new Pipeline(&void_unit, data_in, 1, debug_flag, profiling);
+  pipe->AddProcessingUnit(&sleeper_unit, 1, "d", 1);
   pipe->AddProcessingUnit(&sleeper_unit, 1, "d", 1);
   pipe->RunPipe();
 
-  auto t1 = std::chrono::high_resolution_clock::now();
-  for (int i = 0; i < 10; ++i) {
+  for (int i = 0; i < 3; ++i) {
     if (debug_flag) {
       printf("%s(main) Popping from IN %s\n", LUCID_CYAN, LUCID_NORMAL);
     }
@@ -49,10 +49,9 @@ SleeperMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
     data_in->PushIntoOut(data_handler);
   }
   pipe->WaitFinish();
-  auto t2 = std::chrono::high_resolution_clock::now();
 
-  printf("Time Elapsed running the pipe: %fs\n",
-         std::chrono::duration<double>(t2 - t1).count());
+  pipe->Profile();
+
   return 0;
 }
 
