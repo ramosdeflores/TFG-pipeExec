@@ -2,6 +2,7 @@
 build/*
 lib/*
 bin/*
+*.mat
 # Prerequisites
 *.d
 
