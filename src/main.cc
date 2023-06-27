@@ -1,4 +1,3 @@
-
 /*
  * LUCID (Unified Computing Image and Data-Processing) is a program to process
  * any type of data concurrently. Copyright (C) 2023 Lucas Hernández Abreu

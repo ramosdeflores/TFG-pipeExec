@@ -1,0 +1,4 @@
+void
+EdgeDetector() {
+  int a;
+}
