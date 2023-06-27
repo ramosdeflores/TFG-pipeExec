@@ -65,7 +65,7 @@ PipeNode::out_data_queue() {
  */
 bool
 PipeNode::last_node() {
-  return last_node_;
+  return is_last_node_;
 }
 
 /**
@@ -149,7 +149,7 @@ PipeNode::out_data_queue(MemoryManager *data_out) {
  */
 void
 PipeNode::last_node(bool is_last_node) {
-  last_node_ = is_last_node;
+  is_last_node_ = is_last_node;
 }
 
 /**

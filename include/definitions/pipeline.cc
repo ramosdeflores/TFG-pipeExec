@@ -25,7 +25,7 @@
 Pipeline::Pipeline(ProcessingUnitInterface *first_function,
                    MemoryManager *data_in, int threads_per_node_, bool debug,
                    bool profiling)
-    : debug_(debug), profiling_(profiling) {
+    : debug_(debug), show_profiling_(profiling) {
   node_number_ = 0;
   PipeNode *first_node;
 
@@ -244,11 +244,11 @@ Pipeline::RunPipe() {
     int number_of_subthreads = execution_list_[it]->number_of_instances();
     for (int thread_it = 0; thread_it < number_of_subthreads; ++thread_it) {
       try {
-        execution_mtx_.lock();
+        execution_mutex_.lock();
         execution_list_[it]->PushThread(new std::thread(
-            RunNode, execution_list_[it], thread_it, std::ref(execution_mtx_),
+            RunNode, execution_list_[it], thread_it, std::ref(execution_mutex_),
             std::ref(profiling_mutex_), std::ref(profiling_list_), debug_,
-            profiling_));
+            show_profiling_));
       } catch (...) {
       }
     }

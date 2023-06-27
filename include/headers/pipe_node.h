@@ -111,7 +111,7 @@ private:
   MemoryManager *out_data_queue_; /**< Pointer to the output data queue */
   ProcessingUnitInterface
       *processing_unit_; /**< Pointer to the ProcessingUnit to use */
-  bool last_node_;       /**< True if it's the last node */
+  bool is_last_node_;       /**< True if it's the last node */
   std::vector<std::thread *>
       running_threads_; /**< The list with the running threads */
   void **extra_args_;

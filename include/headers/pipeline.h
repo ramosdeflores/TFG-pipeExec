@@ -99,12 +99,12 @@ private:
    * @desc The types of the internal arguments in the variadic function
    */
   enum ArgumentType {
-    kInt,         /**< Type is d */
-    kUnsigned,    /**< Type is u */
-    kFloat,       /**< Type is f */
-    kExponential, /**< Type is e */
-    kString,      /**< Type is s */
-    kChar         /**< Type is c */
+    kInt,         /**< Type is int */
+    kUnsigned,    /**< Type is unsigned */
+    kFloat,       /**< Type is float/double */
+    kExponential, /**< Type is exponential (1eX) */
+    kString,      /**< Type is string */
+    kChar         /**< Type is char */
   };
 
   std::vector<PipeNode *> execution_list_; /**< The list of nodes that need to
@@ -114,13 +114,13 @@ private:
   ArgumentType extract_arg(const char *,
                            u64); /**< Extracts the argument type */
 
-  std::mutex execution_mtx_;   /**< The mutex to safely run the nodes */
+  std::mutex execution_mutex_; /**< The mutex to safely run the nodes */
   std::mutex profiling_mutex_; /**< The mutex to safely recollect times */
   int node_number_;            /**< The number of nodes that are active */
   bool debug_;                 /**< The flag to show debug information */
-  bool profiling_;             /**< The flag to show profiling information */
-  std::vector<Profiling>
-      profiling_list_; /**< The list of profiling information */
+  bool show_profiling_;             /**< The flag to show profiling information */
+  std::vector<Profiling> 
+      profiling_list_;         /**< The list of profiling information */
 };
 
 #endif

@@ -1,9 +1,7 @@
 /*
  * LUCID (Unified Computing Image and Data-Processing) is a program to process
  * any type of data concurrently.
- * Copyright (C) 2023 Lucas Hernández Abreu
- *
- * This program is free software: you can redistribute it and/or modify
+ * Copyright (C) 2023 Lucas Hernández Abreu This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
@@ -81,7 +79,7 @@ class Semaphore {
     
     private:
     std::atomic<int> count_;     /**< The count of the semaphore */
-    std::mutex mtx_;             /**< The mutex used to protect the semaphore */
+    std::mutex mutex_;             /**< The mutex used to protect the semaphore */
     std::condition_variable cond_var_; /**< The condition variable used for waiting */
     std::string type_; /**< Name of the type of the Semaphore after processing
                           the LUCIDSemaphoreType in the constuctor */

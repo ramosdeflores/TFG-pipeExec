@@ -74,14 +74,14 @@ class MemoryManager {
     // Loads a memory buffer into the queues.
     void LoadMemoryManager(void *);
     
-    // Returns the number of memory buffers in the input queue.
-    int in_queue_count();
+    // Getter. Returns the number of memory buffers in the input queue.
+    int in_queue_count() const;
     
-    // Returns the number of memory buffers in the output queue.
-    int out_queue_count();
+    // Getter. Returns the number of memory buffers in the output queue.
+    int out_queue_count() const;
     
-    // Returns the maximum size of the memory buffer queues.
-    int max_size();
+    // Getter. Returns the maximum size of the memory buffer queues.
+    int max_size() const;
     
     // Tries to get the ownership of the cpu resources to do any action
     void wait_finish();
@@ -116,10 +116,10 @@ class MemoryManager {
     Semaphore *in_semaphore_;  /**< Semaphore for the input queue. */
     Semaphore *out_semaphore_; /**< Semaphore for the output queue. */
     
-    std::mutex push_in_mtx_;  /**< Mutex for pushing into the input queue. */
-    std::mutex push_out_mtx_; /**< Mutex for pushing into the output queue. */
-    std::mutex pop_in_mtx_;   /**< Mutex for popping from the input queue. */
-    std::mutex pop_out_mtx_;  /**< Mutex for popping from the output queue. */
+    std::mutex push_in_mutex_;  /**< Mutex for pushing into the input queue. */
+    std::mutex push_out_mutex_; /**< Mutex for pushing into the output queue. */
+    std::mutex pop_in_mutex_;   /**< Mutex for popping from the input queue. */
+    std::mutex pop_out_mutex_;  /**< Mutex for popping from the output queue. */
     
     bool debug_; /**< Boolean for showing the debug information*/
 };

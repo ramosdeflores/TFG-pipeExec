@@ -90,7 +90,7 @@ MemoryManager::~MemoryManager() {
  */
 bool
 MemoryManager::PushIntoIn(void *data) {
-  push_in_mtx_.lock();
+  push_in_mutex_.lock();
   
   if (debug_) {
     printf("    %s(MemoryManager)%s Pushing into IN queue\n", LUCID_YELLOW,
@@ -105,7 +105,7 @@ MemoryManager::PushIntoIn(void *data) {
   }
   
   in_queue_count_ += 1;
-  push_in_mtx_.unlock();
+  push_in_mutex_.unlock();
   in_semaphore_->Signal();
   
   return !(in_queue_count_ == max_size_);
@@ -120,7 +120,7 @@ MemoryManager::PushIntoIn(void *data) {
  */
 bool
 MemoryManager::PushIntoOut(void *data) {
-  push_out_mtx_.lock();
+  push_out_mutex_.lock();
   if (debug_) {
     printf("    %s(MemoryManager)%s Pushing into OUT queue\n", LUCID_YELLOW,
            LUCID_NORMAL);
@@ -132,7 +132,7 @@ MemoryManager::PushIntoOut(void *data) {
     rear_out_iterator_ = -1;
   }
   out_queue_count_ += 1;
-  push_out_mtx_.unlock();
+  push_out_mutex_.unlock();
   out_semaphore_->Signal();
   
   return !(out_queue_count_ == max_size_);
@@ -148,7 +148,7 @@ MemoryManager::PushIntoOut(void *data) {
  */
 void *
 MemoryManager::PopFromIn() {
-  pop_in_mtx_.lock();
+  pop_in_mutex_.lock();
   in_semaphore_->Wait();
   
   void *memory_buffer = nullptr;
@@ -163,7 +163,7 @@ MemoryManager::PopFromIn() {
   in_queue_[front_in_iterator_] = nullptr;
   
   front_in_iterator_ = (front_in_iterator_ + 1) % max_size_;
-  pop_in_mtx_.unlock();
+  pop_in_mutex_.unlock();
   
   if (memory_buffer == nullptr) {
     throw MemoryManagerError::kNullPtr;
@@ -183,7 +183,7 @@ MemoryManager::PopFromIn() {
  */
 void *
 MemoryManager::PopFromOut() {
-  pop_out_mtx_.lock();
+  pop_out_mutex_.lock();
   out_semaphore_->Wait();
   
   void *memory_buffer = nullptr;
@@ -198,7 +198,7 @@ MemoryManager::PopFromOut() {
   out_queue_[front_out_iterator_] = nullptr;
   
   front_out_iterator_ = (front_out_iterator_ + 1) % max_size_;
-  pop_out_mtx_.unlock();
+  pop_out_mutex_.unlock();
   
   if (memory_buffer == nullptr) {
     throw MemoryManagerError::kNullPtr;
@@ -213,7 +213,7 @@ MemoryManager::PopFromOut() {
  * @return Maximum size of the memory buffer queues.
  */
 int
-MemoryManager::max_size() {
+MemoryManager::max_size() const {
   return max_size_;
 }
 
@@ -234,7 +234,7 @@ MemoryManager::LoadMemoryManager(void *data) {
  * @return Number of memory buffers in the input queue.
  */
 int
-MemoryManager::in_queue_count() {
+MemoryManager::in_queue_count() const {
   return in_queue_count_;
 }
 
@@ -244,7 +244,7 @@ MemoryManager::in_queue_count() {
  * @return Number of memory buffers in the output queue.
  */
 int
-MemoryManager::out_queue_count() {
+MemoryManager::out_queue_count() const {
   return out_queue_count_;
 }
 
