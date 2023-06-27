@@ -82,7 +82,7 @@ class Semaphore {
     private:
     std::atomic<int> count_;     /**< The count of the semaphore */
     std::mutex mtx_;             /**< The mutex used to protect the semaphore */
-    std::condition_variable cv_; /**< The condition variable used for waiting */
+    std::condition_variable cond_var_; /**< The condition variable used for waiting */
     std::string type_; /**< Name of the type of the Semaphore after processing
                           the LUCIDSemaphoreType in the constuctor */
     bool debug_; /**< Debug flag for showing the information on each Semaphore

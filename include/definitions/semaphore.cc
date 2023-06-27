@@ -43,7 +43,7 @@ void
 Semaphore::Wait() {
   std::unique_lock<std::mutex> lock(mtx_);
   
-  cv_.wait(lock, [this] {
+  cond_var_.wait(lock, [this] {
              bool result = count_ > 0;
              if (debug_) {
                printf("        %s(SEMAPHORE %s)%s %s, count: %d\n", LUCID_MAGENTA,
@@ -71,7 +71,7 @@ Semaphore::Signal() {
     printf("        %s(SEMAPHORE %s)%s SIGNAL%s count: %d\n", LUCID_MAGENTA,
            type_.c_str(), LUCID_WHITE, LUCID_NORMAL, count_.load());
   }
-  cv_.notify_one();
+  cond_var_.notify_one();
 }
 
 /**
