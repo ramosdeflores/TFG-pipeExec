@@ -31,9 +31,7 @@
 #ifndef PIPELINE_H
 #define PIPELINE_H
 
-#include "libraries.h"
 #include "pipe_node.h"
-#include "processing_unit_interface.h"
 
 /**
  * @class Pipeline
