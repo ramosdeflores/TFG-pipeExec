@@ -36,20 +36,21 @@
 /**
  * @class DoublePipe
  *
- * @brief This class instantiates a Pipe inside a pipe showing the potential of LUCID at processing any data.
+ * @brief This class instantiates a Pipe inside a pipe showing the potential of
+ * LUCID at processing any data.
  */
 class DoublePipe : public ProcessingUnitInterface {
-  public:
+ public:
   DoublePipe();
   ~DoublePipe();
-  
+
   void Start(void** = nullptr);
   void Run(void*);
   void Delete();
   ProcessingUnitInterface* Clone();
-  
-  private:
+
+ private:
   MemoryManager* sub_mem_manager;
   Pipeline* sub_pipeline;
 };
-#endif //DOUBLE_PIPE_H
+#endif  // DOUBLE_PIPE_H

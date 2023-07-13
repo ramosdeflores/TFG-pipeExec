@@ -40,8 +40,7 @@ ImgTruncator::~ImgTruncator() {}
 /**
  * @brief Function used for allocation, but allocation is not needed
  */
-void
-ImgTruncator::Start(void** pre_process_args) {}
+void ImgTruncator::Start(void **pre_process_args) {}
 
 /**
  * @brief The method that modified the data inside the pointer
@@ -50,19 +49,18 @@ ImgTruncator::Start(void** pre_process_args) {}
  *
  * @param data The pointer to the data to be truncated
  */
-void
-ImgTruncator::Run(void *data) {
+void ImgTruncator::Run(void *data) {
   Data *handler = (Data *)data;
   int **img = (int **)(handler->data());
   int width = *(int *)handler->GetExtraData("width");
   int height = *(int *)handler->GetExtraData("height");
   int *max_value = (int *)handler->GetExtraData("max_rand");
-  
+
   int **result = (int **)malloc(height * sizeof(int *));
   for (int it = 0; it < height; ++it) {
     result[it] = (int *)malloc(width * sizeof(int));
   }
-  
+
   for (int y_it = 0; y_it < height; ++y_it) {
     for (int x_it = 0; x_it < width; ++x_it) {
       int value = (int)(img[y_it][x_it] / 3000) * 3000;
@@ -72,24 +70,20 @@ ImgTruncator::Run(void *data) {
       result[y_it][x_it] = value;
     }
   }
-  
+
   handler->PushExtraData(new Data::DataKey{"truncated", result});
 }
 
 /**
  * @brief Needed if allocation happened
  */
-void
-ImgTruncator::Delete() {}
+void ImgTruncator::Delete() {}
 
 /**
  * @brief Creates a clone of itself
  *
  * @return a pointer to a new ImgTruncator object
  */
-ProcessingUnitInterface *
-ImgTruncator::Clone() {
-  return new ImgTruncator;
-}
+ProcessingUnitInterface *ImgTruncator::Clone() { return new ImgTruncator; }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

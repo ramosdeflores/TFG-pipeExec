@@ -14,17 +14,17 @@
  * @param debug The flag for debug information
  */
 Semaphore::Semaphore(int count, LUCIDSemaphoreType type, bool debug)
-: count_(count), debug_(debug) {
+    : count_(count), debug_(debug) {
   switch (type) {
     case LUCIDSemaphoreType::kNone:
-    type_ = "None";
-    break;
+      type_ = "None";
+      break;
     case LUCIDSemaphoreType::kIn:
-    type_ = "In";
-    break;
+      type_ = "In";
+      break;
     case LUCIDSemaphoreType::kOut:
-    type_ = "Out";
-    break;
+      type_ = "Out";
+      break;
   }
 }
 
@@ -39,21 +39,19 @@ Semaphore::~Semaphore() {}
  * This function blocks the calling thread until the semaphore count is
  * greater than or equal to zero.
  */
-void
-Semaphore::Wait() {
+void Semaphore::Wait() {
   std::unique_lock<std::mutex> lock(mutex_);
-  
+
   cond_var_.wait(lock, [this] {
-             bool result = count_ > 0;
-             if (debug_) {
-               printf("        %s(SEMAPHORE %s)%s %s, count: %d\n", LUCID_MAGENTA,
-                      type_.c_str(), LUCID_NORMAL,
-                      result ? "\x1B[32mPASSED\x1B[0m"
-                      : "\033[0;31mBLOCKED\033[0m",
-                      count_.load() - 1);
-             }
-             return result;
-           });
+    bool result = count_ > 0;
+    if (debug_) {
+      printf("        %s(SEMAPHORE %s)%s %s, count: %d\n", LUCID_MAGENTA,
+             type_.c_str(), LUCID_NORMAL,
+             result ? "\x1B[32mPASSED\x1B[0m" : "\033[0;31mBLOCKED\033[0m",
+             count_.load() - 1);
+    }
+    return result;
+  });
   count_--;
 }
 
@@ -63,8 +61,7 @@ Semaphore::Wait() {
  * This function increments the semaphore count and wakes up one waiting
  * thread, if there is any.
  */
-void
-Semaphore::Signal() {
+void Semaphore::Signal() {
   std::unique_lock<std::mutex> lock(mutex_);
   count_++;
   if (debug_) {
@@ -79,9 +76,6 @@ Semaphore::Signal() {
  *
  * @return int The current count of the semaphore
  */
-int
-Semaphore::count() {
-  return count_.load();
-}
+int Semaphore::count() { return count_.load(); }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

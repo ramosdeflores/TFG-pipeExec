@@ -35,12 +35,10 @@ NullUnit::NullUnit() {}
 
 NullUnit::~NullUnit() {}
 
-void NullUnit::Run(void * data) {}
+void NullUnit::Run(void* data) {}
 
 void NullUnit::Start(void** init_data) {}
 
 void NullUnit::Delete() {}
 
-ProcessingUnitInterface* NullUnit::Clone() {
-  return new NullUnit;
-}
+ProcessingUnitInterface* NullUnit::Clone() { return new NullUnit; }

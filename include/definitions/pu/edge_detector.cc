@@ -26,6 +26,7 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 #include "../../headers/pu/edge_detector.h"
+
 #include <cmath>
 #include <cstdio>
 
@@ -43,8 +44,7 @@ EdgeDetector::~EdgeDetector() {}
  * @brief This method allocates memory for the sobel filter and assigns the
  * values.
  */
-void
-EdgeDetector::Start(void** pre_process_args) {
+void EdgeDetector::Start(void **pre_process_args) {
   sobelx_ = (int **)malloc(3 * sizeof(int *));
   sobely_ = (int **)malloc(3 * sizeof(int *));
   for (int it = 0; it < 3; ++it) {
@@ -60,7 +60,7 @@ EdgeDetector::Start(void** pre_process_args) {
   sobelx_[2][0] = -1;
   sobelx_[2][1] = 0;
   sobelx_[2][2] = 1;
-  
+
   sobely_[0][0] = 1;
   sobely_[0][1] = 2;
   sobely_[0][2] = 1;
@@ -81,57 +81,52 @@ EdgeDetector::Start(void** pre_process_args) {
  *
  * @param data The data extracted from the in_queue
  */
-void
-EdgeDetector::Run(void *data) {
+void EdgeDetector::Run(void *data) {
   Data *handler = (Data *)data;
   int **img = (int **)handler->GetExtraData("truncated");
-  
+
   bool debug = *(bool *)handler->GetExtraData("debug");
   debug_ = debug;
   int width = *(int *)handler->GetExtraData("width");
   int height = *(int *)handler->GetExtraData("height");
   int max_rand = *(int *)handler->GetExtraData("max_rand");
   int id = *(int *)handler->GetExtraData("id");
-  
+
   if (debug_) {
     printf("%s(EdgeDetector)%s -> \n\tWidth:%d\n\tHeight:%d\n", LUCID_BLUE,
            LUCID_NORMAL, width, height);
   }
-  
+
   int **img_sobelx = Convolution(sobelx_, img, width, height);
-  
+
   int **img_sobely = Convolution(sobely_, img, width, height);
-  
+
   if (debug_) {
-    
-    printf("%s(EdgeDetector)%s -> \n\tCONVOLUTION:\n\t\tsobelx pointer: "
-           "%p memalloc: %zu\n\t\tsobely pointer: %p memalloc: %zu\n",
-           LUCID_BLUE, LUCID_NORMAL, img_sobelx,
-           malloc_usable_size(img_sobelx), img_sobely,
-           malloc_usable_size(img_sobely));
+    printf(
+        "%s(EdgeDetector)%s -> \n\tCONVOLUTION:\n\t\tsobelx pointer: "
+        "%p memalloc: %zu\n\t\tsobely pointer: %p memalloc: %zu\n",
+        LUCID_BLUE, LUCID_NORMAL, img_sobelx, malloc_usable_size(img_sobelx),
+        img_sobely, malloc_usable_size(img_sobely));
   }
-  
-  pixel_value **result =
-  (pixel_value **)malloc(height * sizeof(pixel_value *));
+
+  pixel_value **result = (pixel_value **)malloc(height * sizeof(pixel_value *));
   for (int it = 0; it < height; ++it) {
     result[it] = (pixel_value *)malloc(width * sizeof(pixel_value));
   }
-  
+
   Magnitude(result, img_sobelx, img_sobely, width, height, max_rand);
-  
+
   if (debug_) {
-    printf("%s(EdgeDetector)%s -> Going TO PUSH\n", LUCID_BLUE,
-           LUCID_NORMAL);
+    printf("%s(EdgeDetector)%s -> Going TO PUSH\n", LUCID_BLUE, LUCID_NORMAL);
   }
   handler->PushExtraData(
-                         new Data::DataKey({"processed" + std::to_string(id), result}));
+      new Data::DataKey({"processed" + std::to_string(id), result}));
 }
 
 /**
  * @brief Frees the memory of the sobel filters
  */
-void
-EdgeDetector::Delete() {
+void EdgeDetector::Delete() {
   for (int it = 0; it < 3; ++it) {
     free(sobelx_[it]);
     free(sobely_[it]);
@@ -144,10 +139,7 @@ EdgeDetector::Delete() {
  * @brief Clones the processing unit
  * @return A new pointer to the EdgeDetector class clone
  */
-ProcessingUnitInterface *
-EdgeDetector::Clone() {
-  return new EdgeDetector;
-}
+ProcessingUnitInterface *EdgeDetector::Clone() { return new EdgeDetector; }
 
 /**
  * @brief Applies the convolution of the specified kernel to the image taking
@@ -161,9 +153,8 @@ EdgeDetector::Clone() {
  *
  * @return The result of the convolution between the kernel and the img
  */
-int **
-EdgeDetector::Convolution(int **kernel, int **img, int width, int height) {
-  
+int **EdgeDetector::Convolution(int **kernel, int **img, int width,
+                                int height) {
   // Creating the result img
   int **result = (int **)malloc(height * sizeof(int *));
   for (int it = 0; it < height; ++it) {
@@ -173,17 +164,16 @@ EdgeDetector::Convolution(int **kernel, int **img, int width, int height) {
   int kernel_height = 3;
   int offset_x = kernel_width / 2;
   int offset_y = kernel_height / 2;
-  
+
   if (debug_) {
-    printf(
-           "%s(EdgeDetector)%s -> \n\tCONVOLUTION:\n\t\tResult pointer: %p\n",
+    printf("%s(EdgeDetector)%s -> \n\tCONVOLUTION:\n\t\tResult pointer: %p\n",
            LUCID_BLUE, LUCID_NORMAL, result);
   }
-  
+
   int sum = 0;
   int *line;
   int *lookup_line;
-  
+
   for (int y = 0; y < height; ++y) {
     line = result[y];
     for (int x = 0; x < width; ++x) {
@@ -197,8 +187,7 @@ EdgeDetector::Convolution(int **kernel, int **img, int width, int height) {
           if (x + kw_it < offset_x || x + kw_it >= width) {
             continue;
           }
-          sum += kernel[kh_it][kw_it] *
-            lookup_line[x + kw_it - offset_x];
+          sum += kernel[kh_it][kw_it] * lookup_line[x + kw_it - offset_x];
         }
       }
       line[x] = Bound(sum);
@@ -219,22 +208,20 @@ EdgeDetector::Convolution(int **kernel, int **img, int width, int height) {
  * @param max_rand The number that we used in the mod operator to limit the
  * rand() result
  */
-void
-EdgeDetector::Magnitude(pixel_value **result, int **gx, int **gy, int width,
-                        int height, int max_rand) {
-  
+void EdgeDetector::Magnitude(pixel_value **result, int **gx, int **gy,
+                             int width, int height, int max_rand) {
   pixel_value *line;
   int *gx_line;
   int *gy_line;
-  
+
   for (int h_it = 0; h_it < height; ++h_it) {
     line = result[h_it];
     gx_line = gx[h_it];
     gy_line = gy[h_it];
-    
+
     for (int w_it = 0; w_it < width; ++w_it) {
-      line[w_it] = IntToPixel((Hypotenuse(gx_line[w_it], gy_line[w_it])) *
-                              255 / (max_rand * 100 / 100));
+      line[w_it] = IntToPixel((Hypotenuse(gx_line[w_it], gy_line[w_it])) * 255 /
+                              (max_rand * 100 / 100));
     }
   }
 }
@@ -247,8 +234,7 @@ EdgeDetector::Magnitude(pixel_value **result, int **gx, int **gy, int width,
  * @return The pixel_value
  */
 
-pixel_value
-EdgeDetector::IntToPixel(int i_val) {
+pixel_value EdgeDetector::IntToPixel(int i_val) {
   if (i_val < 0) {
     return 0;
   } else if (i_val > 255) {
@@ -265,8 +251,7 @@ EdgeDetector::IntToPixel(int i_val) {
  *
  * @return The int value below the limit
  */
-int
-EdgeDetector::Bound(int i_val) {
+int EdgeDetector::Bound(int i_val) {
   if (i_val < 0) {
     return 0;
   } else if (i_val > 255) {
@@ -281,8 +266,7 @@ EdgeDetector::Bound(int i_val) {
  *
  * @return The result of the calculation as integer
  */
-int
-EdgeDetector::Hypotenuse(int a, int b) {
+int EdgeDetector::Hypotenuse(int a, int b) {
   return std::sqrt<int>(a * a + b * b);
 }
 

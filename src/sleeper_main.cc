@@ -21,13 +21,12 @@
 
 #include "processing_units.h"
 
-int
-SleeperMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
+int SleeperMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   Sleeper sleeper_unit;
+  Sleeper sleeper_unit2;
   NullUnit void_unit;
-  MemoryManager *data_in = new MemoryManager(3, debug_flag);
-  for (int i = 0; i < 3; i += 1) {
-
+  MemoryManager *data_in = new MemoryManager(2, debug_flag);
+  for (int i = 0; i < 2; i += 1) {
     Data *holder = new Data(new int(i));
     holder->PushExtraData(new Data::DataKey{"profiling", &profiling});
     data_in->LoadMemoryManager(holder);
@@ -35,10 +34,10 @@ SleeperMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
 
   Pipeline *pipe = new Pipeline(&void_unit, data_in, 1, debug_flag, profiling);
   pipe->AddProcessingUnit(&sleeper_unit, 1, "d", 1);
-  pipe->AddProcessingUnit(&sleeper_unit, 1, "d", 1);
+  pipe->AddProcessingUnit(&sleeper_unit2, 1, "d", 1);
   pipe->RunPipe();
 
-  for (int i = 0; i < 3; ++i) {
+  for (int i = 0; i < 4; ++i) {
     if (debug_flag) {
       printf("%s(main) Popping from IN %s\n", LUCID_CYAN, LUCID_NORMAL);
     }

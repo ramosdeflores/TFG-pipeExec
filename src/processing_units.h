@@ -13,4 +13,4 @@
 #include "../include/headers/pu/number_printer.h"
 #include "../include/headers/pu/sleeper.h"
 
-#endif // PROCESSING_UNITS_H
+#endif  // PROCESSING_UNITS_H

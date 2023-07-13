@@ -34,8 +34,7 @@ int protected_main();
  * @brief Helper showed when used the --help flag or had a bad argument input
  */
 
-std::string
-Help() {
+std::string Help() {
   std::string usage_str =
       "\tLUCID (Unified Computing Image and Data-Processing)\n"
       "\tCopyright (C) 2023  Lucas Hernández Abreu\n"
@@ -59,8 +58,7 @@ static bool profiling_flag;
  * @brief This function execs the main and permits the throwing of exceptions so
  * the main function can catch them
  */
-int
-protected_main(int argc, char **argv) {
+int protected_main(int argc, char **argv) {
   std::string arguments;
   std::string arguments2;
   bool debug_flag = false;
@@ -91,11 +89,10 @@ protected_main(int argc, char **argv) {
     printf("%s", Help().c_str());
     return 0;
   }
-  return SimpleEdgeDetectionMain(debug_flag, pu_debug_flag, profiling_flag);
+  return SleeperMain(debug_flag, pu_debug_flag, profiling_flag);
 }
 
-int
-main(int argc, char **argv) {
+int main(int argc, char **argv) {
   try {
     TIME_POINT t1 = STOPWATCH_NOW;
     protected_main(argc, argv);

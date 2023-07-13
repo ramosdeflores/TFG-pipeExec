@@ -7,6 +7,7 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 #include "../headers/pipe_node.h"
+
 #include <cstdio>
 
 /**
@@ -30,8 +31,7 @@ PipeNode::~PipeNode() {
  * This method signals the end of the node's work, and ensures that all
  * threads have finished execution before returning.
  */
-void
-PipeNode::EndNodeWork() {
+void PipeNode::EndNodeWork() {
   for (int it = 0; it < running_threads_.size(); ++it) {
     running_threads_[it]->join();
   }
@@ -42,20 +42,14 @@ PipeNode::EndNodeWork() {
  *
  * @return A pointer to the input memory manager of the current node
  */
-MemoryManager *
-PipeNode::in_data_queue() {
-  return in_data_queue_;
-}
+MemoryManager *PipeNode::in_data_queue() { return in_data_queue_; }
 
 /**
  * @brief Gets the output memory manager of the current node
  *
  * @return A pointer to the output memory manager of the current node
  */
-MemoryManager *
-PipeNode::out_data_queue() {
-  return out_data_queue_;
-}
+MemoryManager *PipeNode::out_data_queue() { return out_data_queue_; }
 
 /**
  * @brief Gets whether the current node is the last node in the pipeline
@@ -63,18 +57,14 @@ PipeNode::out_data_queue() {
  * @return True if the current node is the last node in the pipeline,
  *         false otherwise
  */
-bool
-PipeNode::last_node() {
-  return is_last_node_;
-}
+bool PipeNode::last_node() { return is_last_node_; }
 
 /**
  * @brief Gets the processing unit of the current node
  *
  * @return A pointer to the processing unit of the current node
  */
-ProcessingUnitInterface *
-PipeNode::processing_unit() {
+ProcessingUnitInterface *PipeNode::processing_unit() {
   return processing_unit_;
 }
 
@@ -83,28 +73,21 @@ PipeNode::processing_unit() {
  *
  * @return The number of instances of the current node
  */
-int
-PipeNode::number_of_instances() {
-  return number_of_instances_;
-}
+int PipeNode::number_of_instances() { return number_of_instances_; }
 
 /**
  * @brief Gets the ID of the current node
  *
  * @return The ID of the current node
  */
-int
-PipeNode::node_id() {
-  return node_id_;
-}
+int PipeNode::node_id() { return node_id_; }
 
 /**
  * @brief Gets a vector of running threads for the current node
  *
  * @return A vector of running threads for the current node
  */
-std::vector<std::thread *> &
-PipeNode::running_threads() {
+std::vector<std::thread *> &PipeNode::running_threads() {
   return running_threads_;
 }
 
@@ -113,10 +96,7 @@ PipeNode::running_threads() {
  *
  * @return A pointer to the array of extra args
  */
-void **
-PipeNode::extra_args() {
-  return extra_args_;
-}
+void **PipeNode::extra_args() { return extra_args_; }
 
 /**
  * @brief Sets the input memory manager of the current node
@@ -124,8 +104,7 @@ PipeNode::extra_args() {
  * @param in_data_queue A pointer to the input memory manager of the current
  * node
  */
-void
-PipeNode::in_data_queue(MemoryManager *data_in) {
+void PipeNode::in_data_queue(MemoryManager *data_in) {
   in_data_queue_ = data_in;
 }
 
@@ -135,8 +114,7 @@ PipeNode::in_data_queue(MemoryManager *data_in) {
  * @param in_data_queue A pointer to the output memory manager of the
  * current node
  */
-void
-PipeNode::out_data_queue(MemoryManager *data_out) {
+void PipeNode::out_data_queue(MemoryManager *data_out) {
   out_data_queue_ = data_out;
 }
 
@@ -147,10 +125,7 @@ PipeNode::out_data_queue(MemoryManager *data_out) {
  * @param bool - a boolean indicating if the node is the last in the
  * pipeline
  */
-void
-PipeNode::last_node(bool is_last_node) {
-  is_last_node_ = is_last_node;
-}
+void PipeNode::last_node(bool is_last_node) { is_last_node_ = is_last_node; }
 
 /**
  * @brief Sets the processing unit of the node
@@ -158,8 +133,7 @@ PipeNode::last_node(bool is_last_node) {
  * @param ProcessingUnitInterface * - a pointer to the processing
  * unit of the node
  */
-void
-PipeNode::processing_unit(ProcessingUnitInterface *processing_unit) {
+void PipeNode::processing_unit(ProcessingUnitInterface *processing_unit) {
   processing_unit_ = processing_unit;
 }
 
@@ -168,8 +142,7 @@ PipeNode::processing_unit(ProcessingUnitInterface *processing_unit) {
  *
  * @param number_of_instances The number of instances of the current node
  */
-void
-PipeNode::number_of_instances(int instances_number) {
+void PipeNode::number_of_instances(int instances_number) {
   number_of_instances_ = instances_number;
 }
 
@@ -178,18 +151,14 @@ PipeNode::number_of_instances(int instances_number) {
  *
  * @param node_id The ID of the current node
  */
-void
-PipeNode::node_id(int new_id) {
-  node_id_ = new_id;
-}
+void PipeNode::node_id(int new_id) { node_id_ = new_id; }
 
 /**
  * @brief Pushes the thread to the list of running threads
  *
  * @param thread The thread to push to the list of running threads
  */
-void
-PipeNode::PushThread(std::thread *thread) {
+void PipeNode::PushThread(std::thread *thread) {
   running_threads_.push_back(thread);
 }
 
@@ -198,9 +167,6 @@ PipeNode::PushThread(std::thread *thread) {
  *
  * @param args The pointer to the array of args
  */
-void
-PipeNode::extra_args(void **args) {
-  extra_args_ = args;
-}
+void PipeNode::extra_args(void **args) { extra_args_ = args; }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

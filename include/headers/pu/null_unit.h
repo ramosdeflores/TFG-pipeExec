@@ -42,8 +42,8 @@ class NullUnit : public ProcessingUnitInterface {
   // Destructor
   ~NullUnit();
 
-  // Does nothing 
-  void Run(void *) override;
+  // Does nothing
+  void Run(void*) override;
 
   // Doesn't allocate nothing
   void Start(void** = nullptr) override;

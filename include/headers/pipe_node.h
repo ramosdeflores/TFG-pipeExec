@@ -44,7 +44,7 @@
  * previous and next nodes. Each node is executed in its own thread.
  */
 class PipeNode {
-public:
+ public:
   // Default constructor for PipeNode
   PipeNode();
 
@@ -102,16 +102,16 @@ public:
   void PushThread(std::thread *);
 
   // Sets the extra_args
-  void extra_args(void**);
+  void extra_args(void **);
 
-private:
+ private:
   int node_id_;             /**< Id of the node */
   int number_of_instances_; /**< Number of instances of the processing unit */
   MemoryManager *in_data_queue_;  /**< Pointer to the input data queue */
   MemoryManager *out_data_queue_; /**< Pointer to the output data queue */
   ProcessingUnitInterface
       *processing_unit_; /**< Pointer to the ProcessingUnit to use */
-  bool is_last_node_;       /**< True if it's the last node */
+  bool is_last_node_;    /**< True if it's the last node */
   std::vector<std::thread *>
       running_threads_; /**< The list with the running threads */
   void **extra_args_;

@@ -20,7 +20,6 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 
-
 /**
  * @file simple_indexer.h
  *
@@ -30,25 +29,23 @@
  * Contact: lucas.hernandez.09@ull.edu.es
  */
 
-
 #ifndef SIMPLE_INDEXER_H
 #define SIMPLE_INDEXER_H
 
 #include "../processing_unit_interface.h"
 
 class SimpleIndexer : public ProcessingUnitInterface {
-  public:
+ public:
   SimpleIndexer();
   ~SimpleIndexer();
-  
-  void Start(void** = nullptr) override;
+
+  void Start(void ** = nullptr) override;
   void Run(void *) override;
   void Delete() override;
   ProcessingUnitInterface *Clone() override;
-  
-  private:
+
+ private:
   i32 counter_;
 };
 
-
-#endif //SIMPLE_INDEXER_H
+#endif  // SIMPLE_INDEXER_H

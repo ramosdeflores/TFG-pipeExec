@@ -43,8 +43,7 @@ Indexer::~Indexer() {}
 /**
  * @desc This function initializes the Indexer unit
  */
-void
-Indexer::Start(void** pre_process_args) {
+void Indexer::Start(void **pre_process_args) {
   table_size_ = 0;
   lookup_table_ = (TableIndexer *)malloc(sizeof(TableIndexer));
 }
@@ -54,13 +53,12 @@ Indexer::Start(void** pre_process_args) {
  * reconstruct it correctly later.
  * @param data The data to be indexed.
  */
-void
-Indexer::Run(void *data) {
+void Indexer::Run(void *data) {
   Data *handler = (Data *)data;
   int32_t *id = (int32_t *)handler->GetExtraData("id");
   if (id == nullptr) {
-    fprintf(stderr, "%s(Indexer)%s The Data has no identificator",
-            LUCID_BLUE, LUCID_NORMAL);
+    fprintf(stderr, "%s(Indexer)%s The Data has no identificator", LUCID_BLUE,
+            LUCID_NORMAL);
     return;
   }
   TableIndexer *index = FindTableEntry(*id);
@@ -87,22 +85,15 @@ Indexer::Run(void *data) {
 /**
  * @desc Frees the memory of the Indexer
  */
-void
-Indexer::Delete() {
-  free(lookup_table_);
-}
+void Indexer::Delete() { free(lookup_table_); }
 
 /**
  * @desc This function clones the Indexer
  * @return The cloned Indexer
  */
-ProcessingUnitInterface *
-Indexer::Clone() {
-  return nullptr;
-}
+ProcessingUnitInterface *Indexer::Clone() { return nullptr; }
 
-Indexer::TableIndexer *
-Indexer::FindTableEntry(int id) {
+Indexer::TableIndexer *Indexer::FindTableEntry(int id) {
   for (int32_t it = 0; it < table_size_; ++it) {
     if (lookup_table_[it].id == id) {
       return &lookup_table_[it];

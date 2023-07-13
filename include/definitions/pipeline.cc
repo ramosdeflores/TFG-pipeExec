@@ -1,4 +1,5 @@
 #include "../headers/pipeline.h"
+
 #include <cstdio>
 #include <string>
 
@@ -61,10 +62,8 @@ Pipeline::~Pipeline() {}
  * node.
  * @param fmg A pointer to the format string of the next arguments
  */
-void
-Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
-                            int instances, const char *fmt, ...) {
-
+void Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
+                                 int instances, const char *fmt, ...) {
   PipeNode *new_node = new PipeNode;
 
   // Variadic function handling
@@ -144,10 +143,9 @@ Pipeline::AddProcessingUnit(ProcessingUnitInterface *processing_unit,
  * @param debug The debug flag
  *
  */
-void
-RunNode(PipeNode *node, int id, std::mutex &mtx, std::mutex &prof,
-        std::vector<Pipeline::Profiling> &profiling_information,
-        bool debug = false, bool profiling = false) {
+void RunNode(PipeNode *node, int id, std::mutex &mtx, std::mutex &prof,
+             std::vector<Pipeline::Profiling> &profiling_information,
+             bool debug = false, bool profiling = false) {
   try {
     void *data;
     ProcessingUnitInterface *processing_unit;
@@ -237,8 +235,7 @@ RunNode(PipeNode *node, int id, std::mutex &mtx, std::mutex &prof,
  *
  * @return The number of nodes executed
  */
-int
-Pipeline::RunPipe() {
+int Pipeline::RunPipe() {
   int nodes_executed = 0;
   for (int it = 0; it < node_number_; ++it) {
     int number_of_subthreads = execution_list_[it]->number_of_instances();
@@ -261,8 +258,7 @@ Pipeline::RunPipe() {
  * @brief Waits until all the threads have finished putting its data inside the
  * (main)'s in_queue MemoryManager.
  */
-void
-Pipeline::WaitFinish() {
+void Pipeline::WaitFinish() {
   while (execution_list_[0]->in_data_queue()->in_queue_count() !=
          execution_list_[0]->in_data_queue()->max_size()) {
     execution_list_[0]->in_data_queue()->wait_finish();
@@ -272,8 +268,7 @@ Pipeline::WaitFinish() {
 /**
  * @brief A private function that couns the chars into const char*
  */
-int
-Pipeline::count_arguments(const char *str) {
+int Pipeline::count_arguments(const char *str) {
   int counter = 0;
   while (str[counter] != '\0') {
     counter += 1;
@@ -289,8 +284,7 @@ Pipeline::count_arguments(const char *str) {
  * @param fmt The C string containing the format
  * @param arg_pos The position of the argument in the C string: (0,1,2...);
  */
-Pipeline::ArgumentType
-Pipeline::extract_arg(const char *fmt, u64 arg_pos) {
+Pipeline::ArgumentType Pipeline::extract_arg(const char *fmt, u64 arg_pos) {
   ArgumentType result;
   char c = fmt[arg_pos];
   switch (c) {
@@ -318,22 +312,22 @@ Pipeline::extract_arg(const char *fmt, u64 arg_pos) {
   return result;
 }
 
-void
-Pipeline::Profile() {
+void Pipeline::Profile() {
   std::sort(profiling_list_.begin(), profiling_list_.end(),
             [](const Pipeline::Profiling &a, const Pipeline::Profiling &b) {
               return a.node_id <= b.node_id && a.thread_id <= b.thread_id;
             });
 
   for (Profiling profile : profiling_list_) {
-    printf("%sNODE %d\t THREAD %d%s\n    Time running: %ldms\n    Cycles since "
-           "init of run: %lu\n    System time: % fms\n ",
-           LUCID_GREEN, profile.node_id, profile.thread_id, LUCID_NORMAL,
-           TIME_IN_MS(profile.time_start, profile.time_end),
-           profile.cycles_end - profile.cycles_start,
-           ((double)(profile.sys_time_end - profile.sys_time_start) /
-            CLOCKS_PER_SEC) *
-               1000);
+    printf(
+        "%sNODE %d\t THREAD %d%s\n    Time running: %ldms\n    Cycles since "
+        "init of run: %lu\n    System time: % fms\n ",
+        LUCID_GREEN, profile.node_id, profile.thread_id, LUCID_NORMAL,
+        TIME_IN_MS(profile.time_start, profile.time_end),
+        profile.cycles_end - profile.cycles_start,
+        ((double)(profile.sys_time_end - profile.sys_time_start) /
+         CLOCKS_PER_SEC) *
+            1000);
   }
 }
 

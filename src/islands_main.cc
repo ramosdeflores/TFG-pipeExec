@@ -23,25 +23,24 @@
 #define NEWLINE printf('\n');
 #include "processing_units.h"
 
-void
-extraerAlturasDesdeTIFF(const char *archivoTIFF) {
+void extraerAlturasDesdeTIFF(const char *archivoTIFF) {
   TIFF *tif = TIFFOpen(archivoTIFF, "r");
   if (tif) {
     uint32_t ancho, alto;
     TIFFGetField(tif, TIFFTAG_IMAGEWIDTH, &ancho);
     TIFFGetField(tif, TIFFTAG_IMAGELENGTH, &alto);
-    
+
     uint32_t tileWidth, tileHeight;
     TIFFGetField(tif, TIFFTAG_TILEWIDTH, &tileWidth);
     TIFFGetField(tif, TIFFTAG_TILELENGTH, &tileHeight);
-    
+
     uint32_t *buffer =
-    (uint32_t *)_TIFFmalloc(tileWidth * tileHeight * sizeof(uint32_t));
+        (uint32_t *)_TIFFmalloc(tileWidth * tileHeight * sizeof(uint32_t));
     float **matrizAlturas = new float *[alto];
     for (uint32_t i = 0; i < alto; ++i) {
       matrizAlturas[i] = new float[ancho];
     }
-    
+
     for (uint32_t y = 0; y < alto; y += tileHeight) {
       for (uint32_t x = 0; x < ancho; x += tileWidth) {
         TIFFReadTile(tif, buffer, x, y, 0, 0);
@@ -60,9 +59,9 @@ extraerAlturasDesdeTIFF(const char *archivoTIFF) {
         }
       }
     }
-    
+
     // Hacer algo con la matriz de alturas aquí
-    
+
     _TIFFfree(buffer);
     TIFFClose(tif);
   } else {
@@ -70,9 +69,7 @@ extraerAlturasDesdeTIFF(const char *archivoTIFF) {
   }
 }
 
-int
-IslandsMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
-  
+int IslandsMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   TIFF *tif = TIFFOpen("../input_images/ElHierro.tiff", "r");
   u64 width;
   u64 height;
@@ -85,25 +82,23 @@ IslandsMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   TIFFGetField(tif, TIFFTAG_TILELENGTH, &tile_height);
   TIFFGetField(tif, TIFFTAG_RESOLUTIONUNIT, &unit);
   printf("%lu", unit);
-  
+
   u64 *buffer = (u64 *)_TIFFmalloc(tile_width * tile_height * sizeof(u64));
   float **matrix = new float *[height];
   for (u64 i = 0; i < height; ++i) {
     matrix[i] = new float[width];
   }
-  
+
   for (u64 y = 0; y < height; y += tile_height) {
     for (u64 x = 0; x < width; x += tile_width) {
       TIFFReadTile(tif, buffer, x, y, 0, 0);
-      
+
       for (u64 i = 0; i < tile_height; ++i) {
         u64 row = y + i;
-        if (row >= height)
-          break;
+        if (row >= height) break;
         for (u64 j = 0; j < tile_width; ++j) {
           u64 col = x + j;
-          if (col > width)
-            break;
+          if (col > width) break;
           matrix[row][col] = (double)buffer[i * tile_width + j];
           printf("%f ", MAT_AT(matrix, row, col));
         }
@@ -111,20 +106,20 @@ IslandsMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
       }
     }
   }
-  
+
   std::string unidadMedida = "AAAA";
   switch (unit) {
     case RESUNIT_NONE:
-    unidadMedida = "Sin unidad";
-    break;
+      unidadMedida = "Sin unidad";
+      break;
     case RESUNIT_INCH:
-    unidadMedida = "Pulgadas";
-    break;
+      unidadMedida = "Pulgadas";
+      break;
     case RESUNIT_CENTIMETER:
-    unidadMedida = "Centímetros";
-    break;
+      unidadMedida = "Centímetros";
+      break;
   }
-  
+
   _TIFFfree(buffer);
   TIFFClose(tif);
   printf("\n%s\n", unidadMedida.c_str());

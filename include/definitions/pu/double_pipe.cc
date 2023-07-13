@@ -34,28 +34,26 @@
 #define DOUBLEPIPE_H
 
 #include "../../headers/pu/double_pipe.h"
+
 #include "../../../src/processing_units.h"
 
-
-DoublePipe::DoublePipe(){}
-DoublePipe::~DoublePipe(){}
+DoublePipe::DoublePipe() {}
+DoublePipe::~DoublePipe() {}
 
 /**
-* @brief This method instantiates the pipeline and the MemoryManager
-* for the pipeline
-*/
-void
-DoublePipe::Start(void** pre_process_args) {
+ * @brief This method instantiates the pipeline and the MemoryManager
+ * for the pipeline
+ */
+void DoublePipe::Start(void** pre_process_args) {
   // TODO(lucashdez): Instantiate pipeline
   // NOTE(lucashdez): Probably create a null processing unit
 }
 
 /**
-* 
-* 
-*/
-void
-DoublePipe::Run(void* data) {
+ *
+ *
+ */
+void DoublePipe::Run(void* data) {
   // TODO(lucashdez): Insert the processing units and run the pipe with the data
   MemoryManager* data_in = new MemoryManager(1, false);
   data_in->LoadMemoryManager(data);
@@ -64,27 +62,21 @@ DoublePipe::Run(void* data) {
   pipe->RunPipe();
   void* inside_data = data_in->PopFromIn();
   data_in->PushIntoOut(inside_data);
-  
+
   pipe->WaitFinish();
-
 }
 
 /**
-* 
-* 
-*/
-void
-DoublePipe::Delete() {
-  
-}
+ *
+ *
+ */
+void DoublePipe::Delete() {}
 
 /**
-* 
-* 
-*/
-ProcessingUnitInterface* DoublePipe::Clone() {
-  return new DoublePipe;
-}
+ *
+ *
+ */
+ProcessingUnitInterface* DoublePipe::Clone() { return new DoublePipe; }
 
 #endif
 

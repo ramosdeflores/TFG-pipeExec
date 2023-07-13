@@ -55,8 +55,7 @@ Data::~Data() {}
  *
  * @param extra_data The struct {key, data} to push to the vector
  */
-void
-Data::PushExtraData(DataKey *extra_data) {
+void Data::PushExtraData(DataKey *extra_data) {
   extra_data_.push_back(extra_data);
 }
 
@@ -68,8 +67,7 @@ Data::PushExtraData(DataKey *extra_data) {
  *
  * @param key The key to lookup in the vector
  */
-void *
-Data::GetExtraData(std::string key) {
+void *Data::GetExtraData(std::string key) {
   int size = extra_data_.size();
   for (int it = 0; it < size; ++it) {
     if (extra_data_[it]->key == key) {
@@ -84,9 +82,6 @@ Data::GetExtraData(std::string key) {
  * @brief Returns the initial stored data inside the class
  * @return The pointer to the data
  */
-void *
-Data::data() {
-  return data_;
-}
+void *Data::data() { return data_; }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

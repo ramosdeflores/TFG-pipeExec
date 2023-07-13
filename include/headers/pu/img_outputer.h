@@ -41,26 +41,26 @@
  * unsigned char values and sends it to the IO for creating two .ppm files
  */
 class ImgOutputer : public ProcessingUnitInterface {
-  public:
+ public:
   // Default Constructor
   ImgOutputer();
-  
+
   // Destructor
   ~ImgOutputer();
-  
+
   // Doesn't need to allocate nothing
-  void Start(void** pre_process_args) override;
-  
+  void Start(void **pre_process_args) override;
+
   // Gets the img and prints it into 2 files.
   void Run(void *) override;
-  
+
   // Doesn't need to deallocate anything
   void Delete() override;
-  
+
   // Returns a pointer to a clone of ImgOutputer
   ProcessingUnitInterface *Clone() override;
-  
-  private:
+
+ private:
   // Changes a value from Int to a Pixel value
   pixel_value IntToPixel(int);
 };

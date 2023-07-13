@@ -40,7 +40,7 @@
  * arguments
  */
 class Sleeper : public ProcessingUnitInterface {
-public:
+ public:
   // Default constructor
   Sleeper();
 
@@ -59,8 +59,8 @@ public:
   // This function clones the instance of the sleeper procesing unit
   ProcessingUnitInterface *Clone();
 
-private:
+ private:
   u32 seconds_to_sleep_;
 };
 
-#endif // SLEEPER_H
+#endif  // SLEEPER_H

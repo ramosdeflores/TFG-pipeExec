@@ -30,16 +30,14 @@
  */
 
 #include "../../headers/pu/number_printer.h"
+
 #include <cstdio>
 #include <string>
-
-
 
 /**
  * @brief Starts the number printer.
  */
-void
-NumberPrinter::Start(void** pre_process_args) {}
+void NumberPrinter::Start(void **pre_process_args) {}
 
 /**
  * @brief Prints the number contained in a given pointer.
@@ -47,8 +45,7 @@ NumberPrinter::Start(void** pre_process_args) {}
  * @param data A void pointer to the data to print. The pointer has to be a Data
  * object pointer.
  */
-void
-NumberPrinter::Run(void *data) {
+void NumberPrinter::Run(void *data) {
   Data *conv_data = (Data *)data;
   printf("Data contained: %d\n", *((int *)conv_data->data()));
 }
@@ -56,17 +53,13 @@ NumberPrinter::Run(void *data) {
 /**
  * @brief Does nothing.
  */
-void
-NumberPrinter::Delete() {}
+void NumberPrinter::Delete() {}
 
 /**
  * @brief Creates a new instance of the number printer.
  *
  * @return A pointer to a new NumberPrinter object.
  */
-ProcessingUnitInterface *
-NumberPrinter::Clone() {
-  return new NumberPrinter;
-}
+ProcessingUnitInterface *NumberPrinter::Clone() { return new NumberPrinter; }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

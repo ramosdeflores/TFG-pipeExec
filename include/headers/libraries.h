@@ -31,9 +31,10 @@
 #define LUCID_CYAN "\x1B[36m"
 #define LUCID_WHITE "\x1B[37m"
 
-#include "tiff.h"
-#include "tiffio.h"
-#include "tiffvers.h"
+#include <malloc.h>
+#include <math.h>
+#include <stdarg.h>
+
 #include <algorithm>
 #include <atomic>
 #include <chrono>
@@ -42,13 +43,14 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <malloc.h>
-#include <math.h>
 #include <mutex>
-#include <stdarg.h>
 #include <string>
 #include <thread>
 #include <vector>
+
+#include "tiff.h"
+#include "tiffio.h"
+#include "tiffvers.h"
 // Value of colors in a PGM/PBM img
 typedef unsigned int pixel_value;
 
@@ -64,7 +66,7 @@ typedef uint64_t u64;
 
 #define TIME_POINT std::chrono::system_clock::time_point
 #define STOPWATCH_NOW std::chrono::high_resolution_clock::now()
-#define TIME_IN_MS(t1, t2)                                                     \
+#define TIME_IN_MS(t1, t2) \
   std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count()
 
 /**
@@ -73,8 +75,7 @@ typedef uint64_t u64;
  *
  * @return The current cycles that has passed since the last CPU reset
  */
-inline u64
-rdtsc() {
+inline u64 rdtsc() {
   u64 hi, lo;
   __asm__ __volatile__("rdtsc" : "=a"(lo), "=d"(hi));
   return (u64)hi << 32 | lo;

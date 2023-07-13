@@ -1,7 +1,7 @@
 #include "processing_units.h"
 
-int
-SimpleEdgeDetectionMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
+int SimpleEdgeDetectionMain(bool debug_flag, bool pu_debug_flag,
+                            bool profiling) {
   int height = 512;
   int width = 512;
   int max_num = 0;

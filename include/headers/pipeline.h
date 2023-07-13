@@ -44,7 +44,7 @@
  * up the proccess.
  */
 class Pipeline {
-public:
+ public:
   enum PipelineError {
     kBadArgumentFormat,
     kBadArgumentType,
@@ -91,7 +91,7 @@ public:
 
   void Profile();
 
-private:
+ private:
   /**
    * @brief The types of the internal arguments
    * @desc The types of the internal arguments in the variadic function
@@ -116,9 +116,9 @@ private:
   std::mutex profiling_mutex_; /**< The mutex to safely recollect times */
   int node_number_;            /**< The number of nodes that are active */
   bool debug_;                 /**< The flag to show debug information */
-  bool show_profiling_;             /**< The flag to show profiling information */
-  std::vector<Profiling> 
-      profiling_list_;         /**< The list of profiling information */
+  bool show_profiling_;        /**< The flag to show profiling information */
+  std::vector<Profiling>
+      profiling_list_; /**< The list of profiling information */
 };
 
 #endif

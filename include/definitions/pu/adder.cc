@@ -13,8 +13,7 @@ Adder::~Adder() {}
  * @brief Adds 1 to the pointer in the data pointer
  * @param data The pointer to the data to manipulate
  */
-void
-Adder::Run(void *data) {
+void Adder::Run(void *data) {
   Data *handler = (Data *)data;
   *((int *)handler->data()) += 1;
 }
@@ -22,21 +21,16 @@ Adder::Run(void *data) {
 /**
  * @brief Doesn't allocate nothing
  */
-void
-Adder::Start(void** pre_process_args) {}
+void Adder::Start(void **pre_process_args) {}
 
 /**
  * @brief Doesn't delete nothing
  */
-void
-Adder::Delete() {}
+void Adder::Delete() {}
 
 /**
  * @brief Returns a new pointer to another instance of Adder
  */
-ProcessingUnitInterface *
-Adder::Clone() {
-  return new Adder();
-}
+ProcessingUnitInterface *Adder::Clone() { return new Adder(); }
 
 /* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */

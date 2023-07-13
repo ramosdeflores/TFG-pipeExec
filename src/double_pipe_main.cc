@@ -18,11 +18,11 @@
  * Author:  Lucas Hernández Abreu Contact: lucas.hernandez.09@ull.edu.es
  */
 
-#include "processing_units.h"
 #include <ctime>
 
-int
-DoublePipeMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
+#include "processing_units.h"
+
+int DoublePipeMain(bool debug_flag, bool pu_debug_flag, bool profiling) {
   DoublePipe double_pipe;
   NumberPrinter printer;
   MemoryManager *data_in = new MemoryManager(5, debug_flag);

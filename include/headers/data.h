@@ -45,7 +45,7 @@
  * creation of the class.
  */
 class Data {
-public:
+ public:
   /**
    * @brief This structure works like a std::pair but its member names are
    * meaningful and are used to store data paired to a particular key.
@@ -70,7 +70,7 @@ public:
   // Gets the initial data stored in the class
   void *data();
 
-private:
+ private:
   void *data_;
   unsigned int index_;
   std::vector<DataKey *> extra_data_;
