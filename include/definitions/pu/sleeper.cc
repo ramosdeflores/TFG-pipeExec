@@ -16,6 +16,7 @@ void Sleeper::Start(void **pre_process_args) {
   seconds_to_sleep_ = 0;
   if (pre_process_args != nullptr) {
     seconds_to_sleep_ = *(int *)pre_process_args[0];
+    printf("%d\n", seconds_to_sleep_);
   }
 }
 

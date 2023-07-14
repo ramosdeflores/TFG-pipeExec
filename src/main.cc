@@ -90,7 +90,7 @@ int protected_main(int argc, char **argv) {
     printf("%s", Help().c_str());
     return 0;
   }
-  return SimpleEdgeDetectionMain(debug_flag, pu_debug_flag, profiling_flag);
+  return SleeperMain(debug_flag, pu_debug_flag, profiling_flag);
 }
 
 int main(int argc, char **argv) {

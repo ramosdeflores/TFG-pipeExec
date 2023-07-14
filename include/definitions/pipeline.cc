@@ -174,7 +174,6 @@ void RunNode(PipeNode *node, int id, std::mutex &mtx, std::mutex &prof,
                                        .time_end = STOPWATCH_NOW,
                                        .sys_time_start = clock(),
                                        .sys_time_end = 0});
-
       prof.unlock();
     }
 
