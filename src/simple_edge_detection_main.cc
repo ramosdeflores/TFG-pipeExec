@@ -2,8 +2,8 @@
 
 int SimpleEdgeDetectionMain(bool debug_flag, bool pu_debug_flag,
                             bool profiling) {
-  int height = 512;
-  int width = 512;
+  int height = 1188;
+  int width = 1014;
   int max_num = 0;
   int number_of_images = 1;
   int number_of_threads = 1;
@@ -15,13 +15,16 @@ int SimpleEdgeDetectionMain(bool debug_flag, bool pu_debug_flag,
 
   MemoryManager *data_in = new MemoryManager(number_of_images, debug_flag);
   for (int it = 0; it < number_of_images; ++it) {
-    std::ifstream file("../input_images/heightmap" + std::to_string(it) +
-                       ".mat");
+    std::ifstream file("../input_images/ElHierro.mat");
     std::string mat_input;
     std::vector<int> input_img_values;
+    int line = 0;
     while (getline(file, mat_input, ',')) {
-      input_img_values.emplace_back(std::stoi(mat_input));
+      // input_img_values.emplace_back(std::stoi(mat_input));
+      line++;
     }
+
+    printf("GOT AOUT");
 
     int **img = (int **)malloc(height * sizeof(int *));
     for (int i = 0; i < height; ++i) {

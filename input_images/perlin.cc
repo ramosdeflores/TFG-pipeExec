@@ -17,8 +17,7 @@ int primes[maxPrimeIndex][3] = {
     {405493717, 291031019, 391950901}, {458904767, 676625681, 424452397},
     {531736441, 939683957, 810651871}, {997169939, 842027887, 423882827}};
 
-double
-Noise(int i, int x, int y) {
+double Noise(int i, int x, int y) {
   int n = x + y * 57;
   n = (n << 13) ^ n;
   int a = primes[i][0], b = primes[i][1], c = primes[i][2];
@@ -26,8 +25,7 @@ Noise(int i, int x, int y) {
   return 1.0 - (double)(t) / 1073741824.0;
 }
 
-double
-SmoothedNoise(int i, int x, int y) {
+double SmoothedNoise(int i, int x, int y) {
   double corners = (Noise(i, x - 1, y - 1) + Noise(i, x + 1, y - 1) +
                     Noise(i, x - 1, y + 1) + Noise(i, x + 1, y + 1)) /
                    16,
@@ -38,14 +36,12 @@ SmoothedNoise(int i, int x, int y) {
   return corners + sides + center;
 }
 
-double
-Interpolate(double a, double b, double x) { // cosine interpolation
+double Interpolate(double a, double b, double x) {  // cosine interpolation
   double ft = x * 3.1415927, f = (1 - cos(ft)) * 0.5;
   return a * (1 - f) + b * f;
 }
 
-double
-InterpolatedNoise(int i, double x, double y) {
+double InterpolatedNoise(int i, double x, double y) {
   int integer_X = x;
   double fractional_X = x - integer_X;
   int integer_Y = y;
@@ -60,8 +56,7 @@ InterpolatedNoise(int i, double x, double y) {
   return Interpolate(i1, i2, fractional_Y);
 }
 
-double
-ValueNoise_2D(double x, double y) {
+double ValueNoise_2D(double x, double y) {
   double total = 0, frequency = numOctaves * numOctaves, amplitude = 1;
   for (int i = 0; i < numOctaves; ++i) {
     frequency /= 2;
@@ -73,10 +68,9 @@ ValueNoise_2D(double x, double y) {
   return total / frequency;
 }
 
-int
-main() {
-  int width = 4096;
-  int height = 4096;
+int main() {
+  int width = 512;
+  int height = 512;
   int res = 0;
   for (int file_id = 0; file_id < 1; ++file_id) {
     std::ofstream file("heightmap" + std::to_string(file_id) + ".mat");

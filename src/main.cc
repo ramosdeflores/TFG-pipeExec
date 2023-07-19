@@ -48,7 +48,8 @@ std::string Help() {
       "\tDebug Processing Units -> [pudebug][--pd][--pu-debug]: shows the "
       "debug for the processing units\n"
       "\t    (operations inside the processing units)\n"
-      "\tHelp -> [help]|[-h]|[--help]: Shows this message\n";
+      "\tHelp -> [help]|[-h]|[--help]: Shows this message\n"
+      "\tProfiling -> [profiling]: Shows the profiling information\n";
   return usage_str;
 }
 
@@ -89,7 +90,7 @@ int protected_main(int argc, char **argv) {
     printf("%s", Help().c_str());
     return 0;
   }
-  return SleeperMain(debug_flag, pu_debug_flag, profiling_flag);
+  return SimpleEdgeDetectionMain(debug_flag, pu_debug_flag, profiling_flag);
 }
 
 int main(int argc, char **argv) {

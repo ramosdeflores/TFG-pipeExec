@@ -90,16 +90,19 @@ After you have built it you can find the executable at the `bin` directory.
 Now run the executable in one of this three modes:
 
 ```bash
-# Executes LUCID normally
-lucid
+LUCID (Unified Computing Image and Data-Processing)
+        Copyright (C) 2023  Lucas Hernández Abreu
+        This program comes with ABSOLUTELY NO WARRANTY
 
-# Executes LUCID with all the debug information
-# -d and --debug also work
-lucid debug
-
-# Executes LUCID pushing the debug flag only into the processing units
-# --pd and --pu-debug also work
-lucid pudebug
+Execute inside bin with:
+    ./lucid run <arg>
+Valid args:
+        Debug -> [debug]|[-d]|[--debug]: Shows the debug information:
+            (operations in MemoryManager, semaphore statuses...)
+        Debug Processing Units -> [pudebug][--pd][--pu-debug]: shows the debug for the processing units
+            (operations inside the processing units)
+        Help -> [help]|[-h]|[--help]: Shows this message
+        Profiling -> [profiling]: Shows the profiling information
 ```
 
 # Configuration
