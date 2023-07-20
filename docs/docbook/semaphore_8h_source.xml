@@ -54,12 +54,12 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 77 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classSemaphore_1a3bbd0cd1b7c27fd8fad66ac6108e37fe">count</link>();
 78 
 79 &#32;<emphasis role="keyword">private</emphasis>:
-80 &#32;&#32;std::atomic&lt;int&gt;&#32;count_;&#32;
-81 &#32;&#32;std::mutex&#32;mutex_;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+80 &#32;&#32;std::atomic&lt;int&gt;&#32;<link linkend="_classSemaphore_1aa046604ecb9925e22ba54e863c008c99">count_</link>;&#32;
+81 &#32;&#32;std::mutex&#32;<link linkend="_classSemaphore_1aa43daf51ca98d0b85e60dbbab7cc7656">mutex_</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
 82 &#32;&#32;std::condition_variable
-83 &#32;&#32;&#32;&#32;&#32;&#32;cond_var_;&#32;&#32;&#32;&#32;&#32;
-84 &#32;&#32;std::string&#32;type_;&#32;
-86 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug_;&#32;
+83 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classSemaphore_1a446c0ed7396ea8bce319f059862a5065">cond_var_</link>;&#32;&#32;&#32;&#32;&#32;
+84 &#32;&#32;std::string&#32;<link linkend="_classSemaphore_1a0cb60e93960337c9d9ccce2c97b70b4f">type_</link>;&#32;
+86 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classSemaphore_1a0b544819d589338a078b9560372de915">debug_</link>;&#32;
 88 };
 89 
 90 <emphasis role="preprocessor">#endif</emphasis>

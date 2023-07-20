@@ -91,15 +91,15 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 105 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classPipeNode_1a853680b56049dc32cba7abb4fba4602a">extra_args</link>(<emphasis role="keywordtype">void</emphasis>&#32;**);
 106 
 107 &#32;<emphasis role="keyword">private</emphasis>:
-108 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;node_id_;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
-109 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;number_of_instances_;&#32;
-110 &#32;&#32;<link linkend="_classMemoryManager">MemoryManager</link>&#32;*in_data_queue_;&#32;&#32;
-111 &#32;&#32;<link linkend="_classMemoryManager">MemoryManager</link>&#32;*out_data_queue_;&#32;
+108 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classPipeNode_1a6be5d9ad9f2430bb2d81072810fc4f11">node_id_</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+109 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classPipeNode_1af9c41efacb66b6d094ce8aaea3510ef8">number_of_instances_</link>;&#32;
+110 &#32;&#32;<link linkend="_classMemoryManager">MemoryManager</link>&#32;*<link linkend="_classPipeNode_1a928e1ff0d25958be9815ff2790ff67eb">in_data_queue_</link>;&#32;&#32;
+111 &#32;&#32;<link linkend="_classMemoryManager">MemoryManager</link>&#32;*<link linkend="_classPipeNode_1a6812a42f8c07c2093b8060e7953e2158">out_data_queue_</link>;&#32;
 112 &#32;&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>
-113 &#32;&#32;&#32;&#32;&#32;&#32;*processing_unit_;&#32;
-114 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;is_last_node_;&#32;&#32;&#32;&#32;
+113 &#32;&#32;&#32;&#32;&#32;&#32;*<link linkend="_classPipeNode_1a5a2f0fa30d88fec4edd645322a4dfc58">processing_unit_</link>;&#32;
+114 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classPipeNode_1a918c14b7dfa050206f4e2b27d09e3cd5">is_last_node_</link>;&#32;&#32;&#32;&#32;
 115 &#32;&#32;std::vector&lt;std::thread&#32;*&gt;
-116 &#32;&#32;&#32;&#32;&#32;&#32;running_threads_;&#32;
+116 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classPipeNode_1acc5d119c7b2977ece88182a445928aac">running_threads_</link>;&#32;
 117 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;**extra_args_;
 118 };
 119 

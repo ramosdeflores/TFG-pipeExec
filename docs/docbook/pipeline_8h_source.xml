@@ -68,26 +68,26 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 92 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Profile();
 93 
 94 &#32;<emphasis role="keyword">private</emphasis>:
-99 &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;ArgumentType&#32;{
-100 &#32;&#32;&#32;&#32;kInt,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
-101 &#32;&#32;&#32;&#32;kUnsigned,&#32;&#32;&#32;&#32;
-102 &#32;&#32;&#32;&#32;kFloat,&#32;&#32;&#32;&#32;&#32;&#32;&#32;
-103 &#32;&#32;&#32;&#32;kExponential,&#32;
-104 &#32;&#32;&#32;&#32;kString,&#32;&#32;&#32;&#32;&#32;&#32;
-105 &#32;&#32;&#32;&#32;kChar&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+99 &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770">ArgumentType</link>&#32;{
+100 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770af87e907601aec2c8267f6ef1e2c21a7b">kInt</link>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+101 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770ae7955d2da66d50f3b2c47f12a0e7f3b5">kUnsigned</link>,&#32;&#32;&#32;&#32;
+102 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770a3649dddbd2e8875a720cf7947664ad16">kFloat</link>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+103 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770a802ae2ff78a3fed5ce4b7354dc0068ba">kExponential</link>,&#32;
+104 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770abded5bf0e620d179626b29ae6c45f310">kString</link>,&#32;&#32;&#32;&#32;&#32;&#32;
+105 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770a2841ae7f80c9cdd4faff03720d27be4d">kChar</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
 106 &#32;&#32;};
 107 
-108 &#32;&#32;std::vector&lt;PipeNode&#32;*&gt;&#32;execution_list_;&#32;
-110 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;count_arguments(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*);&#32;
-112 &#32;&#32;ArgumentType&#32;extract_arg(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*,
+108 &#32;&#32;std::vector&lt;PipeNode&#32;*&gt;&#32;<link linkend="_classPipeline_1a0346b45062d43abcadcbf65fad5776b8">execution_list_</link>;&#32;
+110 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classPipeline_1a54a5cef190dd8f1fe6ad4d802d1c5e6b">count_arguments</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*);&#32;
+112 &#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770">ArgumentType</link>&#32;<link linkend="_classPipeline_1a2dd255c899c3a37aed01c8cbcd9984ad">extract_arg</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*,
 113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;u64);&#32;
-115 &#32;&#32;std::mutex&#32;execution_mutex_;&#32;
-116 &#32;&#32;std::mutex&#32;profiling_mutex_;&#32;
-117 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;node_number_;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
-118 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug_;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
-119 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;show_profiling_;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+115 &#32;&#32;std::mutex&#32;<link linkend="_classPipeline_1a2de5c21427d5c1a905a00009733b358c">execution_mutex_</link>;&#32;
+116 &#32;&#32;std::mutex&#32;<link linkend="_classPipeline_1ab1debc6f2332ff1cf53bc01cddafa455">profiling_mutex_</link>;&#32;
+117 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classPipeline_1a7592dd5d53a61f792d8c504f3b4d3b79">node_number_</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+118 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classPipeline_1af633365e8506bfaacd3dbd7e47dae120">debug_</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+119 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classPipeline_1a16826790f82180f5dc36f7355082b3d3">show_profiling_</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
 120 &#32;&#32;std::vector&lt;Profiling&gt;
-121 &#32;&#32;&#32;&#32;&#32;&#32;profiling_list_;&#32;
+121 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classPipeline_1a6a08e3c5610844a8050aeda0467365f5">profiling_list_</link>;&#32;
 122 };
 123 
 124 <emphasis role="preprocessor">#endif</emphasis>

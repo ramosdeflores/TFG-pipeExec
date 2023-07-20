@@ -33,4 +33,4 @@ Here are the classes, structs, unions and interfaces with brief descriptions:<li
 <para>A class that implements a semaphore </para>
 <link linkend="_classSimpleIndexer">SimpleIndexer</link><link linkend="_classSleeper">Sleeper</link>
 <para>This class makes the thread sleep for x seconds, given in the start arguments </para>
-</section>
+<link linkend="_structIndexer_1_1TableIndexer">Indexer::TableIndexer</link></section>

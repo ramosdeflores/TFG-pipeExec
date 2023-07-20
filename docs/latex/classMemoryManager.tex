@@ -42,6 +42,57 @@ int \mbox{\hyperlink{classMemoryManager_a60faf33dba849e1e33a4bdf9e60bc0da}{max\+
 \Hypertarget{classMemoryManager_ae12d45dd15b3756a0685c4fc15c24bc1}\label{classMemoryManager_ae12d45dd15b3756a0685c4fc15c24bc1} 
 void {\bfseries wait\+\_\+finish} ()
 \begin{DoxyCompactList}\small\item\em Tries to get the ownership of the cpu resources to do any action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMemoryManager_a4364b1aa14d01e023a553acc47e00633}\label{classMemoryManager_a4364b1aa14d01e023a553acc47e00633} 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries in\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_ac95efbd85633172f66b14cc8123e2706}\label{classMemoryManager_ac95efbd85633172f66b14cc8123e2706} 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries out\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_afebc7bf6a94c1244df7c87333250f6f8}\label{classMemoryManager_afebc7bf6a94c1244df7c87333250f6f8} 
+int {\bfseries max\+\_\+size\+\_\+}
+\begin{DoxyCompactList}\small\item\em Maximum size of the memory buffer queues. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a268f83f0a0b3da2ab4ef997649b748c1}\label{classMemoryManager_a268f83f0a0b3da2ab4ef997649b748c1} 
+int {\bfseries rear\+\_\+in\+\_\+iterator\+\_\+}
+\begin{DoxyCompactList}\small\item\em Index of the rear of the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_ae647eddfde69a2fa5e980c8f27e3b1ef}\label{classMemoryManager_ae647eddfde69a2fa5e980c8f27e3b1ef} 
+int {\bfseries front\+\_\+in\+\_\+iterator\+\_\+}
+\begin{DoxyCompactList}\small\item\em Index of the front of the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_adfff5c6bb06b0803eb09c7a4a98a950e}\label{classMemoryManager_adfff5c6bb06b0803eb09c7a4a98a950e} 
+int {\bfseries rear\+\_\+out\+\_\+iterator\+\_\+}
+\begin{DoxyCompactList}\small\item\em Index of the rear of the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a312808ba0dcf51b9566d1b69a1978f1b}\label{classMemoryManager_a312808ba0dcf51b9566d1b69a1978f1b} 
+int {\bfseries front\+\_\+out\+\_\+iterator\+\_\+}
+\begin{DoxyCompactList}\small\item\em Index of the front of the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_ad9a5160b31c1ede53e4fae08b1102bdb}\label{classMemoryManager_ad9a5160b31c1ede53e4fae08b1102bdb} 
+std\+::atomic$<$ int $>$ {\bfseries in\+\_\+queue\+\_\+count\+\_\+}
+\begin{DoxyCompactList}\small\item\em Number of memory buffers in the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a4c13be746d79c150185f2fd614594979}\label{classMemoryManager_a4c13be746d79c150185f2fd614594979} 
+std\+::atomic$<$ int $>$ {\bfseries out\+\_\+queue\+\_\+count\+\_\+}
+\begin{DoxyCompactList}\small\item\em Number of memory buffers in the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_aaa9ab06065a933a88a852cbccb9d67b3}\label{classMemoryManager_aaa9ab06065a933a88a852cbccb9d67b3} 
+\mbox{\hyperlink{classSemaphore}{Semaphore}} \texorpdfstring{$\ast$}{*} {\bfseries in\+\_\+semaphore\+\_\+}
+\begin{DoxyCompactList}\small\item\em \doxylink{classSemaphore}{Semaphore} for the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_aac8cadeeaa404c65a3f697d1e20f317f}\label{classMemoryManager_aac8cadeeaa404c65a3f697d1e20f317f} 
+\mbox{\hyperlink{classSemaphore}{Semaphore}} \texorpdfstring{$\ast$}{*} {\bfseries out\+\_\+semaphore\+\_\+}
+\begin{DoxyCompactList}\small\item\em \doxylink{classSemaphore}{Semaphore} for the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a7274052a7c4a99f2f9745d6cbb7518df}\label{classMemoryManager_a7274052a7c4a99f2f9745d6cbb7518df} 
+std\+::mutex {\bfseries push\+\_\+in\+\_\+mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em Mutex for pushing into the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_adf399afcaeb90a703d7b62f5d50ed253}\label{classMemoryManager_adf399afcaeb90a703d7b62f5d50ed253} 
+std\+::mutex {\bfseries push\+\_\+out\+\_\+mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em Mutex for pushing into the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_aed2c86f1b01143896afacb712684adc8}\label{classMemoryManager_aed2c86f1b01143896afacb712684adc8} 
+std\+::mutex {\bfseries pop\+\_\+in\+\_\+mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em Mutex for popping from the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_ac7d1f223e7f5959a4ea7a76b248738e8}\label{classMemoryManager_ac7d1f223e7f5959a4ea7a76b248738e8} 
+std\+::mutex {\bfseries pop\+\_\+out\+\_\+mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em Mutex for popping from the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a8b10575ae5b6771dbbae038075ff358e}\label{classMemoryManager_a8b10575ae5b6771dbbae038075ff358e} 
+bool {\bfseries debug\+\_\+}
+\begin{DoxyCompactList}\small\item\em Boolean for showing the debug information. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

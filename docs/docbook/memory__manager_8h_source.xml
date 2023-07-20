@@ -76,24 +76,24 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 99 &#32;&#32;};
 100 
 101 &#32;<emphasis role="keyword">private</emphasis>:
-102 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;**in_queue_;&#32;&#32;
-103 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;**out_queue_;&#32;
-104 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;max_size_;&#32;&#32;&#32;&#32;&#32;
-106 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;rear_in_iterator_;&#32;&#32;&#32;
-107 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;front_in_iterator_;&#32;&#32;
-108 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;rear_out_iterator_;&#32;&#32;
-109 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;front_out_iterator_;&#32;
+102 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;**<link linkend="_classMemoryManager_1a4364b1aa14d01e023a553acc47e00633">in_queue_</link>;&#32;&#32;
+103 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;**<link linkend="_classMemoryManager_1ac95efbd85633172f66b14cc8123e2706">out_queue_</link>;&#32;
+104 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1afebc7bf6a94c1244df7c87333250f6f8">max_size_</link>;&#32;&#32;&#32;&#32;&#32;
+106 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1a268f83f0a0b3da2ab4ef997649b748c1">rear_in_iterator_</link>;&#32;&#32;&#32;
+107 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1ae647eddfde69a2fa5e980c8f27e3b1ef">front_in_iterator_</link>;&#32;&#32;
+108 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1adfff5c6bb06b0803eb09c7a4a98a950e">rear_out_iterator_</link>;&#32;&#32;
+109 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1a312808ba0dcf51b9566d1b69a1978f1b">front_out_iterator_</link>;&#32;
 111 &#32;&#32;std::atomic&lt;int&gt;
-112 &#32;&#32;&#32;&#32;&#32;&#32;in_queue_count_;&#32;
+112 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classMemoryManager_1ad9a5160b31c1ede53e4fae08b1102bdb">in_queue_count_</link>;&#32;
 113 &#32;&#32;std::atomic&lt;int&gt;
-114 &#32;&#32;&#32;&#32;&#32;&#32;out_queue_count_;&#32;
-116 &#32;&#32;<link linkend="_classSemaphore">Semaphore</link>&#32;*in_semaphore_;&#32;&#32;
-117 &#32;&#32;<link linkend="_classSemaphore">Semaphore</link>&#32;*out_semaphore_;&#32;
-119 &#32;&#32;std::mutex&#32;push_in_mutex_;&#32;&#32;
-120 &#32;&#32;std::mutex&#32;push_out_mutex_;&#32;
-121 &#32;&#32;std::mutex&#32;pop_in_mutex_;&#32;&#32;&#32;
-122 &#32;&#32;std::mutex&#32;pop_out_mutex_;&#32;&#32;
-124 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug_;&#32;
+114 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classMemoryManager_1a4c13be746d79c150185f2fd614594979">out_queue_count_</link>;&#32;
+116 &#32;&#32;<link linkend="_classSemaphore">Semaphore</link>&#32;*<link linkend="_classMemoryManager_1aaa9ab06065a933a88a852cbccb9d67b3">in_semaphore_</link>;&#32;&#32;
+117 &#32;&#32;<link linkend="_classSemaphore">Semaphore</link>&#32;*<link linkend="_classMemoryManager_1aac8cadeeaa404c65a3f697d1e20f317f">out_semaphore_</link>;&#32;
+119 &#32;&#32;std::mutex&#32;<link linkend="_classMemoryManager_1a7274052a7c4a99f2f9745d6cbb7518df">push_in_mutex_</link>;&#32;&#32;
+120 &#32;&#32;std::mutex&#32;<link linkend="_classMemoryManager_1adf399afcaeb90a703d7b62f5d50ed253">push_out_mutex_</link>;&#32;
+121 &#32;&#32;std::mutex&#32;<link linkend="_classMemoryManager_1aed2c86f1b01143896afacb712684adc8">pop_in_mutex_</link>;&#32;&#32;&#32;
+122 &#32;&#32;std::mutex&#32;<link linkend="_classMemoryManager_1ac7d1f223e7f5959a4ea7a76b248738e8">pop_out_mutex_</link>;&#32;&#32;
+124 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classMemoryManager_1a8b10575ae5b6771dbbae038075ff358e">debug_</link>;&#32;
 125 };
 126 
 127 <emphasis role="preprocessor">#endif</emphasis>

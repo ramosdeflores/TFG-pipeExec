@@ -39,14 +39,14 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 50 &#32;&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*<link linkend="_classIndexer_1a55d16c15dbb066bbfa68dffb33009033">Clone</link>()&#32;<emphasis role="keyword">override</emphasis>;
 51 
 52 &#32;<emphasis role="keyword">private</emphasis>:
-53 &#32;&#32;<emphasis role="keyword">struct&#32;</emphasis>TableIndexer&#32;{
+53 &#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structIndexer_1_1TableIndexer">TableIndexer</link>&#32;{
 54 &#32;&#32;&#32;&#32;int64_t&#32;id;
 55 &#32;&#32;&#32;&#32;int64_t&#32;count;
 56 &#32;&#32;};
 57 
-58 &#32;&#32;TableIndexer&#32;*FindTableEntry(<emphasis role="keywordtype">int</emphasis>);
+58 &#32;&#32;<link linkend="_structIndexer_1_1TableIndexer">TableIndexer</link>&#32;*FindTableEntry(<emphasis role="keywordtype">int</emphasis>);
 59 
-60 &#32;&#32;TableIndexer&#32;*lookup_table_;
+60 &#32;&#32;<link linkend="_structIndexer_1_1TableIndexer">TableIndexer</link>&#32;*lookup_table_;
 61 &#32;&#32;int32_t&#32;table_size_;
 62 };
 63 <emphasis role="preprocessor">#endif</emphasis>

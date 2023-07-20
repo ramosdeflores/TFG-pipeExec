@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['memorymanagererror_0',['MemoryManagerError',['../classMemoryManager.html#a7c1e27d92602c2204aa21dcc2732d90f',1,'MemoryManager']]]
+  ['lucidsemaphoretype_0',['LUCIDSemaphoreType',['../classSemaphore.html#a4cc47e8b75c536da049e926dc582f159',1,'Semaphore']]]
 ];

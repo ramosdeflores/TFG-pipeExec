@@ -56,9 +56,9 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 67 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classEdgeDetector_1a9be148339689de7543a5e873a0bd4440">Magnitude</link>(pixel_value&#32;**,&#32;<emphasis role="keywordtype">int</emphasis>&#32;**,&#32;<emphasis role="keywordtype">int</emphasis>&#32;**,&#32;<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keywordtype">int</emphasis>);
 68 
 69 &#32;<emphasis role="keyword">private</emphasis>:
-70 &#32;&#32;pixel_value&#32;IntToPixel(<emphasis role="keywordtype">int</emphasis>);
-71 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;Bound(<emphasis role="keywordtype">int</emphasis>);
-72 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;Hypotenuse(<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keywordtype">int</emphasis>);
+70 &#32;&#32;pixel_value&#32;<link linkend="_classEdgeDetector_1ae3c45435623425c2fd17aefc7f041fd8">IntToPixel</link>(<emphasis role="keywordtype">int</emphasis>);
+71 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classEdgeDetector_1a2795b22e7db63bca2444c0fe78e22bef">Bound</link>(<emphasis role="keywordtype">int</emphasis>);
+72 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classEdgeDetector_1a7a6b2afd25819c254b86a404bb1e1b4a">Hypotenuse</link>(<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keywordtype">int</emphasis>);
 73 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;**sobelx_;
 74 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;**sobely_;
 75 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug_;

@@ -14,6 +14,8 @@
 
 <para>@description This class represents an <link linkend="_classIndexer">Indexer</link>, it gets data and indexes it if it is broken into parts to reconstruct it correctly later. </para>
 </listitem>
+            <listitem><para>struct <link linkend="_structIndexer_1_1TableIndexer">Indexer::TableIndexer</link></para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <section>

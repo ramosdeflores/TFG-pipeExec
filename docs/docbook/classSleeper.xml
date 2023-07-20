@@ -57,6 +57,13 @@
 <para>Returns new pointer to a processing unit class. </para>
 </listitem>
         </itemizedlist>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classSleeper_1a8135aab50578021e4ebd42a289effc55"/>u32 <emphasis role="strong">seconds_to_sleep_</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Detailed Description</title>
 

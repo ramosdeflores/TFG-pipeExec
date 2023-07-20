@@ -57,6 +57,13 @@
 <para>Returns new pointer to a processing unit class. </para>
 </listitem>
         </itemizedlist>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classSimpleIndexer_1ac81329e0ccb6391980d403c2c9519303"/>i32 <emphasis role="strong">counter_</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Member Function Documentation</title>
 <anchor xml:id="_classSimpleIndexer_1a29675ccbd27f69e0a0470d55536fb158"/><section>

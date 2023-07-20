@@ -51,6 +51,15 @@
 <para>Returns new pointer to a processing unit class. </para>
 </listitem>
         </itemizedlist>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classDoublePipe_1aeee9ca236bbff50e936b3750ac6ffb01"/><link linkend="_classMemoryManager">MemoryManager</link> * <emphasis role="strong">sub_mem_manager</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classDoublePipe_1ad7a772a5c6d597dc23d0ff73f113b521"/><link linkend="_classPipeline">Pipeline</link> * <emphasis role="strong">sub_pipeline</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Detailed Description</title>
 

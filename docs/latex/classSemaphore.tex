@@ -31,6 +31,24 @@ void \mbox{\hyperlink{classSemaphore_a86f92f738b4486439b296d8e235895f2}{Signal}}
 \begin{DoxyCompactList}\small\item\em Signals the semaphore. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classSemaphore_a3bbd0cd1b7c27fd8fad66ac6108e37fe}{count}} ()
 \begin{DoxyCompactList}\small\item\em Returns the current count of the semaphore. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSemaphore_aa046604ecb9925e22ba54e863c008c99}\label{classSemaphore_aa046604ecb9925e22ba54e863c008c99} 
+std\+::atomic$<$ int $>$ {\bfseries count\+\_\+}
+\begin{DoxyCompactList}\small\item\em The count of the semaphore. \end{DoxyCompactList}\item 
+\Hypertarget{classSemaphore_aa43daf51ca98d0b85e60dbbab7cc7656}\label{classSemaphore_aa43daf51ca98d0b85e60dbbab7cc7656} 
+std\+::mutex {\bfseries mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em The mutex used to protect the semaphore. \end{DoxyCompactList}\item 
+\Hypertarget{classSemaphore_a446c0ed7396ea8bce319f059862a5065}\label{classSemaphore_a446c0ed7396ea8bce319f059862a5065} 
+std\+::condition\+\_\+variable {\bfseries cond\+\_\+var\+\_\+}
+\begin{DoxyCompactList}\small\item\em The condition variable used for waiting. \end{DoxyCompactList}\item 
+\Hypertarget{classSemaphore_a0cb60e93960337c9d9ccce2c97b70b4f}\label{classSemaphore_a0cb60e93960337c9d9ccce2c97b70b4f} 
+std\+::string {\bfseries type\+\_\+}
+\begin{DoxyCompactList}\small\item\em Name of the type of the \doxylink{classSemaphore}{Semaphore} after processing the LUCIDSemaphore\+Type in the constuctor. \end{DoxyCompactList}\item 
+\Hypertarget{classSemaphore_a0b544819d589338a078b9560372de915}\label{classSemaphore_a0b544819d589338a078b9560372de915} 
+bool {\bfseries debug\+\_\+}
+\begin{DoxyCompactList}\small\item\em Debug flag for showing the information on each \doxylink{classSemaphore}{Semaphore} operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

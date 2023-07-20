@@ -26,6 +26,7 @@
     <xi:include href="classSemaphore.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classSimpleIndexer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classSleeper.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structIndexer_1_1TableIndexer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </chapter>
 <chapter>
     <title>File Documentation</title>

@@ -19,6 +19,13 @@
     </informalfigure>
 </para>
 <simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structIndexer_1_1TableIndexer">TableIndexer</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
             <listitem><para><anchor xml:id="_classIndexer_1ac4c8c21c68d62185ceddbad8781e3b67"/><emphasis role="strong">Indexer</emphasis> ()</para>
@@ -65,6 +72,22 @@
 <para>Returns new pointer to a processing unit class. </para>
 </listitem>
         </itemizedlist>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classIndexer_1a738b19b48fd0e86f21b8b43d1240c943"/><link linkend="_structIndexer_1_1TableIndexer">TableIndexer</link> * <emphasis role="strong">FindTableEntry</emphasis> (int)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classIndexer_1a7eb952437e962d274d778489cb8d8884"/><link linkend="_structIndexer_1_1TableIndexer">TableIndexer</link> * <emphasis role="strong">lookup_table_</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classIndexer_1ac43b7e93b4593c2c583ebeaa63c823f1"/>int32_t <emphasis role="strong">table_size_</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Detailed Description</title>
 

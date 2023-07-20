@@ -70,6 +70,75 @@
 </listitem>
         </itemizedlist>
 </simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classMemoryManager_1a4364b1aa14d01e023a553acc47e00633"/>void ** <emphasis role="strong">in_queue_</emphasis></para>
+
+<para>Pointer to the input queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1ac95efbd85633172f66b14cc8123e2706"/>void ** <emphasis role="strong">out_queue_</emphasis></para>
+
+<para>Pointer to the output queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1afebc7bf6a94c1244df7c87333250f6f8"/>int <emphasis role="strong">max_size_</emphasis></para>
+
+<para>Maximum size of the memory buffer queues. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1a268f83f0a0b3da2ab4ef997649b748c1"/>int <emphasis role="strong">rear_in_iterator_</emphasis></para>
+
+<para>Index of the rear of the input queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1ae647eddfde69a2fa5e980c8f27e3b1ef"/>int <emphasis role="strong">front_in_iterator_</emphasis></para>
+
+<para>Index of the front of the input queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1adfff5c6bb06b0803eb09c7a4a98a950e"/>int <emphasis role="strong">rear_out_iterator_</emphasis></para>
+
+<para>Index of the rear of the output queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1a312808ba0dcf51b9566d1b69a1978f1b"/>int <emphasis role="strong">front_out_iterator_</emphasis></para>
+
+<para>Index of the front of the output queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1ad9a5160b31c1ede53e4fae08b1102bdb"/>std::atomic&lt; int &gt; <emphasis role="strong">in_queue_count_</emphasis></para>
+
+<para>Number of memory buffers in the input queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1a4c13be746d79c150185f2fd614594979"/>std::atomic&lt; int &gt; <emphasis role="strong">out_queue_count_</emphasis></para>
+
+<para>Number of memory buffers in the output queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1aaa9ab06065a933a88a852cbccb9d67b3"/><link linkend="_classSemaphore">Semaphore</link> * <emphasis role="strong">in_semaphore_</emphasis></para>
+
+<para><link linkend="_classSemaphore">Semaphore</link> for the input queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1aac8cadeeaa404c65a3f697d1e20f317f"/><link linkend="_classSemaphore">Semaphore</link> * <emphasis role="strong">out_semaphore_</emphasis></para>
+
+<para><link linkend="_classSemaphore">Semaphore</link> for the output queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1a7274052a7c4a99f2f9745d6cbb7518df"/>std::mutex <emphasis role="strong">push_in_mutex_</emphasis></para>
+
+<para>Mutex for pushing into the input queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1adf399afcaeb90a703d7b62f5d50ed253"/>std::mutex <emphasis role="strong">push_out_mutex_</emphasis></para>
+
+<para>Mutex for pushing into the output queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1aed2c86f1b01143896afacb712684adc8"/>std::mutex <emphasis role="strong">pop_in_mutex_</emphasis></para>
+
+<para>Mutex for popping from the input queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1ac7d1f223e7f5959a4ea7a76b248738e8"/>std::mutex <emphasis role="strong">pop_out_mutex_</emphasis></para>
+
+<para>Mutex for popping from the output queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classMemoryManager_1a8b10575ae5b6771dbbae038075ff358e"/>bool <emphasis role="strong">debug_</emphasis></para>
+
+<para>Boolean for showing the debug information. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Detailed Description</title>
 

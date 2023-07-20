@@ -17,7 +17,7 @@
 <section xml:id="_md_README_1autotoc_md8">
 <title>LICENSE</title>
 
-<para>LUCID (Unified Computing Image and Data-Processing) is a program to process any type of data concurrently. Copyright (C) 2023 Lucas Hernández Abreu</para>
+<para>LUCID (Unified Computer Image and Data-Processing) is a program to process any type of data concurrently. Copyright (C) 2023 Lucas Hernández Abreu</para>
 
 <para>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</para>
 
@@ -32,7 +32,7 @@
 <section xml:id="_md_README_1autotoc_md9">
 <title>INTRODUCTION</title>
 
-<para>LUCID (Unified Computing Image and Data-Processing) is a framework for processing data concurrently via the development of processing units. Each processing unit can have multiple instances that will run in parallel.</para>
+<para>LUCID (Unified Computer Image and Data-Processing) is a framework for processing data concurrently via the development of processing units. Each processing unit can have multiple instances that will run in parallel.</para>
 
 <para>The following diagram illustrates its work:</para>
 
@@ -79,7 +79,7 @@ gtest
 
 <para>Now run the executable in one of this three modes:</para>
 
-<para><literallayout><computeroutput>LUCID&#32;(Unified&#32;Computing&#32;Image&#32;and&#32;Data-Processing)
+<para><literallayout><computeroutput>LUCID&#32;(Unified&#32;Computer&#32;Image&#32;and&#32;Data-Processing)
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Copyright&#32;(C)&#32;2023&#32;&#32;Lucas&#32;Hernández&#32;Abreu
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;This&#32;program&#32;comes&#32;with&#32;ABSOLUTELY&#32;NO&#32;WARRANTY
 

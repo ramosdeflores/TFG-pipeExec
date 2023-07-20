@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['data_0',['Data',['../classData.html#a3718d1cee763b61790476340ae048522',1,'Data']]],
-  ['data_1',['data',['../classData.html#afe99ebac219f3ea692b9ebd3315b8cdd',1,'Data']]],
-  ['delete_2',['Delete',['../classProcessingUnitInterface.html#a8bdb92bc733f84da5c6aca9db7e2c2e3',1,'ProcessingUnitInterface::Delete()'],['../classAdder.html#a39ee5be690869d52dc2dfe412b7747c7',1,'Adder::Delete()'],['../classEdgeDetector.html#a2ef8d6908a6930e1e26a1554a258b105',1,'EdgeDetector::Delete()'],['../classImgOutputer.html#aabef2302a1c24b28334fa86d1313c592',1,'ImgOutputer::Delete()'],['../classImgTruncator.html#ad113d2d4d7b22f39550df32b70f38bfb',1,'ImgTruncator::Delete()'],['../classIndexer.html#aea45294ae69a7fbcd295689e3b6f9308',1,'Indexer::Delete()'],['../classNumberPrinter.html#a6bf350b0e8249196a4cbe79c1ce1b640',1,'NumberPrinter::Delete()'],['../classSimpleIndexer.html#a9922cefa517cc3a668497daa1ad57c4a',1,'SimpleIndexer::Delete()']]]
+  ['clone_0',['Clone',['../classProcessingUnitInterface.html#a158005e77f828947eaae545a77bbaebd',1,'ProcessingUnitInterface::Clone()'],['../classAdder.html#a9aa43eacf687ef86a330492e74ece7d5',1,'Adder::Clone()'],['../classEdgeDetector.html#a7d60da211152e60b001f96ef1d753bdd',1,'EdgeDetector::Clone()'],['../classImgOutputer.html#a4be473f8ce9f904b9661a05b9ece7787',1,'ImgOutputer::Clone()'],['../classImgTruncator.html#ac35002ce30d28375e43c6acda0577c52',1,'ImgTruncator::Clone()'],['../classIndexer.html#a55d16c15dbb066bbfa68dffb33009033',1,'Indexer::Clone()'],['../classNumberPrinter.html#a690a4e8a208592c9eb6a5d7041fbb632',1,'NumberPrinter::Clone()'],['../classSimpleIndexer.html#a29675ccbd27f69e0a0470d55536fb158',1,'SimpleIndexer::Clone()']]],
+  ['convolution_1',['Convolution',['../classEdgeDetector.html#a7837d8669034b8bf5b575a6d8b68a779',1,'EdgeDetector']]],
+  ['count_2',['count',['../classSemaphore.html#a3bbd0cd1b7c27fd8fad66ac6108e37fe',1,'Semaphore']]],
+  ['count_5farguments_3',['count_arguments',['../classPipeline.html#a54a5cef190dd8f1fe6ad4d802d1c5e6b',1,'Pipeline']]]
 ];

@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['readme_0',['README',['../md_README.html',1,'']]],
-  ['run_1',['Run',['../classProcessingUnitInterface.html#a7361ce594068a2366049238ada8ec1a2',1,'ProcessingUnitInterface::Run()'],['../classAdder.html#a19888264e8dcaded1580d10c2cf5dfb0',1,'Adder::Run()'],['../classEdgeDetector.html#a4b4cdcb26d58152eff812ea837fedb2b',1,'EdgeDetector::Run()'],['../classImgOutputer.html#af790ac0aaa8fd825e22593c625607866',1,'ImgOutputer::Run()'],['../classImgTruncator.html#a98fc21ac2ac2bbecba7529b1296d80a1',1,'ImgTruncator::Run()'],['../classIndexer.html#a08e2cd9af767d96cecbd64a9994d38fc',1,'Indexer::Run()'],['../classNumberPrinter.html#a6b0ac3410217e95f42795f46fa188940',1,'NumberPrinter::Run()'],['../classSimpleIndexer.html#a49abbcfe95ec60073efdcdf0174b16c5',1,'SimpleIndexer::Run()']]],
-  ['running_5fthreads_2',['running_threads',['../classPipeNode.html#a37b0c6cca6f94cf29ba03b136a308f46',1,'PipeNode']]],
-  ['runpipe_3',['RunPipe',['../classPipeline.html#aaa720ffefb8eb2bc61bd8336a7fee8ce',1,'Pipeline']]]
+  ['node_5fid_0',['node_id',['../structPipeline_1_1Profiling.html#a85d91d393614246cbbc7321461230fad',1,'Pipeline::Profiling::node_id'],['../classPipeNode.html#a3a2f162f338c771444e6f0de92ab057f',1,'PipeNode::node_id()'],['../classPipeNode.html#a4626a9620b07a42b627fdb2dbe0c478a',1,'PipeNode::node_id(int)']]],
+  ['node_5fid_5f_1',['node_id_',['../classPipeNode.html#a6be5d9ad9f2430bb2d81072810fc4f11',1,'PipeNode']]],
+  ['node_5fnumber_5f_2',['node_number_',['../classPipeline.html#a7592dd5d53a61f792d8c504f3b4d3b79',1,'Pipeline']]],
+  ['null_5funit_2eh_3',['null_unit.h',['../null__unit_8h.html',1,'']]],
+  ['nullunit_4',['NullUnit',['../classNullUnit.html',1,'']]],
+  ['number_5fof_5finstances_5',['number_of_instances',['../classPipeNode.html#aa99e2f1c40b8ed2f01da35044b5779c7',1,'PipeNode::number_of_instances()'],['../classPipeNode.html#ae5193f9b6ce4678cd4120ef2cb286dae',1,'PipeNode::number_of_instances(int)']]],
+  ['number_5fof_5finstances_5f_6',['number_of_instances_',['../classPipeNode.html#af9c41efacb66b6d094ce8aaea3510ef8',1,'PipeNode']]],
+  ['numberprinter_7',['NumberPrinter',['../classNumberPrinter.html',1,'']]]
 ];

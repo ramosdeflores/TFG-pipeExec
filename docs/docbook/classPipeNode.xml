@@ -91,6 +91,41 @@
 </listitem>
         </itemizedlist>
 </simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classPipeNode_1a6be5d9ad9f2430bb2d81072810fc4f11"/>int <emphasis role="strong">node_id_</emphasis></para>
+
+<para>Id of the node. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeNode_1af9c41efacb66b6d094ce8aaea3510ef8"/>int <emphasis role="strong">number_of_instances_</emphasis></para>
+
+<para>Number of instances of the processing unit. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeNode_1a928e1ff0d25958be9815ff2790ff67eb"/><link linkend="_classMemoryManager">MemoryManager</link> * <emphasis role="strong">in_data_queue_</emphasis></para>
+
+<para>Pointer to the input data queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeNode_1a6812a42f8c07c2093b8060e7953e2158"/><link linkend="_classMemoryManager">MemoryManager</link> * <emphasis role="strong">out_data_queue_</emphasis></para>
+
+<para>Pointer to the output data queue. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeNode_1a5a2f0fa30d88fec4edd645322a4dfc58"/><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <emphasis role="strong">processing_unit_</emphasis></para>
+
+<para>Pointer to the ProcessingUnit to use. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeNode_1a918c14b7dfa050206f4e2b27d09e3cd5"/>bool <emphasis role="strong">is_last_node_</emphasis></para>
+
+<para>True if it&apos;s the last node. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeNode_1acc5d119c7b2977ece88182a445928aac"/>std::vector&lt; std::thread * &gt; <emphasis role="strong">running_threads_</emphasis></para>
+
+<para>The list with the running threads. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeNode_1ae5762f10cbd05fdfce1c5da3ea435f12"/>void ** <emphasis role="strong">extra_args_</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Detailed Description</title>
 

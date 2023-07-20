@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['data_0',['Data',['../classData.html',1,'']]],
-  ['data_1',['data',['../classData.html#afe99ebac219f3ea692b9ebd3315b8cdd',1,'Data::data()'],['../structData_1_1DataKey.html#ae2e54eec0f18ef1a9b7f8fa1dbfde8b8',1,'Data::DataKey::data']]],
-  ['data_2',['Data',['../classData.html#a3718d1cee763b61790476340ae048522',1,'Data']]],
-  ['data_2ecc_3',['data.cc',['../data_8cc.html',1,'']]],
-  ['data_2eh_4',['data.h',['../data_8h.html',1,'']]],
-  ['datakey_5',['DataKey',['../structData_1_1DataKey.html',1,'Data']]],
-  ['delete_6',['Delete',['../classProcessingUnitInterface.html#a8bdb92bc733f84da5c6aca9db7e2c2e3',1,'ProcessingUnitInterface::Delete()'],['../classAdder.html#a39ee5be690869d52dc2dfe412b7747c7',1,'Adder::Delete()'],['../classEdgeDetector.html#a2ef8d6908a6930e1e26a1554a258b105',1,'EdgeDetector::Delete()'],['../classImgOutputer.html#aabef2302a1c24b28334fa86d1313c592',1,'ImgOutputer::Delete()'],['../classImgTruncator.html#ad113d2d4d7b22f39550df32b70f38bfb',1,'ImgTruncator::Delete()'],['../classIndexer.html#aea45294ae69a7fbcd295689e3b6f9308',1,'Indexer::Delete()'],['../classNumberPrinter.html#a6bf350b0e8249196a4cbe79c1ce1b640',1,'NumberPrinter::Delete()'],['../classSimpleIndexer.html#a9922cefa517cc3a668497daa1ad57c4a',1,'SimpleIndexer::Delete()']]],
-  ['double_5fpipe_2ecc_7',['double_pipe.cc',['../double__pipe_8cc.html',1,'']]],
-  ['double_5fpipe_2eh_8',['double_pipe.h',['../double__pipe_8h.html',1,'']]],
-  ['doublepipe_9',['DoublePipe',['../classDoublePipe.html',1,'']]]
+  ['clone_0',['Clone',['../classProcessingUnitInterface.html#a158005e77f828947eaae545a77bbaebd',1,'ProcessingUnitInterface::Clone()'],['../classAdder.html#a9aa43eacf687ef86a330492e74ece7d5',1,'Adder::Clone()'],['../classEdgeDetector.html#a7d60da211152e60b001f96ef1d753bdd',1,'EdgeDetector::Clone()'],['../classImgOutputer.html#a4be473f8ce9f904b9661a05b9ece7787',1,'ImgOutputer::Clone()'],['../classImgTruncator.html#ac35002ce30d28375e43c6acda0577c52',1,'ImgTruncator::Clone()'],['../classIndexer.html#a55d16c15dbb066bbfa68dffb33009033',1,'Indexer::Clone()'],['../classNumberPrinter.html#a690a4e8a208592c9eb6a5d7041fbb632',1,'NumberPrinter::Clone()'],['../classSimpleIndexer.html#a29675ccbd27f69e0a0470d55536fb158',1,'SimpleIndexer::Clone()']]],
+  ['cond_5fvar_5f_1',['cond_var_',['../classSemaphore.html#a446c0ed7396ea8bce319f059862a5065',1,'Semaphore']]],
+  ['convolution_2',['Convolution',['../classEdgeDetector.html#a7837d8669034b8bf5b575a6d8b68a779',1,'EdgeDetector']]],
+  ['count_3',['count',['../classSemaphore.html#a3bbd0cd1b7c27fd8fad66ac6108e37fe',1,'Semaphore']]],
+  ['count_5f_4',['count_',['../classSemaphore.html#aa046604ecb9925e22ba54e863c008c99',1,'Semaphore']]],
+  ['count_5farguments_5',['count_arguments',['../classPipeline.html#a54a5cef190dd8f1fe6ad4d802d1c5e6b',1,'Pipeline']]],
+  ['cycles_5fend_6',['cycles_end',['../structPipeline_1_1Profiling.html#a731c3b31d3e7741f613b35e0d031c72e',1,'Pipeline::Profiling']]],
+  ['cycles_5fstart_7',['cycles_start',['../structPipeline_1_1Profiling.html#ad4a224cc807b559157c172a882b77d0a',1,'Pipeline::Profiling']]]
 ];

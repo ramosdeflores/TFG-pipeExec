@@ -51,6 +51,33 @@ void \mbox{\hyperlink{classPipeNode_a82034beec3b84609dee6c4b2c37fdd53}{Push\+Thr
 \begin{DoxyCompactList}\small\item\em Pushes the thread to the list of running threads. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPipeNode_a4bf821b2dcad4b84f70c6c5d3e0efd1b}{extra\+\_\+args}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*})
 \begin{DoxyCompactList}\small\item\em Sets the extra args for the current node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPipeNode_a6be5d9ad9f2430bb2d81072810fc4f11}\label{classPipeNode_a6be5d9ad9f2430bb2d81072810fc4f11} 
+int {\bfseries node\+\_\+id\+\_\+}
+\begin{DoxyCompactList}\small\item\em Id of the node. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_af9c41efacb66b6d094ce8aaea3510ef8}\label{classPipeNode_af9c41efacb66b6d094ce8aaea3510ef8} 
+int {\bfseries number\+\_\+of\+\_\+instances\+\_\+}
+\begin{DoxyCompactList}\small\item\em Number of instances of the processing unit. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_a928e1ff0d25958be9815ff2790ff67eb}\label{classPipeNode_a928e1ff0d25958be9815ff2790ff67eb} 
+\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries in\+\_\+data\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the input data queue. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_a6812a42f8c07c2093b8060e7953e2158}\label{classPipeNode_a6812a42f8c07c2093b8060e7953e2158} 
+\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries out\+\_\+data\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the output data queue. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_a5a2f0fa30d88fec4edd645322a4dfc58}\label{classPipeNode_a5a2f0fa30d88fec4edd645322a4dfc58} 
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} {\bfseries processing\+\_\+unit\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the Processing\+Unit to use. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_a918c14b7dfa050206f4e2b27d09e3cd5}\label{classPipeNode_a918c14b7dfa050206f4e2b27d09e3cd5} 
+bool {\bfseries is\+\_\+last\+\_\+node\+\_\+}
+\begin{DoxyCompactList}\small\item\em True if it\textquotesingle{}s the last node. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_acc5d119c7b2977ece88182a445928aac}\label{classPipeNode_acc5d119c7b2977ece88182a445928aac} 
+std\+::vector$<$ std\+::thread \texorpdfstring{$\ast$}{*} $>$ {\bfseries running\+\_\+threads\+\_\+}
+\begin{DoxyCompactList}\small\item\em The list with the running threads. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_ae5762f10cbd05fdfce1c5da3ea435f12}\label{classPipeNode_ae5762f10cbd05fdfce1c5da3ea435f12} 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries extra\+\_\+args\+\_\+}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

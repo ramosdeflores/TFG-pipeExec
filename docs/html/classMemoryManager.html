@@ -72,6 +72,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classMemoryManager-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MemoryManager Class Reference</div></div>
 </div><!--header-->
@@ -126,6 +127,73 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>wait_finish</b> ()</td></tr>
 <tr class="memdesc:ae12d45dd15b3756a0685c4fc15c24bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to get the ownership of the cpu resources to do any action. <br /></td></tr>
 <tr class="separator:ae12d45dd15b3756a0685c4fc15c24bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4364b1aa14d01e023a553acc47e00633"><td class="memItemLeft" align="right" valign="top"><a id="a4364b1aa14d01e023a553acc47e00633" name="a4364b1aa14d01e023a553acc47e00633"></a>
+void **&#160;</td><td class="memItemRight" valign="bottom"><b>in_queue_</b></td></tr>
+<tr class="memdesc:a4364b1aa14d01e023a553acc47e00633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the input queue. <br /></td></tr>
+<tr class="separator:a4364b1aa14d01e023a553acc47e00633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac95efbd85633172f66b14cc8123e2706"><td class="memItemLeft" align="right" valign="top"><a id="ac95efbd85633172f66b14cc8123e2706" name="ac95efbd85633172f66b14cc8123e2706"></a>
+void **&#160;</td><td class="memItemRight" valign="bottom"><b>out_queue_</b></td></tr>
+<tr class="memdesc:ac95efbd85633172f66b14cc8123e2706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the output queue. <br /></td></tr>
+<tr class="separator:ac95efbd85633172f66b14cc8123e2706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afebc7bf6a94c1244df7c87333250f6f8"><td class="memItemLeft" align="right" valign="top"><a id="afebc7bf6a94c1244df7c87333250f6f8" name="afebc7bf6a94c1244df7c87333250f6f8"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>max_size_</b></td></tr>
+<tr class="memdesc:afebc7bf6a94c1244df7c87333250f6f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum size of the memory buffer queues. <br /></td></tr>
+<tr class="separator:afebc7bf6a94c1244df7c87333250f6f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a268f83f0a0b3da2ab4ef997649b748c1"><td class="memItemLeft" align="right" valign="top"><a id="a268f83f0a0b3da2ab4ef997649b748c1" name="a268f83f0a0b3da2ab4ef997649b748c1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>rear_in_iterator_</b></td></tr>
+<tr class="memdesc:a268f83f0a0b3da2ab4ef997649b748c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the rear of the input queue. <br /></td></tr>
+<tr class="separator:a268f83f0a0b3da2ab4ef997649b748c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae647eddfde69a2fa5e980c8f27e3b1ef"><td class="memItemLeft" align="right" valign="top"><a id="ae647eddfde69a2fa5e980c8f27e3b1ef" name="ae647eddfde69a2fa5e980c8f27e3b1ef"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>front_in_iterator_</b></td></tr>
+<tr class="memdesc:ae647eddfde69a2fa5e980c8f27e3b1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the front of the input queue. <br /></td></tr>
+<tr class="separator:ae647eddfde69a2fa5e980c8f27e3b1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfff5c6bb06b0803eb09c7a4a98a950e"><td class="memItemLeft" align="right" valign="top"><a id="adfff5c6bb06b0803eb09c7a4a98a950e" name="adfff5c6bb06b0803eb09c7a4a98a950e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>rear_out_iterator_</b></td></tr>
+<tr class="memdesc:adfff5c6bb06b0803eb09c7a4a98a950e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the rear of the output queue. <br /></td></tr>
+<tr class="separator:adfff5c6bb06b0803eb09c7a4a98a950e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312808ba0dcf51b9566d1b69a1978f1b"><td class="memItemLeft" align="right" valign="top"><a id="a312808ba0dcf51b9566d1b69a1978f1b" name="a312808ba0dcf51b9566d1b69a1978f1b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>front_out_iterator_</b></td></tr>
+<tr class="memdesc:a312808ba0dcf51b9566d1b69a1978f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the front of the output queue. <br /></td></tr>
+<tr class="separator:a312808ba0dcf51b9566d1b69a1978f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a5160b31c1ede53e4fae08b1102bdb"><td class="memItemLeft" align="right" valign="top"><a id="ad9a5160b31c1ede53e4fae08b1102bdb" name="ad9a5160b31c1ede53e4fae08b1102bdb"></a>
+std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>in_queue_count_</b></td></tr>
+<tr class="memdesc:ad9a5160b31c1ede53e4fae08b1102bdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of memory buffers in the input queue. <br /></td></tr>
+<tr class="separator:ad9a5160b31c1ede53e4fae08b1102bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c13be746d79c150185f2fd614594979"><td class="memItemLeft" align="right" valign="top"><a id="a4c13be746d79c150185f2fd614594979" name="a4c13be746d79c150185f2fd614594979"></a>
+std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>out_queue_count_</b></td></tr>
+<tr class="memdesc:a4c13be746d79c150185f2fd614594979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of memory buffers in the output queue. <br /></td></tr>
+<tr class="separator:a4c13be746d79c150185f2fd614594979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa9ab06065a933a88a852cbccb9d67b3"><td class="memItemLeft" align="right" valign="top"><a id="aaa9ab06065a933a88a852cbccb9d67b3" name="aaa9ab06065a933a88a852cbccb9d67b3"></a>
+<a class="el" href="classSemaphore.html">Semaphore</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>in_semaphore_</b></td></tr>
+<tr class="memdesc:aaa9ab06065a933a88a852cbccb9d67b3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classSemaphore.html" title="A class that implements a semaphore.">Semaphore</a> for the input queue. <br /></td></tr>
+<tr class="separator:aaa9ab06065a933a88a852cbccb9d67b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac8cadeeaa404c65a3f697d1e20f317f"><td class="memItemLeft" align="right" valign="top"><a id="aac8cadeeaa404c65a3f697d1e20f317f" name="aac8cadeeaa404c65a3f697d1e20f317f"></a>
+<a class="el" href="classSemaphore.html">Semaphore</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>out_semaphore_</b></td></tr>
+<tr class="memdesc:aac8cadeeaa404c65a3f697d1e20f317f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classSemaphore.html" title="A class that implements a semaphore.">Semaphore</a> for the output queue. <br /></td></tr>
+<tr class="separator:aac8cadeeaa404c65a3f697d1e20f317f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7274052a7c4a99f2f9745d6cbb7518df"><td class="memItemLeft" align="right" valign="top"><a id="a7274052a7c4a99f2f9745d6cbb7518df" name="a7274052a7c4a99f2f9745d6cbb7518df"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>push_in_mutex_</b></td></tr>
+<tr class="memdesc:a7274052a7c4a99f2f9745d6cbb7518df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for pushing into the input queue. <br /></td></tr>
+<tr class="separator:a7274052a7c4a99f2f9745d6cbb7518df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf399afcaeb90a703d7b62f5d50ed253"><td class="memItemLeft" align="right" valign="top"><a id="adf399afcaeb90a703d7b62f5d50ed253" name="adf399afcaeb90a703d7b62f5d50ed253"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>push_out_mutex_</b></td></tr>
+<tr class="memdesc:adf399afcaeb90a703d7b62f5d50ed253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for pushing into the output queue. <br /></td></tr>
+<tr class="separator:adf399afcaeb90a703d7b62f5d50ed253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed2c86f1b01143896afacb712684adc8"><td class="memItemLeft" align="right" valign="top"><a id="aed2c86f1b01143896afacb712684adc8" name="aed2c86f1b01143896afacb712684adc8"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>pop_in_mutex_</b></td></tr>
+<tr class="memdesc:aed2c86f1b01143896afacb712684adc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for popping from the input queue. <br /></td></tr>
+<tr class="separator:aed2c86f1b01143896afacb712684adc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7d1f223e7f5959a4ea7a76b248738e8"><td class="memItemLeft" align="right" valign="top"><a id="ac7d1f223e7f5959a4ea7a76b248738e8" name="ac7d1f223e7f5959a4ea7a76b248738e8"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>pop_out_mutex_</b></td></tr>
+<tr class="memdesc:ac7d1f223e7f5959a4ea7a76b248738e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for popping from the output queue. <br /></td></tr>
+<tr class="separator:ac7d1f223e7f5959a4ea7a76b248738e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b10575ae5b6771dbbae038075ff358e"><td class="memItemLeft" align="right" valign="top"><a id="a8b10575ae5b6771dbbae038075ff358e" name="a8b10575ae5b6771dbbae038075ff358e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>debug_</b></td></tr>
+<tr class="memdesc:a8b10575ae5b6771dbbae038075ff358e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean for showing the debug information. <br /></td></tr>
+<tr class="separator:a8b10575ae5b6771dbbae038075ff358e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A memory manager that provides an interface for managing a fixed-size queue of pointers to memory buffers. </p>

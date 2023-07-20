@@ -73,6 +73,34 @@
 <para>Returns new pointer to a processing unit class. </para>
 </listitem>
         </itemizedlist>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>pixel_value <link linkend="_classEdgeDetector_1ae3c45435623425c2fd17aefc7f041fd8">IntToPixel</link> (int)</para>
+
+<para>Converts from Int to pixel_value(unsigned char) </para>
+</listitem>
+            <listitem><para>int <link linkend="_classEdgeDetector_1a2795b22e7db63bca2444c0fe78e22bef">Bound</link> (int)</para>
+
+<para>Gets the int number to the limits of the unsigned char colors. </para>
+</listitem>
+            <listitem><para>int <link linkend="_classEdgeDetector_1a7a6b2afd25819c254b86a404bb1e1b4a">Hypotenuse</link> (int, int)</para>
+
+<para>Calculates the hypotenuse of two integers. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classEdgeDetector_1a7f8dce1c052d824dff9ad3a3f324f903"/>int ** <emphasis role="strong">sobelx_</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classEdgeDetector_1ae29b5b0c5c60c2c8b75f2841b13d2fc1"/>int ** <emphasis role="strong">sobely_</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classEdgeDetector_1aa992ac08410dc5591ce035a84fdd610f"/>bool <emphasis role="strong">debug_</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Detailed Description</title>
 
@@ -80,6 +108,41 @@
 </section>
 <section>
 <title>Member Function Documentation</title>
+<anchor xml:id="_classEdgeDetector_1a2795b22e7db63bca2444c0fe78e22bef"/><section>
+    <title>Bound()</title>
+<indexterm><primary>Bound</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Bound</secondary></indexterm>
+<para><computeroutput>int EdgeDetector::Bound (int i_val)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Gets the int number to the limits of the unsigned char colors. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>i_val</entry><entry>
+<para>The int param</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The int value below the limit </para>
+</formalpara>
+</para>
+</section>
 <anchor xml:id="_classEdgeDetector_1a7d60da211152e60b001f96ef1d753bdd"/><section>
     <title>Clone()</title>
 <indexterm><primary>Clone</primary><secondary>EdgeDetector</secondary></indexterm>
@@ -157,6 +220,56 @@ Parameters</title>
 </para>
 <para>
 Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classEdgeDetector_1a7a6b2afd25819c254b86a404bb1e1b4a"/><section>
+    <title>Hypotenuse()</title>
+<indexterm><primary>Hypotenuse</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Hypotenuse</secondary></indexterm>
+<para><computeroutput>int EdgeDetector::Hypotenuse (int a, int b)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Calculates the hypotenuse of two integers. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The result of the calculation as integer </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classEdgeDetector_1ae3c45435623425c2fd17aefc7f041fd8"/><section>
+    <title>IntToPixel()</title>
+<indexterm><primary>IntToPixel</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>IntToPixel</secondary></indexterm>
+<para><computeroutput>pixel_value EdgeDetector::IntToPixel (int i_val)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Converts from Int to pixel_value(unsigned char) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>i_val</entry><entry>
+<para>The int value</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The pixel_value </para>
+</formalpara>
+</para>
 </section>
 <anchor xml:id="_classEdgeDetector_1a9be148339689de7543a5e873a0bd4440"/><section>
     <title>Magnitude()</title>

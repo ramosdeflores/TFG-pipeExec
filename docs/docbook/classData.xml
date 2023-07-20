@@ -44,6 +44,19 @@
 </listitem>
         </itemizedlist>
 </simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classData_1adacad9b5b70a10592f31f687a5a0b4b9"/>void * <emphasis role="strong">data_</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classData_1a1f5a5d7ef2e41ed76ae6ba16fe512f46"/>unsigned int <emphasis role="strong">index_</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classData_1a2b56c40966f3a00419c2ed189e0b7496"/>std::vector&lt; <link linkend="_structData_1_1DataKey">DataKey</link> * &gt; <emphasis role="strong">extra_data_</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classData_1a4251526e1edf8a38af37cd55e2e03d5e"/>bool <emphasis role="strong">debug_</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Detailed Description</title>
 

@@ -96,58 +96,54 @@ $(function() {
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::ifstream file(<span class="stringliteral">&quot;../input_images/ElHierro.mat&quot;</span>);</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::string mat_input;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::vector&lt;int&gt; input_img_values;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">int</span> line = 0;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">while</span> (getline(file, mat_input, <span class="charliteral">&#39;,&#39;</span>)) {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>      <span class="comment">// input_img_values.emplace_back(std::stoi(mat_input));</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>      line++;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    printf(<span class="stringliteral">&quot;GOT AOUT&quot;</span>);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> **img = (<span class="keywordtype">int</span> **)malloc(height * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span> *));</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; ++i) {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      img[i] = (<span class="keywordtype">int</span> *)malloc(width * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> h_it = 0; h_it &lt; height; h_it++) {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> w_it = 0; w_it &lt; width; ++w_it) {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordtype">int</span> value = input_img_values[w_it + (h_it * width)];</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        img[h_it][w_it] = value;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      }</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classData.html">Data</a> *some_data = <span class="keyword">new</span> <a class="code hl_class" href="classData.html">Data</a>(img);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;width&quot;</span>, <span class="keyword">new</span> int(height)});</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;height&quot;</span>, <span class="keyword">new</span> int(width)});</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;debug&quot;</span>, &amp;pu_debug_flag});</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;id&quot;</span>, <span class="keyword">new</span> int(it)});</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;max_rand&quot;</span>, <span class="keyword">new</span> int(max_num)});</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    data_in-&gt;<a class="code hl_function" href="classMemoryManager.html#a09b86c875efaba6b2ee477e94a4a1585">LoadMemoryManager</a>(some_data);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <a class="code hl_class" href="classPipeline.html">Pipeline</a> *pipe = <span class="keyword">new</span> <a class="code hl_class" href="classPipeline.html">Pipeline</a>(&amp;indexer, data_in, 1, debug_flag, profiling);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</a>(&amp;img_data_discrimination, number_of_threads);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</a>(&amp;edge_detection, number_of_threads);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</a>(&amp;img_output, number_of_threads);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#aaa720ffefb8eb2bc61bd8336a7fee8ce">RunPipe</a>();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; number_of_images; ++i) {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">while</span> (getline(file, mat_input, <span class="charliteral">&#39;,&#39;</span>)) {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      input_img_values.push_back(std::stoi(mat_input));</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">int</span> **img = (<span class="keywordtype">int</span> **)malloc(height * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span> *));</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; ++i) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      img[i] = (<span class="keywordtype">int</span> *)malloc(width * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> h_it = 0; h_it &lt; height; h_it++) {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> w_it = 0; w_it &lt; width; ++w_it) {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">int</span> value = input_img_values[w_it + (h_it * width)];</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        img[h_it][w_it] = value;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_class" href="classData.html">Data</a> *some_data = <span class="keyword">new</span> <a class="code hl_class" href="classData.html">Data</a>(img);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;width&quot;</span>, <span class="keyword">new</span> int(height)});</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;height&quot;</span>, <span class="keyword">new</span> int(width)});</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;debug&quot;</span>, &amp;pu_debug_flag});</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;id&quot;</span>, <span class="keyword">new</span> int(it)});</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    some_data-&gt;<a class="code hl_function" href="classData.html#a9910d080ca028a52d61408b4dec7b135">PushExtraData</a>(<span class="keyword">new</span> <a class="code hl_struct" href="structData_1_1DataKey.html">Data::DataKey</a>{<span class="stringliteral">&quot;max_rand&quot;</span>, <span class="keyword">new</span> int(max_num)});</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    data_in-&gt;<a class="code hl_function" href="classMemoryManager.html#a09b86c875efaba6b2ee477e94a4a1585">LoadMemoryManager</a>(some_data);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <a class="code hl_class" href="classPipeline.html">Pipeline</a> *pipe = <span class="keyword">new</span> <a class="code hl_class" href="classPipeline.html">Pipeline</a>(&amp;indexer, data_in, 1, debug_flag, profiling);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</a>(&amp;img_data_discrimination, number_of_threads);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</a>(&amp;edge_detection, number_of_threads);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</a>(&amp;img_output, number_of_threads);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#aaa720ffefb8eb2bc61bd8336a7fee8ce">RunPipe</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; number_of_images; ++i) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">if</span> (debug_flag) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      printf(<span class="stringliteral">&quot;%s(main) Popping from IN %s\n&quot;</span>, LUCID_CYAN, LUCID_NORMAL);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">int</span> *data = (<span class="keywordtype">int</span> *)data_in-&gt;<a class="code hl_function" href="classMemoryManager.html#a2baf1cd49e91c7618cd6c08151491094">PopFromIn</a>();</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span> (debug_flag) {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      printf(<span class="stringliteral">&quot;%s(main) Popping from IN %s\n&quot;</span>, LUCID_CYAN, LUCID_NORMAL);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      printf(<span class="stringliteral">&quot;%s(main) Pushing into OUT %s\n&quot;</span>, LUCID_CYAN, LUCID_NORMAL);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">int</span> *data = (<span class="keywordtype">int</span> *)data_in-&gt;<a class="code hl_function" href="classMemoryManager.html#a2baf1cd49e91c7618cd6c08151491094">PopFromIn</a>();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span> (debug_flag) {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      printf(<span class="stringliteral">&quot;%s(main) Pushing into OUT %s\n&quot;</span>, LUCID_CYAN, LUCID_NORMAL);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    data_in-&gt;<a class="code hl_function" href="classMemoryManager.html#a8ee578854fc579a88c34c4ff42adbc2b">PushIntoOut</a>(data);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#a134c0e23c0260a6dc74bb936f39ecda9">WaitFinish</a>();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  pipe-&gt;Profile();</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    data_in-&gt;<a class="code hl_function" href="classMemoryManager.html#a8ee578854fc579a88c34c4ff42adbc2b">PushIntoOut</a>(data);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  pipe-&gt;<a class="code hl_function" href="classPipeline.html#a134c0e23c0260a6dc74bb936f39ecda9">WaitFinish</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  pipe-&gt;Profile();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */</span></div>
 <div class="ttc" id="aclassData_html"><div class="ttname"><a href="classData.html">Data</a></div><div class="ttdoc">A Data class that provides access to various forms of manipulation and allocation for the processing ...</div><div class="ttdef"><b>Definition</b> data.h:47</div></div>
 <div class="ttc" id="aclassData_html_a9910d080ca028a52d61408b4dec7b135"><div class="ttname"><a href="classData.html#a9910d080ca028a52d61408b4dec7b135">Data::PushExtraData</a></div><div class="ttdeci">void PushExtraData(DataKey *)</div><div class="ttdoc">Pushes data to the extra data vector to be accessed later on if needed.</div><div class="ttdef"><b>Definition</b> data.cc:58</div></div>
 <div class="ttc" id="aclassEdgeDetector_html"><div class="ttname"><a href="classEdgeDetector.html">EdgeDetector</a></div><div class="ttdoc">This processing unit detects the borders inside the img and sends them as a new image through the pip...</div><div class="ttdef"><b>Definition</b> edge_detector.h:43</div></div>

@@ -65,6 +65,15 @@
 <para>Returns new pointer to a processing unit class. </para>
 </listitem>
         </itemizedlist>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>pixel_value <link linkend="_classImgOutputer_1a2d14fc4d8cd811673f9ebadbbcdc8c35">IntToPixel</link> (int)</para>
+
+<para>Transforms the Int number into the pixel_value value (unsigned char) </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Detailed Description</title>
 
@@ -99,6 +108,41 @@ Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f8289
 </para>
 <para>
 Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classImgOutputer_1a2d14fc4d8cd811673f9ebadbbcdc8c35"/><section>
+    <title>IntToPixel()</title>
+<indexterm><primary>IntToPixel</primary><secondary>ImgOutputer</secondary></indexterm>
+<indexterm><primary>ImgOutputer</primary><secondary>IntToPixel</secondary></indexterm>
+<para><computeroutput>pixel_value ImgOutputer::IntToPixel (int i_val)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Transforms the Int number into the pixel_value value (unsigned char) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>i_val</entry><entry>
+<para>The Int value</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value in pixels </para>
+</formalpara>
+</para>
 </section>
 <anchor xml:id="_classImgOutputer_1af790ac0aaa8fd825e22593c625607866"/><section>
     <title>Run()</title>

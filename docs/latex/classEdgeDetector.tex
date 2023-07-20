@@ -46,12 +46,51 @@ virtual void \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6a
 \begin{DoxyCompactList}\small\item\em Use this function to free all the memory allocated in the Start method. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Clone}} ()
 \begin{DoxyCompactList}\small\item\em Returns new pointer to a processing unit class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+pixel\+\_\+value \mbox{\hyperlink{classEdgeDetector_ae3c45435623425c2fd17aefc7f041fd8}{Int\+To\+Pixel}} (int)
+\begin{DoxyCompactList}\small\item\em Converts from Int to pixel\+\_\+value(unsigned char) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEdgeDetector_a2795b22e7db63bca2444c0fe78e22bef}{Bound}} (int)
+\begin{DoxyCompactList}\small\item\em Gets the int number to the limits of the unsigned char colors. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEdgeDetector_a7a6b2afd25819c254b86a404bb1e1b4a}{Hypotenuse}} (int, int)
+\begin{DoxyCompactList}\small\item\em Calculates the hypotenuse of two integers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEdgeDetector_a7f8dce1c052d824dff9ad3a3f324f903}\label{classEdgeDetector_a7f8dce1c052d824dff9ad3a3f324f903} 
+int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries sobelx\+\_\+}
+\item 
+\Hypertarget{classEdgeDetector_ae29b5b0c5c60c2c8b75f2841b13d2fc1}\label{classEdgeDetector_ae29b5b0c5c60c2c8b75f2841b13d2fc1} 
+int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries sobely\+\_\+}
+\item 
+\Hypertarget{classEdgeDetector_aa992ac08410dc5591ce035a84fdd610f}\label{classEdgeDetector_aa992ac08410dc5591ce035a84fdd610f} 
+bool {\bfseries debug\+\_\+}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 This processing unit detects the borders inside the img and sends them as a new image through the pipe. 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classEdgeDetector_a2795b22e7db63bca2444c0fe78e22bef}\label{classEdgeDetector_a2795b22e7db63bca2444c0fe78e22bef} 
+\index{EdgeDetector@{EdgeDetector}!Bound@{Bound}}
+\index{Bound@{Bound}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Bound()}{Bound()}}
+{\footnotesize\ttfamily int Edge\+Detector\+::\+Bound (\begin{DoxyParamCaption}\item[{int}]{i\+\_\+val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the int number to the limits of the unsigned char colors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+\_\+val} & The int param\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The int value below the limit 
+\end{DoxyReturn}
 \Hypertarget{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd}\label{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd} 
 \index{EdgeDetector@{EdgeDetector}!Clone@{Clone}}
 \index{Clone@{Clone}!EdgeDetector@{EdgeDetector}}
@@ -107,6 +146,37 @@ Frees the memory of the sobel filters.
 
 Implements \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Processing\+Unit\+Interface}}.
 
+\Hypertarget{classEdgeDetector_a7a6b2afd25819c254b86a404bb1e1b4a}\label{classEdgeDetector_a7a6b2afd25819c254b86a404bb1e1b4a} 
+\index{EdgeDetector@{EdgeDetector}!Hypotenuse@{Hypotenuse}}
+\index{Hypotenuse@{Hypotenuse}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Hypotenuse()}{Hypotenuse()}}
+{\footnotesize\ttfamily int Edge\+Detector\+::\+Hypotenuse (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates the hypotenuse of two integers. 
+
+\begin{DoxyReturn}{Returns}
+The result of the calculation as integer 
+\end{DoxyReturn}
+\Hypertarget{classEdgeDetector_ae3c45435623425c2fd17aefc7f041fd8}\label{classEdgeDetector_ae3c45435623425c2fd17aefc7f041fd8} 
+\index{EdgeDetector@{EdgeDetector}!IntToPixel@{IntToPixel}}
+\index{IntToPixel@{IntToPixel}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{IntToPixel()}{IntToPixel()}}
+{\footnotesize\ttfamily pixel\+\_\+value Edge\+Detector\+::\+Int\+To\+Pixel (\begin{DoxyParamCaption}\item[{int}]{i\+\_\+val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Converts from Int to pixel\+\_\+value(unsigned char) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+\_\+val} & The int value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pixel\+\_\+value 
+\end{DoxyReturn}
 \Hypertarget{classEdgeDetector_a9be148339689de7543a5e873a0bd4440}\label{classEdgeDetector_a9be148339689de7543a5e873a0bd4440} 
 \index{EdgeDetector@{EdgeDetector}!Magnitude@{Magnitude}}
 \index{Magnitude@{Magnitude}!EdgeDetector@{EdgeDetector}}
