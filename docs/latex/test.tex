@@ -1,45 +1,47 @@
+\chapter{Test List}
+\hypertarget{test}{}\label{test}\index{Test List@{Test List}}
 
 \begin{DoxyRefList}
-\item[Member \mbox{\hyperlink{memory__manager_8test_8cc_a869f8d44bd06d29b1285fbc3611b966f}{TEST}} (Memory\+Manager\+Test, Initial)]\label{test__test000001}%
+\item[Member \doxylink{memory__manager_8test_8cc_a869f8d44bd06d29b1285fbc3611b966f}{TEST} (Memory\+Manager\+Test, Initial)]\label{test__test000001}%
 \Hypertarget{test__test000001}%
-Test case for initializing the \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}}. The \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} is initialized with a given size, and the test checks if the maximum size, input queue count, and output queue count are initialized to their correct values.  
-\item[Member \mbox{\hyperlink{memory__manager_8test_8cc_a25d0c0534f912bb6607daf8677285310}{TEST}} (Memory\+Manager\+Test, Push\+Into\+In)]\label{test__test000002}%
+Test case for initializing the \doxylink{classMemoryManager}{Memory\+Manager}. The \doxylink{classMemoryManager}{Memory\+Manager} is initialized with a given size, and the test checks if the maximum size, input queue count, and output queue count are initialized to their correct values.  
+\item[Member \doxylink{memory__manager_8test_8cc_a25d0c0534f912bb6607daf8677285310}{TEST} (Memory\+Manager\+Test, Push\+Into\+In)]\label{test__test000002}%
 \Hypertarget{test__test000002}%
-Test case for pushing an item into the input queue. The test initializes the \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} with a size of 2 and attempts to push three different items into the input queue. The test verifies that the first two items are successfully pushed into the queue, and the result of the second push is false due to the queue\textquotesingle{}s full capacity. Finally, the test checks if the input queue count is updated to the correct value.  
-\item[Member \mbox{\hyperlink{memory__manager_8test_8cc_aa4d93c94a4ad6503f1eb36bdea15cbd8}{TEST}} (Memory\+Manager\+Test, Push\+Into\+Out)]\label{test__test000003}%
+Test case for pushing an item into the input queue. The test initializes the \doxylink{classMemoryManager}{Memory\+Manager} with a size of 2 and attempts to push three different items into the input queue. The test verifies that the first two items are successfully pushed into the queue, and the result of the second push is false due to the queue\textquotesingle{}s full capacity. Finally, the test checks if the input queue count is updated to the correct value.  
+\item[Member \doxylink{memory__manager_8test_8cc_aa4d93c94a4ad6503f1eb36bdea15cbd8}{TEST} (Memory\+Manager\+Test, Push\+Into\+Out)]\label{test__test000003}%
 \Hypertarget{test__test000003}%
-Test case for pushing an item into the output queue. The test initializes the \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} with a size of 2 and attempts to push two different items into the output queue. The test verifies that the first two items are successfully pushed into the queue, and the result of the second push is false due to the queue\textquotesingle{}s full capacity. Finally, the test checks if the output queue count is updated to the correct value.  
-\item[Member \mbox{\hyperlink{memory__manager_8test_8cc_a0c4ba9c85a884661b43550d7973bf254}{TEST}} (Memory\+Manager\+Test, Pop\+From\+In)]\label{test__test000004}%
+Test case for pushing an item into the output queue. The test initializes the \doxylink{classMemoryManager}{Memory\+Manager} with a size of 2 and attempts to push two different items into the output queue. The test verifies that the first two items are successfully pushed into the queue, and the result of the second push is false due to the queue\textquotesingle{}s full capacity. Finally, the test checks if the output queue count is updated to the correct value.  
+\item[Member \doxylink{memory__manager_8test_8cc_a0c4ba9c85a884661b43550d7973bf254}{TEST} (Memory\+Manager\+Test, Pop\+From\+In)]\label{test__test000004}%
 \Hypertarget{test__test000004}%
-Test case for popping an item from the input queue. The test initializes the \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} with a size of 2 and pushes two items into the input queue. The test verifies that the first item pushed is popped from the queue first, followed by the second item. Finally, the test checks if a nullptr is returned when trying to pop an item from an empty queue.  
-\item[Member \mbox{\hyperlink{memory__manager_8test_8cc_a9ef81e729010668e97ba03644b2c2424}{TEST}} (Memory\+Manager\+Test, Pop\+From\+Out)]\label{test__test000005}%
+Test case for popping an item from the input queue. The test initializes the \doxylink{classMemoryManager}{Memory\+Manager} with a size of 2 and pushes two items into the input queue. The test verifies that the first item pushed is popped from the queue first, followed by the second item. Finally, the test checks if a nullptr is returned when trying to pop an item from an empty queue.  
+\item[Member \doxylink{memory__manager_8test_8cc_a9ef81e729010668e97ba03644b2c2424}{TEST} (Memory\+Manager\+Test, Pop\+From\+Out)]\label{test__test000005}%
 \Hypertarget{test__test000005}%
-Tests the case of popping from the output queue. It creates a \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} object with a maximum size of 2 and pushes two integers into its out\+\_\+queue\+\_\+. Then, it calls Pop\+From\+Out() twice and checks if it returns the expected values.  
-\item[Member \mbox{\hyperlink{memory__manager_8test_8cc_aecbee3af655cacde7a60394e8f1e88be}{TEST}} (Memory\+Manager\+Test, Load\+Memory\+Manager)]\label{test__test000006}%
+Tests the case of popping from the output queue. It creates a \doxylink{classMemoryManager}{Memory\+Manager} object with a maximum size of 2 and pushes two integers into its out\+\_\+queue\+\_\+. Then, it calls Pop\+From\+Out() twice and checks if it returns the expected values.  
+\item[Member \doxylink{memory__manager_8test_8cc_aecbee3af655cacde7a60394e8f1e88be}{TEST} (Memory\+Manager\+Test, Load\+Memory\+Manager)]\label{test__test000006}%
 \Hypertarget{test__test000006}%
-Test the Load\+Memory\+Manager method of \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} class. Given a \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} object mm and an int pointer data1, load data1 into mm and test if in\+\_\+queue\+\_\+count() is 1 and out\+\_\+queue\+\_\+count() is 0.  
-\item[Member \mbox{\hyperlink{memory__manager_8test_8cc_af5fbaada89aab5d80010625b03297b5b}{TEST}} (Memory\+Manager\+Test, Null\+Ptr)]\label{test__test000007}%
+Test the Load\+Memory\+Manager method of \doxylink{classMemoryManager}{Memory\+Manager} class. Given a \doxylink{classMemoryManager}{Memory\+Manager} object mm and an int pointer data1, load data1 into mm and test if in\+\_\+queue\+\_\+count() is 1 and out\+\_\+queue\+\_\+count() is 0.  
+\item[Member \doxylink{memory__manager_8test_8cc_af5fbaada89aab5d80010625b03297b5b}{TEST} (Memory\+Manager\+Test, Null\+Ptr)]\label{test__test000007}%
 \Hypertarget{test__test000007}%
-Test the behaviour of \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} class with null pointers. Given a \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} object mm and two int pointers, load them into mm and pop them out to mm\textquotesingle{}s out queue. Assert that mm\textquotesingle{}s in queue and out queue are both non empty. 
-\item[Member \mbox{\hyperlink{memory__manager_8test_8cc_a5f84596eef72e6d8af087735d225893c}{TEST}} (Memory\+Manager\+Test, Bad\+Sizing)]\label{test__test000008}%
+Test the behaviour of \doxylink{classMemoryManager}{Memory\+Manager} class with null pointers. Given a \doxylink{classMemoryManager}{Memory\+Manager} object mm and two int pointers, load them into mm and pop them out to mm\textquotesingle{}s out queue. Assert that mm\textquotesingle{}s in queue and out queue are both non empty. 
+\item[Member \doxylink{memory__manager_8test_8cc_a5f84596eef72e6d8af087735d225893c}{TEST} (Memory\+Manager\+Test, Bad\+Sizing)]\label{test__test000008}%
 \Hypertarget{test__test000008}%
-Test the behaviour of \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} class with invalid sizing. Assert that creating a \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} object with a negative size throws a Memory\+Manager\+Error.  
-\item[Member \mbox{\hyperlink{semaphore_8test_8cc_af650c646e82923c918453607b393031e}{TEST}} (Semaphore\+Test, Initial\+Count)]\label{test__test000009}%
+Test the behaviour of \doxylink{classMemoryManager}{Memory\+Manager} class with invalid sizing. Assert that creating a \doxylink{classMemoryManager}{Memory\+Manager} object with a negative size throws a Memory\+Manager\+Error.  
+\item[Member \doxylink{semaphore_8test_8cc_af650c646e82923c918453607b393031e}{TEST} (Semaphore\+Test, Initial\+Count)]\label{test__test000009}%
 \Hypertarget{test__test000009}%
-Tests the initial count of the \mbox{\hyperlink{classSemaphore}{Semaphore}} object Creates a \mbox{\hyperlink{classSemaphore}{Semaphore}} object with an initial count of 5 and tests if the count is correct.  
-\item[Member \mbox{\hyperlink{semaphore_8test_8cc_a45174a14d2cdeaa34e401178b0bd7f25}{TEST}} (Semaphore\+Test, Wait\+Signal)]\label{test__test000010}%
+Tests the initial count of the \doxylink{classSemaphore}{Semaphore} object Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 5 and tests if the count is correct.  
+\item[Member \doxylink{semaphore_8test_8cc_a45174a14d2cdeaa34e401178b0bd7f25}{TEST} (Semaphore\+Test, Wait\+Signal)]\label{test__test000010}%
 \Hypertarget{test__test000010}%
-Tests the Wait and Signal functions of the \mbox{\hyperlink{classSemaphore}{Semaphore}} object. Creates a \mbox{\hyperlink{classSemaphore}{Semaphore}} object with an initial count of 0 and starts a thread that waits on the semaphore and signals it. The main thread signals the semaphore to start the thread and waits for it to complete. Then it tests if the count of the semaphore is 1.  
-\item[Member \mbox{\hyperlink{semaphore_8test_8cc_a839989411f5a2147cd64bdba9fa27905}{TEST}} (Semaphore\+Test, Multiple\+Wait\+Signal)]\label{test__test000011}%
+Tests the Wait and Signal functions of the \doxylink{classSemaphore}{Semaphore} object. Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 0 and starts a thread that waits on the semaphore and signals it. The main thread signals the semaphore to start the thread and waits for it to complete. Then it tests if the count of the semaphore is 1.  
+\item[Member \doxylink{semaphore_8test_8cc_a839989411f5a2147cd64bdba9fa27905}{TEST} (Semaphore\+Test, Multiple\+Wait\+Signal)]\label{test__test000011}%
 \Hypertarget{test__test000011}%
-Tests the Wait and Signal functions of the \mbox{\hyperlink{classSemaphore}{Semaphore}} object with multiple threads. Creates a \mbox{\hyperlink{classSemaphore}{Semaphore}} object with an initial count of 0 and starts 10 threads that wait on the semaphore and signal it. The main thread signals the semaphore 10 times to wake up the waiting threads, waits for the threads to complete, waits on the semaphore and signals it once. Then it tests if the count of the semaphore is 10.  
-\item[Member \mbox{\hyperlink{semaphore_8test_8cc_a649c78316d8d2c3dc73d84ce5d5f712b}{TEST}} (Semaphore\+Test, Wait\+Without\+Signal)]\label{test__test000012}%
+Tests the Wait and Signal functions of the \doxylink{classSemaphore}{Semaphore} object with multiple threads. Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 0 and starts 10 threads that wait on the semaphore and signal it. The main thread signals the semaphore 10 times to wake up the waiting threads, waits for the threads to complete, waits on the semaphore and signals it once. Then it tests if the count of the semaphore is 10.  
+\item[Member \doxylink{semaphore_8test_8cc_a649c78316d8d2c3dc73d84ce5d5f712b}{TEST} (Semaphore\+Test, Wait\+Without\+Signal)]\label{test__test000012}%
 \Hypertarget{test__test000012}%
-Tests the behavior of the \mbox{\hyperlink{classSemaphore}{Semaphore}} object when a Wait is called without a corresponding Signal Creates a \mbox{\hyperlink{classSemaphore}{Semaphore}} object with an initial count of 0 and starts a thread that waits on the semaphore. The main thread waits for 100 milliseconds and tests if the count of the semaphore is still 0. Then it signals the semaphore and waits for the thread to complete.  
-\item[Member \mbox{\hyperlink{semaphore_8test_8cc_aed489802850a894442116035cc6fd450}{TEST}} (Semaphore\+Test, Signal\+Without\+Wait)]\label{test__test000013}%
+Tests the behavior of the \doxylink{classSemaphore}{Semaphore} object when a Wait is called without a corresponding Signal Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 0 and starts a thread that waits on the semaphore. The main thread waits for 100 milliseconds and tests if the count of the semaphore is still 0. Then it signals the semaphore and waits for the thread to complete.  
+\item[Member \doxylink{semaphore_8test_8cc_aed489802850a894442116035cc6fd450}{TEST} (Semaphore\+Test, Signal\+Without\+Wait)]\label{test__test000013}%
 \Hypertarget{test__test000013}%
-Tests the behavior of the \mbox{\hyperlink{classSemaphore}{Semaphore}} object when a Signal is called without a corresponding Wait. Creates a \mbox{\hyperlink{classSemaphore}{Semaphore}} object with an initial count of 1 and calls the Signal function twice. Then it tests if the count of the semaphore is 2.  
-\item[Member \mbox{\hyperlink{semaphore_8test_8cc_a4d28b210dd621384af9d457f3399b68c}{TEST}} (Semaphore\+Test, Multiple\+Signal)]\label{test__test000014}%
+Tests the behavior of the \doxylink{classSemaphore}{Semaphore} object when a Signal is called without a corresponding Wait. Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 1 and calls the Signal function twice. Then it tests if the count of the semaphore is 2.  
+\item[Member \doxylink{semaphore_8test_8cc_a4d28b210dd621384af9d457f3399b68c}{TEST} (Semaphore\+Test, Multiple\+Signal)]\label{test__test000014}%
 \Hypertarget{test__test000014}%
-Tests the behavior of the \mbox{\hyperlink{classSemaphore}{Semaphore}} object when multiple Signal functions are called. Creates a \mbox{\hyperlink{classSemaphore}{Semaphore}} object with an initial count of 0 and calls the Signal function twice. Then it tests if the count of the semaphore is 2. 
+Tests the behavior of the \doxylink{classSemaphore}{Semaphore} object when multiple Signal functions are called. Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 0 and calls the Signal function twice. Then it tests if the count of the semaphore is 2. 
 \end{DoxyRefList}

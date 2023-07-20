@@ -53,6 +53,10 @@
 
 <para>Gets a vector of running threads for the current node. </para>
 </listitem>
+            <listitem><para>void ** <link linkend="_classPipeNode_1a853680b56049dc32cba7abb4fba4602a">extra_args</link> ()</para>
+
+<para>Get the array of extra args. </para>
+</listitem>
             <listitem><para>void <link linkend="_classPipeNode_1af3487d5c30cd581c228e48f9276b753e">in_data_queue</link> (<link linkend="_classMemoryManager">MemoryManager</link> *)</para>
 
 <para>Sets the input memory manager of the current node. </para>
@@ -80,6 +84,10 @@
             <listitem><para>void <link linkend="_classPipeNode_1a82034beec3b84609dee6c4b2c37fdd53">PushThread</link> (std::thread *)</para>
 
 <para>Pushes the thread to the list of running threads. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classPipeNode_1a4bf821b2dcad4b84f70c6c5d3e0efd1b">extra_args</link> (void **)</para>
+
+<para>Sets the extra args for the current node. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -118,6 +126,52 @@
 </para>
 
 <para>This method signals the end of the node&apos;s work, and ensures that all threads have finished execution before returning. </para>
+</section>
+<anchor xml:id="_classPipeNode_1a853680b56049dc32cba7abb4fba4602a"/><section>
+    <title>extra_args()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>extra_args</primary><secondary>PipeNode</secondary></indexterm>
+<indexterm><primary>PipeNode</primary><secondary>extra_args</secondary></indexterm>
+<para><computeroutput>void ** PipeNode::extra_args ( )</computeroutput></para><para>
+
+<para>Get the array of extra args. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A pointer to the array of extra args </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classPipeNode_1a4bf821b2dcad4b84f70c6c5d3e0efd1b"/><section>
+    <title>extra_args()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>extra_args</primary><secondary>PipeNode</secondary></indexterm>
+<indexterm><primary>PipeNode</primary><secondary>extra_args</secondary></indexterm>
+<para><computeroutput>void PipeNode::extra_args (void ** args)</computeroutput></para><para>
+
+<para>Sets the extra args for the current node. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>args</entry><entry>
+<para>The pointer to the array of args </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
 </section>
 <anchor xml:id="_classPipeNode_1a5d4eee423eaefa255532aac5d68aacbc"/><section>
     <title>in_data_queue()<computeroutput>[1/2]</computeroutput></title>

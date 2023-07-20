@@ -10,7 +10,7 @@
 
 # LICENSE
 
-LUCID (Unified Computing Image and Data-Processing) is a program to process
+LUCID (Unified Computer Image and Data-Processing) is a program to process
 any type of data concurrently.
 Copyright (C) 2023 Lucas Hernández Abreu
 
@@ -33,7 +33,7 @@ Contact: lucas.hernandez.09@ull.edu.es
 
 # INTRODUCTION
 
-LUCID (Unified Computing Image and Data-Processing) is a framework for
+LUCID (Unified Computer Image and Data-Processing) is a framework for
 processing data concurrently via the development of processing units. Each
 processing unit can have multiple instances that will run in parallel.
 
@@ -90,7 +90,7 @@ After you have built it you can find the executable at the `bin` directory.
 Now run the executable in one of this three modes:
 
 ```bash
-LUCID (Unified Computing Image and Data-Processing)
+LUCID (Unified Computer Image and Data-Processing)
         Copyright (C) 2023  Lucas Hernández Abreu
         This program comes with ABSOLUTELY NO WARRANTY
 

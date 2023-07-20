@@ -1,8 +1,8 @@
-\hypertarget{classImgOutputer}{}\doxysection{Img\+Outputer Class Reference}
-\label{classImgOutputer}\index{ImgOutputer@{ImgOutputer}}
+\doxysection{Img\+Outputer Class Reference}
+\hypertarget{classImgOutputer}{}\label{classImgOutputer}\index{ImgOutputer@{ImgOutputer}}
 
 
-This class represents an \mbox{\hyperlink{classImgOutputer}{Img\+Outputer}}, it gets an img matrix with unsigned char values and sends it to the IO for creating two .ppm files.  
+This class represents an \doxylink{classImgOutputer}{Img\+Outputer}, it gets an img matrix with unsigned char values and sends it to the IO for creating two .ppm files.  
 
 
 
@@ -15,57 +15,57 @@ Inheritance diagram for Img\+Outputer\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{classImgOutputer}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classImgOutputer_abb832a65f6496b0ea6b4a25413db5cdc}\label{classImgOutputer_abb832a65f6496b0ea6b4a25413db5cdc}} 
+\Hypertarget{classImgOutputer_abb832a65f6496b0ea6b4a25413db5cdc}\label{classImgOutputer_abb832a65f6496b0ea6b4a25413db5cdc} 
 {\bfseries Img\+Outputer} ()
 \begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classImgOutputer_a921db884784f49bbe8b7474fa67fbf6f}\label{classImgOutputer_a921db884784f49bbe8b7474fa67fbf6f}} 
-{\bfseries $\sim$\+Img\+Outputer} ()
+\Hypertarget{classImgOutputer_a921db884784f49bbe8b7474fa67fbf6f}\label{classImgOutputer_a921db884784f49bbe8b7474fa67fbf6f} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Img\+Outputer} ()
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classImgOutputer_a3158c708cc4aa9b5d7e00cf79e0008b2}{Start}} () override
+void \mbox{\hyperlink{classImgOutputer_ad3419cc131671ac62c89339f6de3cc56}{Start}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pre\+\_\+process\+\_\+args) override
 \begin{DoxyCompactList}\small\item\em Doesn\textquotesingle{}t allocate anything. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classImgOutputer_af790ac0aaa8fd825e22593c625607866}{Run}} (void $\ast$) override
+void \mbox{\hyperlink{classImgOutputer_af790ac0aaa8fd825e22593c625607866}{Run}} (void \texorpdfstring{$\ast$}{*}) override
 \begin{DoxyCompactList}\small\item\em Gets the image and creates two .ppm files\+: origina.\+ppm and output.\+ppm. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classImgOutputer_aabef2302a1c24b28334fa86d1313c592}{Delete}} () override
 \begin{DoxyCompactList}\small\item\em Doesn\textquotesingle{}t deallocate anything. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ \mbox{\hyperlink{classImgOutputer_a4be473f8ce9f904b9661a05b9ece7787}{Clone}} () override
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImgOutputer_a4be473f8ce9f904b9661a05b9ece7787}{Clone}} () override
 \begin{DoxyCompactList}\small\item\em This method clones the processing unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}{Start}} ()=0
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_af37e1e66eb6fea8adcbc923441ae6738}{Start}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}=nullptr)=0
 \begin{DoxyCompactList}\small\item\em Use this function to allocate memory for the variables that need it and initialize some of them. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}} (void $\ast$data)=0
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}} (void \texorpdfstring{$\ast$}{*}data)=0
 \begin{DoxyCompactList}\small\item\em Use this function to process the data. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Delete}} ()=0
 \begin{DoxyCompactList}\small\item\em Use this function to free all the memory allocated in the Start method. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ \mbox{\hyperlink{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}{Clone}} ()=0
+virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Clone}} ()
 \begin{DoxyCompactList}\small\item\em Returns new pointer to a processing unit class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This class represents an \mbox{\hyperlink{classImgOutputer}{Img\+Outputer}}, it gets an img matrix with unsigned char values and sends it to the IO for creating two .ppm files. 
+This class represents an \doxylink{classImgOutputer}{Img\+Outputer}, it gets an img matrix with unsigned char values and sends it to the IO for creating two .ppm files. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classImgOutputer_a4be473f8ce9f904b9661a05b9ece7787}\label{classImgOutputer_a4be473f8ce9f904b9661a05b9ece7787}} 
+\Hypertarget{classImgOutputer_a4be473f8ce9f904b9661a05b9ece7787}\label{classImgOutputer_a4be473f8ce9f904b9661a05b9ece7787} 
 \index{ImgOutputer@{ImgOutputer}!Clone@{Clone}}
 \index{Clone@{Clone}!ImgOutputer@{ImgOutputer}}
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$ Img\+Outputer\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} Img\+Outputer\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 This method clones the processing unit. 
 
 \begin{DoxyReturn}{Returns}
-A pointer to a new instance of \mbox{\hyperlink{classImgOutputer}{Img\+Outputer}} 
+A pointer to a new instance of \doxylink{classImgOutputer}{Img\+Outputer} 
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classProcessingUnitInterface_abfd01ba3da38f3e7e235ad3d943bc845}{Processing\+Unit\+Interface}}.
+Reimplemented from \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Processing\+Unit\+Interface}}.
 
-\mbox{\Hypertarget{classImgOutputer_aabef2302a1c24b28334fa86d1313c592}\label{classImgOutputer_aabef2302a1c24b28334fa86d1313c592}} 
+\Hypertarget{classImgOutputer_aabef2302a1c24b28334fa86d1313c592}\label{classImgOutputer_aabef2302a1c24b28334fa86d1313c592} 
 \index{ImgOutputer@{ImgOutputer}!Delete@{Delete}}
 \index{Delete@{Delete}!ImgOutputer@{ImgOutputer}}
 \doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
@@ -79,11 +79,11 @@ Doesn\textquotesingle{}t deallocate anything.
 
 Implements \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Processing\+Unit\+Interface}}.
 
-\mbox{\Hypertarget{classImgOutputer_af790ac0aaa8fd825e22593c625607866}\label{classImgOutputer_af790ac0aaa8fd825e22593c625607866}} 
+\Hypertarget{classImgOutputer_af790ac0aaa8fd825e22593c625607866}\label{classImgOutputer_af790ac0aaa8fd825e22593c625607866} 
 \index{ImgOutputer@{ImgOutputer}!Run@{Run}}
 \index{Run@{Run}!ImgOutputer@{ImgOutputer}}
 \doxysubsubsection{\texorpdfstring{Run()}{Run()}}
-{\footnotesize\ttfamily void Img\+Outputer\+::\+Run (\begin{DoxyParamCaption}\item[{void $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Img\+Outputer\+::\+Run (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -98,11 +98,11 @@ Gets the image and creates two .ppm files\+: origina.\+ppm and output.\+ppm.
 
 Implements \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Processing\+Unit\+Interface}}.
 
-\mbox{\Hypertarget{classImgOutputer_a3158c708cc4aa9b5d7e00cf79e0008b2}\label{classImgOutputer_a3158c708cc4aa9b5d7e00cf79e0008b2}} 
+\Hypertarget{classImgOutputer_ad3419cc131671ac62c89339f6de3cc56}\label{classImgOutputer_ad3419cc131671ac62c89339f6de3cc56} 
 \index{ImgOutputer@{ImgOutputer}!Start@{Start}}
 \index{Start@{Start}!ImgOutputer@{ImgOutputer}}
 \doxysubsubsection{\texorpdfstring{Start()}{Start()}}
-{\footnotesize\ttfamily void Img\+Outputer\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Img\+Outputer\+::\+Start (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pre\+\_\+process\+\_\+args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -110,11 +110,11 @@ Doesn\textquotesingle{}t allocate anything.
 
 
 
-Implements \mbox{\hyperlink{classProcessingUnitInterface_a88d38c2ff250da1c68da2954b9b368bd}{Processing\+Unit\+Interface}}.
+Implements \mbox{\hyperlink{classProcessingUnitInterface_af37e1e66eb6fea8adcbc923441ae6738}{Processing\+Unit\+Interface}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/headers/pu/img\+\_\+outputer.\+h\item 
+include/headers/pu/\mbox{\hyperlink{img__outputer_8h}{img\+\_\+outputer.\+h}}\item 
 include/definitions/pu/img\+\_\+outputer.\+cc\end{DoxyCompactItemize}

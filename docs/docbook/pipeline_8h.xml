@@ -7,12 +7,16 @@
 <para>Declaration of the <link linkend="_classPipeline">Pipeline</link> class methods. </para>
  
 </para>
-<programlisting linenumbering="unnumbered">#include &quot;pipe_node.h&quot;<?linebreak?>#include &quot;processing_unit_interface.h&quot;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;pipe_node.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>class <link linkend="_classPipeline">Pipeline</link></para>
 
 <para>Class representing the pipeline for the processing of any type of data. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_structPipeline_1_1Profiling">Pipeline::Profiling</link></para>
+
+<para>This struct holds the information needed for the profiling of the processing unit @desc This struct holds all the information that the pipe will print when the print_profile method function is called. </para>
 </listitem>
         </itemizedlist>
 </simplesect>

@@ -1,0 +1,54 @@
+\doxysection{indexer.\+h}
+\hypertarget{indexer_8h_source}{}\label{indexer_8h_source}\index{include/headers/pu/indexer.h@{include/headers/pu/indexer.h}}
+\mbox{\hyperlink{indexer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ LUCID\ (Unified\ Computing\ Image\ and\ Data-\/Processing)\ is\ a\ program\ to\ process}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ any\ type\ of\ data\ concurrently.\ Copyright\ (C)\ 2023\ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ This\ program\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ Free}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ (at\ your\ option)\ any}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ FITNESS}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU\ General\ Public\ License\ for\ more}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Author:\ \ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Contact:\ lucas.hernandez.09@ull.edu.es}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}../processing\_unit\_interface.h"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ INDEXER\_H}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ INDEXER\_H}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIndexer}{Indexer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ \{}
+\DoxyCodeLine{00043\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classIndexer_ac4c8c21c68d62185ceddbad8781e3b67}{Indexer}}();}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{classIndexer_aaf5971639a7a2e3d9af4d8da62deb6f4}{\string~Indexer}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIndexer_abaddf300fbae1bbd563b296f44893465}{Start}}(\textcolor{keywordtype}{void}\ **\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIndexer_a08e2cd9af767d96cecbd64a9994d38fc}{Run}}(\textcolor{keywordtype}{void}\ *)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIndexer_aea45294ae69a7fbcd295689e3b6f9308}{Delete}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *\mbox{\hyperlink{classIndexer_a55d16c15dbb066bbfa68dffb33009033}{Clone}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{struct\ }TableIndexer\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ int64\_t\ id;}
+\DoxyCodeLine{00055\ \ \ \ \ int64\_t\ count;}
+\DoxyCodeLine{00056\ \ \ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ TableIndexer\ *FindTableEntry(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ TableIndexer\ *lookup\_table\_;}
+\DoxyCodeLine{00061\ \ \ int32\_t\ table\_size\_;}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

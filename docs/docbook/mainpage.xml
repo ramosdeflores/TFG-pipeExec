@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mainpage" xml:lang="en-US">
+<title>LUCID (Unified Computing Image and Data-Processing)</title>
+<indexterm><primary>LUCID (Unified Computing Image and Data-Processing)</primary></indexterm>
 
 <para><anchor xml:id="_index_1md_DOXYGEN"/></para>
 <section xml:id="_index_1autotoc_md1">
@@ -72,7 +74,7 @@ lucid&#32;pudebug
 
 <para>For this framework you can add any number of processing units, make sure your units implementation look like this:</para>
 
-<para><literallayout><computeroutput>&#32;{c++}
+<para><literallayout><computeroutput>&#32;++
 
 #include&#32;&quot;processing_unit_interface.h&quot;
 class&#32;NewUnit&#32;:&#32;public&#32;ProcessingUnitInterface&#32;{

@@ -29,7 +29,7 @@
 
 <para>Destructor of the class. </para>
 </listitem>
-            <listitem><para>void <link linkend="_classImgTruncator_1a92ca1e86351903aec9a3613223d0773f">Start</link> () override</para>
+            <listitem><para>void <link linkend="_classImgTruncator_1a135f4be6effd5de4760d39049185fbe3">Start</link> (void **=nullptr) override</para>
 
 <para>Function used for allocation, but allocation is not needed. </para>
 </listitem>
@@ -48,7 +48,7 @@
         </itemizedlist>
 </simplesect>
         <itemizedlist>
-            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">Start</link> ()=0</para>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link> (void **=nullptr)=0</para>
 
 <para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
 </listitem>
@@ -60,7 +60,7 @@
 
 <para>Use this function to free all the memory allocated in the Start method. </para>
 </listitem>
-            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">Clone</link> ()=0</para>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link> ()</para>
 
 <para>Returns new pointer to a processing unit class. </para>
 </listitem>
@@ -91,7 +91,7 @@
 </formalpara>
 </para>
 <para>
-Implements <link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">ProcessingUnitInterface</link>.</para>
+Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">ProcessingUnitInterface</link>.</para>
 </section>
 <anchor xml:id="_classImgTruncator_1ad113d2d4d7b22f39550df32b70f38bfb"/><section>
     <title>Delete()</title>
@@ -139,16 +139,17 @@ Parameters</title>
 <para>
 Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
 </section>
-<anchor xml:id="_classImgTruncator_1a92ca1e86351903aec9a3613223d0773f"/><section>
+<anchor xml:id="_classImgTruncator_1a135f4be6effd5de4760d39049185fbe3"/><section>
     <title>Start()</title>
 <indexterm><primary>Start</primary><secondary>ImgTruncator</secondary></indexterm>
 <indexterm><primary>ImgTruncator</primary><secondary>Start</secondary></indexterm>
-<para><computeroutput>void ImgTruncator::Start ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+<para><computeroutput>void ImgTruncator::Start (void ** pre_process_args = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
 
 <para>Function used for allocation, but allocation is not needed. </para>
 </para>
 <para>
-Implements <link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">ProcessingUnitInterface</link>.</para>
+Implements <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">ProcessingUnitInterface</link>.</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>

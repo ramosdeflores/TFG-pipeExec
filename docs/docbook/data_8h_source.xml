@@ -24,38 +24,38 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 20 <emphasis role="comment">&#32;*&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
 21 <emphasis role="comment">&#32;*/</emphasis>
 22 
-32 <emphasis role="preprocessor">#ifndef&#32;_DATA_H</emphasis>
-33 <emphasis role="preprocessor">#define&#32;_DATA_H</emphasis>
+32 <emphasis role="preprocessor">#ifndef&#32;DATA_H</emphasis>
+33 <emphasis role="preprocessor">#define&#32;DATA_H</emphasis>
 34 
 35 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_memory__manager_8h">memory_manager.h</link>&quot;</emphasis>
 36 
 47 <emphasis role="keyword">class&#32;</emphasis><link linkend="_classData">Data</link>&#32;{
-48 &#32;&#32;<emphasis role="keyword">public</emphasis>:
-53 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structData_1_1DataKey">DataKey</link>&#32;{
-54 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;<link linkend="_structData_1_1DataKey_1abd4711cc51b5fd206937cd9d08eb6cbe">key</link>;&#32;
-55 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_structData_1_1DataKey_1ae2e54eec0f18ef1a9b7f8fa1dbfde8b8">data</link>;&#32;&#32;&#32;&#32;&#32;&#32;
-56 &#32;&#32;&#32;&#32;};
+48 &#32;<emphasis role="keyword">public</emphasis>:
+53 &#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structData_1_1DataKey">DataKey</link>&#32;{
+54 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_structData_1_1DataKey_1abd4711cc51b5fd206937cd9d08eb6cbe">key</link>;&#32;
+55 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_structData_1_1DataKey_1ae2e54eec0f18ef1a9b7f8fa1dbfde8b8">data</link>;&#32;&#32;&#32;&#32;&#32;&#32;
+56 &#32;&#32;};
 57 
-58 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;data&#32;constructor</emphasis>
-59 &#32;&#32;&#32;&#32;<link linkend="_classData">Data</link>(<emphasis role="keywordtype">void</emphasis>&#32;*,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;=&#32;<emphasis role="keyword">false</emphasis>);
+58 &#32;&#32;<emphasis role="comment">//&#32;The&#32;data&#32;constructor</emphasis>
+59 &#32;&#32;<link linkend="_classData">Data</link>(<emphasis role="keywordtype">void</emphasis>&#32;*,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;=&#32;<emphasis role="keyword">false</emphasis>);
 60 
-61 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;data&#32;destructor</emphasis>
-62 &#32;&#32;&#32;&#32;<link linkend="_classData_1aab31956423290f0d62dcca47ab4d16dd">~Data</link>();
+61 &#32;&#32;<emphasis role="comment">//&#32;The&#32;data&#32;destructor</emphasis>
+62 &#32;&#32;<link linkend="_classData_1aab31956423290f0d62dcca47ab4d16dd">~Data</link>();
 63 
-64 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Pushes&#32;the&#32;struct&#32;{key,&#32;data}&#32;to&#32;the&#32;extra&#32;data&#32;allocator</emphasis>
-65 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classData_1a9910d080ca028a52d61408b4dec7b135">PushExtraData</link>(<link linkend="_structData_1_1DataKey">DataKey</link>&#32;*);
+64 &#32;&#32;<emphasis role="comment">//&#32;Pushes&#32;the&#32;struct&#32;{key,&#32;data}&#32;to&#32;the&#32;extra&#32;data&#32;allocator</emphasis>
+65 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classData_1a9910d080ca028a52d61408b4dec7b135">PushExtraData</link>(<link linkend="_structData_1_1DataKey">DataKey</link>&#32;*);
 66 
-67 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Gets&#32;the&#32;pointer&#32;to&#32;the&#32;extra&#32;data&#32;so&#32;you&#32;can&#32;manipulate&#32;it</emphasis>
-68 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_classData_1a97e6952ad6dff622cb9e51d1fcbda74f">GetExtraData</link>(std::string);
+67 &#32;&#32;<emphasis role="comment">//&#32;Gets&#32;the&#32;pointer&#32;to&#32;the&#32;extra&#32;data&#32;so&#32;you&#32;can&#32;manipulate&#32;it</emphasis>
+68 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_classData_1a97e6952ad6dff622cb9e51d1fcbda74f">GetExtraData</link>(std::string);
 69 
-70 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Gets&#32;the&#32;initial&#32;data&#32;stored&#32;in&#32;the&#32;class</emphasis>
-71 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_classData_1afe99ebac219f3ea692b9ebd3315b8cdd">data</link>();
+70 &#32;&#32;<emphasis role="comment">//&#32;Gets&#32;the&#32;initial&#32;data&#32;stored&#32;in&#32;the&#32;class</emphasis>
+71 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_classData_1afe99ebac219f3ea692b9ebd3315b8cdd">data</link>();
 72 
-73 &#32;&#32;<emphasis role="keyword">private</emphasis>:
-74 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*data_;
-75 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;index_;
-76 &#32;&#32;&#32;&#32;std::vector&lt;DataKey&#32;*&gt;&#32;extra_data_;
-77 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug_;
+73 &#32;<emphasis role="keyword">private</emphasis>:
+74 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*data_;
+75 &#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;index_;
+76 &#32;&#32;std::vector&lt;DataKey&#32;*&gt;&#32;extra_data_;
+77 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug_;
 78 };
 79 
 80 <emphasis role="preprocessor">#endif</emphasis>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_simple__edge__detection__main_8cc_source" xml:lang="en-US">
+<title>simple_edge_detection_main.cc</title>
+<indexterm><primary>src/simple_edge_detection_main.cc</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#include&#32;&quot;processing_units.h&quot;</emphasis>
+2 
+3 <emphasis role="keywordtype">int</emphasis>&#32;SimpleEdgeDetectionMain(<emphasis role="keywordtype">bool</emphasis>&#32;debug_flag,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;pu_debug_flag,
+4 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;profiling)&#32;{
+5 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;height&#32;=&#32;1188;
+6 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;width&#32;=&#32;1014;
+7 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;max_num&#32;=&#32;0;
+8 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;number_of_images&#32;=&#32;1;
+9 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;number_of_threads&#32;=&#32;1;
+10 
+11 &#32;&#32;<link linkend="_classImgTruncator">ImgTruncator</link>&#32;img_data_discrimination;
+12 &#32;&#32;<link linkend="_classEdgeDetector">EdgeDetector</link>&#32;edge_detection;
+13 &#32;&#32;<link linkend="_classImgOutputer">ImgOutputer</link>&#32;img_output;
+14 &#32;&#32;<link linkend="_classIndexer">Indexer</link>&#32;indexer;
+15 
+16 &#32;&#32;<link linkend="_classMemoryManager">MemoryManager</link>&#32;*data_in&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classMemoryManager">MemoryManager</link>(number_of_images,&#32;debug_flag);
+17 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;it&#32;=&#32;0;&#32;it&#32;&lt;&#32;number_of_images;&#32;++it)&#32;{
+18 &#32;&#32;&#32;&#32;std::ifstream&#32;file(<emphasis role="stringliteral">&quot;../input_images/ElHierro.mat&quot;</emphasis>);
+19 &#32;&#32;&#32;&#32;std::string&#32;mat_input;
+20 &#32;&#32;&#32;&#32;std::vector&lt;int&gt;&#32;input_img_values;
+21 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;line&#32;=&#32;0;
+22 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(getline(file,&#32;mat_input,&#32;<emphasis role="charliteral">&apos;,&apos;</emphasis>))&#32;{
+23 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;input_img_values.emplace_back(std::stoi(mat_input));</emphasis>
+24 &#32;&#32;&#32;&#32;&#32;&#32;line++;
+25 &#32;&#32;&#32;&#32;}
+26 
+27 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;GOT&#32;AOUT&quot;</emphasis>);
+28 
+29 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;**img&#32;=&#32;(<emphasis role="keywordtype">int</emphasis>&#32;**)malloc(height&#32;*&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">int</emphasis>&#32;*));
+30 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;height;&#32;++i)&#32;{
+31 &#32;&#32;&#32;&#32;&#32;&#32;img[i]&#32;=&#32;(<emphasis role="keywordtype">int</emphasis>&#32;*)malloc(width&#32;*&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">int</emphasis>));
+32 &#32;&#32;&#32;&#32;}
+33 
+34 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;h_it&#32;=&#32;0;&#32;h_it&#32;&lt;&#32;height;&#32;h_it++)&#32;{
+35 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;w_it&#32;=&#32;0;&#32;w_it&#32;&lt;&#32;width;&#32;++w_it)&#32;{
+36 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;value&#32;=&#32;input_img_values[w_it&#32;+&#32;(h_it&#32;*&#32;width)];
+37 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;img[h_it][w_it]&#32;=&#32;value;
+38 &#32;&#32;&#32;&#32;&#32;&#32;}
+39 &#32;&#32;&#32;&#32;}
+40 
+41 &#32;&#32;&#32;&#32;<link linkend="_classData">Data</link>&#32;*some_data&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classData">Data</link>(img);
+42 &#32;&#32;&#32;&#32;some_data-&gt;<link linkend="_classData_1a9910d080ca028a52d61408b4dec7b135">PushExtraData</link>(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_structData_1_1DataKey">Data::DataKey</link>{<emphasis role="stringliteral">&quot;width&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;int(height)});
+43 &#32;&#32;&#32;&#32;some_data-&gt;<link linkend="_classData_1a9910d080ca028a52d61408b4dec7b135">PushExtraData</link>(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_structData_1_1DataKey">Data::DataKey</link>{<emphasis role="stringliteral">&quot;height&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;int(width)});
+44 &#32;&#32;&#32;&#32;some_data-&gt;<link linkend="_classData_1a9910d080ca028a52d61408b4dec7b135">PushExtraData</link>(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_structData_1_1DataKey">Data::DataKey</link>{<emphasis role="stringliteral">&quot;debug&quot;</emphasis>,&#32;&amp;pu_debug_flag});
+45 &#32;&#32;&#32;&#32;some_data-&gt;<link linkend="_classData_1a9910d080ca028a52d61408b4dec7b135">PushExtraData</link>(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_structData_1_1DataKey">Data::DataKey</link>{<emphasis role="stringliteral">&quot;id&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;int(it)});
+46 &#32;&#32;&#32;&#32;some_data-&gt;<link linkend="_classData_1a9910d080ca028a52d61408b4dec7b135">PushExtraData</link>(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_structData_1_1DataKey">Data::DataKey</link>{<emphasis role="stringliteral">&quot;max_rand&quot;</emphasis>,&#32;<emphasis role="keyword">new</emphasis>&#32;int(max_num)});
+47 &#32;&#32;&#32;&#32;data_in-&gt;<link linkend="_classMemoryManager_1a09b86c875efaba6b2ee477e94a4a1585">LoadMemoryManager</link>(some_data);
+48 &#32;&#32;}
+49 
+50 &#32;&#32;<link linkend="_classPipeline">Pipeline</link>&#32;*pipe&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classPipeline">Pipeline</link>(&amp;indexer,&#32;data_in,&#32;1,&#32;debug_flag,&#32;profiling);
+51 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link>(&amp;img_data_discrimination,&#32;number_of_threads);
+52 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link>(&amp;edge_detection,&#32;number_of_threads);
+53 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link>(&amp;img_output,&#32;number_of_threads);
+54 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1aaa720ffefb8eb2bc61bd8336a7fee8ce">RunPipe</link>();
+55 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;number_of_images;&#32;++i)&#32;{
+56 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(debug_flag)&#32;{
+57 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;%s(main)&#32;Popping&#32;from&#32;IN&#32;%s\n&quot;</emphasis>,&#32;LUCID_CYAN,&#32;LUCID_NORMAL);
+58 &#32;&#32;&#32;&#32;}
+59 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;*data&#32;=&#32;(<emphasis role="keywordtype">int</emphasis>&#32;*)data_in-&gt;<link linkend="_classMemoryManager_1a2baf1cd49e91c7618cd6c08151491094">PopFromIn</link>();
+60 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(debug_flag)&#32;{
+61 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;%s(main)&#32;Pushing&#32;into&#32;OUT&#32;%s\n&quot;</emphasis>,&#32;LUCID_CYAN,&#32;LUCID_NORMAL);
+62 &#32;&#32;&#32;&#32;}
+63 &#32;&#32;&#32;&#32;data_in-&gt;<link linkend="_classMemoryManager_1a8ee578854fc579a88c34c4ff42adbc2b">PushIntoOut</link>(data);
+64 &#32;&#32;}
+65 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1a134c0e23c0260a6dc74bb936f39ecda9">WaitFinish</link>();
+66 
+67 &#32;&#32;pipe-&gt;Profile();
+68 
+69 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+70 }
+71 
+72 <emphasis role="comment">/*&#32;vim:set&#32;softtabstop=2&#32;shiftwidth=2&#32;tabstop=2&#32;expandtab:&#32;*/</emphasis>
+</programlisting></section>

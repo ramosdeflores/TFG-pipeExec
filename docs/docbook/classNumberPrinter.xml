@@ -21,7 +21,7 @@
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
-            <listitem><para>void <link linkend="_classNumberPrinter_1a6174ed03fa8b2dcb3dd820a185797aa3">Start</link> ()</para>
+            <listitem><para>void <link linkend="_classNumberPrinter_1a45e5fac723908f5d9f6c896cea40b86b">Start</link> (void **=nullptr)</para>
 
 <para>Starts the number printer. </para>
 </listitem>
@@ -40,7 +40,7 @@
         </itemizedlist>
 </simplesect>
         <itemizedlist>
-            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">Start</link> ()=0</para>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link> (void **=nullptr)=0</para>
 
 <para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
 </listitem>
@@ -52,7 +52,7 @@
 
 <para>Use this function to free all the memory allocated in the Start method. </para>
 </listitem>
-            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">Clone</link> ()=0</para>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link> ()</para>
 
 <para>Returns new pointer to a processing unit class. </para>
 </listitem>
@@ -79,7 +79,7 @@
 </formalpara>
 </para>
 <para>
-Implements <link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">ProcessingUnitInterface</link>.</para>
+Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">ProcessingUnitInterface</link>.</para>
 </section>
 <anchor xml:id="_classNumberPrinter_1a6bf350b0e8249196a4cbe79c1ce1b640"/><section>
     <title>Delete()</title>
@@ -125,16 +125,17 @@ Parameters</title>
 <para>
 Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
 </section>
-<anchor xml:id="_classNumberPrinter_1a6174ed03fa8b2dcb3dd820a185797aa3"/><section>
+<anchor xml:id="_classNumberPrinter_1a45e5fac723908f5d9f6c896cea40b86b"/><section>
     <title>Start()</title>
 <indexterm><primary>Start</primary><secondary>NumberPrinter</secondary></indexterm>
 <indexterm><primary>NumberPrinter</primary><secondary>Start</secondary></indexterm>
-<para><computeroutput>void NumberPrinter::Start ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+<para><computeroutput>void NumberPrinter::Start (void ** pre_process_args = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
 
 <para>Starts the number printer. </para>
 </para>
 <para>
-Implements <link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">ProcessingUnitInterface</link>.</para>
+Implements <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">ProcessingUnitInterface</link>.</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>

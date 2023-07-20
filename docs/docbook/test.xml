@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_test" xml:lang="en-US">
+<title>Test List</title>
+<indexterm><primary>Test List</primary></indexterm>
 
 <para><variablelist>
 <varlistentry><term>Member <link linkend="_memory__manager_8test_8cc_1a869f8d44bd06d29b1285fbc3611b966f">TEST</link>  (MemoryManagerTest, Initial)</term>

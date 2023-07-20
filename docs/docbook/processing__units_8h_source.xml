@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_processing__units_8h_source" xml:lang="en-US">
+<title>processing_units.h</title>
+<indexterm><primary>src/processing_units.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 
+2 <emphasis role="preprocessor">#ifndef&#32;PROCESSING_UNITS_H</emphasis>
+3 <emphasis role="preprocessor">#define&#32;PROCESSING_UNITS_H</emphasis>
+4 
+5 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pipeline.h&quot;</emphasis>
+6 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pu/adder.h&quot;</emphasis>
+7 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pu/double_pipe.h&quot;</emphasis>
+8 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pu/edge_detector.h&quot;</emphasis>
+9 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pu/img_outputer.h&quot;</emphasis>
+10 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pu/img_truncator.h&quot;</emphasis>
+11 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pu/indexer.h&quot;</emphasis>
+12 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pu/null_unit.h&quot;</emphasis>
+13 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pu/number_printer.h&quot;</emphasis>
+14 <emphasis role="preprocessor">#include&#32;&quot;../include/headers/pu/sleeper.h&quot;</emphasis>
+15 
+16 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">//&#32;PROCESSING_UNITS_H</emphasis>
+</programlisting></section>

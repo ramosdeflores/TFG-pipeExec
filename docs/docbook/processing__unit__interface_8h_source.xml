@@ -24,20 +24,20 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 20 <emphasis role="comment">&#32;*&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
 21 <emphasis role="comment">&#32;*/</emphasis>
 22 
-32 <emphasis role="preprocessor">#ifndef&#32;_PROCESSING_UNIT_INTERFACE_H</emphasis>
-33 <emphasis role="preprocessor">#define&#32;_PROCESSING_UNIT_INTERFACE_H</emphasis>
+32 <emphasis role="preprocessor">#ifndef&#32;PROCESSING_UNIT_INTERFACE_H</emphasis>
+33 <emphasis role="preprocessor">#define&#32;PROCESSING_UNIT_INTERFACE_H</emphasis>
 34 
 35 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_data_8h">data.h</link>&quot;</emphasis>
 42 <emphasis role="keyword">class&#32;</emphasis><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;{
-43 &#32;&#32;<emphasis role="keyword">public</emphasis>:
-48 &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classProcessingUnitInterface_1a88d38c2ff250da1c68da2954b9b368bd">Start</link>()&#32;=&#32;0;
+43 &#32;<emphasis role="keyword">public</emphasis>:
+48 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link>(<emphasis role="keywordtype">void</emphasis>&#32;**&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>)&#32;=&#32;0;
 49 
-57 &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link>(<emphasis role="keywordtype">void</emphasis>&#32;*data)&#32;=&#32;0;
+57 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link>(<emphasis role="keywordtype">void</emphasis>&#32;*data)&#32;=&#32;0;
 58 
-63 &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link>()&#32;=&#32;0;
+63 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link>()&#32;=&#32;0;
 64 
-70 &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*<link linkend="_classProcessingUnitInterface_1abfd01ba3da38f3e7e235ad3d943bc845">Clone</link>()&#32;=&#32;0;
-71 };
-72 
-73 <emphasis role="preprocessor">#endif</emphasis>
+71 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*<link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link>()&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;};
+72 };
+73 
+74 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

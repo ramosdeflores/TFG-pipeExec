@@ -1,5 +1,5 @@
-\hypertarget{img__truncator_8h_source}{}\doxysection{img\+\_\+truncator.\+h}
-\label{img__truncator_8h_source}\index{include/headers/pu/img\_truncator.h@{include/headers/pu/img\_truncator.h}}
+\doxysection{img\+\_\+truncator.\+h}
+\hypertarget{img__truncator_8h_source}{}\label{img__truncator_8h_source}\index{include/headers/pu/img\_truncator.h@{include/headers/pu/img\_truncator.h}}
 \mbox{\hyperlink{img__truncator_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{/*}}
@@ -25,25 +25,30 @@
 \DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}../processing\_unit\_interface.h"{}}}
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classImgTruncator}{ImgTruncator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ \{}
-\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ ImgTruncator\ constructor}}
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classImgTruncator_a1fd08e5b24979a3df46b912945dc5677}{ImgTruncator}}();}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ ImgTruncator\ destructor}}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classImgTruncator_a3201d554291ec6c9f8ff49c9d7950c0d}{\string~ImgTruncator}}();}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ IMG\_TRUNCATOR\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ IMG\_TRUNCATOR\_H}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classImgTruncator}{ImgTruncator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ \{}
+\DoxyCodeLine{00046\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ ImgTruncator\ constructor}}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{classImgTruncator_a1fd08e5b24979a3df46b912945dc5677}{ImgTruncator}}();}
 \DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Doesn't\ realize\ anything}}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImgTruncator_a92ca1e86351903aec9a3613223d0773f}{Start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ ImgTruncator\ destructor}}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{classImgTruncator_a3201d554291ec6c9f8ff49c9d7950c0d}{\string~ImgTruncator}}();}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Modified\ the\ data}}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImgTruncator_a98fc21ac2ac2bbecba7529b1296d80a1}{Run}}(\textcolor{keywordtype}{void}\ *)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ Doesn't\ realize\ anything}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImgTruncator_a135f4be6effd5de4760d39049185fbe3}{Start}}(\textcolor{keywordtype}{void}\ **\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Deletes\ the\ extra\ allocated\ memory}}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImgTruncator_ad113d2d4d7b22f39550df32b70f38bfb}{Delete}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00056\ \ \ \textcolor{comment}{//\ Modified\ the\ data}}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImgTruncator_a98fc21ac2ac2bbecba7529b1296d80a1}{Run}}(\textcolor{keywordtype}{void}\ *)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Creates\ a\ clone\ of\ itself}}
-\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *\mbox{\hyperlink{classImgTruncator_ac35002ce30d28375e43c6acda0577c52}{Clone}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{//\ Deletes\ the\ extra\ allocated\ memory}}
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImgTruncator_ad113d2d4d7b22f39550df32b70f38bfb}{Delete}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{comment}{//\ Creates\ a\ clone\ of\ itself}}
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *\mbox{\hyperlink{classImgTruncator_ac35002ce30d28375e43c6acda0577c52}{Clone}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

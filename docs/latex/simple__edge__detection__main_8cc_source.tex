@@ -1,0 +1,78 @@
+\doxysection{simple\+\_\+edge\+\_\+detection\+\_\+main.\+cc}
+\hypertarget{simple__edge__detection__main_8cc_source}{}\label{simple__edge__detection__main_8cc_source}\index{src/simple\_edge\_detection\_main.cc@{src/simple\_edge\_detection\_main.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}processing\_units.h"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keywordtype}{int}\ SimpleEdgeDetectionMain(\textcolor{keywordtype}{bool}\ debug\_flag,\ \textcolor{keywordtype}{bool}\ pu\_debug\_flag,}
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ profiling)\ \{}
+\DoxyCodeLine{00005\ \ \ \textcolor{keywordtype}{int}\ height\ =\ 1188;}
+\DoxyCodeLine{00006\ \ \ \textcolor{keywordtype}{int}\ width\ =\ 1014;}
+\DoxyCodeLine{00007\ \ \ \textcolor{keywordtype}{int}\ max\_num\ =\ 0;}
+\DoxyCodeLine{00008\ \ \ \textcolor{keywordtype}{int}\ number\_of\_images\ =\ 1;}
+\DoxyCodeLine{00009\ \ \ \textcolor{keywordtype}{int}\ number\_of\_threads\ =\ 1;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{classImgTruncator}{ImgTruncator}}\ img\_data\_discrimination;}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{classEdgeDetector}{EdgeDetector}}\ edge\_detection;}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{classImgOutputer}{ImgOutputer}}\ img\_output;}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{classIndexer}{Indexer}}\ indexer;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classMemoryManager}{MemoryManager}}\ *data\_in\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classMemoryManager}{MemoryManager}}(number\_of\_images,\ debug\_flag);}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ it\ =\ 0;\ it\ <\ number\_of\_images;\ ++it)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ std::ifstream\ file(\textcolor{stringliteral}{"{}../input\_images/ElHierro.mat"{}});}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ mat\_input;}
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<int>\ input\_img\_values;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ line\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ mat\_input,\ \textcolor{charliteral}{','}))\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{comment}{//\ input\_img\_values.emplace\_back(std::stoi(mat\_input));}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ line++;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ printf(\textcolor{stringliteral}{"{}GOT\ AOUT"{}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ **img\ =\ (\textcolor{keywordtype}{int}\ **)malloc(height\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}\ *));}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ height;\ ++i)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ img[i]\ =\ (\textcolor{keywordtype}{int}\ *)malloc(width\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ h\_it\ =\ 0;\ h\_it\ <\ height;\ h\_it++)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ w\_it\ =\ 0;\ w\_it\ <\ width;\ ++w\_it)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ value\ =\ input\_img\_values[w\_it\ +\ (h\_it\ *\ width)];}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ img[h\_it][w\_it]\ =\ value;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classData}{Data}}\ *some\_data\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classData}{Data}}(img);}
+\DoxyCodeLine{00042\ \ \ \ \ some\_data-\/>\mbox{\hyperlink{classData_a9910d080ca028a52d61408b4dec7b135}{PushExtraData}}(\textcolor{keyword}{new}\ \mbox{\hyperlink{structData_1_1DataKey}{Data::DataKey}}\{\textcolor{stringliteral}{"{}width"{}},\ \textcolor{keyword}{new}\ int(height)\});}
+\DoxyCodeLine{00043\ \ \ \ \ some\_data-\/>\mbox{\hyperlink{classData_a9910d080ca028a52d61408b4dec7b135}{PushExtraData}}(\textcolor{keyword}{new}\ \mbox{\hyperlink{structData_1_1DataKey}{Data::DataKey}}\{\textcolor{stringliteral}{"{}height"{}},\ \textcolor{keyword}{new}\ int(width)\});}
+\DoxyCodeLine{00044\ \ \ \ \ some\_data-\/>\mbox{\hyperlink{classData_a9910d080ca028a52d61408b4dec7b135}{PushExtraData}}(\textcolor{keyword}{new}\ \mbox{\hyperlink{structData_1_1DataKey}{Data::DataKey}}\{\textcolor{stringliteral}{"{}debug"{}},\ \&pu\_debug\_flag\});}
+\DoxyCodeLine{00045\ \ \ \ \ some\_data-\/>\mbox{\hyperlink{classData_a9910d080ca028a52d61408b4dec7b135}{PushExtraData}}(\textcolor{keyword}{new}\ \mbox{\hyperlink{structData_1_1DataKey}{Data::DataKey}}\{\textcolor{stringliteral}{"{}id"{}},\ \textcolor{keyword}{new}\ int(it)\});}
+\DoxyCodeLine{00046\ \ \ \ \ some\_data-\/>\mbox{\hyperlink{classData_a9910d080ca028a52d61408b4dec7b135}{PushExtraData}}(\textcolor{keyword}{new}\ \mbox{\hyperlink{structData_1_1DataKey}{Data::DataKey}}\{\textcolor{stringliteral}{"{}max\_rand"{}},\ \textcolor{keyword}{new}\ int(max\_num)\});}
+\DoxyCodeLine{00047\ \ \ \ \ data\_in-\/>\mbox{\hyperlink{classMemoryManager_a09b86c875efaba6b2ee477e94a4a1585}{LoadMemoryManager}}(some\_data);}
+\DoxyCodeLine{00048\ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{classPipeline}{Pipeline}}\ *pipe\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classPipeline}{Pipeline}}(\&indexer,\ data\_in,\ 1,\ debug\_flag,\ profiling);}
+\DoxyCodeLine{00051\ \ \ pipe-\/>\mbox{\hyperlink{classPipeline_ac2009692085e84e4bb3470e5639d1ce7}{AddProcessingUnit}}(\&img\_data\_discrimination,\ number\_of\_threads);}
+\DoxyCodeLine{00052\ \ \ pipe-\/>\mbox{\hyperlink{classPipeline_ac2009692085e84e4bb3470e5639d1ce7}{AddProcessingUnit}}(\&edge\_detection,\ number\_of\_threads);}
+\DoxyCodeLine{00053\ \ \ pipe-\/>\mbox{\hyperlink{classPipeline_ac2009692085e84e4bb3470e5639d1ce7}{AddProcessingUnit}}(\&img\_output,\ number\_of\_threads);}
+\DoxyCodeLine{00054\ \ \ pipe-\/>\mbox{\hyperlink{classPipeline_aaa720ffefb8eb2bc61bd8336a7fee8ce}{RunPipe}}();}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ number\_of\_images;\ ++i)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (debug\_flag)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s(main)\ Popping\ from\ IN\ \%s\(\backslash\)n"{}},\ LUCID\_CYAN,\ LUCID\_NORMAL);}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ *data\ =\ (\textcolor{keywordtype}{int}\ *)data\_in-\/>\mbox{\hyperlink{classMemoryManager_a2baf1cd49e91c7618cd6c08151491094}{PopFromIn}}();}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (debug\_flag)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s(main)\ Pushing\ into\ OUT\ \%s\(\backslash\)n"{}},\ LUCID\_CYAN,\ LUCID\_NORMAL);}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ data\_in-\/>\mbox{\hyperlink{classMemoryManager_a8ee578854fc579a88c34c4ff42adbc2b}{PushIntoOut}}(data);}
+\DoxyCodeLine{00064\ \ \ \}}
+\DoxyCodeLine{00065\ \ \ pipe-\/>\mbox{\hyperlink{classPipeline_a134c0e23c0260a6dc74bb936f39ecda9}{WaitFinish}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ pipe-\/>Profile();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00070\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{/*\ vim:set\ softtabstop=2\ shiftwidth=2\ tabstop=2\ expandtab:\ */}}
+
+\end{DoxyCode}

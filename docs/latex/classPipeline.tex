@@ -1,5 +1,5 @@
-\hypertarget{classPipeline}{}\doxysection{Pipeline Class Reference}
-\label{classPipeline}\index{Pipeline@{Pipeline}}
+\doxysection{Pipeline Class Reference}
+\hypertarget{classPipeline}{}\label{classPipeline}\index{Pipeline@{Pipeline}}
 
 
 Class representing the pipeline for the processing of any type of data.  
@@ -9,47 +9,63 @@ Class representing the pipeline for the processing of any type of data.
 
 {\ttfamily \#include $<$pipeline.\+h$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classPipeline_ac74080d6fe35e2b6f31ca51ac5509bfd}{Pipeline}} (\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$, \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} $\ast$, int, bool debug=false)
-\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classPipeline}{Pipeline}} class. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPipeline_a527044d53a20f851d0579fbf313a2dec}\label{classPipeline_a527044d53a20f851d0579fbf313a2dec}} 
-{\bfseries $\sim$\+Pipeline} ()
+struct \mbox{\hyperlink{structPipeline_1_1Profiling}{Profiling}}
+\begin{DoxyCompactList}\small\item\em This struct holds the information needed for the profiling of the processing unit @desc This struct holds all the information that the pipe will print when the print\+\_\+profile method function is called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPipeline_a961d2cbad54e692f86bd6a20ba737c14}\label{classPipeline_a961d2cbad54e692f86bd6a20ba737c14} 
+enum {\bfseries Pipeline\+Error} \{ {\bfseries k\+Bad\+Argument\+Format}
+, {\bfseries k\+Bad\+Argument\+Type}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPipeline_a2d08ee8cfebb1f2accaf7676862e198a}{Pipeline}} (\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*}, int, bool=false, bool=false)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classPipeline}{Pipeline} class. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeline_a527044d53a20f851d0579fbf313a2dec}\label{classPipeline_a527044d53a20f851d0579fbf313a2dec} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Pipeline} ()
 \begin{DoxyCompactList}\small\item\em Default destructor for the pipeline. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classPipeline_ab7308ae28e2ea4aa32da6811df29f152}{Add\+Processing\+Unit}} (\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$, int)
+void \mbox{\hyperlink{classPipeline_ac2009692085e84e4bb3470e5639d1ce7}{Add\+Processing\+Unit}} (\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*}, int, const char \texorpdfstring{$\ast$}{*}=nullptr,...)
 \begin{DoxyCompactList}\small\item\em Adds a processing unit to the execution list. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classPipeline_aaa720ffefb8eb2bc61bd8336a7fee8ce}{Run\+Pipe}} ()
 \begin{DoxyCompactList}\small\item\em Sets the pipeline to run. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPipeline_a134c0e23c0260a6dc74bb936f39ecda9}\label{classPipeline_a134c0e23c0260a6dc74bb936f39ecda9}} 
+\Hypertarget{classPipeline_a134c0e23c0260a6dc74bb936f39ecda9}\label{classPipeline_a134c0e23c0260a6dc74bb936f39ecda9} 
 void {\bfseries Wait\+Finish} ()
-\begin{DoxyCompactList}\small\item\em Waits until all the threads have finished putting its data inside the (main)\textquotesingle{}s in\+\_\+queue \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Waits until all the threads have finished putting its data inside the (main)\textquotesingle{}s in\+\_\+queue \doxylink{classMemoryManager}{Memory\+Manager}. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeline_ad35850e882d5f54b79344a77830671e5}\label{classPipeline_ad35850e882d5f54b79344a77830671e5} 
+void {\bfseries Profile} ()
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class representing the pipeline for the processing of any type of data. 
 
-This class masks the processing of the data allowing the (main) thread to only see one queue of data while inside the \mbox{\hyperlink{classPipeline}{Pipeline}} there are multiple queues and threads consuming the data and processing it concurrently to speed up the proccess. 
+This class masks the processing of the data allowing the (main) thread to only see one queue of data while inside the \doxylink{classPipeline}{Pipeline} there are multiple queues and threads consuming the data and processing it concurrently to speed up the proccess. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classPipeline_ac74080d6fe35e2b6f31ca51ac5509bfd}\label{classPipeline_ac74080d6fe35e2b6f31ca51ac5509bfd}} 
+\Hypertarget{classPipeline_a2d08ee8cfebb1f2accaf7676862e198a}\label{classPipeline_a2d08ee8cfebb1f2accaf7676862e198a} 
 \index{Pipeline@{Pipeline}!Pipeline@{Pipeline}}
 \index{Pipeline@{Pipeline}!Pipeline@{Pipeline}}
 \doxysubsubsection{\texorpdfstring{Pipeline()}{Pipeline()}}
-{\footnotesize\ttfamily Pipeline\+::\+Pipeline (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$}]{first\+\_\+function,  }\item[{\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} $\ast$}]{data\+\_\+in,  }\item[{int}]{threads\+\_\+per\+\_\+node\+\_\+,  }\item[{bool}]{debug = {\ttfamily false} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Pipeline\+::\+Pipeline (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*}}]{first\+\_\+function,  }\item[{\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*}}]{data\+\_\+in,  }\item[{int}]{threads\+\_\+per\+\_\+node\+\_\+,  }\item[{bool}]{debug = {\ttfamily false},  }\item[{bool}]{profiling = {\ttfamily false} }\end{DoxyParamCaption})}
 
 
 
-Constructor for the \mbox{\hyperlink{classPipeline}{Pipeline}} class. 
+Constructor for the \doxylink{classPipeline}{Pipeline} class. 
 
-Sets the first Node\+: assigns the processing unit to the one specified as \char`\"{}first\+\_\+function\char`\"{} then gets the \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} from the (main) thread and puts it as input and output of the Node. Sets the Node as the last node to know that the data has to be pushed into the IN queue for the circular processing to be working. 
+Sets the first Node\+: assigns the processing unit to the one specified as \"{}first\+\_\+function\"{} then gets the \doxylink{classMemoryManager}{Memory\+Manager} from the (main) thread and puts it as input and output of the Node. Sets the Node as the last node to know that the data has to be pushed into the IN queue for the circular processing to be working. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classPipeline_ab7308ae28e2ea4aa32da6811df29f152}\label{classPipeline_ab7308ae28e2ea4aa32da6811df29f152}} 
+\Hypertarget{classPipeline_ac2009692085e84e4bb3470e5639d1ce7}\label{classPipeline_ac2009692085e84e4bb3470e5639d1ce7} 
 \index{Pipeline@{Pipeline}!AddProcessingUnit@{AddProcessingUnit}}
 \index{AddProcessingUnit@{AddProcessingUnit}!Pipeline@{Pipeline}}
 \doxysubsubsection{\texorpdfstring{AddProcessingUnit()}{AddProcessingUnit()}}
-{\footnotesize\ttfamily void Pipeline\+::\+Add\+Processing\+Unit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} $\ast$}]{processing\+\_\+unit,  }\item[{int}]{instances }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Pipeline\+::\+Add\+Processing\+Unit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*}}]{processing\+\_\+unit,  }\item[{int}]{instances,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt = {\ttfamily nullptr},  }\item[{}]{... }\end{DoxyParamCaption})}
 
 
 
@@ -59,12 +75,14 @@ Adds a processing unit to the execution list. Creates a new Memory Manager in th
 
 
 \begin{DoxyParams}{Parameters}
-{\em processing\+\_\+unit} & A pointer to an object of \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \\
+{\em processing\+\_\+unit} & A pointer to an object of \doxylink{classProcessingUnitInterface}{Processing\+Unit\+Interface} \\
 \hline
 {\em instances} & The number of threads that have to be instanced to run this node. \\
 \hline
+{\em fmg} & A pointer to the format string of the next arguments \\
+\hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classPipeline_aaa720ffefb8eb2bc61bd8336a7fee8ce}\label{classPipeline_aaa720ffefb8eb2bc61bd8336a7fee8ce}} 
+\Hypertarget{classPipeline_aaa720ffefb8eb2bc61bd8336a7fee8ce}\label{classPipeline_aaa720ffefb8eb2bc61bd8336a7fee8ce} 
 \index{Pipeline@{Pipeline}!RunPipe@{RunPipe}}
 \index{RunPipe@{RunPipe}!Pipeline@{Pipeline}}
 \doxysubsubsection{\texorpdfstring{RunPipe()}{RunPipe()}}
@@ -74,7 +92,7 @@ Adds a processing unit to the execution list. Creates a new Memory Manager in th
 
 Sets the pipeline to run. 
 
-For each node inside the execution list it creates \char`\"{}n\char`\"{} instances of threads per node and executes all of them.
+For each node inside the execution list it creates \"{}n\"{} instances of threads per node and executes all of them.
 
 \begin{DoxyReturn}{Returns}
 The number of nodes executed 

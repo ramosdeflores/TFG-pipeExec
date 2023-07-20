@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_sleeper__main_8cc_source" xml:lang="en-US">
+<title>sleeper_main.cc</title>
+<indexterm><primary>src/sleeper_main.cc</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
+2 <emphasis role="comment">&#32;*&#32;LUCID&#32;(Unified&#32;Computing&#32;Image&#32;and&#32;Data-Processing)&#32;is&#32;a&#32;program&#32;to&#32;process</emphasis>
+3 <emphasis role="comment">&#32;*&#32;any&#32;type&#32;of&#32;data&#32;concurrently.&#32;Copyright&#32;(C)&#32;2023&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
+4 <emphasis role="comment">&#32;*</emphasis>
+5 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;free&#32;software:&#32;you&#32;can&#32;redistribute&#32;it&#32;and/or&#32;modify</emphasis>
+6 <emphasis role="comment">&#32;*&#32;it&#32;under&#32;the&#32;terms&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;as&#32;published&#32;by&#32;the&#32;Free</emphasis>
+7 <emphasis role="comment">&#32;*&#32;Software&#32;Foundation,&#32;either&#32;version&#32;3&#32;of&#32;the&#32;License,&#32;or&#32;(at&#32;your&#32;option)&#32;any</emphasis>
+8 <emphasis role="comment">&#32;*&#32;later&#32;version.</emphasis>
+9 <emphasis role="comment">&#32;*</emphasis>
+10 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;distributed&#32;in&#32;the&#32;hope&#32;that&#32;it&#32;will&#32;be&#32;useful,&#32;but&#32;WITHOUT</emphasis>
+11 <emphasis role="comment">&#32;*&#32;ANY&#32;WARRANTY;&#32;without&#32;even&#32;the&#32;implied&#32;warranty&#32;of&#32;MERCHANTABILITY&#32;or&#32;FITNESS</emphasis>
+12 <emphasis role="comment">&#32;*&#32;FOR&#32;A&#32;PARTICULAR&#32;PURPOSE.&#32;&#32;See&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;for&#32;more</emphasis>
+13 <emphasis role="comment">&#32;*&#32;details.</emphasis>
+14 <emphasis role="comment">&#32;*</emphasis>
+15 <emphasis role="comment">&#32;*&#32;You&#32;should&#32;have&#32;received&#32;a&#32;copy&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License</emphasis>
+16 <emphasis role="comment">&#32;*&#32;along&#32;with&#32;this&#32;program.&#32;&#32;If&#32;not,&#32;see&#32;&lt;https://www.gnu.org/licenses/&gt;.</emphasis>
+17 <emphasis role="comment">&#32;*</emphasis>
+18 <emphasis role="comment">&#32;*&#32;Author:&#32;&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
+19 <emphasis role="comment">&#32;*&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
+20 <emphasis role="comment">&#32;*/</emphasis>
+21 
+22 <emphasis role="preprocessor">#include&#32;&quot;processing_units.h&quot;</emphasis>
+23 
+24 <emphasis role="keywordtype">int</emphasis>&#32;SleeperMain(<emphasis role="keywordtype">bool</emphasis>&#32;debug_flag,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;pu_debug_flag,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;profiling)&#32;{
+25 &#32;&#32;<link linkend="_classSleeper">Sleeper</link>&#32;sleeper_unit;
+26 &#32;&#32;<link linkend="_classSleeper">Sleeper</link>&#32;sleeper_unit2;
+27 &#32;&#32;<link linkend="_classSleeper">Sleeper</link>&#32;sleeper_unit3;
+28 &#32;&#32;<link linkend="_classNullUnit">NullUnit</link>&#32;void_unit;
+29 &#32;&#32;<emphasis role="comment">//&#32;DATOS</emphasis>
+30 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;numero_de_datos&#32;=&#32;50;
+31 &#32;&#32;<emphasis role="comment">//&#32;HILOS</emphasis>
+32 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;numero_de_hilos&#32;=&#32;numero_de_datos;
+33 
+34 &#32;&#32;<link linkend="_classMemoryManager">MemoryManager</link>&#32;*data_in&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classMemoryManager">MemoryManager</link>(numero_de_datos,&#32;debug_flag);
+35 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;numero_de_datos;&#32;i&#32;+=&#32;1)&#32;{
+36 &#32;&#32;&#32;&#32;<link linkend="_classData">Data</link>&#32;*holder&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classData">Data</link>(<emphasis role="keyword">new</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>(i));
+37 &#32;&#32;&#32;&#32;holder-&gt;<link linkend="_classData_1a9910d080ca028a52d61408b4dec7b135">PushExtraData</link>(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_structData_1_1DataKey">Data::DataKey</link>{<emphasis role="stringliteral">&quot;profiling&quot;</emphasis>,&#32;&amp;profiling});
+38 &#32;&#32;&#32;&#32;data_in-&gt;<link linkend="_classMemoryManager_1a09b86c875efaba6b2ee477e94a4a1585">LoadMemoryManager</link>(holder);
+39 &#32;&#32;}
+40 
+41 &#32;&#32;<link linkend="_classPipeline">Pipeline</link>&#32;*pipe&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classPipeline">Pipeline</link>(&amp;void_unit,&#32;data_in,&#32;1,&#32;debug_flag,&#32;profiling);
+42 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link>(&amp;sleeper_unit,&#32;numero_de_hilos,&#32;<emphasis role="stringliteral">&quot;d&quot;</emphasis>,&#32;1);
+43 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link>(&amp;sleeper_unit2,&#32;3&#32;*&#32;numero_de_hilos,&#32;<emphasis role="stringliteral">&quot;d&quot;</emphasis>,&#32;3);
+44 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link>(&amp;sleeper_unit3,&#32;numero_de_hilos,&#32;<emphasis role="stringliteral">&quot;d&quot;</emphasis>,&#32;1);
+45 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1aaa720ffefb8eb2bc61bd8336a7fee8ce">RunPipe</link>();
+46 
+47 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;numero_de_datos;&#32;++i)&#32;{
+48 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(debug_flag)&#32;{
+49 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;%s(main)&#32;Popping&#32;from&#32;IN&#32;%s\n&quot;</emphasis>,&#32;LUCID_CYAN,&#32;LUCID_NORMAL);
+50 &#32;&#32;&#32;&#32;}
+51 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;*data_handler&#32;=&#32;(<emphasis role="keywordtype">int</emphasis>&#32;*)data_in-&gt;<link linkend="_classMemoryManager_1a2baf1cd49e91c7618cd6c08151491094">PopFromIn</link>();
+52 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(debug_flag)&#32;{
+53 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;%s(main)&#32;Pushing&#32;into&#32;OUT&#32;%s\n&quot;</emphasis>,&#32;LUCID_CYAN,&#32;LUCID_NORMAL);
+54 &#32;&#32;&#32;&#32;}
+55 &#32;&#32;&#32;&#32;data_in-&gt;<link linkend="_classMemoryManager_1a8ee578854fc579a88c34c4ff42adbc2b">PushIntoOut</link>(data_handler);
+56 &#32;&#32;}
+57 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1a134c0e23c0260a6dc74bb936f39ecda9">WaitFinish</link>();
+58 
+59 &#32;&#32;pipe-&gt;Profile();
+60 
+61 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+62 }
+63 
+64 <emphasis role="comment">/*&#32;vim:set&#32;softtabstop=2&#32;shiftwidth=2&#32;tabstop=2&#32;expandtab:&#32;*/</emphasis>
+</programlisting></section>

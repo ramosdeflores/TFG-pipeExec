@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classIndexer" xml:lang="en-US">
+<title>Indexer Class Reference</title>
+<indexterm><primary>Indexer</primary></indexterm>
+<para>
+
+<para>@description This class represents an <link linkend="_classIndexer">Indexer</link>, it gets data and indexes it if it is broken into parts to reconstruct it correctly later. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;indexer.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Indexer:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classIndexer.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classIndexer_1ac4c8c21c68d62185ceddbad8781e3b67"/><emphasis role="strong">Indexer</emphasis> ()</para>
+
+<para>Default constructor: does nothing. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classIndexer_1aaf5971639a7a2e3d9af4d8da62deb6f4"/><emphasis role="strong">~Indexer</emphasis> ()</para>
+
+<para>@desc Default destructor: does nothing </para>
+</listitem>
+            <listitem><para>void <link linkend="_classIndexer_1abaddf300fbae1bbd563b296f44893465">Start</link> (void **=nullptr) override</para>
+
+<para>@desc This function initializes the <link linkend="_classIndexer">Indexer</link> unit </para>
+</listitem>
+            <listitem><para>void <link linkend="_classIndexer_1a08e2cd9af767d96cecbd64a9994d38fc">Run</link> (void *) override</para>
+
+<para>@desc This function gets data and indexes it if it is broken into parts to reconstruct it correctly later. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classIndexer_1aea45294ae69a7fbcd295689e3b6f9308">Delete</link> () override</para>
+
+<para>@desc Frees the memory of the <link linkend="_classIndexer">Indexer</link> </para>
+</listitem>
+            <listitem><para><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classIndexer_1a55d16c15dbb066bbfa68dffb33009033">Clone</link> () override</para>
+
+<para>@desc This function clones the <link linkend="_classIndexer">Indexer</link> </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link> (void **=nullptr)=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link> ()</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>@description This class represents an <link linkend="_classIndexer">Indexer</link>, it gets data and indexes it if it is broken into parts to reconstruct it correctly later. </para>
+
+
+
+<para>NOTES: DONT CLONE IT </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classIndexer_1a55d16c15dbb066bbfa68dffb33009033"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>Indexer</secondary></indexterm>
+<indexterm><primary>Indexer</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * Indexer::Clone ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>@desc This function clones the <link linkend="_classIndexer">Indexer</link> </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The cloned <link linkend="_classIndexer">Indexer</link> </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classIndexer_1aea45294ae69a7fbcd295689e3b6f9308"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>Indexer</secondary></indexterm>
+<indexterm><primary>Indexer</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>void Indexer::Delete ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>@desc Frees the memory of the <link linkend="_classIndexer">Indexer</link> </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classIndexer_1a08e2cd9af767d96cecbd64a9994d38fc"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>Indexer</secondary></indexterm>
+<indexterm><primary>Indexer</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>void Indexer::Run (void * data)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>@desc This function gets data and indexes it if it is broken into parts to reconstruct it correctly later. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>The data to be indexed. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classIndexer_1abaddf300fbae1bbd563b296f44893465"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>Indexer</secondary></indexterm>
+<indexterm><primary>Indexer</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>void Indexer::Start (void ** pre_process_args = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>@desc This function initializes the <link linkend="_classIndexer">Indexer</link> unit </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">ProcessingUnitInterface</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/pu/<link linkend="_indexer_8h">indexer.h</link>include/definitions/pu/<link linkend="_indexer_8cc">indexer.cc</link></section>
+</section>

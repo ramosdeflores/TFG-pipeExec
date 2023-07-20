@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_img__outputer_8h_source" xml:lang="en-US">
 <title>img_outputer.h</title>
 <indexterm><primary>include/headers/pu/img_outputer.h</primary></indexterm>
-<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
 2 <emphasis role="comment">&#32;*&#32;LUCID&#32;(Unified&#32;Computing&#32;Image&#32;and&#32;Data-Processing)&#32;is&#32;a&#32;program&#32;to&#32;process</emphasis>
 3 <emphasis role="comment">&#32;*&#32;any&#32;type&#32;of&#32;data&#32;concurrently.</emphasis>
 4 <emphasis role="comment">&#32;*&#32;Copyright&#32;(C)&#32;2023&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
@@ -24,34 +24,34 @@
 20 <emphasis role="comment">&#32;*&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
 21 <emphasis role="comment">&#32;*/</emphasis>
 22 
-32 <emphasis role="preprocessor">#ifndef&#32;_IMG_OUTPUTER_H</emphasis>
-33 <emphasis role="preprocessor">#define&#32;_IMG_OUTPUTER_H</emphasis>
+32 <emphasis role="preprocessor">#ifndef&#32;IMG_OUTPUTER_H</emphasis>
+33 <emphasis role="preprocessor">#define&#32;IMG_OUTPUTER_H</emphasis>
 34 
 35 <emphasis role="preprocessor">#include&#32;&quot;../processing_unit_interface.h&quot;</emphasis>
 36 
 43 <emphasis role="keyword">class&#32;</emphasis><link linkend="_classImgOutputer">ImgOutputer</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;{
-44 &#32;&#32;<emphasis role="keyword">public</emphasis>:
-45 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Default&#32;Constructor</emphasis>
-46 &#32;&#32;&#32;&#32;<link linkend="_classImgOutputer_1abb832a65f6496b0ea6b4a25413db5cdc">ImgOutputer</link>();
+44 &#32;<emphasis role="keyword">public</emphasis>:
+45 &#32;&#32;<emphasis role="comment">//&#32;Default&#32;Constructor</emphasis>
+46 &#32;&#32;<link linkend="_classImgOutputer_1abb832a65f6496b0ea6b4a25413db5cdc">ImgOutputer</link>();
 47 
-48 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Destructor</emphasis>
-49 &#32;&#32;&#32;&#32;<link linkend="_classImgOutputer_1a921db884784f49bbe8b7474fa67fbf6f">~ImgOutputer</link>();
+48 &#32;&#32;<emphasis role="comment">//&#32;Destructor</emphasis>
+49 &#32;&#32;<link linkend="_classImgOutputer_1a921db884784f49bbe8b7474fa67fbf6f">~ImgOutputer</link>();
 50 
-51 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Doesn&apos;t&#32;need&#32;to&#32;allocate&#32;nothing</emphasis>
-52 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classImgOutputer_1a3158c708cc4aa9b5d7e00cf79e0008b2">Start</link>()&#32;<emphasis role="keyword">override</emphasis>;
+51 &#32;&#32;<emphasis role="comment">//&#32;Doesn&apos;t&#32;need&#32;to&#32;allocate&#32;nothing</emphasis>
+52 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classImgOutputer_1ad3419cc131671ac62c89339f6de3cc56">Start</link>(<emphasis role="keywordtype">void</emphasis>&#32;**pre_process_args)&#32;<emphasis role="keyword">override</emphasis>;
 53 
-54 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Gets&#32;the&#32;img&#32;and&#32;prints&#32;it&#32;into&#32;2&#32;files.</emphasis>
-55 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classImgOutputer_1af790ac0aaa8fd825e22593c625607866">Run</link>(<emphasis role="keywordtype">void</emphasis>&#32;*)&#32;<emphasis role="keyword">override</emphasis>;
+54 &#32;&#32;<emphasis role="comment">//&#32;Gets&#32;the&#32;img&#32;and&#32;prints&#32;it&#32;into&#32;2&#32;files.</emphasis>
+55 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classImgOutputer_1af790ac0aaa8fd825e22593c625607866">Run</link>(<emphasis role="keywordtype">void</emphasis>&#32;*)&#32;<emphasis role="keyword">override</emphasis>;
 56 
-57 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Doesn&apos;t&#32;need&#32;to&#32;deallocate&#32;anything</emphasis>
-58 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classImgOutputer_1aabef2302a1c24b28334fa86d1313c592">Delete</link>()&#32;<emphasis role="keyword">override</emphasis>;
+57 &#32;&#32;<emphasis role="comment">//&#32;Doesn&apos;t&#32;need&#32;to&#32;deallocate&#32;anything</emphasis>
+58 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classImgOutputer_1aabef2302a1c24b28334fa86d1313c592">Delete</link>()&#32;<emphasis role="keyword">override</emphasis>;
 59 
-60 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Returns&#32;a&#32;pointer&#32;to&#32;a&#32;clone&#32;of&#32;ImgOutputer</emphasis>
-61 &#32;&#32;&#32;&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*<link linkend="_classImgOutputer_1a4be473f8ce9f904b9661a05b9ece7787">Clone</link>()&#32;<emphasis role="keyword">override</emphasis>;
+60 &#32;&#32;<emphasis role="comment">//&#32;Returns&#32;a&#32;pointer&#32;to&#32;a&#32;clone&#32;of&#32;ImgOutputer</emphasis>
+61 &#32;&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*<link linkend="_classImgOutputer_1a4be473f8ce9f904b9661a05b9ece7787">Clone</link>()&#32;<emphasis role="keyword">override</emphasis>;
 62 
-63 &#32;&#32;<emphasis role="keyword">private</emphasis>:
-64 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Changes&#32;a&#32;value&#32;from&#32;Int&#32;to&#32;a&#32;Pixel&#32;value</emphasis>
-65 &#32;&#32;&#32;&#32;pixel_value&#32;IntToPixel(<emphasis role="keywordtype">int</emphasis>);
+63 &#32;<emphasis role="keyword">private</emphasis>:
+64 &#32;&#32;<emphasis role="comment">//&#32;Changes&#32;a&#32;value&#32;from&#32;Int&#32;to&#32;a&#32;Pixel&#32;value</emphasis>
+65 &#32;&#32;pixel_value&#32;IntToPixel(<emphasis role="keywordtype">int</emphasis>);
 66 };
 67 
 68 <emphasis role="preprocessor">#endif</emphasis>

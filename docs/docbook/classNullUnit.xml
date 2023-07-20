@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classNullUnit" xml:lang="en-US">
+<title>NullUnit Class Reference</title>
+<indexterm><primary>NullUnit</primary></indexterm>
+<para>Inheritance diagram for NullUnit:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classNullUnit.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classNullUnit_1a9a08f5b8f14deedaab40787e472b4757">Run</link> (void *) override</para>
+</listitem>
+            <listitem><para>void <link linkend="_classNullUnit_1a02df55e8a7b33ab805e8b3678939e9cb">Start</link> (void **=nullptr) override</para>
+</listitem>
+            <listitem><para>void <link linkend="_classNullUnit_1a9ee4e343915cdd508dee2c34860bf9ae">Delete</link> () override</para>
+</listitem>
+            <listitem><para><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classNullUnit_1a46ccf18d27ef30b8f0bcef04c869dae3">Clone</link> () override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link> (void **=nullptr)=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link> ()</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classNullUnit_1a46ccf18d27ef30b8f0bcef04c869dae3"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>NullUnit</secondary></indexterm>
+<indexterm><primary>NullUnit</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * NullUnit::Clone ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classNullUnit_1a9ee4e343915cdd508dee2c34860bf9ae"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>NullUnit</secondary></indexterm>
+<indexterm><primary>NullUnit</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>void NullUnit::Delete ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classNullUnit_1a9a08f5b8f14deedaab40787e472b4757"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>NullUnit</secondary></indexterm>
+<indexterm><primary>NullUnit</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>void NullUnit::Run (void * data)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classNullUnit_1a02df55e8a7b33ab805e8b3678939e9cb"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>NullUnit</secondary></indexterm>
+<indexterm><primary>NullUnit</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>void NullUnit::Start (void ** init_data = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">ProcessingUnitInterface</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/pu/<link linkend="_null__unit_8h">null_unit.h</link>include/definitions/pu/null_unit.cc</section>
+</section>

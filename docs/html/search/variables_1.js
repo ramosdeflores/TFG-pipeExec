@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['key_0',['key',['../structData_1_1DataKey.html#abd4711cc51b5fd206937cd9d08eb6cbe',1,'Data::DataKey']]]
+  ['data_0',['data',['../structData_1_1DataKey.html#ae2e54eec0f18ef1a9b7f8fa1dbfde8b8',1,'Data::DataKey']]]
 ];

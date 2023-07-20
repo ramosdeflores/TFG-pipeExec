@@ -1,0 +1,94 @@
+\doxysection{Double\+Pipe Class Reference}
+\hypertarget{classDoublePipe}{}\label{classDoublePipe}\index{DoublePipe@{DoublePipe}}
+
+
+This class instantiates a Pipe inside a pipe showing the potential of LUCID at processing any data.  
+
+
+
+
+{\ttfamily \#include $<$double\+\_\+pipe.\+h$>$}
+
+Inheritance diagram for Double\+Pipe\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDoublePipe}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDoublePipe_a4adc8d41a77995be6b1059ca7833a3d3}{Start}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}=nullptr)
+\begin{DoxyCompactList}\small\item\em This method instantiates the pipeline and the \doxylink{classMemoryManager}{Memory\+Manager} for the pipeline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDoublePipe_a8c5531c6349567671ff27db2cb37769b}{Run}} (void \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{classDoublePipe_a9bff9afe9d2484e7e19d9e2db1cf84c3}{Delete}} ()
+\item 
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDoublePipe_ab97ed9910373c7be9d831c5fb770a049}{Clone}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_af37e1e66eb6fea8adcbc923441ae6738}{Start}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}=nullptr)=0
+\begin{DoxyCompactList}\small\item\em Use this function to allocate memory for the variables that need it and initialize some of them. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}} (void \texorpdfstring{$\ast$}{*}data)=0
+\begin{DoxyCompactList}\small\item\em Use this function to process the data. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Delete}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to free all the memory allocated in the Start method. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Clone}} ()
+\begin{DoxyCompactList}\small\item\em Returns new pointer to a processing unit class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class instantiates a Pipe inside a pipe showing the potential of LUCID at processing any data. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDoublePipe_ab97ed9910373c7be9d831c5fb770a049}\label{classDoublePipe_ab97ed9910373c7be9d831c5fb770a049} 
+\index{DoublePipe@{DoublePipe}!Clone@{Clone}}
+\index{Clone@{Clone}!DoublePipe@{DoublePipe}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} Double\+Pipe\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Processing\+Unit\+Interface}}.
+
+\Hypertarget{classDoublePipe_a9bff9afe9d2484e7e19d9e2db1cf84c3}\label{classDoublePipe_a9bff9afe9d2484e7e19d9e2db1cf84c3} 
+\index{DoublePipe@{DoublePipe}!Delete@{Delete}}
+\index{Delete@{Delete}!DoublePipe@{DoublePipe}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void Double\+Pipe\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Processing\+Unit\+Interface}}.
+
+\Hypertarget{classDoublePipe_a8c5531c6349567671ff27db2cb37769b}\label{classDoublePipe_a8c5531c6349567671ff27db2cb37769b} 
+\index{DoublePipe@{DoublePipe}!Run@{Run}}
+\index{Run@{Run}!DoublePipe@{DoublePipe}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Double\+Pipe\+::\+Run (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Processing\+Unit\+Interface}}.
+
+\Hypertarget{classDoublePipe_a4adc8d41a77995be6b1059ca7833a3d3}\label{classDoublePipe_a4adc8d41a77995be6b1059ca7833a3d3} 
+\index{DoublePipe@{DoublePipe}!Start@{Start}}
+\index{Start@{Start}!DoublePipe@{DoublePipe}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Double\+Pipe\+::\+Start (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pre\+\_\+process\+\_\+args = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+This method instantiates the pipeline and the \doxylink{classMemoryManager}{Memory\+Manager} for the pipeline. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_af37e1e66eb6fea8adcbc923441ae6738}{Processing\+Unit\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/pu/\mbox{\hyperlink{double__pipe_8h}{double\+\_\+pipe.\+h}}\item 
+include/definitions/pu/\mbox{\hyperlink{double__pipe_8cc}{double\+\_\+pipe.\+cc}}\end{DoxyCompactItemize}

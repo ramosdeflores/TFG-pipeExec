@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_README" xml:lang="en-US">
+<title>README</title>
+<indexterm><primary>README</primary></indexterm>
+
+<para></para>
+<section xml:id="_md_README_1autotoc_md6">
+<title>(Unified Computer Image and Data-Processing)</title>
+</section>
 <section xml:id="_md_README_1autotoc_md7">
 <title>AUTHOR</title>
 
@@ -32,7 +39,7 @@
 <para><literallayout><computeroutput>graph&#32;LR;
 
 subgraph&#32;Pipeline&#32;scope
-&#32;&#32;&#32;&#32;PU1((PU1))&#32;-.-&gt;&#32;PU2((PU2))&#32;-.-&gt;&#32;PU3((PU3))&#32;&#32;
+&#32;&#32;&#32;&#32;PU1((PU1))&#32;-.-&gt;&#32;PU2((PU2))&#32;-.-&gt;&#32;PU3((PU3))
 end;
 
 subgraph&#32;Main&#32;thread&#32;scope
@@ -52,7 +59,9 @@ end;
 <para><literallayout><computeroutput>Make
 Cmake
 gtest
-</computeroutput></literallayout> Then you can clone this repository and</para>
+</computeroutput></literallayout></para>
+
+<para>Then you can clone this repository and</para>
 
 <para>Once you have cloned this repository you have to make sure there is a <computeroutput>build</computeroutput> directory in it.</para>
 
@@ -70,16 +79,19 @@ gtest
 
 <para>Now run the executable in one of this three modes:</para>
 
-<para><literallayout><computeroutput>#&#32;Executes&#32;LUCID&#32;normally
-lucid&#32;
+<para><literallayout><computeroutput>LUCID&#32;(Unified&#32;Computing&#32;Image&#32;and&#32;Data-Processing)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Copyright&#32;(C)&#32;2023&#32;&#32;Lucas&#32;Hernández&#32;Abreu
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;This&#32;program&#32;comes&#32;with&#32;ABSOLUTELY&#32;NO&#32;WARRANTY
 
-#&#32;Executes&#32;LUCID&#32;with&#32;all&#32;the&#32;debug&#32;information
-#&#32;-d&#32;and&#32;--debug&#32;also&#32;work&#32;
-lucid&#32;debug&#32;
-
-#&#32;Executes&#32;LUCID&#32;pushing&#32;the&#32;debug&#32;flag&#32;only&#32;into&#32;the&#32;processing&#32;units
-#&#32;--pd&#32;and&#32;--pu-debug&#32;also&#32;work
-lucid&#32;pudebug
+Execute&#32;inside&#32;bin&#32;with:
+&#32;&#32;&#32;&#32;./lucid&#32;run&#32;&lt;arg&gt;
+Valid&#32;args:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug&#32;-&gt;&#32;[debug]|[-d]|[--debug]:&#32;Shows&#32;the&#32;debug&#32;information:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(operations&#32;in&#32;MemoryManager,&#32;semaphore&#32;statuses...)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Debug&#32;Processing&#32;Units&#32;-&gt;&#32;[pudebug][--pd][--pu-debug]:&#32;shows&#32;the&#32;debug&#32;for&#32;the&#32;processing&#32;units
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(operations&#32;inside&#32;the&#32;processing&#32;units)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Help&#32;-&gt;&#32;[help]|[-h]|[--help]:&#32;Shows&#32;this&#32;message
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Profiling&#32;-&gt;&#32;[profiling]:&#32;Shows&#32;the&#32;profiling&#32;information
 </computeroutput></literallayout></para>
 </section>
 <section xml:id="_md_README_1autotoc_md11">
@@ -87,7 +99,7 @@ lucid&#32;pudebug
 
 <para>For this framework you can add any number of processing units, make sure your units implementation look like this:</para>
 
-<para><literallayout><computeroutput>&#32;{c++}
+<para><literallayout><computeroutput>&#32;++
 
 #include&#32;&quot;processing_unit_interface.h&quot;
 class&#32;NewUnit&#32;:&#32;public&#32;ProcessingUnitInterface&#32;{
@@ -95,12 +107,12 @@ class&#32;NewUnit&#32;:&#32;public&#32;ProcessingUnitInterface&#32;{
 &#32;&#32;&#32;&#32;~NewUnit();
 
 &#32;&#32;&#32;&#32;//&#32;This&#32;function&#32;will&#32;always&#32;run:&#32;use&#32;it&#32;to&#32;instanciate&#32;unit&#32;variables.
-&#32;&#32;&#32;&#32;void&#32;Start()&#32;override;&#32;
+&#32;&#32;&#32;&#32;void&#32;Start()&#32;override;
 
 &#32;&#32;&#32;&#32;//&#32;This&#32;function&#32;will&#32;always&#32;run:&#32;use&#32;it&#32;to&#32;get&#32;the&#32;data&#32;from&#32;the&#32;pipe&#32;and
 &#32;&#32;&#32;&#32;//&#32;proccess&#32;it
-&#32;&#32;&#32;&#32;bool&#32;Run(void*)&#32;override;&#32;
-&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;bool&#32;Run(void*)&#32;override;
+
 &#32;&#32;&#32;&#32;//&#32;This&#32;method&#32;is&#32;a&#32;placeholder&#32;for&#32;possible&#32;deletion&#32;in&#32;the&#32;unit
 &#32;&#32;&#32;&#32;void&#32;Delete()&#32;override;
 

@@ -11,9 +11,27 @@
 <computeroutput>#include &lt;pipeline.h&gt;</computeroutput>
 </para>
 <simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structPipeline_1_1Profiling">Profiling</link></para>
+
+<para>This struct holds the information needed for the profiling of the processing unit @desc This struct holds all the information that the pipe will print when the print_profile method function is called. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classPipeline_1a961d2cbad54e692f86bd6a20ba737c14"/>enum <emphasis role="strong">PipelineError</emphasis> { <emphasis role="strong">kBadArgumentFormat</emphasis>
+, <emphasis role="strong">kBadArgumentType</emphasis>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
-            <listitem><para><link linkend="_classPipeline_1ac74080d6fe35e2b6f31ca51ac5509bfd">Pipeline</link> (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> *, <link linkend="_classMemoryManager">MemoryManager</link> *, int, bool debug=false)</para>
+            <listitem><para><link linkend="_classPipeline_1a2d08ee8cfebb1f2accaf7676862e198a">Pipeline</link> (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> *, <link linkend="_classMemoryManager">MemoryManager</link> *, int, bool=false, bool=false)</para>
 
 <para>Constructor for the <link linkend="_classPipeline">Pipeline</link> class. </para>
 </listitem>
@@ -21,7 +39,7 @@
 
 <para>Default destructor for the pipeline. </para>
 </listitem>
-            <listitem><para>void <link linkend="_classPipeline_1ab7308ae28e2ea4aa32da6811df29f152">AddProcessingUnit</link> (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> *, int)</para>
+            <listitem><para>void <link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link> (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> *, int, const char *=nullptr,...)</para>
 
 <para>Adds a processing unit to the execution list. </para>
 </listitem>
@@ -32,6 +50,8 @@
             <listitem><para><anchor xml:id="_classPipeline_1a134c0e23c0260a6dc74bb936f39ecda9"/>void <emphasis role="strong">WaitFinish</emphasis> ()</para>
 
 <para>Waits until all the threads have finished putting its data inside the (main)&apos;s in_queue <link linkend="_classMemoryManager">MemoryManager</link>. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classPipeline_1ad35850e882d5f54b79344a77830671e5"/>void <emphasis role="strong">Profile</emphasis> ()</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -46,11 +66,12 @@
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
-<anchor xml:id="_classPipeline_1ac74080d6fe35e2b6f31ca51ac5509bfd"/><section>
+<anchor xml:id="_classPipeline_1a2d08ee8cfebb1f2accaf7676862e198a"/><section>
     <title>Pipeline()</title>
 <indexterm><primary>Pipeline</primary><secondary>Pipeline</secondary></indexterm>
 <indexterm><primary>Pipeline</primary><secondary>Pipeline</secondary></indexterm>
 <para><computeroutput>Pipeline::Pipeline (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * first_function, <link linkend="_classMemoryManager">MemoryManager</link> * data_in, int threads_per_node_, bool debug = <computeroutput>false</computeroutput>
+, bool profiling = <computeroutput>false</computeroutput>
 )</computeroutput></para><para>
 
 <para>Constructor for the <link linkend="_classPipeline">Pipeline</link> class. </para>
@@ -61,11 +82,12 @@
 </section>
 <section>
 <title>Member Function Documentation</title>
-<anchor xml:id="_classPipeline_1ab7308ae28e2ea4aa32da6811df29f152"/><section>
+<anchor xml:id="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7"/><section>
     <title>AddProcessingUnit()</title>
 <indexterm><primary>AddProcessingUnit</primary><secondary>Pipeline</secondary></indexterm>
 <indexterm><primary>Pipeline</primary><secondary>AddProcessingUnit</secondary></indexterm>
-<para><computeroutput>void Pipeline::AddProcessingUnit (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * processing_unit, int instances)</computeroutput></para><para>
+<para><computeroutput>void Pipeline::AddProcessingUnit (<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * processing_unit, int instances, const char * fmt = <computeroutput>nullptr</computeroutput>
+,  ...)</computeroutput></para><para>
 
 <para>Adds a processing unit to the execution list. </para>
 </para>
@@ -90,6 +112,11 @@ Parameters</title>
                             <row>
 <entry>instances</entry><entry>
 <para>The number of threads that have to be instanced to run this node. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>fmg</entry><entry>
+<para>A pointer to the format string of the next arguments </para>
 </entry>
                             </row>
                         </tbody>

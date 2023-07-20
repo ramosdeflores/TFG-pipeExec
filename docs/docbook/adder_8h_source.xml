@@ -24,30 +24,30 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 20 <emphasis role="comment">&#32;*&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
 21 <emphasis role="comment">&#32;*/</emphasis>
 22 
-32 <emphasis role="preprocessor">#ifndef&#32;_ADDER_H</emphasis>
-33 <emphasis role="preprocessor">#define&#32;_ADDER_H</emphasis>
+32 <emphasis role="preprocessor">#ifndef&#32;ADDER_H</emphasis>
+33 <emphasis role="preprocessor">#define&#32;ADDER_H</emphasis>
 34 
 35 <emphasis role="preprocessor">#include&#32;&quot;../processing_unit_interface.h&quot;</emphasis>
 36 
 42 <emphasis role="keyword">class&#32;</emphasis><link linkend="_classAdder">Adder</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;{
-43 &#32;&#32;<emphasis role="keyword">public</emphasis>:
-44 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Default&#32;constructor</emphasis>
-45 &#32;&#32;&#32;&#32;<link linkend="_classAdder_1a760ce3809c856a4b63b83230763099f9">Adder</link>();
+43 &#32;<emphasis role="keyword">public</emphasis>:
+44 &#32;&#32;<emphasis role="comment">//&#32;Default&#32;constructor</emphasis>
+45 &#32;&#32;<link linkend="_classAdder_1a760ce3809c856a4b63b83230763099f9">Adder</link>();
 46 
-47 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Destructor</emphasis>
-48 &#32;&#32;&#32;&#32;<link linkend="_classAdder_1aa4fbce747dc4e5ff653c3837fcc6a789">~Adder</link>();
+47 &#32;&#32;<emphasis role="comment">//&#32;Destructor</emphasis>
+48 &#32;&#32;<link linkend="_classAdder_1aa4fbce747dc4e5ff653c3837fcc6a789">~Adder</link>();
 49 
-50 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Adds&#32;one&#32;to&#32;the&#32;integer&#32;pointer&#32;by&#32;the&#32;data&#32;pointer</emphasis>
-51 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classAdder_1a19888264e8dcaded1580d10c2cf5dfb0">Run</link>(<emphasis role="keywordtype">void</emphasis>&#32;*)&#32;<emphasis role="keyword">override</emphasis>;
+50 &#32;&#32;<emphasis role="comment">//&#32;Adds&#32;one&#32;to&#32;the&#32;integer&#32;pointer&#32;by&#32;the&#32;data&#32;pointer</emphasis>
+51 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classAdder_1a19888264e8dcaded1580d10c2cf5dfb0">Run</link>(<emphasis role="keywordtype">void</emphasis>&#32;*)&#32;<emphasis role="keyword">override</emphasis>;
 52 
-53 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Doesn&apos;t&#32;allocate&#32;nothing</emphasis>
-54 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classAdder_1aa4f60d7c236f57f9250cdb42883cfcdf">Start</link>()&#32;<emphasis role="keyword">override</emphasis>;
+53 &#32;&#32;<emphasis role="comment">//&#32;Doesn&apos;t&#32;allocate&#32;nothing</emphasis>
+54 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classAdder_1a2f8554eb1d403e4bbac3a676fae380ff">Start</link>(<emphasis role="keywordtype">void</emphasis>&#32;**&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>)&#32;<emphasis role="keyword">override</emphasis>;
 55 
-56 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Doesn&apos;t&#32;Doesn&apos;t&#32;delete&#32;nothing</emphasis>
-57 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classAdder_1a39ee5be690869d52dc2dfe412b7747c7">Delete</link>()&#32;<emphasis role="keyword">override</emphasis>;
+56 &#32;&#32;<emphasis role="comment">//&#32;Doesn&apos;t&#32;Doesn&apos;t&#32;delete&#32;nothing</emphasis>
+57 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classAdder_1a39ee5be690869d52dc2dfe412b7747c7">Delete</link>()&#32;<emphasis role="keyword">override</emphasis>;
 58 
-59 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Returns&#32;a&#32;clone&#32;of&#32;Adder</emphasis>
-60 &#32;&#32;&#32;&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*<link linkend="_classAdder_1a9aa43eacf687ef86a330492e74ece7d5">Clone</link>()&#32;<emphasis role="keyword">override</emphasis>;
+59 &#32;&#32;<emphasis role="comment">//&#32;Returns&#32;a&#32;clone&#32;of&#32;Adder</emphasis>
+60 &#32;&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*<link linkend="_classAdder_1a9aa43eacf687ef86a330492e74ece7d5">Clone</link>()&#32;<emphasis role="keyword">override</emphasis>;
 61 };
 62 
 63 <emphasis role="preprocessor">#endif</emphasis>

@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classSimpleIndexer" xml:lang="en-US">
+<title>SimpleIndexer Class Reference</title>
+<indexterm><primary>SimpleIndexer</primary></indexterm>
+<para>Inheritance diagram for SimpleIndexer:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classSimpleIndexer.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classSimpleIndexer_1ad7e782ceb1d68865fb5e69ef242e11d6"/><emphasis role="strong">SimpleIndexer</emphasis> ()</para>
+
+<para>Default constructor of the class. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classSimpleIndexer_1a555c64556268e7f094fa05500948f988"/><emphasis role="strong">~SimpleIndexer</emphasis> ()</para>
+
+<para>Default destructor of the class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classSimpleIndexer_1a7f0a44bc6646d7b57226a84a2856934e">Start</link> (void **=nullptr) override</para>
+
+<para>Sets the internal counter to 0. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classSimpleIndexer_1a49abbcfe95ec60073efdcdf0174b16c5">Run</link> (void *) override</para>
+
+<para>Gets the <link linkend="_classData">Data</link> from the pipe and indexes it by adding the extra data &quot;part_index&quot;. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classSimpleIndexer_1a9922cefa517cc3a668497daa1ad57c4a">Delete</link> () override</para>
+
+<para>Use this function to delete any allocated memory inside the Start or Run methods. </para>
+</listitem>
+            <listitem><para><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classSimpleIndexer_1a29675ccbd27f69e0a0470d55536fb158">Clone</link> () override</para>
+
+<para>Returns a pointer to a new instance of the class. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link> (void **=nullptr)=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link> ()</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classSimpleIndexer_1a29675ccbd27f69e0a0470d55536fb158"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>SimpleIndexer</secondary></indexterm>
+<indexterm><primary>SimpleIndexer</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * SimpleIndexer::Clone ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Returns a pointer to a new instance of the class. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The new instance of the class </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classSimpleIndexer_1a9922cefa517cc3a668497daa1ad57c4a"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>SimpleIndexer</secondary></indexterm>
+<indexterm><primary>SimpleIndexer</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>void SimpleIndexer::Delete ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Use this function to delete any allocated memory inside the Start or Run methods. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classSimpleIndexer_1a49abbcfe95ec60073efdcdf0174b16c5"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>SimpleIndexer</secondary></indexterm>
+<indexterm><primary>SimpleIndexer</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>void SimpleIndexer::Run (void * data)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Gets the <link linkend="_classData">Data</link> from the pipe and indexes it by adding the extra data &quot;part_index&quot;. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>The data to be manipulated </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classSimpleIndexer_1a7f0a44bc6646d7b57226a84a2856934e"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>SimpleIndexer</secondary></indexterm>
+<indexterm><primary>SimpleIndexer</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>void SimpleIndexer::Start (void ** pre_process_args = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Sets the internal counter to 0. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">ProcessingUnitInterface</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/pu/<link linkend="_simple__indexer_8h">simple_indexer.h</link>include/definitions/pu/<link linkend="_simple__indexer_8cc">simple_indexer.cc</link></section>
+</section>

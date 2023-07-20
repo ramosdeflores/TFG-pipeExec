@@ -18,13 +18,9 @@ int SimpleEdgeDetectionMain(bool debug_flag, bool pu_debug_flag,
     std::ifstream file("../input_images/ElHierro.mat");
     std::string mat_input;
     std::vector<int> input_img_values;
-    int line = 0;
     while (getline(file, mat_input, ',')) {
-      // input_img_values.emplace_back(std::stoi(mat_input));
-      line++;
+      input_img_values.push_back(std::stoi(mat_input));
     }
-
-    printf("GOT AOUT");
 
     int **img = (int **)malloc(height * sizeof(int *));
     for (int i = 0; i < height; ++i) {

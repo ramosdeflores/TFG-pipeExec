@@ -24,76 +24,76 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 20 <emphasis role="comment">&#32;*&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
 21 <emphasis role="comment">&#32;*/</emphasis>
 22 
-32 <emphasis role="preprocessor">#ifndef&#32;_MEMORY_MANAGER_H</emphasis>
-33 <emphasis role="preprocessor">#define&#32;_MEMORY_MANAGER_H</emphasis>
+32 <emphasis role="preprocessor">#ifndef&#32;MEMORY_MANAGER_H</emphasis>
+33 <emphasis role="preprocessor">#define&#32;MEMORY_MANAGER_H</emphasis>
 34 
 35 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_semaphore_8h">semaphore.h</link>&quot;</emphasis>
 36 
 48 <emphasis role="keyword">class&#32;</emphasis><link linkend="_classMemoryManager">MemoryManager</link>&#32;{
-49 &#32;&#32;<emphasis role="keyword">public</emphasis>:
-50 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Constructor&#32;for&#32;MemoryManager&#32;class</emphasis>
-51 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Throws&#32;MemoryManagerError::kBadSizing&#32;If&#32;the&#32;maximum&#32;size&#32;is&#32;less&#32;than&#32;1</emphasis>
-52 &#32;&#32;&#32;&#32;<link linkend="_classMemoryManager">MemoryManager</link>(<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;=&#32;<emphasis role="keyword">false</emphasis>);
+49 &#32;<emphasis role="keyword">public</emphasis>:
+50 &#32;&#32;<emphasis role="comment">//&#32;Constructor&#32;for&#32;MemoryManager&#32;class</emphasis>
+51 &#32;&#32;<emphasis role="comment">//&#32;Throws&#32;MemoryManagerError::kBadSizing&#32;If&#32;the&#32;maximum&#32;size&#32;is&#32;less&#32;than&#32;1</emphasis>
+52 &#32;&#32;<link linkend="_classMemoryManager">MemoryManager</link>(<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;=&#32;<emphasis role="keyword">false</emphasis>);
 53 
-54 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Destructor&#32;for&#32;MemoryManager.</emphasis>
-55 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Frees&#32;the&#32;buffers&#32;inside&#32;both&#32;queues&#32;and&#32;then&#32;frees&#32;the&#32;queues</emphasis>
-56 &#32;&#32;&#32;&#32;<link linkend="_classMemoryManager_1ad4570910ccfc14b2da679bee58ee8f48">~MemoryManager</link>();
+54 &#32;&#32;<emphasis role="comment">//&#32;Destructor&#32;for&#32;MemoryManager.</emphasis>
+55 &#32;&#32;<emphasis role="comment">//&#32;Frees&#32;the&#32;buffers&#32;inside&#32;both&#32;queues&#32;and&#32;then&#32;frees&#32;the&#32;queues</emphasis>
+56 &#32;&#32;<link linkend="_classMemoryManager_1ad4570910ccfc14b2da679bee58ee8f48">~MemoryManager</link>();
 57 
-58 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Pushes&#32;a&#32;memory&#32;buffer&#32;into&#32;the&#32;input&#32;queue.</emphasis>
-59 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classMemoryManager_1af63faf51f2b29c67fea41e0baa32af83">PushIntoIn</link>(<emphasis role="keywordtype">void</emphasis>&#32;*);
+58 &#32;&#32;<emphasis role="comment">//&#32;Pushes&#32;a&#32;memory&#32;buffer&#32;into&#32;the&#32;input&#32;queue.</emphasis>
+59 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classMemoryManager_1af63faf51f2b29c67fea41e0baa32af83">PushIntoIn</link>(<emphasis role="keywordtype">void</emphasis>&#32;*);
 60 
-61 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Pushes&#32;a&#32;memory&#32;buffer&#32;into&#32;the&#32;output&#32;queue.</emphasis>
-62 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classMemoryManager_1a8ee578854fc579a88c34c4ff42adbc2b">PushIntoOut</link>(<emphasis role="keywordtype">void</emphasis>&#32;*);
+61 &#32;&#32;<emphasis role="comment">//&#32;Pushes&#32;a&#32;memory&#32;buffer&#32;into&#32;the&#32;output&#32;queue.</emphasis>
+62 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classMemoryManager_1a8ee578854fc579a88c34c4ff42adbc2b">PushIntoOut</link>(<emphasis role="keywordtype">void</emphasis>&#32;*);
 63 
-64 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Pops&#32;a&#32;memory&#32;buffer&#32;from&#32;the&#32;input&#32;queue.</emphasis>
-65 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Throws&#32;MemoryManagerError::kNullPtr&#32;If&#32;the&#32;content&#32;to&#32;return&#32;is</emphasis>
-66 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;null&#32;(it&#32;can&apos;t&#32;be&#32;processed)</emphasis>
-67 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_classMemoryManager_1a2baf1cd49e91c7618cd6c08151491094">PopFromIn</link>();
+64 &#32;&#32;<emphasis role="comment">//&#32;Pops&#32;a&#32;memory&#32;buffer&#32;from&#32;the&#32;input&#32;queue.</emphasis>
+65 &#32;&#32;<emphasis role="comment">//&#32;Throws&#32;MemoryManagerError::kNullPtr&#32;If&#32;the&#32;content&#32;to&#32;return&#32;is</emphasis>
+66 &#32;&#32;<emphasis role="comment">//&#32;null&#32;(it&#32;can&apos;t&#32;be&#32;processed)</emphasis>
+67 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_classMemoryManager_1a2baf1cd49e91c7618cd6c08151491094">PopFromIn</link>();
 68 
-69 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Pops&#32;a&#32;memory&#32;buffer&#32;from&#32;the&#32;output&#32;queue.</emphasis>
-70 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Throws&#32;MemoryManagerError::kNullPtr&#32;If&#32;the&#32;content&#32;to&#32;return&#32;is&#32;null&#32;(it</emphasis>
-71 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;can&apos;t&#32;be&#32;processed)</emphasis>
-72 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_classMemoryManager_1ac9e6791f9bbfafa933686968eb91968a">PopFromOut</link>();
+69 &#32;&#32;<emphasis role="comment">//&#32;Pops&#32;a&#32;memory&#32;buffer&#32;from&#32;the&#32;output&#32;queue.</emphasis>
+70 &#32;&#32;<emphasis role="comment">//&#32;Throws&#32;MemoryManagerError::kNullPtr&#32;If&#32;the&#32;content&#32;to&#32;return&#32;is&#32;null&#32;(it</emphasis>
+71 &#32;&#32;<emphasis role="comment">//&#32;can&apos;t&#32;be&#32;processed)</emphasis>
+72 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_classMemoryManager_1ac9e6791f9bbfafa933686968eb91968a">PopFromOut</link>();
 73 
-74 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Loads&#32;a&#32;memory&#32;buffer&#32;into&#32;the&#32;queues.</emphasis>
-75 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classMemoryManager_1a09b86c875efaba6b2ee477e94a4a1585">LoadMemoryManager</link>(<emphasis role="keywordtype">void</emphasis>&#32;*);
+74 &#32;&#32;<emphasis role="comment">//&#32;Loads&#32;a&#32;memory&#32;buffer&#32;into&#32;the&#32;queues.</emphasis>
+75 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classMemoryManager_1a09b86c875efaba6b2ee477e94a4a1585">LoadMemoryManager</link>(<emphasis role="keywordtype">void</emphasis>&#32;*);
 76 
-77 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Returns&#32;the&#32;number&#32;of&#32;memory&#32;buffers&#32;in&#32;the&#32;input&#32;queue.</emphasis>
-78 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1a7cd42925fb0fb466d7877596e9ffd3f9">in_queue_count</link>();
+77 &#32;&#32;<emphasis role="comment">//&#32;Getter.&#32;Returns&#32;the&#32;number&#32;of&#32;memory&#32;buffers&#32;in&#32;the&#32;input&#32;queue.</emphasis>
+78 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1ac3861ac0de1853789b87407b38f6d272">in_queue_count</link>()&#32;<emphasis role="keyword">const</emphasis>;
 79 
-80 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Returns&#32;the&#32;number&#32;of&#32;memory&#32;buffers&#32;in&#32;the&#32;output&#32;queue.</emphasis>
-81 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1a3e6e571df8c411240e22334dcf45cee5">out_queue_count</link>();
+80 &#32;&#32;<emphasis role="comment">//&#32;Getter.&#32;Returns&#32;the&#32;number&#32;of&#32;memory&#32;buffers&#32;in&#32;the&#32;output&#32;queue.</emphasis>
+81 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1a92e3571872f8bab8ebdaedb53e289d12">out_queue_count</link>()&#32;<emphasis role="keyword">const</emphasis>;
 82 
-83 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Returns&#32;the&#32;maximum&#32;size&#32;of&#32;the&#32;memory&#32;buffer&#32;queues.</emphasis>
-84 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1ad8de64268e28fdcfbcf6a9c49c819810">max_size</link>();
+83 &#32;&#32;<emphasis role="comment">//&#32;Getter.&#32;Returns&#32;the&#32;maximum&#32;size&#32;of&#32;the&#32;memory&#32;buffer&#32;queues.</emphasis>
+84 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classMemoryManager_1a60faf33dba849e1e33a4bdf9e60bc0da">max_size</link>()&#32;<emphasis role="keyword">const</emphasis>;
 85 
-86 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Tries&#32;to&#32;get&#32;the&#32;ownership&#32;of&#32;the&#32;cpu&#32;resources&#32;to&#32;do&#32;any&#32;action</emphasis>
-87 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classMemoryManager_1ae12d45dd15b3756a0685c4fc15c24bc1">wait_finish</link>();
+86 &#32;&#32;<emphasis role="comment">//&#32;Tries&#32;to&#32;get&#32;the&#32;ownership&#32;of&#32;the&#32;cpu&#32;resources&#32;to&#32;do&#32;any&#32;action</emphasis>
+87 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classMemoryManager_1ae12d45dd15b3756a0685c4fc15c24bc1">wait_finish</link>();
 88 
-96 &#32;&#32;&#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90f">MemoryManagerError</link>&#32;{
-97 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90faff4878f6fb7b896cbdcdb21555942594">kBadSizing</link>,&#32;
-98 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87">kNullPtr</link>,&#32;&#32;&#32;
-99 &#32;&#32;&#32;&#32;};
+96 &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90f">MemoryManagerError</link>&#32;{
+97 &#32;&#32;&#32;&#32;<link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90faff4878f6fb7b896cbdcdb21555942594">kBadSizing</link>,&#32;
+98 &#32;&#32;&#32;&#32;<link linkend="_classMemoryManager_1a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87">kNullPtr</link>,&#32;&#32;&#32;
+99 &#32;&#32;};
 100 
-101 &#32;&#32;<emphasis role="keyword">private</emphasis>:
-102 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;**in_queue_;&#32;&#32;
-103 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;**out_queue_;&#32;
-104 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;max_size_;&#32;&#32;&#32;&#32;&#32;
-106 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;rear_in_iterator_;&#32;&#32;&#32;
-107 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;front_in_iterator_;&#32;&#32;
-108 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;rear_out_iterator_;&#32;&#32;
-109 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;front_out_iterator_;&#32;
-111 &#32;&#32;&#32;&#32;std::atomic&lt;int&gt;
-112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;in_queue_count_;&#32;
-113 &#32;&#32;&#32;&#32;std::atomic&lt;int&gt;
-114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;out_queue_count_;&#32;
-116 &#32;&#32;&#32;&#32;<link linkend="_classSemaphore">Semaphore</link>&#32;*in_semaphore_;&#32;&#32;
-117 &#32;&#32;&#32;&#32;<link linkend="_classSemaphore">Semaphore</link>&#32;*out_semaphore_;&#32;
-119 &#32;&#32;&#32;&#32;std::mutex&#32;push_in_mtx_;&#32;&#32;
-120 &#32;&#32;&#32;&#32;std::mutex&#32;push_out_mtx_;&#32;
-121 &#32;&#32;&#32;&#32;std::mutex&#32;pop_in_mtx_;&#32;&#32;&#32;
-122 &#32;&#32;&#32;&#32;std::mutex&#32;pop_out_mtx_;&#32;&#32;
-124 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug_;&#32;
+101 &#32;<emphasis role="keyword">private</emphasis>:
+102 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;**in_queue_;&#32;&#32;
+103 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;**out_queue_;&#32;
+104 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;max_size_;&#32;&#32;&#32;&#32;&#32;
+106 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;rear_in_iterator_;&#32;&#32;&#32;
+107 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;front_in_iterator_;&#32;&#32;
+108 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;rear_out_iterator_;&#32;&#32;
+109 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;front_out_iterator_;&#32;
+111 &#32;&#32;std::atomic&lt;int&gt;
+112 &#32;&#32;&#32;&#32;&#32;&#32;in_queue_count_;&#32;
+113 &#32;&#32;std::atomic&lt;int&gt;
+114 &#32;&#32;&#32;&#32;&#32;&#32;out_queue_count_;&#32;
+116 &#32;&#32;<link linkend="_classSemaphore">Semaphore</link>&#32;*in_semaphore_;&#32;&#32;
+117 &#32;&#32;<link linkend="_classSemaphore">Semaphore</link>&#32;*out_semaphore_;&#32;
+119 &#32;&#32;std::mutex&#32;push_in_mutex_;&#32;&#32;
+120 &#32;&#32;std::mutex&#32;push_out_mutex_;&#32;
+121 &#32;&#32;std::mutex&#32;pop_in_mutex_;&#32;&#32;&#32;
+122 &#32;&#32;std::mutex&#32;pop_out_mutex_;&#32;&#32;
+124 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;debug_;&#32;
 125 };
 126 
 127 <emphasis role="preprocessor">#endif</emphasis>

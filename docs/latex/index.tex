@@ -1,9 +1,11 @@
+\chapter{LUCID (Unified Computing Image and Data-\/\+Processing)}
+\hypertarget{index}{}\label{index}\index{LUCID (Unified Computing Image and Data-\/Processing)@{LUCID (Unified Computing Image and Data-\/Processing)}}
 \label{index_md_DOXYGEN}%
 \Hypertarget{index_md_DOXYGEN}%
-\hypertarget{index_autotoc_md1}{}\doxysection{AUTHOR}\label{index_autotoc_md1}
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{AUTHOR}{AUTHOR}}\label{index_autotoc_md1}
 {\bfseries{Name\+:}} Lucas Hernández Abreu
 
-{\bfseries{email\+:}} \href{mailto:lucas.hernandez.09@ull.edu.es}{\texttt{ lucas.\+hernandez.\+09@ull.\+edu.\+es}}\hypertarget{index_autotoc_md2}{}\doxysection{LICENSE}\label{index_autotoc_md2}
+{\bfseries{email\+:}} \href{mailto:lucas.hernandez.09@ull.edu.es}{\texttt{ lucas.\+hernandez.\+09@ull.\+edu.\+es}}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{LICENSE}{LICENSE}}\label{index_autotoc_md2}
 LUCID (Unified Computing Image and Data-\/\+Processing) is a program to process any type of data concurrently. Copyright (C) 2023 Lucas Hernández Abreu
 
 This program is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -14,8 +16,8 @@ You should have received a copy of the GNU General Public License along with thi
 
 Author\+: Lucas Hernández Abreu
 
-Contact\+: \href{mailto:lucas.hernandez.09@ull.edu.es}{\texttt{ lucas.\+hernandez.\+09@ull.\+edu.\+es}}\hypertarget{index_autotoc_md3}{}\doxysection{INTRODUCTION}\label{index_autotoc_md3}
-LUCID (Unified Computing Image and Data-\/\+Processing) is a framework for processing data concurrently via the development of processing units. Each processing unit can have multiple instances that will run in parallel.\hypertarget{index_autotoc_md4}{}\doxysection{Usage}\label{index_autotoc_md4}
+Contact\+: \href{mailto:lucas.hernandez.09@ull.edu.es}{\texttt{ lucas.\+hernandez.\+09@ull.\+edu.\+es}}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{INTRODUCTION}{INTRODUCTION}}\label{index_autotoc_md3}
+LUCID (Unified Computing Image and Data-\/\+Processing) is a framework for processing data concurrently via the development of processing units. Each processing unit can have multiple instances that will run in parallel.\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md4}
 First of all, we need some dependencies for LUCID to work\+:
 
 
@@ -65,30 +67,30 @@ Now run the executable in one of this three modes\+:
 \DoxyCodeLine{lucid\ pudebug}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md5}{}\doxysection{Configuration}\label{index_autotoc_md5}
+\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Configuration}{Configuration}}\label{index_autotoc_md5}
 For this framework you can add any number of processing units, make sure your units implementation look like this\+:
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \{c++\}}
+\DoxyCodeLine{\ ++}
 \DoxyCodeLine{}
-\DoxyCodeLine{\#include\ "{}processing\_unit\_interface.h"{}}
-\DoxyCodeLine{class\ NewUnit\ :\ public\ ProcessingUnitInterface\ \{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{processing__unit__interface_8h}{processing\_unit\_interface.h}}"{}}}
+\DoxyCodeLine{\textcolor{keyword}{class\ }NewUnit\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ \{}
 \DoxyCodeLine{\ \ \ \ NewUnit();}
 \DoxyCodeLine{\ \ \ \ \string~NewUnit();}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ //\ This\ function\ will\ always\ run:\ use\ it\ to\ instanciate\ unit\ variables.}
-\DoxyCodeLine{\ \ \ \ void\ Start()\ override;\ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ This\ function\ will\ always\ run:\ use\ it\ to\ instanciate\ unit\ variables.}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessingUnitInterface_af37e1e66eb6fea8adcbc923441ae6738}{Start}}()\ \textcolor{keyword}{override};\ }
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ //\ This\ function\ will\ always\ run:\ use\ it\ to\ get\ the\ data\ from\ the\ pipe\ and}
-\DoxyCodeLine{\ \ \ \ //\ proccess\ it}
-\DoxyCodeLine{\ \ \ \ bool\ Run(void*)\ override;\ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ This\ function\ will\ always\ run:\ use\ it\ to\ get\ the\ data\ from\ the\ pipe\ and}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ proccess\ it}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}}(\textcolor{keywordtype}{void}*)\ \textcolor{keyword}{override};\ }
 \DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ //\ This\ method\ is\ a\ placeholder\ for\ possible\ deletion\ in\ the\ unit}
-\DoxyCodeLine{\ \ \ \ void\ Delete()\ override;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ This\ method\ is\ a\ placeholder\ for\ possible\ deletion\ in\ the\ unit}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Delete}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ //\ Make\ sure\ to\ return\ a\ pointer\ to\ your\ new\ processing\ unit}
-\DoxyCodeLine{\ \ \ \ ProcessingUnitInterface*\ Clone()\ override;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Make\ sure\ to\ return\ a\ pointer\ to\ your\ new\ processing\ unit}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}*\ \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Clone}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{\};}
 
 \end{DoxyCode}
@@ -101,11 +103,11 @@ For the program to work use the following list of steps in the main file\+:
 
 \begin{DoxyEnumerate}
 \item Instantiate the processing units to use.
-\item Create a new \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} object
-\item Use the {\ttfamily Load\+Memory\+Manager(void$\ast$)} function to allocate the size for all the cells in the memory manager.
-\item Create a pointer to a {\ttfamily \mbox{\hyperlink{classPipeline}{Pipeline}}} and instantiate it with the first processing unit you want to use.
+\item Create a new \doxylink{classMemoryManager}{Memory\+Manager} object
+\item Use the {\ttfamily Load\+Memory\+Manager(void\texorpdfstring{$\ast$}{*})} function to allocate the size for all the cells in the memory manager.
+\item Create a pointer to a {\ttfamily \doxylink{classPipeline}{Pipeline}} and instantiate it with the first processing unit you want to use.
 \item Add all the processing units you want to use for your process.
 \item Run the pipe.
-\item Iterate throught the data in the \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} object\+: poping from In and pushing into out to start the process.
+\item Iterate throught the data in the \doxylink{classMemoryManager}{Memory\+Manager} object\+: poping from In and pushing into out to start the process.
 \item Wait for the pipe to finish with the {\ttfamily Wait\+Finish()} function. 
 \end{DoxyEnumerate}

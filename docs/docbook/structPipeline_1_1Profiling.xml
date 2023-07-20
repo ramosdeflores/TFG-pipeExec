@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structPipeline_1_1Profiling" xml:lang="en-US">
+<title>Pipeline::Profiling Struct Reference</title>
+<indexterm><primary>Pipeline::Profiling</primary></indexterm>
+<para>
+
+<para>This struct holds the information needed for the profiling of the processing unit @desc This struct holds all the information that the pipe will print when the print_profile method function is called. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;pipeline.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structPipeline_1_1Profiling_1a85d91d393614246cbbc7321461230fad"/>i32 <emphasis role="strong">node_id</emphasis></para>
+
+<para>The id of the node to profile. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_structPipeline_1_1Profiling_1a14cddf86dd7a397300225cdab322edd2"/>i32 <emphasis role="strong">thread_id</emphasis></para>
+
+<para>The id of the thread that executed the processing unit. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_structPipeline_1_1Profiling_1ad4a224cc807b559157c172a882b77d0a"/>u64 <emphasis role="strong">cycles_start</emphasis></para>
+
+<para>The timestamp from the tsc in the CPU at the start of the RunNode function. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_structPipeline_1_1Profiling_1a731c3b31d3e7741f613b35e0d031c72e"/>u64 <emphasis role="strong">cycles_end</emphasis></para>
+
+<para>The timestamp from the tsc in the CPU at the end of the RunNode function. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_structPipeline_1_1Profiling_1a3d272311eaca434db755c18fa32471e1"/>TIME_POINT <emphasis role="strong">time_start</emphasis></para>
+
+<para>The clock time at the start of the RunNode function. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_structPipeline_1_1Profiling_1aa645e5aaa1bdfa72a1b2f3e7a2c21ba6"/>TIME_POINT <emphasis role="strong">time_end</emphasis></para>
+
+<para>The clock time at the end of the RunNode function. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_structPipeline_1_1Profiling_1a44c307c338972f019b9c14fa104234e6"/>i64 <emphasis role="strong">sys_time_start</emphasis></para>
+
+<para>The system time at the start of the RunNode function. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_structPipeline_1_1Profiling_1ada4064acbae914daa919a097fa488a6d"/>i64 <emphasis role="strong">sys_time_end</emphasis></para>
+
+<para>The system time at the end of the RunNode function. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This struct holds the information needed for the profiling of the processing unit @desc This struct holds all the information that the pipe will print when the print_profile method function is called. </para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/headers/<link linkend="_pipeline_8h">pipeline.h</link></section>
+</section>

@@ -3,40 +3,40 @@
     <info>
     <title>LUCID (Unified Computer Image and Data-processing)</title>
     </info>
-<chapter>
-    <title>LUCID (Unified Computing Image and Data-Processing)</title>
     <xi:include href="mainpage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-</chapter>
-<chapter>
-    <title>LUCID (Unified Computing Image and Data-Processing)</title>
     <xi:include href="md_README.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-</chapter>
-<chapter>
-    <title>Test List</title>
     <xi:include href="test.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-</chapter>
 <chapter>
     <title>Class Documentation</title>
     <xi:include href="classAdder.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classData.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="structData_1_1DataKey.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classDoublePipe.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classEdgeDetector.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classImgOutputer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classImgTruncator.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classIndexer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classMemoryManager.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classNullUnit.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classNumberPrinter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classPipeline.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classPipeNode.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classProcessingUnitInterface.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structPipeline_1_1Profiling.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="classSemaphore.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classSimpleIndexer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="classSleeper.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </chapter>
 <chapter>
     <title>File Documentation</title>
     <xi:include href="data_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="memory__manager_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="pipe__node_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="double__pipe_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="edge__detector_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="img__truncator_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="indexer_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="simple__indexer_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="semaphore_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="data_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="data_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -51,14 +51,30 @@
     <xi:include href="processing__unit__interface_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="adder_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="adder_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="double__pipe_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="double__pipe_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="edge__detector_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="edge__detector_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="img__outputer_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="img__outputer_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="img__truncator_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="img__truncator_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="indexer_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="indexer_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="null__unit_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="null__unit_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="number__printer_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="simple__indexer_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="simple__indexer_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="sleeper_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="sleeper_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="semaphore_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="semaphore_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="double__pipe__main_8cc_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="islands__main_8cc_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="processing__units_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="simple__edge__detection__main_8cc_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="sleeper__main_8cc_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="memory__manager_8test_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="semaphore_8test_8cc.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </chapter>

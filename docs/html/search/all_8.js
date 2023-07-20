@@ -1,7 +1,7 @@
 var searchData=
 [
   ['magnitude_0',['Magnitude',['../classEdgeDetector.html#a9be148339689de7543a5e873a0bd4440',1,'EdgeDetector']]],
-  ['max_5fsize_1',['max_size',['../classMemoryManager.html#ad8de64268e28fdcfbcf6a9c49c819810',1,'MemoryManager']]],
+  ['max_5fsize_1',['max_size',['../classMemoryManager.html#a60faf33dba849e1e33a4bdf9e60bc0da',1,'MemoryManager']]],
   ['memory_5fmanager_2ecc_2',['memory_manager.cc',['../memory__manager_8cc.html',1,'']]],
   ['memory_5fmanager_2eh_3',['memory_manager.h',['../memory__manager_8h.html',1,'']]],
   ['memory_5fmanager_2etest_2ecc_4',['memory_manager.test.cc',['../memory__manager_8test_8cc.html',1,'']]],

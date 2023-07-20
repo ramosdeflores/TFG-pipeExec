@@ -1,5 +1,5 @@
-\hypertarget{edge__detector_8h_source}{}\doxysection{edge\+\_\+detector.\+h}
-\label{edge__detector_8h_source}\index{include/headers/pu/edge\_detector.h@{include/headers/pu/edge\_detector.h}}
+\doxysection{edge\+\_\+detector.\+h}
+\hypertarget{edge__detector_8h_source}{}\label{edge__detector_8h_source}\index{include/headers/pu/edge\_detector.h@{include/headers/pu/edge\_detector.h}}
 \mbox{\hyperlink{edge__detector_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{/*}}
@@ -24,44 +24,44 @@
 \DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Contact:\ lucas.hernandez.09@ull.edu.es}}
 \DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ \_EDGE\_DETECTOR\_H}}
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ \_EDGE\_DETECTOR\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ EDGE\_DETECTOR\_H}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ EDGE\_DETECTOR\_H}}
 \DoxyCodeLine{00034\ }
 \DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}../processing\_unit\_interface.h"{}}}
 \DoxyCodeLine{00036\ }
 \DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEdgeDetector}{EdgeDetector}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ \{}
-\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Default\ constructor\ of\ the\ class}}
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classEdgeDetector_a648088ce3e3f307c1fdbe9b917fe3ee6}{EdgeDetector}}();}
+\DoxyCodeLine{00044\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \textcolor{comment}{//\ Default\ constructor\ of\ the\ class}}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classEdgeDetector_a648088ce3e3f307c1fdbe9b917fe3ee6}{EdgeDetector}}();}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Destructor\ of\ the\ class}}
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classEdgeDetector_a84d1668be5dd4052278a2cf86802746e}{\string~EdgeDetector}}();}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ Destructor\ of\ the\ class}}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classEdgeDetector_a84d1668be5dd4052278a2cf86802746e}{\string~EdgeDetector}}();}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ Method\ to\ allocate\ the\ sobel\ filter}}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEdgeDetector_a3964e535b4428f0cb722fef96c57038d}{Start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ \ \ \textcolor{comment}{//\ Method\ to\ allocate\ the\ sobel\ filter}}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEdgeDetector_ac9d261edf85853da5786247ff730bf16}{Start}}(\textcolor{keywordtype}{void}\ **\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Method\ to\ pass\ the\ filters\ and\ process\ the\ img}}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEdgeDetector_a4b4cdcb26d58152eff812ea837fedb2b}{Run}}(\textcolor{keywordtype}{void}\ *)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ Method\ to\ pass\ the\ filters\ and\ process\ the\ img}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEdgeDetector_a4b4cdcb26d58152eff812ea837fedb2b}{Run}}(\textcolor{keywordtype}{void}\ *)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Method\ to\ liberate\ the\ memory\ allocated}}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEdgeDetector_a2ef8d6908a6930e1e26a1554a258b105}{Delete}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ Method\ to\ liberate\ the\ memory\ allocated}}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEdgeDetector_a2ef8d6908a6930e1e26a1554a258b105}{Delete}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ Method\ to\ clone\ the\ class}}
-\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *\mbox{\hyperlink{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd}{Clone}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ \ \ \textcolor{comment}{//\ Method\ to\ clone\ the\ class}}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *\mbox{\hyperlink{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd}{Clone}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Method\ to\ convolute\ via\ a\ kernel\ and\ an\ img}}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ **\mbox{\hyperlink{classEdgeDetector_a7837d8669034b8bf5b575a6d8b68a779}{Convolution}}(\textcolor{keywordtype}{int}\ **,\ \textcolor{keywordtype}{int}\ **,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ Method\ to\ convolute\ via\ a\ kernel\ and\ an\ img}}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{int}\ **\mbox{\hyperlink{classEdgeDetector_a7837d8669034b8bf5b575a6d8b68a779}{Convolution}}(\textcolor{keywordtype}{int}\ **,\ \textcolor{keywordtype}{int}\ **,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Method\ to\ calculate\ the\ magnitude\ of\ the\ processed\ img}}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEdgeDetector_a9be148339689de7543a5e873a0bd4440}{Magnitude}}(pixel\_value\ **,\ \textcolor{keywordtype}{int}\ **,\ \textcolor{keywordtype}{int}\ **,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ Method\ to\ calculate\ the\ magnitude\ of\ the\ processed\ img}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEdgeDetector_a9be148339689de7543a5e873a0bd4440}{Magnitude}}(pixel\_value\ **,\ \textcolor{keywordtype}{int}\ **,\ \textcolor{keywordtype}{int}\ **,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
 \DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00070\ \ \ \ \ pixel\_value\ IntToPixel(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ Bound(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ Hypotenuse(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ **sobelx\_;}
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ **sobely\_;}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ debug\_;}
+\DoxyCodeLine{00069\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ pixel\_value\ IntToPixel(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{int}\ Bound(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{int}\ Hypotenuse(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{int}\ **sobelx\_;}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{int}\ **sobely\_;}
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{bool}\ debug\_;}
 \DoxyCodeLine{00076\ \};}
 \DoxyCodeLine{00077\ }
 \DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif}}
