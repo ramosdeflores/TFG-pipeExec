@@ -1,0 +1,102 @@
+\doxysection{Sleeper Class Reference}
+\hypertarget{classSleeper}{}\label{classSleeper}\index{Sleeper@{Sleeper}}
+
+
+This class makes the thread sleep for x seconds, given in the start arguments.  
+
+
+
+
+{\ttfamily \#include $<$sleeper.\+h$>$}
+
+Inheritance diagram for Sleeper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSleeper}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSleeper_a60064cb7dd35f6c55fca7e814606de3b}\label{classSleeper_a60064cb7dd35f6c55fca7e814606de3b} 
+{\bfseries Sleeper} ()
+\begin{DoxyCompactList}\small\item\em Default constructor\+: does nothing. \end{DoxyCompactList}\item 
+\Hypertarget{classSleeper_af03ece44ce961f8c2701fe1c4b0a95bd}\label{classSleeper_af03ece44ce961f8c2701fe1c4b0a95bd} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Sleeper} ()
+\begin{DoxyCompactList}\small\item\em Default destructor\+: does nothing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSleeper_adf0466b606b7f8bc73059e41a660f2da}{Start}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}=nullptr)
+\item 
+void \mbox{\hyperlink{classSleeper_a48270b0d03b90826cd665674fe193be8}{Run}} (void \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{classSleeper_afa8b7f0516288d56e9309aa3eccc3fc0}{Delete}} ()
+\item 
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classSleeper_a78f2edbf28172cd3d1444da4f9167a4c}{Clone}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_af37e1e66eb6fea8adcbc923441ae6738}{Start}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}=nullptr)=0
+\begin{DoxyCompactList}\small\item\em Use this function to allocate memory for the variables that need it and initialize some of them. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}} (void \texorpdfstring{$\ast$}{*}data)=0
+\begin{DoxyCompactList}\small\item\em Use this function to process the data. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Delete}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to free all the memory allocated in the Start method. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Clone}} ()
+\begin{DoxyCompactList}\small\item\em Returns new pointer to a processing unit class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSleeper_a8135aab50578021e4ebd42a289effc55}\label{classSleeper_a8135aab50578021e4ebd42a289effc55} 
+u32 {\bfseries seconds\+\_\+to\+\_\+sleep\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class makes the thread sleep for x seconds, given in the start arguments. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSleeper_a78f2edbf28172cd3d1444da4f9167a4c}\label{classSleeper_a78f2edbf28172cd3d1444da4f9167a4c} 
+\index{Sleeper@{Sleeper}!Clone@{Clone}}
+\index{Clone@{Clone}!Sleeper@{Sleeper}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} Sleeper\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Processing\+Unit\+Interface}}.
+
+\Hypertarget{classSleeper_afa8b7f0516288d56e9309aa3eccc3fc0}\label{classSleeper_afa8b7f0516288d56e9309aa3eccc3fc0} 
+\index{Sleeper@{Sleeper}!Delete@{Delete}}
+\index{Delete@{Delete}!Sleeper@{Sleeper}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void Sleeper\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Processing\+Unit\+Interface}}.
+
+\Hypertarget{classSleeper_a48270b0d03b90826cd665674fe193be8}\label{classSleeper_a48270b0d03b90826cd665674fe193be8} 
+\index{Sleeper@{Sleeper}!Run@{Run}}
+\index{Run@{Run}!Sleeper@{Sleeper}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Sleeper\+::\+Run (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Processing\+Unit\+Interface}}.
+
+\Hypertarget{classSleeper_adf0466b606b7f8bc73059e41a660f2da}\label{classSleeper_adf0466b606b7f8bc73059e41a660f2da} 
+\index{Sleeper@{Sleeper}!Start@{Start}}
+\index{Start@{Start}!Sleeper@{Sleeper}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Sleeper\+::\+Start (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pre\+\_\+process\+\_\+args = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_af37e1e66eb6fea8adcbc923441ae6738}{Processing\+Unit\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/pu/\mbox{\hyperlink{sleeper_8h}{sleeper.\+h}}\item 
+include/definitions/pu/sleeper.\+cc\end{DoxyCompactItemize}

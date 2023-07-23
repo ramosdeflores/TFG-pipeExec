@@ -1,0 +1,67 @@
+\doxysection{semaphore.\+h}
+\hypertarget{semaphore_8h_source}{}\label{semaphore_8h_source}\index{include/headers/semaphore.h@{include/headers/semaphore.h}}
+\mbox{\hyperlink{semaphore_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ LUCID\ (Unified\ Computing\ Image\ and\ Data-\/Processing)\ is\ a\ program\ to\ process}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ any\ type\ of\ data\ concurrently.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2023\ Lucas\ Hernández\ Abreu\ This\ program\ is\ free\ software:\ you}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ can\ redistribute\ it\ and/or\ modify\ it\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Public\ License\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ of\ the\ License,\ or\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ FITNESS}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU\ General\ Public\ License\ for\ more}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ details.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ Author:\ \ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Contact:\ lucas.hernandez.09@ull.edu.es}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ SEMAPHORE\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ SEMAPHORE\_H}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}libraries.h"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSemaphore}{Semaphore}}\ \{}
+\DoxyCodeLine{00045\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159}{LUCIDSemaphoreType}}\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762}{kNone}},\ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159ae8ba5e3963447989950fc80893396936}{kIn}},\ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159a08bbc9b01a0b03bddc8e884c8d2c63df}{kOut}},\ \ }
+\DoxyCodeLine{00059\ \ \ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{comment}{//\ Constructs\ a\ new\ Semaphore\ object}}
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{classSemaphore}{Semaphore}}(\textcolor{keywordtype}{int}\ =\ 0,\ \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159}{LUCIDSemaphoreType}}\ =\ \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762}{LUCIDSemaphoreType::kNone}},}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ Destroys\ the\ Semaphore\ object}}
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{classSemaphore_a633658a6fde276bffc912028725c6ade}{\string~Semaphore}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{comment}{//\ This\ function\ blocks\ the\ calling\ thread\ until\ the\ semaphore\ count\ is}}
+\DoxyCodeLine{00069\ \ \ \textcolor{comment}{//\ greater\ than\ zero.}}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSemaphore_a72aabebf026e3a8b1f3e4d0fa8ee1eda}{Wait}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{comment}{//\ This\ function\ increments\ the\ semaphore\ count\ and\ wakes\ up\ one\ waiting}}
+\DoxyCodeLine{00073\ \ \ \textcolor{comment}{//\ thread,\ if\ there\ is\ any.}}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSemaphore_a86f92f738b4486439b296d8e235895f2}{Signal}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//\ Returns\ the\ current\ count\ of\ the\ semaphore}}
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSemaphore_a3bbd0cd1b7c27fd8fad66ac6108e37fe}{count}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00080\ \ \ std::atomic<int>\ \mbox{\hyperlink{classSemaphore_aa046604ecb9925e22ba54e863c008c99}{count\_}};\ }
+\DoxyCodeLine{00081\ \ \ std::mutex\ \mbox{\hyperlink{classSemaphore_aa43daf51ca98d0b85e60dbbab7cc7656}{mutex\_}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ std::condition\_variable}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \mbox{\hyperlink{classSemaphore_a446c0ed7396ea8bce319f059862a5065}{cond\_var\_}};\ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ std::string\ \mbox{\hyperlink{classSemaphore_a0cb60e93960337c9d9ccce2c97b70b4f}{type\_}};\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSemaphore_a0b544819d589338a078b9560372de915}{debug\_}};\ }
+\DoxyCodeLine{00088\ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

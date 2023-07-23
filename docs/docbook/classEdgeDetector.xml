@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classEdgeDetector" xml:lang="en-US">
+<title>EdgeDetector Class Reference</title>
+<indexterm><primary>EdgeDetector</primary></indexterm>
+<para>
+
+<para>This processing unit detects the borders inside the img and sends them as a new image through the pipe. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;edge_detector.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for EdgeDetector:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classEdgeDetector.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classEdgeDetector_1a648088ce3e3f307c1fdbe9b917fe3ee6"/><emphasis role="strong">EdgeDetector</emphasis> ()</para>
+
+<para>Default constructor for <link linkend="_classEdgeDetector">EdgeDetector</link> class. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classEdgeDetector_1a84d1668be5dd4052278a2cf86802746e"/><emphasis role="strong">~EdgeDetector</emphasis> ()</para>
+
+<para>Destructor of the <link linkend="_classEdgeDetector">EdgeDetector</link> class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classEdgeDetector_1ac9d261edf85853da5786247ff730bf16">Start</link> (void **=nullptr) override</para>
+
+<para>This method allocates memory for the sobel filter and assigns the values. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classEdgeDetector_1a4b4cdcb26d58152eff812ea837fedb2b">Run</link> (void *) override</para>
+
+<para>Gets the <link linkend="_classData">Data</link> and applies the needed methods to detect borders. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classEdgeDetector_1a2ef8d6908a6930e1e26a1554a258b105">Delete</link> () override</para>
+
+<para>Frees the memory of the sobel filters. </para>
+</listitem>
+            <listitem><para><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classEdgeDetector_1a7d60da211152e60b001f96ef1d753bdd">Clone</link> () override</para>
+
+<para>Clones the processing unit. </para>
+</listitem>
+            <listitem><para>int ** <link linkend="_classEdgeDetector_1a7837d8669034b8bf5b575a6d8b68a779">Convolution</link> (int **, int **, int, int)</para>
+
+<para>Applies the convolution of the specified kernel to the image taking into consideration its width and height. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classEdgeDetector_1a9be148339689de7543a5e873a0bd4440">Magnitude</link> (pixel_value **, int **, int **, int, int, int)</para>
+
+<para>Calculates the magnitude between the kernels and puts the data inside the result param in pixel_value(s) </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link> (void **=nullptr)=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link> ()</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Private Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>pixel_value <link linkend="_classEdgeDetector_1ae3c45435623425c2fd17aefc7f041fd8">IntToPixel</link> (int)</para>
+
+<para>Converts from Int to pixel_value(unsigned char) </para>
+</listitem>
+            <listitem><para>int <link linkend="_classEdgeDetector_1a2795b22e7db63bca2444c0fe78e22bef">Bound</link> (int)</para>
+
+<para>Gets the int number to the limits of the unsigned char colors. </para>
+</listitem>
+            <listitem><para>int <link linkend="_classEdgeDetector_1a7a6b2afd25819c254b86a404bb1e1b4a">Hypotenuse</link> (int, int)</para>
+
+<para>Calculates the hypotenuse of two integers. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classEdgeDetector_1a7f8dce1c052d824dff9ad3a3f324f903"/>int ** <emphasis role="strong">sobelx_</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classEdgeDetector_1ae29b5b0c5c60c2c8b75f2841b13d2fc1"/>int ** <emphasis role="strong">sobely_</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classEdgeDetector_1aa992ac08410dc5591ce035a84fdd610f"/>bool <emphasis role="strong">debug_</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This processing unit detects the borders inside the img and sends them as a new image through the pipe. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classEdgeDetector_1a2795b22e7db63bca2444c0fe78e22bef"/><section>
+    <title>Bound()</title>
+<indexterm><primary>Bound</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Bound</secondary></indexterm>
+<para><computeroutput>int EdgeDetector::Bound (int i_val)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Gets the int number to the limits of the unsigned char colors. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>i_val</entry><entry>
+<para>The int param</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The int value below the limit </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classEdgeDetector_1a7d60da211152e60b001f96ef1d753bdd"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * EdgeDetector::Clone ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Clones the processing unit. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A new pointer to the <link linkend="_classEdgeDetector">EdgeDetector</link> class clone </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classEdgeDetector_1a7837d8669034b8bf5b575a6d8b68a779"/><section>
+    <title>Convolution()</title>
+<indexterm><primary>Convolution</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Convolution</secondary></indexterm>
+<para><computeroutput>int ** EdgeDetector::Convolution (int ** kernel, int ** img, int width, int height)</computeroutput></para><para>
+
+<para>Applies the convolution of the specified kernel to the image taking into consideration its width and height. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>kernel</entry><entry>
+<para>A pointer to the matrix with the kernel values (it has to be 3x3) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>img</entry><entry>
+<para>A pointer to the matrix with the values of the img </para>
+</entry>
+                            </row>
+                            <row>
+<entry>width</entry><entry>
+<para>The width of the image </para>
+</entry>
+                            </row>
+                            <row>
+<entry>height</entry><entry>
+<para>The height of the image</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The result of the convolution between the kernel and the img </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classEdgeDetector_1a2ef8d6908a6930e1e26a1554a258b105"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>void EdgeDetector::Delete ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Frees the memory of the sobel filters. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classEdgeDetector_1a7a6b2afd25819c254b86a404bb1e1b4a"/><section>
+    <title>Hypotenuse()</title>
+<indexterm><primary>Hypotenuse</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Hypotenuse</secondary></indexterm>
+<para><computeroutput>int EdgeDetector::Hypotenuse (int a, int b)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Calculates the hypotenuse of two integers. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The result of the calculation as integer </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classEdgeDetector_1ae3c45435623425c2fd17aefc7f041fd8"/><section>
+    <title>IntToPixel()</title>
+<indexterm><primary>IntToPixel</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>IntToPixel</secondary></indexterm>
+<para><computeroutput>pixel_value EdgeDetector::IntToPixel (int i_val)<computeroutput>[private]</computeroutput></computeroutput></para><para>
+
+<para>Converts from Int to pixel_value(unsigned char) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>i_val</entry><entry>
+<para>The int value</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The pixel_value </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_classEdgeDetector_1a9be148339689de7543a5e873a0bd4440"/><section>
+    <title>Magnitude()</title>
+<indexterm><primary>Magnitude</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Magnitude</secondary></indexterm>
+<para><computeroutput>void EdgeDetector::Magnitude (pixel_value ** result, int ** gx, int ** gy, int width, int height, int max_rand)</computeroutput></para><para>
+
+<para>Calculates the magnitude between the kernels and puts the data inside the result param in pixel_value(s) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>result</entry><entry>
+<para>The pointer to the matrix where we&apos;ll write </para>
+</entry>
+                            </row>
+                            <row>
+<entry>gx</entry><entry>
+<para>The result of the convolution by x </para>
+</entry>
+                            </row>
+                            <row>
+<entry>gy</entry><entry>
+<para>The result of the convolution by y </para>
+</entry>
+                            </row>
+                            <row>
+<entry>width</entry><entry>
+<para>The width of the final img </para>
+</entry>
+                            </row>
+                            <row>
+<entry>height</entry><entry>
+<para>The height of the final img </para>
+</entry>
+                            </row>
+                            <row>
+<entry>max_rand</entry><entry>
+<para>The number that we used in the mod operator to limit the rand() result </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_classEdgeDetector_1a4b4cdcb26d58152eff812ea837fedb2b"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>void EdgeDetector::Run (void * data)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Gets the <link linkend="_classData">Data</link> and applies the needed methods to detect borders. </para>
+</para>
+
+<para>Extracts all the information from the <link linkend="_classData">Data</link> object. Once done with it, applies a convolution in X and Y to the image. Then calculates the Magnitude of the results and pushes it to the ExtraData inside the data pointer.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>The data extracted from the in_queue </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classEdgeDetector_1ac9d261edf85853da5786247ff730bf16"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>EdgeDetector</secondary></indexterm>
+<indexterm><primary>EdgeDetector</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>void EdgeDetector::Start (void ** pre_process_args = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>This method allocates memory for the sobel filter and assigns the values. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">ProcessingUnitInterface</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/pu/<link linkend="_edge__detector_8h">edge_detector.h</link>include/definitions/pu/<link linkend="_edge__detector_8cc">edge_detector.cc</link></section>
+</section>

@@ -1,0 +1,245 @@
+\doxysection{Edge\+Detector Class Reference}
+\hypertarget{classEdgeDetector}{}\label{classEdgeDetector}\index{EdgeDetector@{EdgeDetector}}
+
+
+This processing unit detects the borders inside the img and sends them as a new image through the pipe.  
+
+
+
+
+{\ttfamily \#include $<$edge\+\_\+detector.\+h$>$}
+
+Inheritance diagram for Edge\+Detector\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEdgeDetector}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEdgeDetector_a648088ce3e3f307c1fdbe9b917fe3ee6}\label{classEdgeDetector_a648088ce3e3f307c1fdbe9b917fe3ee6} 
+{\bfseries Edge\+Detector} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classEdgeDetector}{Edge\+Detector} class. \end{DoxyCompactList}\item 
+\Hypertarget{classEdgeDetector_a84d1668be5dd4052278a2cf86802746e}\label{classEdgeDetector_a84d1668be5dd4052278a2cf86802746e} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Edge\+Detector} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the \doxylink{classEdgeDetector}{Edge\+Detector} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEdgeDetector_ac9d261edf85853da5786247ff730bf16}{Start}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}=nullptr) override
+\begin{DoxyCompactList}\small\item\em This method allocates memory for the sobel filter and assigns the values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEdgeDetector_a4b4cdcb26d58152eff812ea837fedb2b}{Run}} (void \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Gets the \doxylink{classData}{Data} and applies the needed methods to detect borders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEdgeDetector_a2ef8d6908a6930e1e26a1554a258b105}{Delete}} () override
+\begin{DoxyCompactList}\small\item\em Frees the memory of the sobel filters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd}{Clone}} () override
+\begin{DoxyCompactList}\small\item\em Clones the processing unit. \end{DoxyCompactList}\item 
+int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEdgeDetector_a7837d8669034b8bf5b575a6d8b68a779}{Convolution}} (int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}, int, int)
+\begin{DoxyCompactList}\small\item\em Applies the convolution of the specified kernel to the image taking into consideration its width and height. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEdgeDetector_a9be148339689de7543a5e873a0bd4440}{Magnitude}} (pixel\+\_\+value \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}, int, int, int)
+\begin{DoxyCompactList}\small\item\em Calculates the magnitude between the kernels and puts the data inside the result param in pixel\+\_\+value(s) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_af37e1e66eb6fea8adcbc923441ae6738}{Start}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}=nullptr)=0
+\begin{DoxyCompactList}\small\item\em Use this function to allocate memory for the variables that need it and initialize some of them. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Run}} (void \texorpdfstring{$\ast$}{*}data)=0
+\begin{DoxyCompactList}\small\item\em Use this function to process the data. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Delete}} ()=0
+\begin{DoxyCompactList}\small\item\em Use this function to free all the memory allocated in the Start method. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Clone}} ()
+\begin{DoxyCompactList}\small\item\em Returns new pointer to a processing unit class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+pixel\+\_\+value \mbox{\hyperlink{classEdgeDetector_ae3c45435623425c2fd17aefc7f041fd8}{Int\+To\+Pixel}} (int)
+\begin{DoxyCompactList}\small\item\em Converts from Int to pixel\+\_\+value(unsigned char) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEdgeDetector_a2795b22e7db63bca2444c0fe78e22bef}{Bound}} (int)
+\begin{DoxyCompactList}\small\item\em Gets the int number to the limits of the unsigned char colors. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEdgeDetector_a7a6b2afd25819c254b86a404bb1e1b4a}{Hypotenuse}} (int, int)
+\begin{DoxyCompactList}\small\item\em Calculates the hypotenuse of two integers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEdgeDetector_a7f8dce1c052d824dff9ad3a3f324f903}\label{classEdgeDetector_a7f8dce1c052d824dff9ad3a3f324f903} 
+int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries sobelx\+\_\+}
+\item 
+\Hypertarget{classEdgeDetector_ae29b5b0c5c60c2c8b75f2841b13d2fc1}\label{classEdgeDetector_ae29b5b0c5c60c2c8b75f2841b13d2fc1} 
+int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries sobely\+\_\+}
+\item 
+\Hypertarget{classEdgeDetector_aa992ac08410dc5591ce035a84fdd610f}\label{classEdgeDetector_aa992ac08410dc5591ce035a84fdd610f} 
+bool {\bfseries debug\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This processing unit detects the borders inside the img and sends them as a new image through the pipe. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEdgeDetector_a2795b22e7db63bca2444c0fe78e22bef}\label{classEdgeDetector_a2795b22e7db63bca2444c0fe78e22bef} 
+\index{EdgeDetector@{EdgeDetector}!Bound@{Bound}}
+\index{Bound@{Bound}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Bound()}{Bound()}}
+{\footnotesize\ttfamily int Edge\+Detector\+::\+Bound (\begin{DoxyParamCaption}\item[{int}]{i\+\_\+val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the int number to the limits of the unsigned char colors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+\_\+val} & The int param\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The int value below the limit 
+\end{DoxyReturn}
+\Hypertarget{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd}\label{classEdgeDetector_a7d60da211152e60b001f96ef1d753bdd} 
+\index{EdgeDetector@{EdgeDetector}!Clone@{Clone}}
+\index{Clone@{Clone}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} Edge\+Detector\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Clones the processing unit. 
+
+\begin{DoxyReturn}{Returns}
+A new pointer to the \doxylink{classEdgeDetector}{Edge\+Detector} class clone 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classProcessingUnitInterface_a158005e77f828947eaae545a77bbaebd}{Processing\+Unit\+Interface}}.
+
+\Hypertarget{classEdgeDetector_a7837d8669034b8bf5b575a6d8b68a779}\label{classEdgeDetector_a7837d8669034b8bf5b575a6d8b68a779} 
+\index{EdgeDetector@{EdgeDetector}!Convolution@{Convolution}}
+\index{Convolution@{Convolution}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Convolution()}{Convolution()}}
+{\footnotesize\ttfamily int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Edge\+Detector\+::\+Convolution (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{kernel,  }\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{img,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Applies the convolution of the specified kernel to the image taking into consideration its width and height. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kernel} & A pointer to the matrix with the kernel values (it has to be 3x3) \\
+\hline
+{\em img} & A pointer to the matrix with the values of the img \\
+\hline
+{\em width} & The width of the image \\
+\hline
+{\em height} & The height of the image\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the convolution between the kernel and the img 
+\end{DoxyReturn}
+\Hypertarget{classEdgeDetector_a2ef8d6908a6930e1e26a1554a258b105}\label{classEdgeDetector_a2ef8d6908a6930e1e26a1554a258b105} 
+\index{EdgeDetector@{EdgeDetector}!Delete@{Delete}}
+\index{Delete@{Delete}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void Edge\+Detector\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Frees the memory of the sobel filters. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a8bdb92bc733f84da5c6aca9db7e2c2e3}{Processing\+Unit\+Interface}}.
+
+\Hypertarget{classEdgeDetector_a7a6b2afd25819c254b86a404bb1e1b4a}\label{classEdgeDetector_a7a6b2afd25819c254b86a404bb1e1b4a} 
+\index{EdgeDetector@{EdgeDetector}!Hypotenuse@{Hypotenuse}}
+\index{Hypotenuse@{Hypotenuse}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Hypotenuse()}{Hypotenuse()}}
+{\footnotesize\ttfamily int Edge\+Detector\+::\+Hypotenuse (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates the hypotenuse of two integers. 
+
+\begin{DoxyReturn}{Returns}
+The result of the calculation as integer 
+\end{DoxyReturn}
+\Hypertarget{classEdgeDetector_ae3c45435623425c2fd17aefc7f041fd8}\label{classEdgeDetector_ae3c45435623425c2fd17aefc7f041fd8} 
+\index{EdgeDetector@{EdgeDetector}!IntToPixel@{IntToPixel}}
+\index{IntToPixel@{IntToPixel}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{IntToPixel()}{IntToPixel()}}
+{\footnotesize\ttfamily pixel\+\_\+value Edge\+Detector\+::\+Int\+To\+Pixel (\begin{DoxyParamCaption}\item[{int}]{i\+\_\+val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Converts from Int to pixel\+\_\+value(unsigned char) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+\_\+val} & The int value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pixel\+\_\+value 
+\end{DoxyReturn}
+\Hypertarget{classEdgeDetector_a9be148339689de7543a5e873a0bd4440}\label{classEdgeDetector_a9be148339689de7543a5e873a0bd4440} 
+\index{EdgeDetector@{EdgeDetector}!Magnitude@{Magnitude}}
+\index{Magnitude@{Magnitude}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Magnitude()}{Magnitude()}}
+{\footnotesize\ttfamily void Edge\+Detector\+::\+Magnitude (\begin{DoxyParamCaption}\item[{pixel\+\_\+value \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{result,  }\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{gx,  }\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{gy,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{max\+\_\+rand }\end{DoxyParamCaption})}
+
+
+
+Calculates the magnitude between the kernels and puts the data inside the result param in pixel\+\_\+value(s) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & The pointer to the matrix where we\textquotesingle{}ll write \\
+\hline
+{\em gx} & The result of the convolution by x \\
+\hline
+{\em gy} & The result of the convolution by y \\
+\hline
+{\em width} & The width of the final img \\
+\hline
+{\em height} & The height of the final img \\
+\hline
+{\em max\+\_\+rand} & The number that we used in the mod operator to limit the rand() result \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEdgeDetector_a4b4cdcb26d58152eff812ea837fedb2b}\label{classEdgeDetector_a4b4cdcb26d58152eff812ea837fedb2b} 
+\index{EdgeDetector@{EdgeDetector}!Run@{Run}}
+\index{Run@{Run}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Edge\+Detector\+::\+Run (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the \doxylink{classData}{Data} and applies the needed methods to detect borders. 
+
+Extracts all the information from the \doxylink{classData}{Data} object. Once done with it, applies a convolution in X and Y to the image. Then calculates the Magnitude of the results and pushes it to the Extra\+Data inside the data pointer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data extracted from the in\+\_\+queue \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_a7361ce594068a2366049238ada8ec1a2}{Processing\+Unit\+Interface}}.
+
+\Hypertarget{classEdgeDetector_ac9d261edf85853da5786247ff730bf16}\label{classEdgeDetector_ac9d261edf85853da5786247ff730bf16} 
+\index{EdgeDetector@{EdgeDetector}!Start@{Start}}
+\index{Start@{Start}!EdgeDetector@{EdgeDetector}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Edge\+Detector\+::\+Start (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pre\+\_\+process\+\_\+args = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This method allocates memory for the sobel filter and assigns the values. 
+
+
+
+Implements \mbox{\hyperlink{classProcessingUnitInterface_af37e1e66eb6fea8adcbc923441ae6738}{Processing\+Unit\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/pu/\mbox{\hyperlink{edge__detector_8h}{edge\+\_\+detector.\+h}}\item 
+include/definitions/pu/\mbox{\hyperlink{edge__detector_8cc}{edge\+\_\+detector.\+cc}}\end{DoxyCompactItemize}

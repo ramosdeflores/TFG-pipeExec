@@ -1,0 +1,341 @@
+\doxysection{Pipe\+Node Class Reference}
+\hypertarget{classPipeNode}{}\label{classPipeNode}\index{PipeNode@{PipeNode}}
+
+
+Class representing a single node in a processing pipeline.  
+
+
+
+
+{\ttfamily \#include $<$pipe\+\_\+node.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPipeNode_ad24c37eb9243c1dbb0bca25a4e8cf699}\label{classPipeNode_ad24c37eb9243c1dbb0bca25a4e8cf699} 
+{\bfseries Pipe\+Node} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classPipeNode}{Pipe\+Node}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPipeNode_aa845c038a5a0cec0d7a76bdbdaae382a}{\texorpdfstring{$\sim$}{\string~}\+Pipe\+Node}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classPipeNode}{Pipe\+Node}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipeNode_aee893efff96790208b8ca4469e21f26d}{End\+Node\+Work}} ()
+\begin{DoxyCompactList}\small\item\em Signals the end of the node\textquotesingle{}s work. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classPipeNode_a5d4eee423eaefa255532aac5d68aacbc}{in\+\_\+data\+\_\+queue}} ()
+\begin{DoxyCompactList}\small\item\em Gets the input memory manager of the current node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classPipeNode_ad06aef994e3f4a41cde68a29cad0e5c0}{out\+\_\+data\+\_\+queue}} ()
+\begin{DoxyCompactList}\small\item\em Gets the output memory manager of the current node. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPipeNode_a703936474508a2dcc03643b8cbb9e35d}{last\+\_\+node}} ()
+\begin{DoxyCompactList}\small\item\em Gets whether the current node is the last node in the pipeline. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classPipeNode_aae68211b26349c699135f30fb76540ab}{processing\+\_\+unit}} ()
+\begin{DoxyCompactList}\small\item\em Gets the processing unit of the current node. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPipeNode_aa99e2f1c40b8ed2f01da35044b5779c7}{number\+\_\+of\+\_\+instances}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of instances of the current node. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPipeNode_a3a2f162f338c771444e6f0de92ab057f}{node\+\_\+id}} ()
+\begin{DoxyCompactList}\small\item\em Gets the ID of the current node. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::thread \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{classPipeNode_a37b0c6cca6f94cf29ba03b136a308f46}{running\+\_\+threads}} ()
+\begin{DoxyCompactList}\small\item\em Gets a vector of running threads for the current node. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classPipeNode_a853680b56049dc32cba7abb4fba4602a}{extra\+\_\+args}} ()
+\begin{DoxyCompactList}\small\item\em Get the array of extra args. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipeNode_af3487d5c30cd581c228e48f9276b753e}{in\+\_\+data\+\_\+queue}} (\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Sets the input memory manager of the current node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipeNode_a6d07beb25f5a142d05f2acae5fa7bd68}{out\+\_\+data\+\_\+queue}} (\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Sets the output memory manager of the current node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipeNode_aff700133104811d213cd5cf430affaf0}{last\+\_\+node}} (bool)
+\begin{DoxyCompactList}\small\item\em Sets the boolean indicating if the node is the last in the pipeline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipeNode_a4d2279b7c5d6874eaec3aa33253a2d76}{processing\+\_\+unit}} (\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Sets the processing unit of the node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipeNode_ae5193f9b6ce4678cd4120ef2cb286dae}{number\+\_\+of\+\_\+instances}} (int)
+\begin{DoxyCompactList}\small\item\em Sets the number of instances of the current node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipeNode_a4626a9620b07a42b627fdb2dbe0c478a}{node\+\_\+id}} (int)
+\begin{DoxyCompactList}\small\item\em Sets the ID of the current node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipeNode_a82034beec3b84609dee6c4b2c37fdd53}{Push\+Thread}} (std\+::thread \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Pushes the thread to the list of running threads. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipeNode_a4bf821b2dcad4b84f70c6c5d3e0efd1b}{extra\+\_\+args}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Sets the extra args for the current node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPipeNode_a6be5d9ad9f2430bb2d81072810fc4f11}\label{classPipeNode_a6be5d9ad9f2430bb2d81072810fc4f11} 
+int {\bfseries node\+\_\+id\+\_\+}
+\begin{DoxyCompactList}\small\item\em Id of the node. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_af9c41efacb66b6d094ce8aaea3510ef8}\label{classPipeNode_af9c41efacb66b6d094ce8aaea3510ef8} 
+int {\bfseries number\+\_\+of\+\_\+instances\+\_\+}
+\begin{DoxyCompactList}\small\item\em Number of instances of the processing unit. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_a928e1ff0d25958be9815ff2790ff67eb}\label{classPipeNode_a928e1ff0d25958be9815ff2790ff67eb} 
+\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries in\+\_\+data\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the input data queue. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_a6812a42f8c07c2093b8060e7953e2158}\label{classPipeNode_a6812a42f8c07c2093b8060e7953e2158} 
+\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries out\+\_\+data\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the output data queue. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_a5a2f0fa30d88fec4edd645322a4dfc58}\label{classPipeNode_a5a2f0fa30d88fec4edd645322a4dfc58} 
+\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} {\bfseries processing\+\_\+unit\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the Processing\+Unit to use. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_a918c14b7dfa050206f4e2b27d09e3cd5}\label{classPipeNode_a918c14b7dfa050206f4e2b27d09e3cd5} 
+bool {\bfseries is\+\_\+last\+\_\+node\+\_\+}
+\begin{DoxyCompactList}\small\item\em True if it\textquotesingle{}s the last node. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_acc5d119c7b2977ece88182a445928aac}\label{classPipeNode_acc5d119c7b2977ece88182a445928aac} 
+std\+::vector$<$ std\+::thread \texorpdfstring{$\ast$}{*} $>$ {\bfseries running\+\_\+threads\+\_\+}
+\begin{DoxyCompactList}\small\item\em The list with the running threads. \end{DoxyCompactList}\item 
+\Hypertarget{classPipeNode_ae5762f10cbd05fdfce1c5da3ea435f12}\label{classPipeNode_ae5762f10cbd05fdfce1c5da3ea435f12} 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries extra\+\_\+args\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a single node in a processing pipeline. 
+
+This class represents a single node in a processing pipeline. It contains a processing unit interface which is used to process the input data from the previous node, and produce output data for the next node. It also contains input and output memory managers for communication with the previous and next nodes. Each node is executed in its own thread. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPipeNode_aa845c038a5a0cec0d7a76bdbdaae382a}\label{classPipeNode_aa845c038a5a0cec0d7a76bdbdaae382a} 
+\index{PipeNode@{PipeNode}!````~PipeNode@{\texorpdfstring{$\sim$}{\string~}PipeNode}}
+\index{````~PipeNode@{\texorpdfstring{$\sim$}{\string~}PipeNode}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PipeNode()}{\string~PipeNode()}}
+{\footnotesize\ttfamily Pipe\+Node\+::\texorpdfstring{$\sim$}{\string~}\+Pipe\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \doxylink{classPipeNode}{Pipe\+Node}. 
+
+Joins all the running threads 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPipeNode_aee893efff96790208b8ca4469e21f26d}\label{classPipeNode_aee893efff96790208b8ca4469e21f26d} 
+\index{PipeNode@{PipeNode}!EndNodeWork@{EndNodeWork}}
+\index{EndNodeWork@{EndNodeWork}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{EndNodeWork()}{EndNodeWork()}}
+{\footnotesize\ttfamily void Pipe\+Node\+::\+End\+Node\+Work (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Signals the end of the node\textquotesingle{}s work. 
+
+This method signals the end of the node\textquotesingle{}s work, and ensures that all threads have finished execution before returning. \Hypertarget{classPipeNode_a853680b56049dc32cba7abb4fba4602a}\label{classPipeNode_a853680b56049dc32cba7abb4fba4602a} 
+\index{PipeNode@{PipeNode}!extra\_args@{extra\_args}}
+\index{extra\_args@{extra\_args}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{extra\_args()}{extra\_args()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Pipe\+Node\+::extra\+\_\+args (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the array of extra args. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the array of extra args 
+\end{DoxyReturn}
+\Hypertarget{classPipeNode_a4bf821b2dcad4b84f70c6c5d3e0efd1b}\label{classPipeNode_a4bf821b2dcad4b84f70c6c5d3e0efd1b} 
+\index{PipeNode@{PipeNode}!extra\_args@{extra\_args}}
+\index{extra\_args@{extra\_args}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{extra\_args()}{extra\_args()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pipe\+Node\+::extra\+\_\+args (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+
+
+Sets the extra args for the current node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & The pointer to the array of args \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPipeNode_a5d4eee423eaefa255532aac5d68aacbc}\label{classPipeNode_a5d4eee423eaefa255532aac5d68aacbc} 
+\index{PipeNode@{PipeNode}!in\_data\_queue@{in\_data\_queue}}
+\index{in\_data\_queue@{in\_data\_queue}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{in\_data\_queue()}{in\_data\_queue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*} Pipe\+Node\+::in\+\_\+data\+\_\+queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the input memory manager of the current node. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the input memory manager of the current node 
+\end{DoxyReturn}
+\Hypertarget{classPipeNode_af3487d5c30cd581c228e48f9276b753e}\label{classPipeNode_af3487d5c30cd581c228e48f9276b753e} 
+\index{PipeNode@{PipeNode}!in\_data\_queue@{in\_data\_queue}}
+\index{in\_data\_queue@{in\_data\_queue}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{in\_data\_queue()}{in\_data\_queue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pipe\+Node\+::in\+\_\+data\+\_\+queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*}}]{data\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Sets the input memory manager of the current node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+data\+\_\+queue} & A pointer to the input memory manager of the current node \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPipeNode_a703936474508a2dcc03643b8cbb9e35d}\label{classPipeNode_a703936474508a2dcc03643b8cbb9e35d} 
+\index{PipeNode@{PipeNode}!last\_node@{last\_node}}
+\index{last\_node@{last\_node}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{last\_node()}{last\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Pipe\+Node\+::last\+\_\+node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets whether the current node is the last node in the pipeline. 
+
+\begin{DoxyReturn}{Returns}
+True if the current node is the last node in the pipeline, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classPipeNode_aff700133104811d213cd5cf430affaf0}\label{classPipeNode_aff700133104811d213cd5cf430affaf0} 
+\index{PipeNode@{PipeNode}!last\_node@{last\_node}}
+\index{last\_node@{last\_node}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{last\_node()}{last\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pipe\+Node\+::last\+\_\+node (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+last\+\_\+node }\end{DoxyParamCaption})}
+
+
+
+Sets the boolean indicating if the node is the last in the pipeline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & -\/ a boolean indicating if the node is the last in the pipeline \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPipeNode_a3a2f162f338c771444e6f0de92ab057f}\label{classPipeNode_a3a2f162f338c771444e6f0de92ab057f} 
+\index{PipeNode@{PipeNode}!node\_id@{node\_id}}
+\index{node\_id@{node\_id}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{node\_id()}{node\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Pipe\+Node\+::node\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the ID of the current node. 
+
+\begin{DoxyReturn}{Returns}
+The ID of the current node 
+\end{DoxyReturn}
+\Hypertarget{classPipeNode_a4626a9620b07a42b627fdb2dbe0c478a}\label{classPipeNode_a4626a9620b07a42b627fdb2dbe0c478a} 
+\index{PipeNode@{PipeNode}!node\_id@{node\_id}}
+\index{node\_id@{node\_id}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{node\_id()}{node\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pipe\+Node\+::node\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Sets the ID of the current node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+id} & The ID of the current node \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPipeNode_aa99e2f1c40b8ed2f01da35044b5779c7}\label{classPipeNode_aa99e2f1c40b8ed2f01da35044b5779c7} 
+\index{PipeNode@{PipeNode}!number\_of\_instances@{number\_of\_instances}}
+\index{number\_of\_instances@{number\_of\_instances}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{number\_of\_instances()}{number\_of\_instances()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Pipe\+Node\+::number\+\_\+of\+\_\+instances (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of instances of the current node. 
+
+\begin{DoxyReturn}{Returns}
+The number of instances of the current node 
+\end{DoxyReturn}
+\Hypertarget{classPipeNode_ae5193f9b6ce4678cd4120ef2cb286dae}\label{classPipeNode_ae5193f9b6ce4678cd4120ef2cb286dae} 
+\index{PipeNode@{PipeNode}!number\_of\_instances@{number\_of\_instances}}
+\index{number\_of\_instances@{number\_of\_instances}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{number\_of\_instances()}{number\_of\_instances()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pipe\+Node\+::number\+\_\+of\+\_\+instances (\begin{DoxyParamCaption}\item[{int}]{instances\+\_\+number }\end{DoxyParamCaption})}
+
+
+
+Sets the number of instances of the current node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+of\+\_\+instances} & The number of instances of the current node \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPipeNode_ad06aef994e3f4a41cde68a29cad0e5c0}\label{classPipeNode_ad06aef994e3f4a41cde68a29cad0e5c0} 
+\index{PipeNode@{PipeNode}!out\_data\_queue@{out\_data\_queue}}
+\index{out\_data\_queue@{out\_data\_queue}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{out\_data\_queue()}{out\_data\_queue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*} Pipe\+Node\+::out\+\_\+data\+\_\+queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the output memory manager of the current node. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the output memory manager of the current node 
+\end{DoxyReturn}
+\Hypertarget{classPipeNode_a6d07beb25f5a142d05f2acae5fa7bd68}\label{classPipeNode_a6d07beb25f5a142d05f2acae5fa7bd68} 
+\index{PipeNode@{PipeNode}!out\_data\_queue@{out\_data\_queue}}
+\index{out\_data\_queue@{out\_data\_queue}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{out\_data\_queue()}{out\_data\_queue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pipe\+Node\+::out\+\_\+data\+\_\+queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMemoryManager}{Memory\+Manager}} \texorpdfstring{$\ast$}{*}}]{data\+\_\+out }\end{DoxyParamCaption})}
+
+
+
+Sets the output memory manager of the current node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+data\+\_\+queue} & A pointer to the output memory manager of the current node \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPipeNode_aae68211b26349c699135f30fb76540ab}\label{classPipeNode_aae68211b26349c699135f30fb76540ab} 
+\index{PipeNode@{PipeNode}!processing\_unit@{processing\_unit}}
+\index{processing\_unit@{processing\_unit}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{processing\_unit()}{processing\_unit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*} Pipe\+Node\+::processing\+\_\+unit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the processing unit of the current node. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the processing unit of the current node 
+\end{DoxyReturn}
+\Hypertarget{classPipeNode_a4d2279b7c5d6874eaec3aa33253a2d76}\label{classPipeNode_a4d2279b7c5d6874eaec3aa33253a2d76} 
+\index{PipeNode@{PipeNode}!processing\_unit@{processing\_unit}}
+\index{processing\_unit@{processing\_unit}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{processing\_unit()}{processing\_unit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pipe\+Node\+::processing\+\_\+unit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} \texorpdfstring{$\ast$}{*}}]{processing\+\_\+unit }\end{DoxyParamCaption})}
+
+
+
+Sets the processing unit of the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{classProcessingUnitInterface}{Processing\+Unit\+Interface}} & \texorpdfstring{$\ast$}{*} -\/ a pointer to the processing unit of the node \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPipeNode_a82034beec3b84609dee6c4b2c37fdd53}\label{classPipeNode_a82034beec3b84609dee6c4b2c37fdd53} 
+\index{PipeNode@{PipeNode}!PushThread@{PushThread}}
+\index{PushThread@{PushThread}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{PushThread()}{PushThread()}}
+{\footnotesize\ttfamily void Pipe\+Node\+::\+Push\+Thread (\begin{DoxyParamCaption}\item[{std\+::thread \texorpdfstring{$\ast$}{*}}]{thread }\end{DoxyParamCaption})}
+
+
+
+Pushes the thread to the list of running threads. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em thread} & The thread to push to the list of running threads \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPipeNode_a37b0c6cca6f94cf29ba03b136a308f46}\label{classPipeNode_a37b0c6cca6f94cf29ba03b136a308f46} 
+\index{PipeNode@{PipeNode}!running\_threads@{running\_threads}}
+\index{running\_threads@{running\_threads}!PipeNode@{PipeNode}}
+\doxysubsubsection{\texorpdfstring{running\_threads()}{running\_threads()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::thread \texorpdfstring{$\ast$}{*} $>$ \& Pipe\+Node\+::running\+\_\+threads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a vector of running threads for the current node. 
+
+\begin{DoxyReturn}{Returns}
+A vector of running threads for the current node 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/\mbox{\hyperlink{pipe__node_8h}{pipe\+\_\+node.\+h}}\item 
+include/definitions/\mbox{\hyperlink{pipe__node_8cc}{pipe\+\_\+node.\+cc}}\end{DoxyCompactItemize}

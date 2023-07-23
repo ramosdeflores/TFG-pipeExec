@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_edge__detector_8cc" xml:lang="en-US">
+<title>include/definitions/pu/edge_detector.cc File Reference</title>
+<indexterm><primary>include/definitions/pu/edge_detector.cc</primary></indexterm>
+<para>
+
+<para>The definition file for the <link linkend="_classEdgeDetector">EdgeDetector</link> processing unit. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;../../headers/pu/edge_detector.h&quot;<?linebreak?>#include &lt;cmath&gt;<?linebreak?>#include &lt;cstdio&gt;<?linebreak?></programlisting><section>
+<title>Detailed Description</title>
+
+<para>The definition file for the <link linkend="_classEdgeDetector">EdgeDetector</link> processing unit. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Lucas Hernández Abreu Contact: <link xlink:href="mailto:lucas.hernandez.09@ull.edu.es">lucas.hernandez.09@ull.edu.es</link> </para>
+</formalpara>
+</para>
+</section>
+</section>

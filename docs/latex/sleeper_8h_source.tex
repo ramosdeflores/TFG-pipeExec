@@ -1,0 +1,58 @@
+\doxysection{sleeper.\+h}
+\hypertarget{sleeper_8h_source}{}\label{sleeper_8h_source}\index{include/headers/pu/sleeper.h@{include/headers/pu/sleeper.h}}
+\mbox{\hyperlink{sleeper_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ LUCID\ (Unified\ Computing\ Image\ and\ Data-\/Processing)\ is\ a\ program\ to\ process}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ any\ type\ of\ data\ concurrently.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2023\ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ This\ program\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Author:\ \ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Contact:\ lucas.hernandez.09@ull.edu.es}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ SLEEPER\_H}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ SLEEPER\_H}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}../../headers/processing\_unit\_interface.h"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSleeper}{Sleeper}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ \{}
+\DoxyCodeLine{00043\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ Default\ constructor}}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{classSleeper_a60064cb7dd35f6c55fca7e814606de3b}{Sleeper}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ Default\ destructor}}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{classSleeper_af03ece44ce961f8c2701fe1c4b0a95bd}{\string~Sleeper}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ This\ method\ receives\ the\ arguments\ for\ the\ sleeping\ time}}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ Start(\textcolor{keywordtype}{void}\ **\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ This\ method\ sets\ the\ thread\ to\ sleep\ for\ x\ seconds}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ Run(\textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{comment}{//\ Does\ nothing}}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ Delete();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{//\ This\ function\ clones\ the\ instance\ of\ the\ sleeper\ procesing\ unit}}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{classProcessingUnitInterface}{ProcessingUnitInterface}}\ *Clone();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ u32\ seconds\_to\_sleep\_;}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ SLEEPER\_H}}
+
+\end{DoxyCode}

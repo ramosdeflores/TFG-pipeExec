@@ -1,0 +1,135 @@
+\doxysection{Data Class Reference}
+\hypertarget{classData}{}\label{classData}\index{Data@{Data}}
+
+
+A \doxylink{classData}{Data} class that provides access to various forms of manipulation and allocation for the processing units.  
+
+
+
+
+{\ttfamily \#include $<$data.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structData_1_1DataKey}{Data\+Key}}
+\begin{DoxyCompactList}\small\item\em This structure works like a std\+::pair but its member names are meaningful and are used to store data paired to a particular key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classData_a3718d1cee763b61790476340ae048522}{Data}} (void \texorpdfstring{$\ast$}{*}, bool=false)
+\begin{DoxyCompactList}\small\item\em Constructor of the \doxylink{classData}{Data} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classData_aab31956423290f0d62dcca47ab4d16dd}{\texorpdfstring{$\sim$}{\string~}\+Data}} ()
+\begin{DoxyCompactList}\small\item\em The data destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classData_a9910d080ca028a52d61408b4dec7b135}{Push\+Extra\+Data}} (\mbox{\hyperlink{structData_1_1DataKey}{Data\+Key}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Pushes data to the extra data vector to be accessed later on if needed. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classData_a97e6952ad6dff622cb9e51d1fcbda74f}{Get\+Extra\+Data}} (std\+::string)
+\begin{DoxyCompactList}\small\item\em Looks for the extra data by the key given. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classData_afe99ebac219f3ea692b9ebd3315b8cdd}{data}} ()
+\begin{DoxyCompactList}\small\item\em Returns the initial stored data inside the class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classData_adacad9b5b70a10592f31f687a5a0b4b9}\label{classData_adacad9b5b70a10592f31f687a5a0b4b9} 
+void \texorpdfstring{$\ast$}{*} {\bfseries data\+\_\+}
+\item 
+\Hypertarget{classData_a1f5a5d7ef2e41ed76ae6ba16fe512f46}\label{classData_a1f5a5d7ef2e41ed76ae6ba16fe512f46} 
+unsigned int {\bfseries index\+\_\+}
+\item 
+\Hypertarget{classData_a2b56c40966f3a00419c2ed189e0b7496}\label{classData_a2b56c40966f3a00419c2ed189e0b7496} 
+std\+::vector$<$ \mbox{\hyperlink{structData_1_1DataKey}{Data\+Key}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries extra\+\_\+data\+\_\+}
+\item 
+\Hypertarget{classData_a4251526e1edf8a38af37cd55e2e03d5e}\label{classData_a4251526e1edf8a38af37cd55e2e03d5e} 
+bool {\bfseries debug\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \doxylink{classData}{Data} class that provides access to various forms of manipulation and allocation for the processing units. 
+
+This class provides functionallity to store multiple data via keys and a pointer to the original data that was stored initially with the creation of the class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classData_a3718d1cee763b61790476340ae048522}\label{classData_a3718d1cee763b61790476340ae048522} 
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{bool}]{debug = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Constructor of the \doxylink{classData}{Data} class. 
+
+Given the initial data allocated it gets it into a wrapper where you can put extra data. This extra-\/data can be outputed from any of the processing units and given a key to be recognizable for each contiguous processing unit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The initial data to assign to the class. It will be used ass the carrier for all the next data in the class. \\
+\hline
+{\em debug} & The debug flag for showing the information inside the \doxylink{classData}{Data} class \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classData_aab31956423290f0d62dcca47ab4d16dd}\label{classData_aab31956423290f0d62dcca47ab4d16dd} 
+\index{Data@{Data}!````~Data@{\texorpdfstring{$\sim$}{\string~}Data}}
+\index{````~Data@{\texorpdfstring{$\sim$}{\string~}Data}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Data()}{\string~Data()}}
+{\footnotesize\ttfamily Data\+::\texorpdfstring{$\sim$}{\string~}\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The data destructor. 
+
+Don\textquotesingle{}t know what to do with it yet 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classData_afe99ebac219f3ea692b9ebd3315b8cdd}\label{classData_afe99ebac219f3ea692b9ebd3315b8cdd} 
+\index{Data@{Data}!data@{data}}
+\index{data@{data}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Data\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the initial stored data inside the class. 
+
+\begin{DoxyReturn}{Returns}
+The pointer to the data 
+\end{DoxyReturn}
+\Hypertarget{classData_a97e6952ad6dff622cb9e51d1fcbda74f}\label{classData_a97e6952ad6dff622cb9e51d1fcbda74f} 
+\index{Data@{Data}!GetExtraData@{GetExtraData}}
+\index{GetExtraData@{GetExtraData}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{GetExtraData()}{GetExtraData()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Data\+::\+Get\+Extra\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{key }\end{DoxyParamCaption})}
+
+
+
+Looks for the extra data by the key given. 
+
+Given a key, it iterates through a vector looking for an specific pair \{key, data\}. If its found it returns the pointer to the data. Else it returns a nullptr
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to lookup in the vector \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classData_a9910d080ca028a52d61408b4dec7b135}\label{classData_a9910d080ca028a52d61408b4dec7b135} 
+\index{Data@{Data}!PushExtraData@{PushExtraData}}
+\index{PushExtraData@{PushExtraData}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{PushExtraData()}{PushExtraData()}}
+{\footnotesize\ttfamily void Data\+::\+Push\+Extra\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structData_1_1DataKey}{Data\+Key}} \texorpdfstring{$\ast$}{*}}]{extra\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Pushes data to the extra data vector to be accessed later on if needed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em extra\+\_\+data} & The struct \{key, data\} to push to the vector \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/\mbox{\hyperlink{data_8h}{data.\+h}}\item 
+include/definitions/\mbox{\hyperlink{data_8cc}{data.\+cc}}\end{DoxyCompactItemize}

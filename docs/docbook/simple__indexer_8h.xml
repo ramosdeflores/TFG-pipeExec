@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_simple__indexer_8h" xml:lang="en-US">
+<title>include/headers/pu/simple_indexer.h File Reference</title>
+<indexterm><primary>include/headers/pu/simple_indexer.h</primary></indexterm>
+<para>
+
+<para>The header file for the <link linkend="_classSimpleIndexer">SimpleIndexer</link> processing unit. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;../processing_unit_interface.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classSimpleIndexer">SimpleIndexer</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The header file for the <link linkend="_classSimpleIndexer">SimpleIndexer</link> processing unit. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Lucas Hernández Abreu Contact: <link xlink:href="mailto:lucas.hernandez.09@ull.edu.es">lucas.hernandez.09@ull.edu.es</link> </para>
+</formalpara>
+</para>
+</section>
+</section>

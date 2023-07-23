@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_double__pipe__main_8cc_source" xml:lang="en-US">
+<title>double_pipe_main.cc</title>
+<indexterm><primary>src/double_pipe_main.cc</primary></indexterm>
+<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
+2 <emphasis role="comment">&#32;*&#32;LUCID&#32;(Unified&#32;Computing&#32;Image&#32;and&#32;Data-Processing)&#32;is&#32;a&#32;program&#32;to&#32;process</emphasis>
+3 <emphasis role="comment">&#32;*&#32;any&#32;type&#32;of&#32;data&#32;concurrently.&#32;Copyright&#32;(C)&#32;2023&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
+4 <emphasis role="comment">&#32;*</emphasis>
+5 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;free&#32;software:&#32;you&#32;can&#32;redistribute&#32;it&#32;and/or&#32;modify</emphasis>
+6 <emphasis role="comment">&#32;*&#32;it&#32;under&#32;the&#32;terms&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;as&#32;published&#32;by&#32;the&#32;Free</emphasis>
+7 <emphasis role="comment">&#32;*&#32;Software&#32;Foundation,&#32;either&#32;version&#32;3&#32;of&#32;the&#32;License,&#32;or&#32;(at&#32;your&#32;option)&#32;any</emphasis>
+8 <emphasis role="comment">&#32;*&#32;later&#32;version.</emphasis>
+9 <emphasis role="comment">&#32;*</emphasis>
+10 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;distributed&#32;in&#32;the&#32;hope&#32;that&#32;it&#32;will&#32;be&#32;useful,&#32;but&#32;WITHOUT</emphasis>
+11 <emphasis role="comment">&#32;*&#32;ANY&#32;WARRANTY;&#32;without&#32;even&#32;the&#32;implied&#32;warranty&#32;of&#32;MERCHANTABILITY&#32;or&#32;FITNESS</emphasis>
+12 <emphasis role="comment">&#32;*&#32;FOR&#32;A&#32;PARTICULAR&#32;PURPOSE.&#32;&#32;See&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;for&#32;more</emphasis>
+13 <emphasis role="comment">&#32;*&#32;details.</emphasis>
+14 <emphasis role="comment">&#32;*</emphasis>
+15 <emphasis role="comment">&#32;*&#32;You&#32;should&#32;have&#32;received&#32;a&#32;copy&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License</emphasis>
+16 <emphasis role="comment">&#32;*&#32;along&#32;with&#32;this&#32;program.&#32;&#32;If&#32;not,&#32;see&#32;&lt;https://www.gnu.org/licenses/&gt;.</emphasis>
+17 <emphasis role="comment">&#32;*</emphasis>
+18 <emphasis role="comment">&#32;*&#32;Author:&#32;&#32;Lucas&#32;Hernández&#32;Abreu&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
+19 <emphasis role="comment">&#32;*/</emphasis>
+20 
+21 <emphasis role="preprocessor">#include&#32;&lt;ctime&gt;</emphasis>
+22 
+23 <emphasis role="preprocessor">#include&#32;&quot;processing_units.h&quot;</emphasis>
+24 
+25 <emphasis role="keywordtype">int</emphasis>&#32;DoublePipeMain(<emphasis role="keywordtype">bool</emphasis>&#32;debug_flag,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;pu_debug_flag,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;profiling)&#32;{
+26 &#32;&#32;<link linkend="_classDoublePipe">DoublePipe</link>&#32;double_pipe;
+27 &#32;&#32;<link linkend="_classNumberPrinter">NumberPrinter</link>&#32;printer;
+28 &#32;&#32;<link linkend="_classMemoryManager">MemoryManager</link>&#32;*data_in&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classMemoryManager">MemoryManager</link>(5,&#32;debug_flag);
+29 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;it&#32;=&#32;0;&#32;it&#32;&lt;&#32;5;&#32;++it)&#32;{
+30 &#32;&#32;&#32;&#32;<link linkend="_classData">Data</link>&#32;*holder&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classData">Data</link>(<emphasis role="keyword">new</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>(0));
+31 &#32;&#32;&#32;&#32;data_in-&gt;<link linkend="_classMemoryManager_1a09b86c875efaba6b2ee477e94a4a1585">LoadMemoryManager</link>(holder);
+32 &#32;&#32;}
+33 &#32;&#32;<link linkend="_classPipeline">Pipeline</link>&#32;*pipe&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_classPipeline">Pipeline</link>(&amp;printer,&#32;data_in,&#32;2,&#32;debug_flag,&#32;<emphasis role="keyword">true</emphasis>);
+34 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link>(&amp;double_pipe,&#32;3);
+35 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link>(&amp;printer,&#32;1);
+36 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1aaa720ffefb8eb2bc61bd8336a7fee8ce">RunPipe</link>();
+37 
+38 &#32;&#32;u64&#32;t1&#32;=&#32;rdtsc();
+39 &#32;&#32;u64&#32;t1c&#32;=&#32;clock();
+40 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;10;&#32;++i)&#32;{
+41 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(debug_flag)&#32;{
+42 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;%s(main)&#32;Popping&#32;from&#32;IN&#32;%s\n&quot;</emphasis>,&#32;LUCID_CYAN,&#32;LUCID_NORMAL);
+43 &#32;&#32;&#32;&#32;}
+44 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;*data_handler&#32;=&#32;(<emphasis role="keywordtype">int</emphasis>&#32;*)data_in-&gt;<link linkend="_classMemoryManager_1a2baf1cd49e91c7618cd6c08151491094">PopFromIn</link>();
+45 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(debug_flag)&#32;{
+46 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;%s(main)&#32;Pushing&#32;into&#32;OUT&#32;%s\n&quot;</emphasis>,&#32;LUCID_CYAN,&#32;LUCID_NORMAL);
+47 &#32;&#32;&#32;&#32;}
+48 &#32;&#32;&#32;&#32;data_in-&gt;<link linkend="_classMemoryManager_1a8ee578854fc579a88c34c4ff42adbc2b">PushIntoOut</link>(data_handler);
+49 &#32;&#32;}
+50 &#32;&#32;pipe-&gt;<link linkend="_classPipeline_1a134c0e23c0260a6dc74bb936f39ecda9">WaitFinish</link>();
+51 
+52 &#32;&#32;pipe-&gt;Profile();
+53 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+54 }
+55 
+56 <emphasis role="comment">/*&#32;vim:set&#32;softtabstop=2&#32;shiftwidth=2&#32;tabstop=2&#32;expandtab:&#32;*/</emphasis>
+</programlisting></section>

@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_pipeline_8h_source" xml:lang="en-US">
+<title>pipeline.h</title>
+<indexterm><primary>include/headers/pipeline.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
+2 <emphasis role="comment">&#32;*&#32;LUCID&#32;(Unified&#32;Computing&#32;Image&#32;and&#32;Data-Processing)&#32;is&#32;a&#32;program&#32;to&#32;process</emphasis>
+3 <emphasis role="comment">&#32;*&#32;any&#32;type&#32;of&#32;data&#32;concurrently.</emphasis>
+4 <emphasis role="comment">&#32;*&#32;Copyright&#32;(C)&#32;2023&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
+5 <emphasis role="comment">&#32;*</emphasis>
+6 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;free&#32;software:&#32;you&#32;can&#32;redistribute&#32;it&#32;and/or&#32;modify</emphasis>
+7 <emphasis role="comment">&#32;*&#32;it&#32;under&#32;the&#32;terms&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;as&#32;published&#32;by</emphasis>
+8 <emphasis role="comment">&#32;*&#32;the&#32;Free&#32;Software&#32;Foundation,&#32;either&#32;version&#32;3&#32;of&#32;the&#32;License,&#32;or</emphasis>
+9 <emphasis role="comment">&#32;*&#32;(at&#32;your&#32;option)&#32;any&#32;later&#32;version.</emphasis>
+10 <emphasis role="comment">&#32;*</emphasis>
+11 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;distributed&#32;in&#32;the&#32;hope&#32;that&#32;it&#32;will&#32;be&#32;useful,</emphasis>
+12 <emphasis role="comment">&#32;*&#32;but&#32;WITHOUT&#32;ANY&#32;WARRANTY;&#32;without&#32;even&#32;the&#32;implied&#32;warranty&#32;of</emphasis>
+13 <emphasis role="comment">&#32;*&#32;MERCHANTABILITY&#32;or&#32;FITNESS&#32;FOR&#32;A&#32;PARTICULAR&#32;PURPOSE.&#32;&#32;See&#32;the</emphasis>
+14 <emphasis role="comment">&#32;*&#32;GNU&#32;General&#32;Public&#32;License&#32;for&#32;more&#32;details.</emphasis>
+15 <emphasis role="comment">&#32;*</emphasis>
+16 <emphasis role="comment">&#32;*&#32;You&#32;should&#32;have&#32;received&#32;a&#32;copy&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License</emphasis>
+17 <emphasis role="comment">&#32;*&#32;along&#32;with&#32;this&#32;program.&#32;&#32;If&#32;not,&#32;see&#32;&lt;https://www.gnu.org/licenses/&gt;.</emphasis>
+18 <emphasis role="comment">&#32;*</emphasis>
+19 <emphasis role="comment">&#32;*&#32;Author:&#32;&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
+20 <emphasis role="comment">&#32;*&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
+21 <emphasis role="comment">&#32;*/</emphasis>
+22 
+31 <emphasis role="preprocessor">#ifndef&#32;PIPELINE_H</emphasis>
+32 <emphasis role="preprocessor">#define&#32;PIPELINE_H</emphasis>
+33 
+34 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_pipe__node_8h">pipe_node.h</link>&quot;</emphasis>
+35 
+46 <emphasis role="keyword">class&#32;</emphasis><link linkend="_classPipeline">Pipeline</link>&#32;{
+47 &#32;<emphasis role="keyword">public</emphasis>:
+48 &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;PipelineError&#32;{
+49 &#32;&#32;&#32;&#32;kBadArgumentFormat,
+50 &#32;&#32;&#32;&#32;kBadArgumentType,
+51 &#32;&#32;};
+52 
+59 &#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structPipeline_1_1Profiling">Profiling</link>&#32;{
+60 &#32;&#32;&#32;&#32;i32&#32;<link linkend="_structPipeline_1_1Profiling_1a85d91d393614246cbbc7321461230fad">node_id</link>;&#32;&#32;&#32;
+61 &#32;&#32;&#32;&#32;i32&#32;<link linkend="_structPipeline_1_1Profiling_1a14cddf86dd7a397300225cdab322edd2">thread_id</link>;&#32;
+63 &#32;&#32;&#32;&#32;u64&#32;<link linkend="_structPipeline_1_1Profiling_1ad4a224cc807b559157c172a882b77d0a">cycles_start</link>;&#32;
+65 &#32;&#32;&#32;&#32;u64&#32;<link linkend="_structPipeline_1_1Profiling_1a731c3b31d3e7741f613b35e0d031c72e">cycles_end</link>;&#32;&#32;&#32;
+67 &#32;&#32;&#32;&#32;TIME_POINT
+68 &#32;&#32;&#32;&#32;<link linkend="_structPipeline_1_1Profiling_1a3d272311eaca434db755c18fa32471e1">time_start</link>;&#32;
+69 &#32;&#32;&#32;&#32;TIME_POINT
+70 &#32;&#32;&#32;&#32;<link linkend="_structPipeline_1_1Profiling_1aa645e5aaa1bdfa72a1b2f3e7a2c21ba6">time_end</link>;&#32;
+71 &#32;&#32;&#32;&#32;i64&#32;<link linkend="_structPipeline_1_1Profiling_1a44c307c338972f019b9c14fa104234e6">sys_time_start</link>;&#32;
+73 &#32;&#32;&#32;&#32;i64&#32;<link linkend="_structPipeline_1_1Profiling_1ada4064acbae914daa919a097fa488a6d">sys_time_end</link>;&#32;
+74 &#32;&#32;};
+75 &#32;&#32;<emphasis role="comment">//&#32;Constructor&#32;for&#32;the&#32;Pipeline&#32;class</emphasis>
+76 &#32;&#32;<link linkend="_classPipeline">Pipeline</link>(<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*,&#32;<link linkend="_classMemoryManager">MemoryManager</link>&#32;*,&#32;<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;=&#32;<emphasis role="keyword">false</emphasis>,
+77 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;=&#32;<emphasis role="keyword">false</emphasis>);
+78 
+79 &#32;&#32;<emphasis role="comment">//&#32;Destructor&#32;of&#32;the&#32;Pipeline</emphasis>
+80 &#32;&#32;<link linkend="_classPipeline_1a527044d53a20f851d0579fbf313a2dec">~Pipeline</link>();
+81 
+82 &#32;&#32;<emphasis role="comment">//&#32;Adds&#32;a&#32;new&#32;processing&#32;unit&#32;to&#32;the&#32;Pipeline</emphasis>
+83 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classPipeline_1ac2009692085e84e4bb3470e5639d1ce7">AddProcessingUnit</link>(<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*,&#32;<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>,
+84 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...);
+85 
+86 &#32;&#32;<emphasis role="comment">//&#32;Runs&#32;the&#32;pipe&#32;making&#32;all&#32;the&#32;threads&#32;wait&#32;for&#32;an&#32;input</emphasis>
+87 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classPipeline_1aaa720ffefb8eb2bc61bd8336a7fee8ce">RunPipe</link>();
+88 
+89 &#32;&#32;<emphasis role="comment">//&#32;Waits&#32;until&#32;all&#32;the&#32;threads&#32;finished&#32;processing</emphasis>
+90 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classPipeline_1a134c0e23c0260a6dc74bb936f39ecda9">WaitFinish</link>();
+91 
+92 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;Profile();
+93 
+94 &#32;<emphasis role="keyword">private</emphasis>:
+99 &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770">ArgumentType</link>&#32;{
+100 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770af87e907601aec2c8267f6ef1e2c21a7b">kInt</link>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+101 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770ae7955d2da66d50f3b2c47f12a0e7f3b5">kUnsigned</link>,&#32;&#32;&#32;&#32;
+102 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770a3649dddbd2e8875a720cf7947664ad16">kFloat</link>,&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+103 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770a802ae2ff78a3fed5ce4b7354dc0068ba">kExponential</link>,&#32;
+104 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770abded5bf0e620d179626b29ae6c45f310">kString</link>,&#32;&#32;&#32;&#32;&#32;&#32;
+105 &#32;&#32;&#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770a2841ae7f80c9cdd4faff03720d27be4d">kChar</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+106 &#32;&#32;};
+107 
+108 &#32;&#32;std::vector&lt;PipeNode&#32;*&gt;&#32;<link linkend="_classPipeline_1a0346b45062d43abcadcbf65fad5776b8">execution_list_</link>;&#32;
+110 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classPipeline_1a54a5cef190dd8f1fe6ad4d802d1c5e6b">count_arguments</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*);&#32;
+112 &#32;&#32;<link linkend="_classPipeline_1ab4e67647e87ca2bd15ad54f4e73eb770">ArgumentType</link>&#32;<link linkend="_classPipeline_1a2dd255c899c3a37aed01c8cbcd9984ad">extract_arg</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*,
+113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;u64);&#32;
+115 &#32;&#32;std::mutex&#32;<link linkend="_classPipeline_1a2de5c21427d5c1a905a00009733b358c">execution_mutex_</link>;&#32;
+116 &#32;&#32;std::mutex&#32;<link linkend="_classPipeline_1ab1debc6f2332ff1cf53bc01cddafa455">profiling_mutex_</link>;&#32;
+117 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classPipeline_1a7592dd5d53a61f792d8c504f3b4d3b79">node_number_</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+118 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classPipeline_1af633365e8506bfaacd3dbd7e47dae120">debug_</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+119 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_classPipeline_1a16826790f82180f5dc36f7355082b3d3">show_profiling_</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+120 &#32;&#32;std::vector&lt;Profiling&gt;
+121 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classPipeline_1a6a08e3c5610844a8050aeda0467365f5">profiling_list_</link>;&#32;
+122 };
+123 
+124 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

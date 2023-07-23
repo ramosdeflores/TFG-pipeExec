@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_semaphore_8h" xml:lang="en-US">
+<title>include/headers/semaphore.h File Reference</title>
+<indexterm><primary>include/headers/semaphore.h</primary></indexterm>
+<para>
+
+<para>This file contains the declaration of the <link linkend="_classSemaphore">Semaphore</link> class, which provides a synchronization mechanism for concurrent access to a shared resource. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;libraries.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classSemaphore">Semaphore</link></para>
+
+<para>A class that implements a semaphore. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file contains the declaration of the <link linkend="_classSemaphore">Semaphore</link> class, which provides a synchronization mechanism for concurrent access to a shared resource. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Lucas Hernández Abreu Contact: <link xlink:href="mailto:lucas.hernandez.09@ull.edu.es">lucas.hernandez.09@ull.edu.es</link> </para>
+</formalpara>
+</para>
+</section>
+</section>

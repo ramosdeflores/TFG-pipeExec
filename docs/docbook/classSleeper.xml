@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classSleeper" xml:lang="en-US">
+<title>Sleeper Class Reference</title>
+<indexterm><primary>Sleeper</primary></indexterm>
+<para>
+
+<para>This class makes the thread sleep for x seconds, given in the start arguments. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;sleeper.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Sleeper:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classSleeper.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classSleeper_1a60064cb7dd35f6c55fca7e814606de3b"/><emphasis role="strong">Sleeper</emphasis> ()</para>
+
+<para>Default constructor: does nothing. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classSleeper_1af03ece44ce961f8c2701fe1c4b0a95bd"/><emphasis role="strong">~Sleeper</emphasis> ()</para>
+
+<para>Default destructor: does nothing. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classSleeper_1adf0466b606b7f8bc73059e41a660f2da">Start</link> (void **=nullptr)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classSleeper_1a48270b0d03b90826cd665674fe193be8">Run</link> (void *)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classSleeper_1afa8b7f0516288d56e9309aa3eccc3fc0">Delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classSleeper_1a78f2edbf28172cd3d1444da4f9167a4c">Clone</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link> (void **=nullptr)=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link> ()</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classSleeper_1a8135aab50578021e4ebd42a289effc55"/>u32 <emphasis role="strong">seconds_to_sleep_</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This class makes the thread sleep for x seconds, given in the start arguments. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classSleeper_1a78f2edbf28172cd3d1444da4f9167a4c"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>Sleeper</secondary></indexterm>
+<indexterm><primary>Sleeper</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * Sleeper::Clone ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classSleeper_1afa8b7f0516288d56e9309aa3eccc3fc0"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>Sleeper</secondary></indexterm>
+<indexterm><primary>Sleeper</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>void Sleeper::Delete ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classSleeper_1a48270b0d03b90826cd665674fe193be8"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>Sleeper</secondary></indexterm>
+<indexterm><primary>Sleeper</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>void Sleeper::Run (void * )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classSleeper_1adf0466b606b7f8bc73059e41a660f2da"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>Sleeper</secondary></indexterm>
+<indexterm><primary>Sleeper</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>void Sleeper::Start (void ** pre_process_args = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">ProcessingUnitInterface</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/pu/<link linkend="_sleeper_8h">sleeper.h</link>include/definitions/pu/sleeper.cc</section>
+</section>

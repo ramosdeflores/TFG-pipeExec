@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_processing__unit__interface_8h_source" xml:lang="en-US">
+<title>processing_unit_interface.h</title>
+<indexterm><primary>include/headers/processing_unit_interface.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="comment">/*</emphasis>
+2 <emphasis role="comment">&#32;*&#32;LUCID&#32;(Unified&#32;Computing&#32;Image&#32;and&#32;Data-Processing)&#32;is&#32;a&#32;program&#32;to&#32;process</emphasis>
+3 <emphasis role="comment">&#32;*&#32;any&#32;type&#32;of&#32;data&#32;concurrently.</emphasis>
+4 <emphasis role="comment">&#32;*&#32;Copyright&#32;(C)&#32;2023&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
+5 <emphasis role="comment">&#32;*</emphasis>
+6 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;free&#32;software:&#32;you&#32;can&#32;redistribute&#32;it&#32;and/or&#32;modify</emphasis>
+7 <emphasis role="comment">&#32;*&#32;it&#32;under&#32;the&#32;terms&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;as&#32;published&#32;by</emphasis>
+8 <emphasis role="comment">&#32;*&#32;the&#32;Free&#32;Software&#32;Foundation,&#32;either&#32;version&#32;3&#32;of&#32;the&#32;License,&#32;or</emphasis>
+9 <emphasis role="comment">&#32;*&#32;(at&#32;your&#32;option)&#32;any&#32;later&#32;version.</emphasis>
+10 <emphasis role="comment">&#32;*</emphasis>
+11 <emphasis role="comment">&#32;*&#32;This&#32;program&#32;is&#32;distributed&#32;in&#32;the&#32;hope&#32;that&#32;it&#32;will&#32;be&#32;useful,</emphasis>
+12 <emphasis role="comment">&#32;*&#32;but&#32;WITHOUT&#32;ANY&#32;WARRANTY;&#32;without&#32;even&#32;the&#32;implied&#32;warranty&#32;of</emphasis>
+13 <emphasis role="comment">&#32;*&#32;MERCHANTABILITY&#32;or&#32;FITNESS&#32;FOR&#32;A&#32;PARTICULAR&#32;PURPOSE.&#32;&#32;See&#32;the</emphasis>
+14 <emphasis role="comment">&#32;*&#32;GNU&#32;General&#32;Public&#32;License&#32;for&#32;more&#32;details.</emphasis>
+15 <emphasis role="comment">&#32;*</emphasis>
+16 <emphasis role="comment">&#32;*&#32;You&#32;should&#32;have&#32;received&#32;a&#32;copy&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License</emphasis>
+17 <emphasis role="comment">&#32;*&#32;along&#32;with&#32;this&#32;program.&#32;&#32;If&#32;not,&#32;see&#32;&lt;https://www.gnu.org/licenses/&gt;.</emphasis>
+18 <emphasis role="comment">&#32;*</emphasis>
+19 <emphasis role="comment">&#32;*&#32;Author:&#32;&#32;Lucas&#32;Hernández&#32;Abreu</emphasis>
+20 <emphasis role="comment">&#32;*&#32;Contact:&#32;lucas.hernandez.09@ull.edu.es</emphasis>
+21 <emphasis role="comment">&#32;*/</emphasis>
+22 
+32 <emphasis role="preprocessor">#ifndef&#32;PROCESSING_UNIT_INTERFACE_H</emphasis>
+33 <emphasis role="preprocessor">#define&#32;PROCESSING_UNIT_INTERFACE_H</emphasis>
+34 
+35 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_data_8h">data.h</link>&quot;</emphasis>
+42 <emphasis role="keyword">class&#32;</emphasis><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;{
+43 &#32;<emphasis role="keyword">public</emphasis>:
+48 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link>(<emphasis role="keywordtype">void</emphasis>&#32;**&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>)&#32;=&#32;0;
+49 
+57 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link>(<emphasis role="keywordtype">void</emphasis>&#32;*data)&#32;=&#32;0;
+58 
+63 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link>()&#32;=&#32;0;
+64 
+71 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link>&#32;*<link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link>()&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;};
+72 };
+73 
+74 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

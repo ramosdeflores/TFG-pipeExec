@@ -1,0 +1,83 @@
+\doxysection{tests/semaphore.test.\+cc File Reference}
+\hypertarget{semaphore_8test_8cc}{}\label{semaphore_8test_8cc}\index{tests/semaphore.test.cc@{tests/semaphore.test.cc}}
+
+
+This file contains the tests for the functionalities of the semaphore class.  
+
+
+{\ttfamily \#include \"{}../include/headers/semaphore.\+h\"{}}\newline
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{semaphore_8test_8cc_af650c646e82923c918453607b393031e}{TEST}} (Semaphore\+Test, Initial\+Count)
+\item 
+\mbox{\hyperlink{semaphore_8test_8cc_a45174a14d2cdeaa34e401178b0bd7f25}{TEST}} (Semaphore\+Test, Wait\+Signal)
+\item 
+\mbox{\hyperlink{semaphore_8test_8cc_a839989411f5a2147cd64bdba9fa27905}{TEST}} (Semaphore\+Test, Multiple\+Wait\+Signal)
+\item 
+\mbox{\hyperlink{semaphore_8test_8cc_a649c78316d8d2c3dc73d84ce5d5f712b}{TEST}} (Semaphore\+Test, Wait\+Without\+Signal)
+\item 
+\mbox{\hyperlink{semaphore_8test_8cc_aed489802850a894442116035cc6fd450}{TEST}} (Semaphore\+Test, Signal\+Without\+Wait)
+\item 
+\mbox{\hyperlink{semaphore_8test_8cc_a4d28b210dd621384af9d457f3399b68c}{TEST}} (Semaphore\+Test, Multiple\+Signal)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the tests for the functionalities of the semaphore class. 
+
+\begin{DoxyAuthor}{Author}
+Lucas Hernández Abreu Contact\+: \href{mailto:lucas.hernandez.09@ull.edu.es}{\texttt{ lucas.\+hernandez.\+09@ull.\+edu.\+es}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{semaphore_8test_8cc_af650c646e82923c918453607b393031e}\label{semaphore_8test_8cc_af650c646e82923c918453607b393031e} 
+\index{semaphore.test.cc@{semaphore.test.cc}!TEST@{TEST}}
+\index{TEST@{TEST}!semaphore.test.cc@{semaphore.test.cc}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Semaphore\+Test}]{,  }\item[{Initial\+Count}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000009}{Test}}]Tests the initial count of the \doxylink{classSemaphore}{Semaphore} object Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 5 and tests if the count is correct. \end{DoxyRefDesc}
+\Hypertarget{semaphore_8test_8cc_a4d28b210dd621384af9d457f3399b68c}\label{semaphore_8test_8cc_a4d28b210dd621384af9d457f3399b68c} 
+\index{semaphore.test.cc@{semaphore.test.cc}!TEST@{TEST}}
+\index{TEST@{TEST}!semaphore.test.cc@{semaphore.test.cc}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Semaphore\+Test}]{,  }\item[{Multiple\+Signal}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000014}{Test}}]Tests the behavior of the \doxylink{classSemaphore}{Semaphore} object when multiple Signal functions are called. Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 0 and calls the Signal function twice. Then it tests if the count of the semaphore is 2. \end{DoxyRefDesc}
+\Hypertarget{semaphore_8test_8cc_a839989411f5a2147cd64bdba9fa27905}\label{semaphore_8test_8cc_a839989411f5a2147cd64bdba9fa27905} 
+\index{semaphore.test.cc@{semaphore.test.cc}!TEST@{TEST}}
+\index{TEST@{TEST}!semaphore.test.cc@{semaphore.test.cc}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Semaphore\+Test}]{,  }\item[{Multiple\+Wait\+Signal}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000011}{Test}}]Tests the Wait and Signal functions of the \doxylink{classSemaphore}{Semaphore} object with multiple threads. Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 0 and starts 10 threads that wait on the semaphore and signal it. The main thread signals the semaphore 10 times to wake up the waiting threads, waits for the threads to complete, waits on the semaphore and signals it once. Then it tests if the count of the semaphore is 10. \end{DoxyRefDesc}
+\Hypertarget{semaphore_8test_8cc_aed489802850a894442116035cc6fd450}\label{semaphore_8test_8cc_aed489802850a894442116035cc6fd450} 
+\index{semaphore.test.cc@{semaphore.test.cc}!TEST@{TEST}}
+\index{TEST@{TEST}!semaphore.test.cc@{semaphore.test.cc}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Semaphore\+Test}]{,  }\item[{Signal\+Without\+Wait}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000013}{Test}}]Tests the behavior of the \doxylink{classSemaphore}{Semaphore} object when a Signal is called without a corresponding Wait. Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 1 and calls the Signal function twice. Then it tests if the count of the semaphore is 2. \end{DoxyRefDesc}
+\Hypertarget{semaphore_8test_8cc_a45174a14d2cdeaa34e401178b0bd7f25}\label{semaphore_8test_8cc_a45174a14d2cdeaa34e401178b0bd7f25} 
+\index{semaphore.test.cc@{semaphore.test.cc}!TEST@{TEST}}
+\index{TEST@{TEST}!semaphore.test.cc@{semaphore.test.cc}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Semaphore\+Test}]{,  }\item[{Wait\+Signal}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000010}{Test}}]Tests the Wait and Signal functions of the \doxylink{classSemaphore}{Semaphore} object. Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 0 and starts a thread that waits on the semaphore and signals it. The main thread signals the semaphore to start the thread and waits for it to complete. Then it tests if the count of the semaphore is 1. \end{DoxyRefDesc}
+\Hypertarget{semaphore_8test_8cc_a649c78316d8d2c3dc73d84ce5d5f712b}\label{semaphore_8test_8cc_a649c78316d8d2c3dc73d84ce5d5f712b} 
+\index{semaphore.test.cc@{semaphore.test.cc}!TEST@{TEST}}
+\index{TEST@{TEST}!semaphore.test.cc@{semaphore.test.cc}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Semaphore\+Test}]{,  }\item[{Wait\+Without\+Signal}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000012}{Test}}]Tests the behavior of the \doxylink{classSemaphore}{Semaphore} object when a Wait is called without a corresponding Signal Creates a \doxylink{classSemaphore}{Semaphore} object with an initial count of 0 and starts a thread that waits on the semaphore. The main thread waits for 100 milliseconds and tests if the count of the semaphore is still 0. Then it signals the semaphore and waits for the thread to complete. \end{DoxyRefDesc}

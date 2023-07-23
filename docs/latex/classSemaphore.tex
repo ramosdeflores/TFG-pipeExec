@@ -1,0 +1,152 @@
+\doxysection{Semaphore Class Reference}
+\hypertarget{classSemaphore}{}\label{classSemaphore}\index{Semaphore@{Semaphore}}
+
+
+A class that implements a semaphore.  
+
+
+
+
+{\ttfamily \#include $<$semaphore.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159}{LUCIDSemaphore\+Type}} \{ \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762}{k\+None}}
+, \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159ae8ba5e3963447989950fc80893396936}{k\+In}}
+, \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159a08bbc9b01a0b03bddc8e884c8d2c63df}{k\+Out}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerated type for possible semaphore types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSemaphore_aa7c94f226150ae26d4a6e09bf351257e}{Semaphore}} (int=0, \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159}{LUCIDSemaphore\+Type}}=\mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762}{LUCIDSemaphore\+Type\+::k\+None}}, bool=false)
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{classSemaphore}{Semaphore} object. \end{DoxyCompactList}\item 
+\Hypertarget{classSemaphore_a633658a6fde276bffc912028725c6ade}\label{classSemaphore_a633658a6fde276bffc912028725c6ade} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Semaphore} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{classSemaphore}{Semaphore} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSemaphore_a72aabebf026e3a8b1f3e4d0fa8ee1eda}{Wait}} ()
+\begin{DoxyCompactList}\small\item\em Waits for the semaphore. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSemaphore_a86f92f738b4486439b296d8e235895f2}{Signal}} ()
+\begin{DoxyCompactList}\small\item\em Signals the semaphore. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSemaphore_a3bbd0cd1b7c27fd8fad66ac6108e37fe}{count}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current count of the semaphore. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSemaphore_aa046604ecb9925e22ba54e863c008c99}\label{classSemaphore_aa046604ecb9925e22ba54e863c008c99} 
+std\+::atomic$<$ int $>$ {\bfseries count\+\_\+}
+\begin{DoxyCompactList}\small\item\em The count of the semaphore. \end{DoxyCompactList}\item 
+\Hypertarget{classSemaphore_aa43daf51ca98d0b85e60dbbab7cc7656}\label{classSemaphore_aa43daf51ca98d0b85e60dbbab7cc7656} 
+std\+::mutex {\bfseries mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em The mutex used to protect the semaphore. \end{DoxyCompactList}\item 
+\Hypertarget{classSemaphore_a446c0ed7396ea8bce319f059862a5065}\label{classSemaphore_a446c0ed7396ea8bce319f059862a5065} 
+std\+::condition\+\_\+variable {\bfseries cond\+\_\+var\+\_\+}
+\begin{DoxyCompactList}\small\item\em The condition variable used for waiting. \end{DoxyCompactList}\item 
+\Hypertarget{classSemaphore_a0cb60e93960337c9d9ccce2c97b70b4f}\label{classSemaphore_a0cb60e93960337c9d9ccce2c97b70b4f} 
+std\+::string {\bfseries type\+\_\+}
+\begin{DoxyCompactList}\small\item\em Name of the type of the \doxylink{classSemaphore}{Semaphore} after processing the LUCIDSemaphore\+Type in the constuctor. \end{DoxyCompactList}\item 
+\Hypertarget{classSemaphore_a0b544819d589338a078b9560372de915}\label{classSemaphore_a0b544819d589338a078b9560372de915} 
+bool {\bfseries debug\+\_\+}
+\begin{DoxyCompactList}\small\item\em Debug flag for showing the information on each \doxylink{classSemaphore}{Semaphore} operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that implements a semaphore. 
+
+This class implements a semaphore, which is a synchronization mechanism used to protect shared resources or to synchronize threads. It provides two basic operations, Wait and Signal. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classSemaphore_a4cc47e8b75c536da049e926dc582f159}\label{classSemaphore_a4cc47e8b75c536da049e926dc582f159} 
+\index{Semaphore@{Semaphore}!LUCIDSemaphoreType@{LUCIDSemaphoreType}}
+\index{LUCIDSemaphoreType@{LUCIDSemaphoreType}!Semaphore@{Semaphore}}
+\doxysubsubsection{\texorpdfstring{LUCIDSemaphoreType}{LUCIDSemaphoreType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159}{Semaphore\+::\+LUCIDSemaphore\+Type}}}
+
+
+
+Enumerated type for possible semaphore types. 
+
+There are three types of \doxylink{classSemaphore}{Semaphore}\+:
+\begin{DoxyItemize}
+\item k\+None (No type)
+\item k\+In (IN queue \doxylink{classSemaphore}{Semaphore})
+\item k\+Out (OUT queue \doxylink{classSemaphore}{Semaphore}) 
+\end{DoxyItemize}\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kNone@{kNone}!Semaphore@{Semaphore}}\index{Semaphore@{Semaphore}!kNone@{kNone}}}\Hypertarget{classSemaphore_a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762}\label{classSemaphore_a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762} 
+k\+None&Standard semaphore type if not assigned. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kIn@{kIn}!Semaphore@{Semaphore}}\index{Semaphore@{Semaphore}!kIn@{kIn}}}\Hypertarget{classSemaphore_a4cc47e8b75c536da049e926dc582f159ae8ba5e3963447989950fc80893396936}\label{classSemaphore_a4cc47e8b75c536da049e926dc582f159ae8ba5e3963447989950fc80893396936} 
+k\+In&\doxylink{classSemaphore}{Semaphore} for the IN queue inside the \doxylink{classMemoryManager}{Memory\+Manager}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kOut@{kOut}!Semaphore@{Semaphore}}\index{Semaphore@{Semaphore}!kOut@{kOut}}}\Hypertarget{classSemaphore_a4cc47e8b75c536da049e926dc582f159a08bbc9b01a0b03bddc8e884c8d2c63df}\label{classSemaphore_a4cc47e8b75c536da049e926dc582f159a08bbc9b01a0b03bddc8e884c8d2c63df} 
+k\+Out&\doxylink{classSemaphore}{Semaphore} for the OUT queue inside the \doxylink{classMemoryManager}{Memory\+Manager}. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSemaphore_aa7c94f226150ae26d4a6e09bf351257e}\label{classSemaphore_aa7c94f226150ae26d4a6e09bf351257e} 
+\index{Semaphore@{Semaphore}!Semaphore@{Semaphore}}
+\index{Semaphore@{Semaphore}!Semaphore@{Semaphore}}
+\doxysubsubsection{\texorpdfstring{Semaphore()}{Semaphore()}}
+{\footnotesize\ttfamily Semaphore\+::\+Semaphore (\begin{DoxyParamCaption}\item[{int}]{count = {\ttfamily 0},  }\item[{\mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159}{LUCIDSemaphore\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{classSemaphore_a4cc47e8b75c536da049e926dc582f159ab36fd27cdc8fffb7da3eaa04a353a762}{LUCIDSemaphore\+Type\+::k\+None}}},  }\item[{bool}]{debug = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \doxylink{classSemaphore}{Semaphore} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & The initial count of the semaphore \\
+\hline
+{\em type} & The type of semaphore we\textquotesingle{}re using (in/out/none) \\
+\hline
+{\em debug} & The flag for debug information \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSemaphore_a3bbd0cd1b7c27fd8fad66ac6108e37fe}\label{classSemaphore_a3bbd0cd1b7c27fd8fad66ac6108e37fe} 
+\index{Semaphore@{Semaphore}!count@{count}}
+\index{count@{count}!Semaphore@{Semaphore}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily int Semaphore\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current count of the semaphore. 
+
+\begin{DoxyReturn}{Returns}
+int The current count of the semaphore 
+\end{DoxyReturn}
+\Hypertarget{classSemaphore_a86f92f738b4486439b296d8e235895f2}\label{classSemaphore_a86f92f738b4486439b296d8e235895f2} 
+\index{Semaphore@{Semaphore}!Signal@{Signal}}
+\index{Signal@{Signal}!Semaphore@{Semaphore}}
+\doxysubsubsection{\texorpdfstring{Signal()}{Signal()}}
+{\footnotesize\ttfamily void Semaphore\+::\+Signal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Signals the semaphore. 
+
+This function increments the semaphore count and wakes up one waiting thread, if there is any. \Hypertarget{classSemaphore_a72aabebf026e3a8b1f3e4d0fa8ee1eda}\label{classSemaphore_a72aabebf026e3a8b1f3e4d0fa8ee1eda} 
+\index{Semaphore@{Semaphore}!Wait@{Wait}}
+\index{Wait@{Wait}!Semaphore@{Semaphore}}
+\doxysubsubsection{\texorpdfstring{Wait()}{Wait()}}
+{\footnotesize\ttfamily void Semaphore\+::\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Waits for the semaphore. 
+
+This function blocks the calling thread until the semaphore count is greater than or equal to zero. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/\mbox{\hyperlink{semaphore_8h}{semaphore.\+h}}\item 
+include/definitions/\mbox{\hyperlink{semaphore_8cc}{semaphore.\+cc}}\end{DoxyCompactItemize}

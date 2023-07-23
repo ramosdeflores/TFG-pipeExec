@@ -1,0 +1,293 @@
+\doxysection{Memory\+Manager Class Reference}
+\hypertarget{classMemoryManager}{}\label{classMemoryManager}\index{MemoryManager@{MemoryManager}}
+
+
+A memory manager that provides an interface for managing a fixed-\/size queue of pointers to memory buffers.  
+
+
+
+
+{\ttfamily \#include $<$memory\+\_\+manager.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90f}{Memory\+Manager\+Error}} \{ \mbox{\hyperlink{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90faff4878f6fb7b896cbdcdb21555942594}{k\+Bad\+Sizing}}
+, \mbox{\hyperlink{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87}{k\+Null\+Ptr}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerated type for possible errors in \doxylink{classMemoryManager}{Memory\+Manager} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMemoryManager_a9a5be3d88f69391224b9b0d885f04b88}{Memory\+Manager}} (int, bool=false)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classMemoryManager}{Memory\+Manager} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMemoryManager_ad4570910ccfc14b2da679bee58ee8f48}{\texorpdfstring{$\sim$}{\string~}\+Memory\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{classMemoryManager}{Memory\+Manager}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMemoryManager_af63faf51f2b29c67fea41e0baa32af83}{Push\+Into\+In}} (void \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Pushes a memory buffer into the input queue. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMemoryManager_a8ee578854fc579a88c34c4ff42adbc2b}{Push\+Into\+Out}} (void \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Pushes a memory buffer into the output queue. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classMemoryManager_a2baf1cd49e91c7618cd6c08151491094}{Pop\+From\+In}} ()
+\begin{DoxyCompactList}\small\item\em Pops a memory buffer from the input queue. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classMemoryManager_ac9e6791f9bbfafa933686968eb91968a}{Pop\+From\+Out}} ()
+\begin{DoxyCompactList}\small\item\em Pops a memory buffer from the output queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMemoryManager_a09b86c875efaba6b2ee477e94a4a1585}{Load\+Memory\+Manager}} (void \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Loads a memory buffer into the queues. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMemoryManager_ac3861ac0de1853789b87407b38f6d272}{in\+\_\+queue\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of memory buffers in the input queue. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMemoryManager_a92e3571872f8bab8ebdaedb53e289d12}{out\+\_\+queue\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of memory buffers in the output queue. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMemoryManager_a60faf33dba849e1e33a4bdf9e60bc0da}{max\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum size of the memory buffer queues. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_ae12d45dd15b3756a0685c4fc15c24bc1}\label{classMemoryManager_ae12d45dd15b3756a0685c4fc15c24bc1} 
+void {\bfseries wait\+\_\+finish} ()
+\begin{DoxyCompactList}\small\item\em Tries to get the ownership of the cpu resources to do any action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMemoryManager_a4364b1aa14d01e023a553acc47e00633}\label{classMemoryManager_a4364b1aa14d01e023a553acc47e00633} 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries in\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_ac95efbd85633172f66b14cc8123e2706}\label{classMemoryManager_ac95efbd85633172f66b14cc8123e2706} 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries out\+\_\+queue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer to the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_afebc7bf6a94c1244df7c87333250f6f8}\label{classMemoryManager_afebc7bf6a94c1244df7c87333250f6f8} 
+int {\bfseries max\+\_\+size\+\_\+}
+\begin{DoxyCompactList}\small\item\em Maximum size of the memory buffer queues. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a268f83f0a0b3da2ab4ef997649b748c1}\label{classMemoryManager_a268f83f0a0b3da2ab4ef997649b748c1} 
+int {\bfseries rear\+\_\+in\+\_\+iterator\+\_\+}
+\begin{DoxyCompactList}\small\item\em Index of the rear of the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_ae647eddfde69a2fa5e980c8f27e3b1ef}\label{classMemoryManager_ae647eddfde69a2fa5e980c8f27e3b1ef} 
+int {\bfseries front\+\_\+in\+\_\+iterator\+\_\+}
+\begin{DoxyCompactList}\small\item\em Index of the front of the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_adfff5c6bb06b0803eb09c7a4a98a950e}\label{classMemoryManager_adfff5c6bb06b0803eb09c7a4a98a950e} 
+int {\bfseries rear\+\_\+out\+\_\+iterator\+\_\+}
+\begin{DoxyCompactList}\small\item\em Index of the rear of the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a312808ba0dcf51b9566d1b69a1978f1b}\label{classMemoryManager_a312808ba0dcf51b9566d1b69a1978f1b} 
+int {\bfseries front\+\_\+out\+\_\+iterator\+\_\+}
+\begin{DoxyCompactList}\small\item\em Index of the front of the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_ad9a5160b31c1ede53e4fae08b1102bdb}\label{classMemoryManager_ad9a5160b31c1ede53e4fae08b1102bdb} 
+std\+::atomic$<$ int $>$ {\bfseries in\+\_\+queue\+\_\+count\+\_\+}
+\begin{DoxyCompactList}\small\item\em Number of memory buffers in the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a4c13be746d79c150185f2fd614594979}\label{classMemoryManager_a4c13be746d79c150185f2fd614594979} 
+std\+::atomic$<$ int $>$ {\bfseries out\+\_\+queue\+\_\+count\+\_\+}
+\begin{DoxyCompactList}\small\item\em Number of memory buffers in the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_aaa9ab06065a933a88a852cbccb9d67b3}\label{classMemoryManager_aaa9ab06065a933a88a852cbccb9d67b3} 
+\mbox{\hyperlink{classSemaphore}{Semaphore}} \texorpdfstring{$\ast$}{*} {\bfseries in\+\_\+semaphore\+\_\+}
+\begin{DoxyCompactList}\small\item\em \doxylink{classSemaphore}{Semaphore} for the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_aac8cadeeaa404c65a3f697d1e20f317f}\label{classMemoryManager_aac8cadeeaa404c65a3f697d1e20f317f} 
+\mbox{\hyperlink{classSemaphore}{Semaphore}} \texorpdfstring{$\ast$}{*} {\bfseries out\+\_\+semaphore\+\_\+}
+\begin{DoxyCompactList}\small\item\em \doxylink{classSemaphore}{Semaphore} for the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a7274052a7c4a99f2f9745d6cbb7518df}\label{classMemoryManager_a7274052a7c4a99f2f9745d6cbb7518df} 
+std\+::mutex {\bfseries push\+\_\+in\+\_\+mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em Mutex for pushing into the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_adf399afcaeb90a703d7b62f5d50ed253}\label{classMemoryManager_adf399afcaeb90a703d7b62f5d50ed253} 
+std\+::mutex {\bfseries push\+\_\+out\+\_\+mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em Mutex for pushing into the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_aed2c86f1b01143896afacb712684adc8}\label{classMemoryManager_aed2c86f1b01143896afacb712684adc8} 
+std\+::mutex {\bfseries pop\+\_\+in\+\_\+mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em Mutex for popping from the input queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_ac7d1f223e7f5959a4ea7a76b248738e8}\label{classMemoryManager_ac7d1f223e7f5959a4ea7a76b248738e8} 
+std\+::mutex {\bfseries pop\+\_\+out\+\_\+mutex\+\_\+}
+\begin{DoxyCompactList}\small\item\em Mutex for popping from the output queue. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryManager_a8b10575ae5b6771dbbae038075ff358e}\label{classMemoryManager_a8b10575ae5b6771dbbae038075ff358e} 
+bool {\bfseries debug\+\_\+}
+\begin{DoxyCompactList}\small\item\em Boolean for showing the debug information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A memory manager that provides an interface for managing a fixed-\/size queue of pointers to memory buffers. 
+
+This class provides functionality to push and pop memory buffers in and out of the queue, as well as a debug flag to print the status of the \doxylink{classMemoryManager}{Memory\+Manager}. It also implements semaphores to ensure synchronization between the producer and consumer threads. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90f}\label{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90f} 
+\index{MemoryManager@{MemoryManager}!MemoryManagerError@{MemoryManagerError}}
+\index{MemoryManagerError@{MemoryManagerError}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{MemoryManagerError}{MemoryManagerError}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90f}{Memory\+Manager\+::\+Memory\+Manager\+Error}}}
+
+
+
+Enumerated type for possible errors in \doxylink{classMemoryManager}{Memory\+Manager} class. 
+
+This enumerated type defines the possible errors that can occur in the \doxylink{classMemoryManager}{Memory\+Manager} class. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kBadSizing@{kBadSizing}!MemoryManager@{MemoryManager}}\index{MemoryManager@{MemoryManager}!kBadSizing@{kBadSizing}}}\Hypertarget{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90faff4878f6fb7b896cbdcdb21555942594}\label{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90faff4878f6fb7b896cbdcdb21555942594} 
+k\+Bad\+Sizing&Requested size of the memory manager is less than 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kNullPtr@{kNullPtr}!MemoryManager@{MemoryManager}}\index{MemoryManager@{MemoryManager}!kNullPtr@{kNullPtr}}}\Hypertarget{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87}\label{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87} 
+k\+Null\+Ptr&Requested item in Pop\+From\+In or Pop\+From\+Out is null. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMemoryManager_a9a5be3d88f69391224b9b0d885f04b88}\label{classMemoryManager_a9a5be3d88f69391224b9b0d885f04b88} 
+\index{MemoryManager@{MemoryManager}!MemoryManager@{MemoryManager}}
+\index{MemoryManager@{MemoryManager}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{MemoryManager()}{MemoryManager()}}
+{\footnotesize\ttfamily Memory\+Manager\+::\+Memory\+Manager (\begin{DoxyParamCaption}\item[{int}]{mx\+\_\+size,  }\item[{bool}]{debug = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classMemoryManager}{Memory\+Manager} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mx\+\_\+size} & The maximum number of memory buffers the queue can hold \\
+\hline
+{\em debug} & The flag for the debug information \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90faff4878f6fb7b896cbdcdb21555942594}{Memory\+Manager\+Error\+::k\+Bad\+Sizing}} & If the maximum size is less than 1 \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classMemoryManager_ad4570910ccfc14b2da679bee58ee8f48}\label{classMemoryManager_ad4570910ccfc14b2da679bee58ee8f48} 
+\index{MemoryManager@{MemoryManager}!````~MemoryManager@{\texorpdfstring{$\sim$}{\string~}MemoryManager}}
+\index{````~MemoryManager@{\texorpdfstring{$\sim$}{\string~}MemoryManager}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MemoryManager()}{\string~MemoryManager()}}
+{\footnotesize\ttfamily Memory\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+Memory\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \doxylink{classMemoryManager}{Memory\+Manager}. 
+
+Frees the buffers inside both queues and then frees the queues 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMemoryManager_ac3861ac0de1853789b87407b38f6d272}\label{classMemoryManager_ac3861ac0de1853789b87407b38f6d272} 
+\index{MemoryManager@{MemoryManager}!in\_queue\_count@{in\_queue\_count}}
+\index{in\_queue\_count@{in\_queue\_count}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{in\_queue\_count()}{in\_queue\_count()}}
+{\footnotesize\ttfamily int Memory\+Manager\+::in\+\_\+queue\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the number of memory buffers in the input queue. 
+
+\begin{DoxyReturn}{Returns}
+Number of memory buffers in the input queue. 
+\end{DoxyReturn}
+\Hypertarget{classMemoryManager_a09b86c875efaba6b2ee477e94a4a1585}\label{classMemoryManager_a09b86c875efaba6b2ee477e94a4a1585} 
+\index{MemoryManager@{MemoryManager}!LoadMemoryManager@{LoadMemoryManager}}
+\index{LoadMemoryManager@{LoadMemoryManager}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{LoadMemoryManager()}{LoadMemoryManager()}}
+{\footnotesize\ttfamily void Memory\+Manager\+::\+Load\+Memory\+Manager (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Loads a memory buffer into the queues. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the memory buffer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMemoryManager_a60faf33dba849e1e33a4bdf9e60bc0da}\label{classMemoryManager_a60faf33dba849e1e33a4bdf9e60bc0da} 
+\index{MemoryManager@{MemoryManager}!max\_size@{max\_size}}
+\index{max\_size@{max\_size}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{max\_size()}{max\_size()}}
+{\footnotesize\ttfamily int Memory\+Manager\+::max\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the maximum size of the memory buffer queues. 
+
+\begin{DoxyReturn}{Returns}
+Maximum size of the memory buffer queues. 
+\end{DoxyReturn}
+\Hypertarget{classMemoryManager_a92e3571872f8bab8ebdaedb53e289d12}\label{classMemoryManager_a92e3571872f8bab8ebdaedb53e289d12} 
+\index{MemoryManager@{MemoryManager}!out\_queue\_count@{out\_queue\_count}}
+\index{out\_queue\_count@{out\_queue\_count}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{out\_queue\_count()}{out\_queue\_count()}}
+{\footnotesize\ttfamily int Memory\+Manager\+::out\+\_\+queue\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the number of memory buffers in the output queue. 
+
+\begin{DoxyReturn}{Returns}
+Number of memory buffers in the output queue. 
+\end{DoxyReturn}
+\Hypertarget{classMemoryManager_a2baf1cd49e91c7618cd6c08151491094}\label{classMemoryManager_a2baf1cd49e91c7618cd6c08151491094} 
+\index{MemoryManager@{MemoryManager}!PopFromIn@{PopFromIn}}
+\index{PopFromIn@{PopFromIn}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{PopFromIn()}{PopFromIn()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Memory\+Manager\+::\+Pop\+From\+In (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pops a memory buffer from the input queue. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & \doxylink{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87}{Memory\+Manager\+Error\+::k\+Null\+Ptr} If the content to return is null (it can\textquotesingle{}t be processed)\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Pointer to the memory buffer. 
+\end{DoxyReturn}
+\Hypertarget{classMemoryManager_ac9e6791f9bbfafa933686968eb91968a}\label{classMemoryManager_ac9e6791f9bbfafa933686968eb91968a} 
+\index{MemoryManager@{MemoryManager}!PopFromOut@{PopFromOut}}
+\index{PopFromOut@{PopFromOut}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{PopFromOut()}{PopFromOut()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Memory\+Manager\+::\+Pop\+From\+Out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pops a memory buffer from the output queue. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classMemoryManager_a7c1e27d92602c2204aa21dcc2732d90fad9c6e74a42b4478e8bd82cedeaa11a87}{Memory\+Manager\+Error\+::k\+Null\+Ptr}} & If the content to return is null (it can\textquotesingle{}t be processed)\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Pointer to the memory buffer. 
+\end{DoxyReturn}
+\Hypertarget{classMemoryManager_af63faf51f2b29c67fea41e0baa32af83}\label{classMemoryManager_af63faf51f2b29c67fea41e0baa32af83} 
+\index{MemoryManager@{MemoryManager}!PushIntoIn@{PushIntoIn}}
+\index{PushIntoIn@{PushIntoIn}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{PushIntoIn()}{PushIntoIn()}}
+{\footnotesize\ttfamily bool Memory\+Manager\+::\+Push\+Into\+In (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Pushes a memory buffer into the input queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the memory buffer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the input queue is not full, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classMemoryManager_a8ee578854fc579a88c34c4ff42adbc2b}\label{classMemoryManager_a8ee578854fc579a88c34c4ff42adbc2b} 
+\index{MemoryManager@{MemoryManager}!PushIntoOut@{PushIntoOut}}
+\index{PushIntoOut@{PushIntoOut}!MemoryManager@{MemoryManager}}
+\doxysubsubsection{\texorpdfstring{PushIntoOut()}{PushIntoOut()}}
+{\footnotesize\ttfamily bool Memory\+Manager\+::\+Push\+Into\+Out (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Pushes a memory buffer into the output queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the memory buffer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the output queue is not full, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/headers/\mbox{\hyperlink{memory__manager_8h}{memory\+\_\+manager.\+h}}\item 
+include/definitions/\mbox{\hyperlink{memory__manager_8cc}{memory\+\_\+manager.\+cc}}\end{DoxyCompactItemize}

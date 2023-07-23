@@ -1,0 +1,62 @@
+\doxysection{double\+\_\+pipe\+\_\+main.\+cc}
+\hypertarget{double__pipe__main_8cc_source}{}\label{double__pipe__main_8cc_source}\index{src/double\_pipe\_main.cc@{src/double\_pipe\_main.cc}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ LUCID\ (Unified\ Computing\ Image\ and\ Data-\/Processing)\ is\ a\ program\ to\ process}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ any\ type\ of\ data\ concurrently.\ Copyright\ (C)\ 2023\ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ This\ program\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ Free}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ (at\ your\ option)\ any}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ FITNESS}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU\ General\ Public\ License\ for\ more}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Author:\ \ Lucas\ Hernández\ Abreu\ Contact:\ lucas.hernandez.09@ull.edu.es}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}processing\_units.h"{}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{int}\ DoublePipeMain(\textcolor{keywordtype}{bool}\ debug\_flag,\ \textcolor{keywordtype}{bool}\ pu\_debug\_flag,\ \textcolor{keywordtype}{bool}\ profiling)\ \{}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classDoublePipe}{DoublePipe}}\ double\_pipe;}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classNumberPrinter}{NumberPrinter}}\ printer;}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{classMemoryManager}{MemoryManager}}\ *data\_in\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classMemoryManager}{MemoryManager}}(5,\ debug\_flag);}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ it\ =\ 0;\ it\ <\ 5;\ ++it)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classData}{Data}}\ *holder\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classData}{Data}}(\textcolor{keyword}{new}\ \textcolor{keywordtype}{int}(0));}
+\DoxyCodeLine{00031\ \ \ \ \ data\_in-\/>\mbox{\hyperlink{classMemoryManager_a09b86c875efaba6b2ee477e94a4a1585}{LoadMemoryManager}}(holder);}
+\DoxyCodeLine{00032\ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classPipeline}{Pipeline}}\ *pipe\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classPipeline}{Pipeline}}(\&printer,\ data\_in,\ 2,\ debug\_flag,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00034\ \ \ pipe-\/>\mbox{\hyperlink{classPipeline_ac2009692085e84e4bb3470e5639d1ce7}{AddProcessingUnit}}(\&double\_pipe,\ 3);}
+\DoxyCodeLine{00035\ \ \ pipe-\/>\mbox{\hyperlink{classPipeline_ac2009692085e84e4bb3470e5639d1ce7}{AddProcessingUnit}}(\&printer,\ 1);}
+\DoxyCodeLine{00036\ \ \ pipe-\/>\mbox{\hyperlink{classPipeline_aaa720ffefb8eb2bc61bd8336a7fee8ce}{RunPipe}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ u64\ t1\ =\ rdtsc();}
+\DoxyCodeLine{00039\ \ \ u64\ t1c\ =\ clock();}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 10;\ ++i)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (debug\_flag)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s(main)\ Popping\ from\ IN\ \%s\(\backslash\)n"{}},\ LUCID\_CYAN,\ LUCID\_NORMAL);}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ *data\_handler\ =\ (\textcolor{keywordtype}{int}\ *)data\_in-\/>\mbox{\hyperlink{classMemoryManager_a2baf1cd49e91c7618cd6c08151491094}{PopFromIn}}();}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (debug\_flag)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s(main)\ Pushing\ into\ OUT\ \%s\(\backslash\)n"{}},\ LUCID\_CYAN,\ LUCID\_NORMAL);}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ data\_in-\/>\mbox{\hyperlink{classMemoryManager_a8ee578854fc579a88c34c4ff42adbc2b}{PushIntoOut}}(data\_handler);}
+\DoxyCodeLine{00049\ \ \ \}}
+\DoxyCodeLine{00050\ \ \ pipe-\/>\mbox{\hyperlink{classPipeline_a134c0e23c0260a6dc74bb936f39ecda9}{WaitFinish}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ pipe-\/>Profile();}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{/*\ vim:set\ softtabstop=2\ shiftwidth=2\ tabstop=2\ expandtab:\ */}}
+
+\end{DoxyCode}

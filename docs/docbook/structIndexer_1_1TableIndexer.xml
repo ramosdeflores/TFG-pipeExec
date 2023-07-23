@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structIndexer_1_1TableIndexer" xml:lang="en-US">
+<title>Indexer::TableIndexer Struct Reference</title>
+<indexterm><primary>Indexer::TableIndexer</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structIndexer_1_1TableIndexer_1aacb21ca672ad09dec971b55442ea7286"/>int64_t <emphasis role="strong">id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structIndexer_1_1TableIndexer_1a5a2558ec257501ab373b29bca7916304"/>int64_t <emphasis role="strong">count</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/headers/pu/<link linkend="_indexer_8h">indexer.h</link></section>

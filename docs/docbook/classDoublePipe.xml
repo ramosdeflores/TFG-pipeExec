@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classDoublePipe" xml:lang="en-US">
+<title>DoublePipe Class Reference</title>
+<indexterm><primary>DoublePipe</primary></indexterm>
+<para>
+
+<para>This class instantiates a Pipe inside a pipe showing the potential of LUCID at processing any data. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;double_pipe.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for DoublePipe:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classDoublePipe.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_classDoublePipe_1a4adc8d41a77995be6b1059ca7833a3d3">Start</link> (void **=nullptr)</para>
+
+<para>This method instantiates the pipeline and the <link linkend="_classMemoryManager">MemoryManager</link> for the pipeline. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classDoublePipe_1a8c5531c6349567671ff27db2cb37769b">Run</link> (void *)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classDoublePipe_1a9bff9afe9d2484e7e19d9e2db1cf84c3">Delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classDoublePipe_1ab97ed9910373c7be9d831c5fb770a049">Clone</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link> (void **=nullptr)=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link> ()</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Private Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classDoublePipe_1aeee9ca236bbff50e936b3750ac6ffb01"/><link linkend="_classMemoryManager">MemoryManager</link> * <emphasis role="strong">sub_mem_manager</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_classDoublePipe_1ad7a772a5c6d597dc23d0ff73f113b521"/><link linkend="_classPipeline">Pipeline</link> * <emphasis role="strong">sub_pipeline</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This class instantiates a Pipe inside a pipe showing the potential of LUCID at processing any data. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classDoublePipe_1ab97ed9910373c7be9d831c5fb770a049"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>DoublePipe</secondary></indexterm>
+<indexterm><primary>DoublePipe</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * DoublePipe::Clone ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classDoublePipe_1a9bff9afe9d2484e7e19d9e2db1cf84c3"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>DoublePipe</secondary></indexterm>
+<indexterm><primary>DoublePipe</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>void DoublePipe::Delete ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classDoublePipe_1a8c5531c6349567671ff27db2cb37769b"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>DoublePipe</secondary></indexterm>
+<indexterm><primary>DoublePipe</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>void DoublePipe::Run (void * data)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classDoublePipe_1a4adc8d41a77995be6b1059ca7833a3d3"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>DoublePipe</secondary></indexterm>
+<indexterm><primary>DoublePipe</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>void DoublePipe::Start (void ** pre_process_args = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>This method instantiates the pipeline and the <link linkend="_classMemoryManager">MemoryManager</link> for the pipeline. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">ProcessingUnitInterface</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/pu/<link linkend="_double__pipe_8h">double_pipe.h</link>include/definitions/pu/<link linkend="_double__pipe_8cc">double_pipe.cc</link></section>
+</section>

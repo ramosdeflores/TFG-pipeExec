@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classImgTruncator" xml:lang="en-US">
+<title>ImgTruncator Class Reference</title>
+<indexterm><primary>ImgTruncator</primary></indexterm>
+<para>
+
+<para>This processing unit gets an array of heights and sets all values as multiples of 100. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;img_truncator.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for ImgTruncator:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classImgTruncator.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_classImgTruncator_1a1fd08e5b24979a3df46b912945dc5677"/><emphasis role="strong">ImgTruncator</emphasis> ()</para>
+
+<para>Constructor of the class. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_classImgTruncator_1a3201d554291ec6c9f8ff49c9d7950c0d"/><emphasis role="strong">~ImgTruncator</emphasis> ()</para>
+
+<para>Destructor of the class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classImgTruncator_1a135f4be6effd5de4760d39049185fbe3">Start</link> (void **=nullptr) override</para>
+
+<para>Function used for allocation, but allocation is not needed. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classImgTruncator_1a98fc21ac2ac2bbecba7529b1296d80a1">Run</link> (void *) override</para>
+
+<para>The method that modified the data inside the pointer. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classImgTruncator_1ad113d2d4d7b22f39550df32b70f38bfb">Delete</link> () override</para>
+
+<para>Needed if allocation happened. </para>
+</listitem>
+            <listitem><para><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classImgTruncator_1ac35002ce30d28375e43c6acda0577c52">Clone</link> () override</para>
+
+<para>Creates a clone of itself. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+        <itemizedlist>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">Start</link> (void **=nullptr)=0</para>
+
+<para>Use this function to allocate memory for the variables that need it and initialize some of them. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">Run</link> (void *data)=0</para>
+
+<para>Use this function to process the data. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">Delete</link> ()=0</para>
+
+<para>Use this function to free all the memory allocated in the Start method. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">Clone</link> ()</para>
+
+<para>Returns new pointer to a processing unit class. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>This processing unit gets an array of heights and sets all values as multiples of 100. </para>
+
+
+
+<para>The class needs a width DataKey pair inside the <link linkend="_classData">Data</link> object and a height DataKey for it to know the dimensions of the image. It also divides all the numbers by 100 and multiplies them by the same number so the output is normalized to multiples of 100. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classImgTruncator_1ac35002ce30d28375e43c6acda0577c52"/><section>
+    <title>Clone()</title>
+<indexterm><primary>Clone</primary><secondary>ImgTruncator</secondary></indexterm>
+<indexterm><primary>ImgTruncator</primary><secondary>Clone</secondary></indexterm>
+<para><computeroutput><link linkend="_classProcessingUnitInterface">ProcessingUnitInterface</link> * ImgTruncator::Clone ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Creates a clone of itself. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>a pointer to a new <link linkend="_classImgTruncator">ImgTruncator</link> object </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_classProcessingUnitInterface_1a158005e77f828947eaae545a77bbaebd">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classImgTruncator_1ad113d2d4d7b22f39550df32b70f38bfb"/><section>
+    <title>Delete()</title>
+<indexterm><primary>Delete</primary><secondary>ImgTruncator</secondary></indexterm>
+<indexterm><primary>ImgTruncator</primary><secondary>Delete</secondary></indexterm>
+<para><computeroutput>void ImgTruncator::Delete ( )<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Needed if allocation happened. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a8bdb92bc733f84da5c6aca9db7e2c2e3">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classImgTruncator_1a98fc21ac2ac2bbecba7529b1296d80a1"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>ImgTruncator</secondary></indexterm>
+<indexterm><primary>ImgTruncator</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>void ImgTruncator::Run (void * data)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>The method that modified the data inside the pointer. </para>
+</para>
+
+<para>Gets the width and height of the map with the <link linkend="_classData">Data</link> methods. Sets all the values of the matrix as multiples of 100</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>The pointer to the data to be truncated </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1a7361ce594068a2366049238ada8ec1a2">ProcessingUnitInterface</link>.</para>
+</section>
+<anchor xml:id="_classImgTruncator_1a135f4be6effd5de4760d39049185fbe3"/><section>
+    <title>Start()</title>
+<indexterm><primary>Start</primary><secondary>ImgTruncator</secondary></indexterm>
+<indexterm><primary>ImgTruncator</primary><secondary>Start</secondary></indexterm>
+<para><computeroutput>void ImgTruncator::Start (void ** pre_process_args = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Function used for allocation, but allocation is not needed. </para>
+</para>
+<para>
+Implements <link linkend="_classProcessingUnitInterface_1af37e1e66eb6fea8adcbc923441ae6738">ProcessingUnitInterface</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+include/headers/pu/<link linkend="_img__truncator_8h">img_truncator.h</link>include/definitions/pu/<link linkend="_img__truncator_8cc">img_truncator.cc</link></section>
+</section>

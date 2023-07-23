@@ -1,0 +1,84 @@
+\doxysection{libraries.\+h}
+\hypertarget{libraries_8h_source}{}\label{libraries_8h_source}\index{include/headers/libraries.h@{include/headers/libraries.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ LUCID\ (Unified\ Computing\ Image\ and\ Data-\/Processing)\ is\ a\ program\ to\ process}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ any\ type\ of\ data\ concurrently.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2023\ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ This\ program\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Author:\ \ Lucas\ Hernández\ Abreu}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Contact:\ lucas.hernandez.09@ull.edu.es}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ LIBRARIES\_H}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ LIBRARIES\_H}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ LUCID\_NORMAL\ "{}\(\backslash\)x1B[0m"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LUCID\_RED\ "{}\(\backslash\)x1B[31m"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ LUCID\_GREEN\ "{}\(\backslash\)x1B[32m"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ LUCID\_YELLOW\ "{}\(\backslash\)x1B[33m"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LUCID\_BLUE\ "{}\(\backslash\)x1B[34m"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ LUCID\_MAGENTA\ "{}\(\backslash\)x1B[35m"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LUCID\_CYAN\ "{}\(\backslash\)x1B[36m"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ LUCID\_WHITE\ "{}\(\backslash\)x1B[37m"{}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <malloc.h>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}tiff.h"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}tiffio.h"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}tiffvers.h"{}}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ Value\ of\ colors\ in\ a\ PGM/PBM\ img}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pixel\_value;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{typedef}\ int8\_t\ i8;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ int16\_t\ i16;}
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ int32\_t\ i32;}
+\DoxyCodeLine{00060\ \textcolor{keyword}{typedef}\ int64\_t\ i64;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ uint8\_t\ u8;}
+\DoxyCodeLine{00063\ \textcolor{keyword}{typedef}\ uint16\_t\ u16;}
+\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ uint32\_t\ u32;}
+\DoxyCodeLine{00065\ \textcolor{keyword}{typedef}\ uint64\_t\ u64;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ TIME\_POINT\ std::chrono::system\_clock::time\_point}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ STOPWATCH\_NOW\ std::chrono::high\_resolution\_clock::now()}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ TIME\_IN\_MS(t1,\ t2)\ \(\backslash\)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ std::chrono::duration\_cast<std::chrono::milliseconds>(t2\ -\/\ t1).count()}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{inline}\ u64\ rdtsc()\ \{}
+\DoxyCodeLine{00079\ \ \ u64\ hi,\ lo;}
+\DoxyCodeLine{00080\ \ \ \_\_asm\_\_\ \_\_volatile\_\_(\textcolor{stringliteral}{"{}rdtsc"{}}\ :\ \textcolor{stringliteral}{"{}=a"{}}(lo),\ \textcolor{stringliteral}{"{}=d"{}}(hi));}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordflow}{return}\ (u64)hi\ <<\ 32\ |\ lo;}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

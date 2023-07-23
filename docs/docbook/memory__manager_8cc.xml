@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_memory__manager_8cc" xml:lang="en-US">
+<title>include/definitions/memory_manager.cc File Reference</title>
+<indexterm><primary>include/definitions/memory_manager.cc</primary></indexterm>
+<para>
+
+<para>The source file for the <link linkend="_classMemoryManager">MemoryManager</link> class. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;../headers/memory_manager.h&quot;<?linebreak?>#include &lt;malloc.h&gt;<?linebreak?>#include &lt;cstdio&gt;<?linebreak?></programlisting><section>
+<title>Detailed Description</title>
+
+<para>The source file for the <link linkend="_classMemoryManager">MemoryManager</link> class. </para>
+
+<para>Here all the methods of the class are defined along with the security and error handling for the class</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Lucas Hernández Abreu</para>
+</formalpara>
+Contact: <link xlink:href="mailto:lucas.hernandez.09@ull.edu.es">lucas.hernandez.09@ull.edu.es</link> </para>
+</section>
+</section>
